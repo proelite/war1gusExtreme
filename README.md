@@ -17,11 +17,21 @@ These are builds from our CI runs. Since they are built every time a commit is m
 ### Extracting data for macOS
 
 In order to play War1gus you first need to extract the game data from your Warcraft installer. The built-in extractor tool is currently not working correctly on macOS, but
-[this third-party script](https://github.com/shinra-electric/Stratagus-Data-Extractor-Script) can be used while fixes are being worked on. <br>
+[this third-party script](https://github.com/shinra-electric/Stratagus-Data-Extractor-Script) can be used while fixes are being worked on. <br>. For convience I have included the script here in dev_scripts. For clarification, setup_warcraft_orcs__humans_1.2_(28330).exe is the offline Gog installer for the Windows version, which you can extract from even on Mac. 
 
 Run the script in the same folder as your game data and the War1gus app. **It only needs to be run once**. 
 
 It will not be needed in the future when the built-in extractor is fixed. 
+
+### Development: Fast script updates
+
+During development, you can quickly test changes without rebuilding the entire project. Use the `copy_to_data.sh` script to sync your modified scripts, campaigns, and assets directly to the Stratagus data directory:
+
+```bash
+./dev_scripts/copy_to_data.sh
+```
+
+This syncs `scripts/`, `campaigns/`, `contrib/`, `shaders/`, and `maps/` directories. It will not overwrite game data files, only the mod content. Run this script after making changes to quickly test them in the game without a full rebuild.
 
 ### Build status
 

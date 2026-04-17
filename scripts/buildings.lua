@@ -293,6 +293,15 @@ DefineUnitType("unit-gold-mine", { Name = "Gold Mine",
 --    "attack", "gold-mine-attack"
 }} )
 
+UnitTypeFiles["unit-human-barracks"] = {
+  forest = "contrib/graphics/buildings/barracks_forest.png",
+  swamp = "contrib/graphics/buildings/barracks_swamp.png",
+  forest_campaign = "contrib/graphics/buildings/barracks_forest.png",
+  swamp_campaign = "contrib/graphics/buildings/barracks_swamp.png",
+  dungeon = "contrib/graphics/buildings/barracks_forest.png",
+  dungeon_campaign = "contrib/graphics/buildings/barracks_forest.png"
+}
+
 local dungeon = CIcon:New("icon-dungeon-entrance")
 dungeon.G = CPlayerColorGraphic:New("contrib/graphics/ui/icon-dungeon-entrance.png", 27, 19)
 dungeon.Frame = 0
