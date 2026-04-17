@@ -291,6 +291,56 @@ DefineUnitFromSpec({
    Dependencies = {orc = {EarlyMount, "kennel"},
                    human = {EarlyMount, "stable"}}})
 
+DefineUnitType("unit-warbeast", {
+  Name = "Warbeast",
+  Image = {"file", "contrib/graphics/units/warbeast.png", "size", {64, 64}},
+  Animations = "animations-warbeast",
+  Icon = "icon-orc-warbeast",
+  Costs = {"time", 60, "gold", 450, "wood", 50},
+  HitPoints = 300,
+  DrawLevel = 60,
+  MaxAttackRange = 5,
+  TileSize = {1, 1},
+  BoxSize = {31, 31},
+  SightRange = 4,
+  Speed = 2,
+  organic = true,
+  ComputerReactionRange = 4,
+  PersonReactionRange = 6,
+  Armor = 0,
+  BasicDamage = 7,
+  PiercingDamage = 2,
+  Missile = "missile-arrow",
+  DecayRate = 0,
+  NoFriendlyFire = true,
+  Priority = 63,
+  Points = 100,
+  Demand = 1,
+  Type = "land",
+  RightMouseAction = "attack",
+  CanAttack = true,
+  Coward = false,
+  CanTargetLand = true,
+  Vanishes = false,
+  NonSolid = false,
+  IsNotSelectable = false,
+  RepairRange = 0,
+  Corpse = nil,
+  Impact = {"general", "missile-blood-in-impact"},
+  Sounds = {
+    "attack", "orc acknowledge",
+    "selected", "orc selected",
+    "acknowledge", "orc acknowledge",
+    "ready", "orc ready",
+    "help", "orc help 3",
+    "dead", "orc dead"
+  },
+  SelectableByRectangle = true
+})
+table.insert(wc1_units.orc, "unit-warbeast")
+DefineAllow("unit-warbeast", "AAAAAAAAAAAAAAAA")
+DefineDependency("unit-warbeast", {"unit-orc-barracks"})
+
 local dead_bodies = { Name = "Dead Body",
   Image = {"file", "neutral/units/dead_bodies.png", "size", {32, 32}},
   Animations = "animations-human-dead-body", Icon = "icon-peasant",

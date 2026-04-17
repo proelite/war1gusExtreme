@@ -40,7 +40,7 @@ end
 function RunGameMenu()
   local menu = WarGameMenu(panel(1))
   
-  local titleLabel = Label("Game Menu")
+  local titleLabel = Label("Game Menu Extreme")
   menu:add(titleLabel, menu:getWidth() / 2 - titleLabel:getWidth() / 2, 5)
   
   menu:addHalfButton("Save (~<F11~>)", "f11", 12, 20,

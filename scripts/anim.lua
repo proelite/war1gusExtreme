@@ -419,6 +419,18 @@ local anim_rider = BuildAnimations(frameNumbers_5_5_5_5, {})
 DefineAnimations("animations-knight", anim_rider)
 DefineAnimations("animations-raider", anim_rider)
 
+DefineAnimations("animations-warbeast",
+         {
+            Still = {"frame 5", "wait 30"},
+            Move = BuildMoveAnimation({0, 10}),
+            Attack = {"unbreakable begin",
+                      "frame 5", "attack", "sound arrow attack", "wait 4",
+                      "frame 5", "wait 2",
+                      "unbreakable end",
+                      "frame 5", "wait 1"},
+            Death = BuildDeathAnimation({15, 20, 25, 30})
+         })
+
 DefineAnimations("animations-daemon", BuildAnimations(frameNumbers_5_5_5_5, {coolofftime = 50}))
 DefineAnimations("animations-ogre",
 		 BuildAnimations(frameNumbers_5_5_5_5,

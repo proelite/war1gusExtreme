@@ -11,3 +11,4 @@ compile_commands.json
 *.h.*.idx
 *.cpp.*.idx
 *.c.*.idx
+.DS_Store

@@ -201,3 +201,11 @@ local DefineIcons = function()
 end
 DefineIcons()
 OnTilesetChangeFunctions:add(DefineIcons)
+
+local DefineCustomIcons = function()
+  local warbeast = CIcon:New("icon-orc-warbeast")
+  warbeast.G = CPlayerColorGraphic:New("contrib/graphics/ui/orc/icon-orc-warbeast.png", 27, 19)
+  warbeast.Frame = 0
+end
+DefineCustomIcons()
+OnTilesetChangeFunctions:add(DefineCustomIcons)
