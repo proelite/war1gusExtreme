@@ -487,6 +487,22 @@ DefineAnimations("animations-medivh",
 				 {attacksound = "lightning"}))
 DefineAnimations("animations-lothar", BuildAnimations(frameNumbers_5_5_5_3))
 
+DefineAnimations("animations-war-wagon",
+   {Still = {"frame 0", "wait 30"},
+    Move = BuildMoveAnimation({0, 5}),
+    Attack = {"unbreakable begin",
+              "frame 0", "attack", "sound cannon", "wait 2",
+              "frame 1", "wait 1",
+              "unbreakable end",
+              "frame 0", "wait 1"},
+    Death = {"unbreakable begin",
+             "frame 10", "wait 15",
+             "frame 15", "wait 15",
+             "frame 20", "wait 15",
+             "frame 24", "wait 100",
+             "unbreakable end",
+             "wait 1"}})
+
 DefineAnimations(
    "animations-building",
    {Still = {"frame 0", "wait 5"},

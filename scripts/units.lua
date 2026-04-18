@@ -315,7 +315,7 @@ DefineUnitType("unit-warbeast", {
   NoFriendlyFire = true,
   Priority = 63,
   Points = 100,
-  Demand = 1,
+  Demand = 2,
   Type = "land",
   RightMouseAction = "attack",
   CanAttack = true,

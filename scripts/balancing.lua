@@ -102,6 +102,7 @@ DefineUnitType("unit-archer",			{Costs = {"time", 220, "gold", 350, "wood", 50},
 DefineUnitType("unit-spearman",			{Costs = {"time", 220, "gold", 350, "wood", 50},})
 DefineUnitType("unit-orc-catapult",		{Costs = {"time", 300, "gold", 650, "wood", 300},})
 DefineUnitType("unit-human-catapult",	{Costs = {"time", 300, "gold", 650, "wood", 300},})
+DefineUnitType("unit-human-war-wagon",	{Costs = {"time", 250, "gold", 700, "wood", 200},})
 
 DefineUnitType("unit-raider",			{Costs = {"time", 250, "gold", 750, "wood", 100},})
 DefineUnitType("unit-knight",			{Costs = {"time", 250, "gold", 750, "wood", 100},})
@@ -186,6 +187,41 @@ DefineUnitType("unit-orc-catapult", {
                   MaxAttackRange = 8,
                   MinAttackRange = 3,
 				  GroundAttack = true,
+})
+
+DefineUnitType("unit-human-war-wagon", {
+                  Demand = 2,
+                  RepairHp = 4,
+                  RepairCosts = { "gold", 1, "wood", 1 },
+		  PoisonDrain = 0,
+                  organic = false,
+                  BasicDamage = 40,
+                  PiercingDamage = 0,
+                  MaxAttackRange = 6,
+                  MinAttackRange = 1,
+                  Armor = 8,
+                  HitPoints = 200,
+                  Size = {64, 64},
+                  Image = {"file", "contrib/graphics/units/war_wagon.png", "size", {64, 64}},
+                  Animations = "animations-war-wagon",
+                  Icon = "icon-war-wagon",
+                  Speed = 8,
+                  Type = "land",
+                  Priority = 30,
+                  Building = false,
+                  CanAttack = true,
+                  CanTargetLand = true,
+                  CanTargetSea = true,
+                  CanTargetAir = true,
+                  Missile = "missile-cannonball",
+                  Corpse = "unit-destroyed-1x1-place",
+                  ExplodeWhenKilled = "missile-explosion",
+                  Sounds = {
+                    "attack", "cannon",
+                    "ready", "work complete",
+                    "selected", "human-selected",
+                    "help", "human help 1",
+                    "dead", "human death"}
 })
 
 DefineMissileType("missile-catapult-rock", {
@@ -810,11 +846,11 @@ DefineUnitType("unit-orc-watch-tower", { Name = _("Watch Tower"),
   RepairCosts = {"gold", 1, "wood", 1},
   Construction = "construction-orc-watch-tower",
   Speed = 0,
-  HitPoints = 130,
+  HitPoints = 260,
   DrawLevel = 40,
   TileSize = {2, 2}, BoxSize = {32, 32},
   SightRange = 9, ComputerReactionRange = 6, PersonReactionRange = 6,
-  Armor = 0, BasicDamage = 4, PiercingDamage = 4, Missile = "missile-arrow",
+  Armor = 0, BasicDamage = 8, PiercingDamage = 8, Missile = "missile-arrow",
   RightMouseAction = "attack",
   MaxAttackRange = 6,
   Priority = 50, AnnoyComputerFactor = 60,
@@ -954,11 +990,11 @@ DefineUnitType("unit-human-guard-tower", { Name = _("Guard Tower"),
   RepairCosts = {"gold", 1, "wood", 1},
   Construction = "construction-human-guard-tower",
   Speed = 0,
-  HitPoints = 130,
+  HitPoints = 260,
   DrawLevel = 40,
   TileSize = {2, 2}, BoxSize = {32, 32},
   SightRange = 9, ComputerReactionRange = 6, PersonReactionRange = 6,
-  Armor = 5, BasicDamage = 4, PiercingDamage = 4, Missile = "missile-arrow",
+  Armor = 5, BasicDamage = 8, PiercingDamage = 8, Missile = "missile-arrow",
   RightMouseAction = "attack",
   MaxAttackRange = 6,
   Priority = 50, AnnoyComputerFactor = 60,
@@ -1034,6 +1070,10 @@ DefineButton( { Pos = 2, Level = 0, Icon = "icon-human-BuildingArmor2",
 DefineAllow("unit-human-guard-tower", "AAAAAAAAAAAAAAAA")
 
 DefineDependency("unit-human-guard-tower", { "unit-human-lumber-mill"} )
+
+DefineAllow("unit-human-war-wagon", "AAAAAAAAAAAAAAAA")
+
+DefineDependency("unit-human-war-wagon", { "unit-human-barracks"} )
 
 -----------------------------------------------------------------------
 -- Town hall salvage buttons

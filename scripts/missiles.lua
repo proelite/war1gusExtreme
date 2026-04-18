@@ -40,6 +40,12 @@ DefineMissileType("missile-catapult-rock",
   DrawLevel = 200, Class = "missile-class-parabolic", Sleep = 1, Speed = 3, Range = 2,
   ImpactMissile = "missile-explosion", SplashFactor = 4 } )
 
+DefineMissileType("missile-cannonball",
+  { File = "missiles/fireball.png", Size = {32, 32}, Frames = 25, NumDirections = 9,
+  ImpactSound = "explosion",
+  DrawLevel = 200, Class = "missile-class-parabolic", Sleep = 1, Speed = 3, Range = 2,
+  ImpactMissile = "missile-explosion", SplashFactor = 2 } )
+
 DefineMissileType("missile-small-fire",
   { File = "missiles/small_fire.png", Size = {16, 32}, Frames = 4, NumDirections = 1,
   DrawLevel = 245, Class = "missile-class-fire", Sleep = 8, Speed = 16, Range = 1 } )
