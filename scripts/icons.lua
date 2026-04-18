@@ -206,6 +206,10 @@ local DefineCustomIcons = function()
   local warbeast = CIcon:New("icon-orc-warbeast")
   warbeast.G = CPlayerColorGraphic:New("contrib/graphics/ui/orc/icon-orc-warbeast.png", 27, 19)
   warbeast.Frame = 0
+
+  local warwagon = CIcon:New("icon-war-wagon")
+  warwagon.G = CPlayerColorGraphic:New("contrib/graphics/ui/human/icon-war-wagon.png", 27, 19)
+  warwagon.Frame = 0
 end
 DefineCustomIcons()
 OnTilesetChangeFunctions:add(DefineCustomIcons)

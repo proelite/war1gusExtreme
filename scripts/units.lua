@@ -341,6 +341,56 @@ table.insert(wc1_units.orc, "unit-warbeast")
 DefineAllow("unit-warbeast", "AAAAAAAAAAAAAAAA")
 DefineDependency("unit-warbeast", {"unit-orc-barracks"})
 
+DefineUnitType("unit-human-war-wagon", {
+  Name = "War Wagon",
+  Image = {"file", "contrib/graphics/units/war_wagon.png", "size", {64, 64}},
+  Animations = "animations-war-wagon",
+  Icon = "icon-war-wagon",
+  Costs = {"time", 250, "gold", 700, "wood", 200},
+  HitPoints = 200,
+  DrawLevel = 60,
+  MaxAttackRange = 6,
+  MinAttackRange = 1,
+  TileSize = {1, 1},
+  BoxSize = {31, 31},
+  SightRange = 4,
+  Speed = 8,
+  organic = false,
+  ComputerReactionRange = 4,
+  PersonReactionRange = 6,
+  Armor = 8,
+  BasicDamage = 40,
+  PiercingDamage = 0,
+  Missile = "missile-cannonball",
+  Impact = {"general", "missile-small-fire"},
+  NoFriendlyFire = true,
+  Priority = 63,
+  Points = 100,
+  Demand = 2,
+  Type = "land",
+  RightMouseAction = "attack",
+  CanAttack = true,
+  CanTargetLand = true,
+  CanTargetSea = true,
+  CanTargetAir = true,
+  Vanishes = false,
+  NonSolid = false,
+  IsNotSelectable = false,
+  RepairRange = 0,
+  Corpse = nil,
+  ExplodeWhenKilled = "missile-explosion",
+  Sounds = {
+    "attack", "cannon",
+    "selected", "human-selected",
+    "acknowledge", "human acknowledge",
+    "ready", "human work complete",
+    "help", "human help 1",
+    "dead", "human dead"
+  },
+  SelectableByRectangle = true
+})
+table.insert(wc1_units.human, "unit-human-war-wagon")
+
 local dead_bodies = { Name = "Dead Body",
   Image = {"file", "neutral/units/dead_bodies.png", "size", {32, 32}},
   Animations = "animations-human-dead-body", Icon = "icon-peasant",

@@ -201,27 +201,8 @@ DefineUnitType("unit-human-war-wagon", {
                   MinAttackRange = 1,
                   Armor = 8,
                   HitPoints = 200,
-                  Size = {64, 64},
-                  Image = {"file", "contrib/graphics/units/war_wagon.png", "size", {64, 64}},
-                  Animations = "animations-war-wagon",
-                  Icon = "icon-war-wagon",
                   Speed = 8,
-                  Type = "land",
-                  Priority = 30,
-                  Building = false,
-                  CanAttack = true,
-                  CanTargetLand = true,
-                  CanTargetSea = true,
-                  CanTargetAir = true,
-                  Missile = "missile-cannonball",
-                  Corpse = "unit-destroyed-1x1-place",
-                  ExplodeWhenKilled = "missile-explosion",
-                  Sounds = {
-                    "attack", "cannon",
-                    "ready", "work complete",
-                    "selected", "human-selected",
-                    "help", "human help 1",
-                    "dead", "human death"}
+                  Missile = "missile-cannonball"
 })
 
 DefineMissileType("missile-catapult-rock", {
