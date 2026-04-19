@@ -25,13 +25,15 @@ It will not be needed in the future when the built-in extractor is fixed.
 
 ### Development: Fast script updates
 
-During development, you can quickly test changes without rebuilding the entire project. Use the `copy_to_data.sh` script to sync your modified scripts, campaigns, and assets directly to the Stratagus data directory:
+During development, make changes in this repository and then use the sync script to copy them into the local Stratagus data directory for testing:
 
 ```bash
 ./dev_scripts/copy_to_data.sh
 ```
 
-This syncs `scripts/`, `campaigns/`, `contrib/`, `shaders/`, and `maps/` directories. It will not overwrite game data files, only the mod content. Run this script after making changes to quickly test them in the game without a full rebuild.
+This syncs `scripts/`, `campaigns/`, `contrib/`, `shaders/`, and `maps/` directories. It will not overwrite game data files, only the mod content.
+
+> Important: do **not** edit files directly under `~/Library/Application Support/Stratagus/data.War1gus/`. Those are runtime copies. Edit the repo files first, then run the script to update the installed data.
 
 ### Build status
 
