@@ -710,7 +710,7 @@ function RunCreateMultiGameMenu(s)
   local menu
   local map = "No Map"
   local description = "No map"
-  local mapfile = "maps/forest1.smp.gz"
+  local mapfile = "maps/4-middle-ground.smp"
   local numplayers = 3
   local sx = Video.Width / 10
   local sy = Video.Height / 10
@@ -735,11 +735,21 @@ function RunCreateMultiGameMenu(s)
     OldPresentMap(desc, nplayers, w, h, id)
   end
 
-  Load(mapfile)
+  local ok = pcall(function()
+    Load(mapfile)
+  end)
+  if not ok then
+    mapfile = "maps/4-middle-ground.smp"
+    pcall(function()
+      Load(mapfile)
+    end)
+  end
   local browser = menu:addBrowser("maps/", "^.*%.smp%.?g?z?$", sx*5, sy*2+10, sx*8, sy*5)
   local function cb(s)
     mapfile = browser.path .. browser:getSelectedItem()
-    Load(mapfile)
+    pcall(function()
+      Load(mapfile)
+    end)
     maptext:setCaption(mapfile)
     maptext:adjustSize()
   end

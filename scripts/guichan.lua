@@ -389,7 +389,7 @@ function RunMap(map, fow, revealmap)
   -- SetPlayerData(GetThisPlayer(), "RaceName", "orc")
 end
 
-mapname = "maps/forest1.smp"
+mapname = "maps/4-middle-ground.smp"
 buttonStatut = 0 -- 0:not initialised, 1: Ok, 2: Cancel
 mapinfo = {
   playertypes = {nil, nil, nil, nil, nil, nil, nil, nil},
@@ -433,7 +433,15 @@ function GetMapInfo(mapname)
     mapinfo.id = id
   end
 
-  Load(mapname)
+  local ok = pcall(function()
+    Load(mapname)
+  end)
+  if not ok and mapname ~= "maps/4-middle-ground.smp" then
+    mapname = "maps/4-middle-ground.smp"
+    pcall(function()
+      Load(mapname)
+    end)
+  end
 
   DefinePlayerTypes = OldDefinePlayerTypes
   PresentMap = OldPresentMap
