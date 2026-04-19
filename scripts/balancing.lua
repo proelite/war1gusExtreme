@@ -199,9 +199,9 @@ DefineUnitType("unit-human-war-wagon", {
                   PiercingDamage = 0,
                   MaxAttackRange = 6,
                   MinAttackRange = 1,
-                  Armor = 8,
+                  Armor = 2,
                   HitPoints = 200,
-                  Speed = 8,
+                  Speed = 2,
                   Missile = "missile-cannonball"
 })
 
@@ -1757,12 +1757,12 @@ DefineButton( { Pos = 1, Level = 0, Icon = "icon-orc-CatapultSpeed",
   DefineModifier("upgrade-spear1",
   {"Level", 1},
   {"PiercingDamage", 1},
-  {"apply-to", "unit-spearman"}, {"apply-to", "unit-orc-watch-tower"})
+  {"apply-to", "unit-spearman"}, {"apply-to", "unit-orc-warbeast"}, {"apply-to", "unit-orc-watch-tower"})
   
     DefineModifier("upgrade-spear2",
   {"Level", 1},
   {"PiercingDamage", 1},
-  {"apply-to", "unit-spearman"}, {"apply-to", "unit-orc-watch-tower"})
+  {"apply-to", "unit-spearman"}, {"apply-to", "unit-orc-warbeast"}, {"apply-to", "unit-orc-watch-tower"})
     
   DefineModifier("upgrade-arrow1",
   {"Level", 1},

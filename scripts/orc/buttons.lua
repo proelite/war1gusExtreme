@@ -42,7 +42,7 @@ DefineUnitType("unit-griselda", {})
 DefineButton( { Pos = 1, Level = 0, Icon = "icon-move-peon",
   Action = "move",
   Key = "m", Hint = "~!MOVE",
-  ForUnit = {"unit-grunt", "unit-raider", "unit-spearman", "unit-warbeast",
+  ForUnit = {"unit-grunt", "unit-raider", "unit-spearman", "unit-orc-warbeast",
     "unit-orc-catapult", "unit-orc-catapult-noattack", "unit-peon",
     "unit-daemon", "unit-spider", "unit-the-dead",
     "unit-necrolyte", "unit-warlock", "unit-garona", "unit-griselda",
@@ -63,7 +63,7 @@ DefineButton( { Pos = 1, Level = 0, Icon = "icon-wolves2",
 DefineButton( { Pos = 2, Level = 0, Icon = "icon-orc-shield1",
   Action = "stop",
   Key = "s", Hint = "~!STOP",
-  ForUnit = {"unit-grunt", "unit-spearman", "unit-warbeast",
+  ForUnit = {"unit-grunt", "unit-spearman", "unit-orc-warbeast",
     "unit-raider",
     "unit-orc-catapult", "unit-orc-catapult-noattack", "unit-peon", "unit-the-dead",
     "unit-daemon", "unit-spider",
@@ -89,7 +89,7 @@ DefineButton( { Pos = 2, Level = 0, Icon = "icon-orc-shield3",
 DefineButton( { Pos = 3, Level = 0, Icon = "icon-axe1",
   Action = "attack",
   Key = "a", Hint = "~!ATTACK",
-  ForUnit = {"unit-grunt", "unit-spearman", "unit-warbeast",
+  ForUnit = {"unit-grunt", "unit-spearman", "unit-orc-warbeast",
     "unit-raider",
     "unit-daemon", "unit-spider", "unit-the-dead",
     "unit-orc-catapult", "orc-group"} } )
@@ -307,7 +307,7 @@ DefineButton( { Pos = 4, Level = 0, Icon = "icon-raider",
   ForUnit = {"unit-orc-barracks"} } )
 
 DefineButton( { Pos = 5, Level = 0, Icon = "icon-orc-warbeast",
-  Action = "train-unit", Value = "unit-warbeast",
+  Action = "train-unit", Value = "unit-orc-warbeast",
   Key = "w", Hint = "TRAIN ~!WARBEAST",
   ForUnit = {"unit-orc-barracks"} } )
 
@@ -355,14 +355,14 @@ DefineButton( { Pos = 1, Level = 0, Icon = "icon-spear2",
   Action = "research", Value = "upgrade-spear1",
   Allowed = "check-single-research",
   Key = "a", Hint = "UPGRADE SPE~!AR STRENGTH",
-  Description = "Increase Spearman and Towers damage by ~<1~>", 
+  Description = "Increase Spearman, Warbeast and Tower damage by ~<1~>", 
   ForUnit = {"unit-orc-lumber-mill"} } )
 
 DefineButton( { Pos = 1, Level = 0, Icon = "icon-spear3",
   Action = "research", Value = "upgrade-spear2",
   Allowed = "check-single-research",
   Key = "a", Hint = "UPGRADE SPE~!AR STRENGTH",
-  Description = "Increase Spearman and Towers damage by ~<1~>", 
+  Description = "Increase Spearman, Warbeast and Tower damage by ~<1~>", 
   ForUnit = {"unit-orc-lumber-mill"} } )
 
 DefineButton( { Pos = 1, Level = 0, Icon = "icon-wolves1",

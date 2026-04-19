@@ -291,7 +291,7 @@ DefineUnitFromSpec({
    Dependencies = {orc = {EarlyMount, "kennel"},
                    human = {EarlyMount, "stable"}}})
 
-DefineUnitType("unit-warbeast", {
+DefineUnitType("unit-orc-warbeast", {
   Name = "Warbeast",
   Image = {"file", "contrib/graphics/units/warbeast.png", "size", {64, 64}},
   Animations = "animations-warbeast",
@@ -303,7 +303,7 @@ DefineUnitType("unit-warbeast", {
   TileSize = {1, 1},
   BoxSize = {31, 31},
   SightRange = 4,
-  Speed = 2,
+  Speed = 3,
   organic = true,
   ComputerReactionRange = 4,
   PersonReactionRange = 6,
@@ -337,9 +337,9 @@ DefineUnitType("unit-warbeast", {
   },
   SelectableByRectangle = true
 })
-table.insert(wc1_units.orc, "unit-warbeast")
-DefineAllow("unit-warbeast", "AAAAAAAAAAAAAAAA")
-DefineDependency("unit-warbeast", {"unit-orc-barracks"})
+table.insert(wc1_units.orc, "unit-orc-warbeast")
+DefineAllow("unit-orc-warbeast", "AAAAAAAAAAAAAAAA")
+DefineDependency("unit-orc-warbeast", {"unit-orc-barracks"})
 
 DefineUnitType("unit-human-war-wagon", {
   Name = "War Wagon",
