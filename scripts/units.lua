@@ -364,7 +364,7 @@ DefineUnitType("unit-human-war-wagon", {
   Impact = {"general", "missile-hit"},
   Priority = 63,
   Points = 100,
-  Demand = 2,
+  Demand = 4,
   Type = "land",
   RightMouseAction = "attack",
   CanAttack = true,
