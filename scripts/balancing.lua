@@ -190,7 +190,7 @@ DefineUnitType("unit-orc-catapult", {
 })
 
 DefineUnitType("unit-human-war-wagon", {
-                  Demand = 2,
+                  Demand = 4,
                   RepairHp = 4,
                   RepairCosts = { "gold", 1, "wood", 1 },
 		  PoisonDrain = 0,
