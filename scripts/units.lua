@@ -333,7 +333,7 @@ DefineUnitType("unit-orc-warbeast", {
     "acknowledge", "orc acknowledge",
     "ready", "orc ready",
     "help", "orc help 3",
-    "dead", "orc dead"
+    "dead", "orc warbeast dead"
   },
   SelectableByRectangle = true
 })

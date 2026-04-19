@@ -39,6 +39,7 @@ MakeSound("orc help 2", "orc/help_2.wav")
 MakeSound("orc help 3", "orc/help_3.wav")
 MakeSound("orc help 4", "orc/help_4.wav")
 MakeSound("orc dead", "orc/dead.wav")
+MakeSound("orc warbeast dead", "contrib/sounds/orc/elephant.wav.gz")
 
 MakeSound("orc acknowledge",
   { "orc/acknowledgement_1.wav",
