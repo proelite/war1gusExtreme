@@ -1398,17 +1398,17 @@ humanHoldfire.Frame = 0
 DefineButton( { Pos = 5, Level = 0, Icon = "icon-human-patrol",
   Action = "patrol",
   Key = "r", Hint = "PAT~!ROL",
-  ForUnit = {"unit-footman", "unit-archer", "unit-knight", "unit-water-elemental", "unit-scorpion", "unit-lothar", "human-group", "unit-brigand", "unit-ogre"}}) 
+  ForUnit = {"unit-footman", "unit-archer", "unit-knight", "unit-human-war-wagon", "unit-water-elemental", "unit-scorpion", "unit-lothar", "human-group", "unit-brigand", "unit-ogre"}}) 
 
 DefineButton( { Pos = 6, Level = 0, Icon = "icon-human-explore",
   Action = "explore",
   Key = "e", Hint = "~!EXPLORE",
-  ForUnit = {"unit-footman", "unit-archer", "unit-knight", "unit-water-elemental", "unit-scorpion", "unit-lothar", "human-group", "unit-brigand", "unit-ogre"}}) 
+  ForUnit = {"unit-footman", "unit-archer", "unit-knight", "unit-human-war-wagon", "unit-water-elemental", "unit-scorpion", "unit-lothar", "human-group", "unit-brigand", "unit-ogre"}}) 
 
 DefineButton( { Pos = 4, Level = 0, Icon = "icon-human-standground",
   Action = "stand-ground",
   Key = "t", Hint = "S~!TAND GROUND",
-  ForUnit = {"unit-footman", "unit-archer", "unit-knight", "unit-human-catapult", "unit-human-catapult-noattack", "unit-water-elemental", "unit-lothar", "human-group", "unit-brigand", "unit-ogre"}}) 
+  ForUnit = {"unit-footman", "unit-archer", "unit-knight", "unit-human-catapult", "unit-human-catapult-noattack", "unit-human-war-wagon", "unit-water-elemental", "unit-lothar", "human-group", "unit-brigand", "unit-ogre"}}) 
   
 -----------------------------------------------------------------------
 -- New Orders Buttons Orcs
@@ -1432,17 +1432,17 @@ orcHoldfire.Frame = 0
 DefineButton( { Pos = 5, Level = 0, Icon = "icon-orc-patrol",
   Action = "patrol",
   Key = "r", Hint = "PAT~!ROL",
-  ForUnit = {"unit-grunt", "unit-spearman", "unit-raider", "unit-daemon", "unit-spider", "unit-the-dead", "unit-garona", "unit-griselda", "orc-group"}}) 
+  ForUnit = {"unit-grunt", "unit-spearman", "unit-raider", "unit-orc-warbeast", "unit-daemon", "unit-spider", "unit-the-dead", "unit-garona", "unit-griselda", "orc-group"}}) 
 
 DefineButton( { Pos = 6, Level = 0, Icon = "icon-orc-explore",
   Action = "explore",
   Key = "e", Hint = "~!EXPLORE",
-  ForUnit = {"unit-grunt", "unit-spearman", "unit-raider", "unit-daemon", "unit-spider", "unit-the-dead", "unit-garona", "unit-griselda", "orc-group"}}) 
+  ForUnit = {"unit-grunt", "unit-spearman", "unit-raider", "unit-orc-warbeast", "unit-daemon", "unit-spider", "unit-the-dead", "unit-garona", "unit-griselda", "orc-group"}}) 
 
 DefineButton( { Pos = 4, Level = 0, Icon = "icon-orc-standground",
   Action = "stand-ground",
   Key = "t", Hint = "S~!TAND GROUND",
-  ForUnit = {"unit-grunt", "unit-spearman", "unit-raider", "unit-orc-catapult","unit-orc-catapult-noattack", "unit-daemon", "unit-the-dead", "unit-garona", "unit-griselda", "orc-group"}}) 
+  ForUnit = {"unit-grunt", "unit-spearman", "unit-raider", "unit-orc-warbeast", "unit-orc-catapult","unit-orc-catapult-noattack", "unit-daemon", "unit-the-dead", "unit-garona", "unit-griselda", "orc-group"}}) 
 
 -----------------------------------------------------------------------
 -- Spider Web skill

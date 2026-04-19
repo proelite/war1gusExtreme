@@ -43,7 +43,7 @@ DefineButton( { Pos = 1, Level = 0, Icon = "icon-move-peasant",
   Action = "move",
   Key = "m", Hint = "~!MOVE",
   ForUnit = {"unit-footman", "unit-knight", "unit-archer",
-    "unit-human-catapult", "unit-human-catapult-noattack", "unit-peasant",
+    "unit-human-catapult", "unit-human-catapult-noattack", "unit-human-war-wagon", "unit-peasant",
     "unit-water-elemental", "unit-scorpion",
     "unit-cleric", "unit-conjurer", "unit-medivh", "unit-lothar",
     "human-group", "unit-brigand", "unit-ogre", "unit-sorceress" } } )
@@ -65,7 +65,7 @@ DefineButton( { Pos = 2, Level = 0, Icon = "icon-human-shield1",
   Key = "s", Hint = "~!STOP",
   ForUnit = {"unit-footman", "unit-archer",
     "unit-knight",
-    "unit-human-catapult", "unit-human-catapult-noattack", "unit-peasant",
+    "unit-human-catapult", "unit-human-catapult-noattack", "unit-human-war-wagon", "unit-peasant",
     "unit-water-elemental", "unit-scorpion",
     "unit-cleric", "unit-conjurer", "unit-medivh", "unit-lothar",
     "human-group", "unit-brigand", "unit-ogre", "unit-sorceress"} } )
@@ -92,7 +92,7 @@ DefineButton( { Pos = 3, Level = 0, Icon = "icon-sword1",
   ForUnit = {"unit-footman", "unit-archer",
     "unit-knight",
     "unit-scorpion", "unit-lothar",
-    "unit-human-catapult", "human-group", "unit-brigand", "unit-ogre"} } )
+    "unit-human-catapult", "unit-human-war-wagon", "human-group", "unit-brigand", "unit-ogre"} } )
 
 DefineButton( { Pos = 3, Level = 0, Icon = "icon-sword2",
   Action = "attack",
