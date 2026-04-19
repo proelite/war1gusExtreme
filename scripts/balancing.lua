@@ -833,7 +833,7 @@ DefineUnitType("unit-orc-watch-tower", { Name = _("Watch Tower"),
   SightRange = 9, ComputerReactionRange = 6, PersonReactionRange = 6,
   Armor = 0, BasicDamage = 8, PiercingDamage = 8, Missile = "missile-arrow",
   NoFriendlyFire = true,
-  RightMouseAction = "none",
+  RightMouseAction = "attack",
   MaxAttackRange = 6,
   Priority = 50, AnnoyComputerFactor = 60,
   Points = 200,
@@ -871,6 +871,22 @@ DefineButton( { Pos = 5, Level = 1, Icon = "icon-orc-watch-tower",
    Key = "w", Hint = "BUILD ~!WATCH TOWER",
    ForUnit = {"unit-peon"} } )
 
+DefineButton( { Pos = 1, Level = 0, Icon = "icon-spear1",
+   Action = "attack",
+   Key = "a", Hint = "~!ATTACK",
+   ForUnit = {"unit-orc-watch-tower"} } )
+   
+DefineButton( { Pos = 1, Level = 0, Icon = "icon-spear2",
+  Action = "attack",
+  Allowed = "check-upgrade", AllowArg = {"upgrade-spear1"},
+  Key = "a", Hint = "~!ATTACK",
+  ForUnit = {"unit-orc-watch-tower"} } )
+
+DefineButton( { Pos = 1, Level = 0, Icon = "icon-spear3",
+  Action = "attack",
+  Allowed = "check-upgrade", AllowArg = {"upgrade-spear2"},
+  Key = "a", Hint = "~!ATTACK",
+  ForUnit = {"unit-orc-watch-tower"} } )   
 
 DefineButton( { Pos = 2, Level = 0, Icon = "icon-orc-shield1",
    Action = "stop",
@@ -887,6 +903,11 @@ DefineButton( { Pos = 2, Level = 0, Icon = "icon-orc-BuildingArmor2",
   Action = "stop",
   Allowed = "check-upgrade", AllowArg = {"upgrade-orc-BuildingArmor2"},
   Key = "s", Hint = "~!STOP",
+   ForUnit = {"unit-orc-watch-tower"} } )
+
+DefineButton( { Pos = 3, Level = 0, Icon = "icon-axe1",
+  Action = "attack",
+  Key = "a", Hint = "~!ATTACK",
    ForUnit = {"unit-orc-watch-tower"} } )
 
 DefineAllow("unit-orc-watch-tower", "AAAAAAAAAAAAAAAA")
@@ -962,7 +983,7 @@ DefineUnitType("unit-human-guard-tower", { Name = _("Guard Tower"),
   SightRange = 9, ComputerReactionRange = 6, PersonReactionRange = 6,
   Armor = 5, BasicDamage = 8, PiercingDamage = 8, Missile = "missile-arrow",
   NoFriendlyFire = true,
-  RightMouseAction = "none",
+  RightMouseAction = "attack",
   MaxAttackRange = 6,
   Priority = 50, AnnoyComputerFactor = 60,
   Points = 200,
@@ -1000,6 +1021,22 @@ DefineButton( { Pos = 5, Level = 1, Icon = "icon-human-guard-tower",
    Key = "g", Hint = "BUILD ~!GUARD TOWER",
    ForUnit = {"unit-peasant"} } )
 
+DefineButton( { Pos = 1, Level = 0, Icon = "icon-arrow1",
+   Action = "attack",
+   Key = "a", Hint = "~!ATTACK",
+   ForUnit = {"unit-human-guard-tower"} } )
+   
+DefineButton( { Pos = 1, Level = 0, Icon = "icon-arrow2",
+  Action = "attack",
+  Allowed = "check-upgrade", AllowArg = {"upgrade-arrow1"},
+  Key = "a", Hint = "~!ATTACK",
+  ForUnit = {"unit-human-guard-tower"} } )
+
+DefineButton( { Pos = 1, Level = 0, Icon = "icon-arrow3",
+  Action = "attack",
+  Allowed = "check-upgrade", AllowArg = {"upgrade-arrow2"},
+  Key = "a", Hint = "~!ATTACK",
+  ForUnit = {"unit-human-guard-tower"} } )
 
 DefineButton( { Pos = 2, Level = 0, Icon = "icon-human-shield1",
    Action = "stop",
@@ -1016,6 +1053,11 @@ DefineButton( { Pos = 2, Level = 0, Icon = "icon-human-BuildingArmor2",
   Action = "stop",
   Allowed = "check-upgrade", AllowArg = {"upgrade-human-BuildingArmor2"},
   Key = "s", Hint = "~!STOP",
+  ForUnit = {"unit-human-guard-tower"} } )
+
+DefineButton( { Pos = 3, Level = 0, Icon = "icon-sword1",
+  Action = "attack",
+  Key = "a", Hint = "~!ATTACK",
   ForUnit = {"unit-human-guard-tower"} } )
 
 DefineAllow("unit-human-guard-tower", "AAAAAAAAAAAAAAAA")

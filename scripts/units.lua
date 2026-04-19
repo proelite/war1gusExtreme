@@ -362,7 +362,7 @@ DefineUnitType("unit-human-war-wagon", {
   BasicDamage = 40,
   PiercingDamage = 0,
   Missile = "missile-cannonball",
-  Impact = {"general", "missile-small-fire"},
+  Impact = {"general", "missile-hit"},
   NoFriendlyFire = true,
   Priority = 63,
   Points = 100,

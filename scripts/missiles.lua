@@ -41,9 +41,9 @@ DefineMissileType("missile-catapult-rock",
   ImpactMissile = "missile-explosion", SplashFactor = 4 } )
 
 DefineMissileType("missile-cannonball",
-  { File = "missiles/fireball.png", Size = {32, 32}, Frames = 25, NumDirections = 9,
+  { File = "missiles/fireball.png", Size = {32, 32}, Frames = 10, NumDirections = 9,
   ImpactSound = "explosion",
-  DrawLevel = 200, Class = "missile-class-parabolic", Sleep = 1, Speed = 3, Range = 2,
+  DrawLevel = 200, Class = "missile-class-point-to-point", Sleep = 1, Speed = 3, Range = 0,
   ImpactMissile = "missile-explosion", SplashFactor = 2 } )
 
 DefineMissileType("missile-small-fire",
