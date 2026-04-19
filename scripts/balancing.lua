@@ -60,11 +60,11 @@ DefineUnitType("unit-water-elemental",	{SightRange = 6})
 -- Cost Rebalancing Buildings
 -----------------------------------------------------------------------
 
-DefineUnitType("unit-human-town-hall",		{Costs = {"time", 50, "gold", 400,	"wood", 400},Armor = 0, Supply = 3, HitPoints = 1500}) --this is AI town hall, normal for player is fast town hall 1483 line
-DefineUnitType("unit-orc-town-hall",		{Costs = {"time", 50, "gold", 400,	"wood", 400},Armor = 0, Supply = 3, HitPoints = 1500})
+DefineUnitType("unit-human-town-hall",		{Costs = {"time", 50, "gold", 400,	"wood", 400},Armor = 0, Supply = 10, HitPoints = 1500}) --this is AI town hall, normal for player is fast town hall 1483 line
+DefineUnitType("unit-orc-town-hall",		{Costs = {"time", 50, "gold", 400,	"wood", 400},Armor = 0, Supply = 10, HitPoints = 1500})
 
-DefineUnitType("unit-human-farm",			{Costs = {"time", 200, "gold", 500,		"wood", 300},Armor = 0})
-DefineUnitType("unit-orc-farm",				{Costs = {"time", 200, "gold", 500,		"wood", 300},Armor = 0})
+DefineUnitType("unit-human-farm",			{Costs = {"time", 200, "gold", 500,		"wood", 300},Armor = 0, Supply = 5})
+DefineUnitType("unit-orc-farm",				{Costs = {"time", 200, "gold", 500,		"wood", 300},Armor = 0, Supply = 5})
 DefineUnitType("unit-human-barracks",		{Costs = {"time", 400, "gold", 600, 	"wood", 500},Armor = 0})
 DefineUnitType("unit-orc-barracks",			{Costs = {"time", 400, "gold", 600, 	"wood", 500},Armor = 0})
 DefineUnitType("unit-human-lumber-mill",	{Costs = {"time", 250, "gold", 600, 	"wood", 150},Armor = 0})
@@ -905,11 +905,6 @@ DefineButton( { Pos = 2, Level = 0, Icon = "icon-orc-BuildingArmor2",
   Key = "s", Hint = "~!STOP",
    ForUnit = {"unit-orc-watch-tower"} } )
 
-DefineButton( { Pos = 3, Level = 0, Icon = "icon-axe1",
-  Action = "attack",
-  Key = "a", Hint = "~!ATTACK",
-   ForUnit = {"unit-orc-watch-tower"} } )
-
 DefineAllow("unit-orc-watch-tower", "AAAAAAAAAAAAAAAA")
 
 DefineDependency("unit-orc-watch-tower", { "unit-orc-lumber-mill"} )
@@ -1053,11 +1048,6 @@ DefineButton( { Pos = 2, Level = 0, Icon = "icon-human-BuildingArmor2",
   Action = "stop",
   Allowed = "check-upgrade", AllowArg = {"upgrade-human-BuildingArmor2"},
   Key = "s", Hint = "~!STOP",
-  ForUnit = {"unit-human-guard-tower"} } )
-
-DefineButton( { Pos = 3, Level = 0, Icon = "icon-sword1",
-  Action = "attack",
-  Key = "a", Hint = "~!ATTACK",
   ForUnit = {"unit-human-guard-tower"} } )
 
 DefineAllow("unit-human-guard-tower", "AAAAAAAAAAAAAAAA")

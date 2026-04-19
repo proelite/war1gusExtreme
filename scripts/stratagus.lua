@@ -276,11 +276,11 @@ AStar("fixed-unit-cost", 1000, "moving-unit-cost", 20, "know-unseen-terrain", "u
 -------------------------------------------------------------------------------
 
 --  All player food unit limit
-SetAllPlayersUnitLimit(400)
+SetAllPlayersUnitLimit(100)
 --  All player building limit
 SetAllPlayersBuildingLimit(400)
 --  All player total unit limit
-SetAllPlayersTotalUnitLimit(1000)
+SetAllPlayersTotalUnitLimit(400)
 
 -------------------------------------------------------------------------------
 --  Default triggers for single player
