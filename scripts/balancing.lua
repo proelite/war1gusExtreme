@@ -102,7 +102,6 @@ DefineUnitType("unit-archer",			{Costs = {"time", 220, "gold", 350, "wood", 50},
 DefineUnitType("unit-spearman",			{Costs = {"time", 220, "gold", 350, "wood", 50},})
 DefineUnitType("unit-orc-catapult",		{Costs = {"time", 300, "gold", 650, "wood", 300},})
 DefineUnitType("unit-human-catapult",	{Costs = {"time", 300, "gold", 650, "wood", 300},})
-DefineUnitType("unit-human-war-wagon",	{Costs = {"time", 250, "gold", 700, "wood", 200},})
 
 DefineUnitType("unit-raider",			{Costs = {"time", 250, "gold", 750, "wood", 100},})
 DefineUnitType("unit-knight",			{Costs = {"time", 250, "gold", 750, "wood", 100},})
@@ -187,22 +186,6 @@ DefineUnitType("unit-orc-catapult", {
                   MaxAttackRange = 8,
                   MinAttackRange = 3,
 				  GroundAttack = true,
-})
-
-DefineUnitType("unit-human-war-wagon", {
-                  Demand = 4,
-                  RepairHp = 4,
-                  RepairCosts = { "gold", 1, "wood", 1 },
-		  PoisonDrain = 0,
-                  organic = false,
-                  BasicDamage = 40,
-                  PiercingDamage = 0,
-                  MaxAttackRange = 6,
-                  MinAttackRange = 1,
-                  Armor = 2,
-                  HitPoints = 200,
-                  Speed = 2,
-                  Missile = "missile-cannonball"
 })
 
 DefineMissileType("missile-catapult-rock", {
