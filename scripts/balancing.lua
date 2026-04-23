@@ -1714,7 +1714,7 @@ DefineButton( { Pos = 1, Level = 0, Icon = "icon-orc-CatapultSpeed",
   {"PiercingDamage", 1},
   {"apply-to", "unit-spearman"}, {"apply-to", "unit-orc-warbeast"}, {"apply-to", "unit-orc-watch-tower"})
   
-    DefineModifier("upgrade-spear2",
+  DefineModifier("upgrade-spear2",
   {"Level", 1},
   {"PiercingDamage", 1},
   {"apply-to", "unit-spearman"}, {"apply-to", "unit-orc-warbeast"}, {"apply-to", "unit-orc-watch-tower"})
@@ -1724,7 +1724,7 @@ DefineButton( { Pos = 1, Level = 0, Icon = "icon-orc-CatapultSpeed",
   {"PiercingDamage", 1},
   {"apply-to", "unit-archer"}, {"apply-to", "unit-human-guard-tower"})
   
-    DefineModifier("upgrade-arrow2",
+  DefineModifier("upgrade-arrow2",
   {"Level", 1},
   {"PiercingDamage", 1},
   {"apply-to", "unit-archer"}, {"apply-to", "unit-human-guard-tower"})
