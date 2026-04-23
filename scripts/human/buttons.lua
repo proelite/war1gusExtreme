@@ -271,7 +271,7 @@ DefineButton( { Pos = 4, Level = 2, Icon = "icon-human-tower",
   Key = "w", Hint = "BUILD TO~!WER",
   ForUnit = {"unit-peasant"} } )
 
-DefineButton( { Pos = 5, Level = 2, Icon = "icon-human-catapult",
+DefineButton( { Pos = 5, Level = 2, Icon = "icon-human-siege-workshop",
   Action = "build", Value = "unit-human-siege-workshop",
   Key = "i", Hint = "BUILD S~!IEGE WORKSHOP",
   ForUnit = {"unit-peasant"} } )

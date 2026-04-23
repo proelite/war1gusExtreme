@@ -191,7 +191,7 @@ local units = {
     Armor = 0,
     organic = false,
     Missile = "missile-catapult-rock",
-    Dependencies = {orc = {"blacksmith", "lumber-mill"},
+   Dependencies = {orc = {"war-camp"},
                     human = {"siege-workshop"}}},
    {Names = {orc = "Warlock", human = "Conjurer"},
     Costs = {"time", 90, "gold", 900},
@@ -338,7 +338,7 @@ DefineUnitType("unit-orc-warbeast", {
 })
 table.insert(wc1_units.orc, "unit-orc-warbeast")
 DefineAllow("unit-orc-warbeast", "AAAAAAAAAAAAAAAA")
-DefineDependency("unit-orc-warbeast", {"unit-orc-barracks"})
+DefineDependency("unit-orc-warbeast", {"unit-orc-war-camp", "unit-orc-tower"})
 
 DefineUnitType("unit-human-war-wagon", {
   Name = "War Wagon",

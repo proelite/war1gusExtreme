@@ -271,6 +271,11 @@ DefineButton( { Pos = 4, Level = 2, Icon = "icon-orc-tower",
   Key = "w", Hint = "BUILD TO~!WER",
   ForUnit = {"unit-peon"} } )
 
+DefineButton( { Pos = 5, Level = 2, Icon = "icon-orc-war-camp",
+  Action = "build", Value = "unit-orc-war-camp",
+  Key = "c", Hint = "BUILD WAR ~!CAMP",
+  ForUnit = {"unit-peon"} } )
+
 DefineButton( { Pos = 6, Level = 2, Icon = "icon-cancel",
   Action = "button", Value = 0,
   Key = "esc", Hint = "~<ESC~> - CANCEL",
@@ -296,20 +301,21 @@ DefineButton( { Pos = 2, Level = 0, Icon = "icon-spearman",
   Key = "s", Hint = "TRAIN ~!SPEARMAN",
   ForUnit = {"unit-orc-barracks"} } )
 
-DefineButton( { Pos = 3, Level = 0, Icon = "icon-orc-catapult",
-  Action = "train-unit", Value = "unit-orc-catapult",
-  Key = "c", Hint = "BUILD ~!CATAPULT",
-  ForUnit = {"unit-orc-barracks"} } )
-
 DefineButton( { Pos = 4, Level = 0, Icon = "icon-raider",
   Action = "train-unit", Value = "unit-raider",
   Key = "r", Hint = "TRAIN ~!RAIDER",
   ForUnit = {"unit-orc-barracks"} } )
 
-DefineButton( { Pos = 5, Level = 0, Icon = "icon-orc-warbeast",
+DefineButton( { Pos = 1, Level = 0, Icon = "icon-orc-catapult",
+  Action = "train-unit", Value = "unit-orc-catapult",
+  Key = "c", Hint = "BUILD ~!CATAPULT",
+  ForUnit = {"unit-orc-war-camp"} } )
+
+DefineButton( { Pos = 2, Level = 0, Icon = "icon-orc-warbeast",
   Action = "train-unit", Value = "unit-orc-warbeast",
+  Allowed = "check-units-or", AllowArg = {"unit-orc-tower"},
   Key = "w", Hint = "TRAIN ~!WARBEAST",
-  ForUnit = {"unit-orc-barracks"} } )
+  ForUnit = {"unit-orc-war-camp"} } )
 
 DefineButton( { Pos = 1, Level = 0, Icon = "icon-warlock",
   Action = "train-unit", Value = "unit-warlock",

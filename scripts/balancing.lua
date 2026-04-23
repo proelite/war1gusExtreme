@@ -778,20 +778,6 @@ DefineConstruction(
    }
 )
 
-local DefineOrcTowerIcon = function()
-   local iconname
-   if war1gus.tileset == "forest" or war1gus.tileset == "forest_campaign" then
-      iconname = "contrib/graphics/ui/orc/icon-orc-watch-tower-forest.png"
-   else
-      iconname = "contrib/graphics/ui/orc/icon-orc-watch-tower-swamp.png"
-   end
-   local orcWatchTowerIcon = CIcon:New("icon-orc-watch-tower")
-   orcWatchTowerIcon.G = CPlayerColorGraphic:New(iconname, 27, 19)
-   orcWatchTowerIcon.Frame = 0
-end
-DefineOrcTowerIcon()
-OnTilesetChangeFunctions:add(DefineOrcTowerIcon)
-
 DefineAnimations(
    "animations-orc-watch-tower", 
    {Still = {"frame 0", "wait 5"},
@@ -922,20 +908,6 @@ DefineConstruction(
       }
    }
 )
-
-local DefineHumanTowerIcon = function()
-   local iconname
-   if war1gus.tileset == "forest" or war1gus.tileset == "forest_campaign" then
-      iconname = "contrib/graphics/ui/human/icon-human-guard-tower-forest.png"
-   else
-      iconname = "contrib/graphics/ui/human/icon-human-guard-tower-swamp.png"
-   end
-   local humanGuardTowerIcon = CIcon:New("icon-human-guard-tower")
-   humanGuardTowerIcon.G = CPlayerColorGraphic:New(iconname, 27, 19)
-   humanGuardTowerIcon.Frame = 0
-end
-DefineHumanTowerIcon()
-OnTilesetChangeFunctions:add(DefineHumanTowerIcon)
 
 DefineAnimations(
    "animations-human-guard-tower", 
@@ -1374,13 +1346,14 @@ DefineModifier("upgrade-orc-CatapultAmmo1",
   {"apply-to", "unit-orc-catapult"})
   
 DefineAllow("upgrade-orc-CatapultAmmo1", "AAAAAAAAAAAAAAAA")
+DefineDependency("upgrade-orc-CatapultAmmo1", { "unit-orc-war-camp"} )
 
 DefineButton( { Pos = 3, Level = 0, Icon = "icon-orc-CatapultAmmo1",
   Action = "research", Value = "upgrade-orc-CatapultAmmo1",
   Allowed = "check-single-research",
   Key = "b", Hint = "RESEARCH ~!BURNING OIL",
   Description = "Increase Catapul damage by ~<20~>",
-  ForUnit = {"unit-orc-blacksmith"} } )
+   ForUnit = {"unit-orc-war-camp"} } )
 
 -----------------------------------------------------------------------
 -- advance LoS
@@ -1569,7 +1542,7 @@ humanBuildingArmorUpgrade1.Costs[2] = 400 -- wood
 DefineModifier("upgrade-human-BuildingArmor1",
   {"Level", 1},
   {"Armor", 4},
-  {"apply-to", "unit-human-town-hall"}, {"apply-to", "unit-human-farm"}, {"apply-to", "unit-human-barracks"}, {"apply-to", "unit-human-lumber-mill"}, {"apply-to", "unit-human-blacksmith"}, {"apply-to", "unit-human-stable"}, {"apply-to", "unit-human-church"}, {"apply-to", "unit-human-tower"}, {"apply-to", "unit-human-guard-tower"})
+   {"apply-to", "unit-human-town-hall"}, {"apply-to", "unit-human-farm"}, {"apply-to", "unit-human-barracks"}, {"apply-to", "unit-human-lumber-mill"}, {"apply-to", "unit-human-blacksmith"}, {"apply-to", "unit-human-siege-workshop"}, {"apply-to", "unit-human-stable"}, {"apply-to", "unit-human-church"}, {"apply-to", "unit-human-tower"}, {"apply-to", "unit-human-guard-tower"})
 
 DefineAllow("upgrade-human-BuildingArmor1", "AAAAAAAAAAAAAAAA")
 
@@ -1594,7 +1567,7 @@ humanBuildingArmorUpgrade2.Costs[2] = 800 -- wood
 DefineModifier("upgrade-human-BuildingArmor2",
    {"Level", 1},
    {"Armor", 4},
-   {"apply-to", "unit-human-town-hall"}, {"apply-to", "unit-human-farm"}, {"apply-to", "unit-human-barracks"}, {"apply-to", "unit-human-lumber-mill"}, {"apply-to", "unit-human-blacksmith"}, {"apply-to", "unit-human-stable"}, {"apply-to", "unit-human-church"}, {"apply-to", "unit-human-tower"}, {"apply-to", "unit-human-guard-tower"})
+   {"apply-to", "unit-human-town-hall"}, {"apply-to", "unit-human-farm"}, {"apply-to", "unit-human-barracks"}, {"apply-to", "unit-human-lumber-mill"}, {"apply-to", "unit-human-blacksmith"}, {"apply-to", "unit-human-siege-workshop"}, {"apply-to", "unit-human-stable"}, {"apply-to", "unit-human-church"}, {"apply-to", "unit-human-tower"}, {"apply-to", "unit-human-guard-tower"})
 
 DefineAllow("upgrade-human-BuildingArmor2", "AAAAAAAAAAAAAAAA")
 
@@ -1624,7 +1597,7 @@ orcBuildingArmorUpgrade1.Costs[2] = 400 -- wood
 DefineModifier("upgrade-orc-BuildingArmor1",
   {"Level", 1},
   {"Armor", 4},
-  {"apply-to", "unit-orc-town-hall"}, {"apply-to", "unit-orc-farm"}, {"apply-to", "unit-orc-barracks"}, {"apply-to", "unit-orc-lumber-mill"}, {"apply-to", "unit-orc-blacksmith"}, {"apply-to", "unit-orc-kennel"}, {"apply-to", "unit-orc-temple"}, {"apply-to", "unit-orc-tower"}, {"apply-to", "unit-orc-watch-tower"})
+   {"apply-to", "unit-orc-town-hall"}, {"apply-to", "unit-orc-farm"}, {"apply-to", "unit-orc-barracks"}, {"apply-to", "unit-orc-lumber-mill"}, {"apply-to", "unit-orc-blacksmith"}, {"apply-to", "unit-orc-war-camp"}, {"apply-to", "unit-orc-kennel"}, {"apply-to", "unit-orc-temple"}, {"apply-to", "unit-orc-tower"}, {"apply-to", "unit-orc-watch-tower"})
 
 DefineAllow("upgrade-orc-BuildingArmor1", "AAAAAAAAAAAAAAAA")
 
@@ -1649,7 +1622,7 @@ orcBuildingArmorUpgrade2.Costs[2] = 800 -- wood
 DefineModifier("upgrade-orc-BuildingArmor2",
    {"Level", 1},
    {"Armor", 4},
-  {"apply-to", "unit-orc-town-hall"}, {"apply-to", "unit-orc-farm"}, {"apply-to", "unit-orc-barracks"}, {"apply-to", "unit-orc-lumber-mill"}, {"apply-to", "unit-orc-blacksmith"}, {"apply-to", "unit-orc-kennel"}, {"apply-to", "unit-orc-temple"}, {"apply-to", "unit-orc-tower"}, {"apply-to", "unit-orc-watch-tower"})
+   {"apply-to", "unit-orc-town-hall"}, {"apply-to", "unit-orc-farm"}, {"apply-to", "unit-orc-barracks"}, {"apply-to", "unit-orc-lumber-mill"}, {"apply-to", "unit-orc-blacksmith"}, {"apply-to", "unit-orc-war-camp"}, {"apply-to", "unit-orc-kennel"}, {"apply-to", "unit-orc-temple"}, {"apply-to", "unit-orc-tower"}, {"apply-to", "unit-orc-watch-tower"})
 
 DefineAllow("upgrade-orc-BuildingArmor2", "AAAAAAAAAAAAAAAA")
 
@@ -1718,13 +1691,13 @@ DefineModifier("upgrade-orc-CatapultSpeed",
 
 DefineAllow("upgrade-orc-CatapultSpeed", "AAAAAAAAAAAAAAAA")
 
-DefineButton( { Pos = 3, Level = 0, Icon = "icon-orc-CatapultSpeed",
+DefineButton( { Pos = 4, Level = 0, Icon = "icon-orc-CatapultSpeed",
   Action = "research", Value = "upgrade-orc-CatapultSpeed",
   Allowed = "check-single-research",
   Key = "s", Hint = "UPGRADE CATAPULT ~!SPEED",
-  ForUnit = {"unit-orc-lumber-mill"} } )
+   ForUnit = {"unit-orc-war-camp"} } )
 
-DefineDependency("upgrade-orc-CatapultSpeed", { "unit-orc-blacksmith"} )
+DefineDependency("upgrade-orc-CatapultSpeed", { "unit-orc-war-camp"} )
 
 DefineButton( { Pos = 1, Level = 0, Icon = "icon-orc-CatapultSpeed",
   Action = "move",

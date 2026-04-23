@@ -169,11 +169,24 @@ local buildings = {
    AnnoyComputerFactor = 60,
    Size = {64, 64},
    Dependency = {human = "blacksmith"},
-   Icon = "icon-human-catapult",
+    Icon = "icon-human-siege-workshop",
    Sounds = {
     "ready", "human work complete",
     "selected", "human-selected",
     "help", "human help 1",
+    "dead", "building destroyed"}},
+
+  {Names = {orc = "War Camp"},
+   Costs = {"time", 200, "gold", 900, "wood", 400},
+   HitPoints = 800,
+   AnnoyComputerFactor = 60,
+   Size = {64, 64},
+   Dependency = {orc = "blacksmith"},
+   Icon = "icon-orc-war-camp",
+   Sounds = {
+    "ready", "orc work complete",
+    "selected", "orc-selected",
+    "help", "orc help 1",
     "dead", "building destroyed"}},
 
    {Names = {human = "Church", orc = "Temple"},
@@ -316,19 +329,55 @@ UnitTypeFiles["unit-human-barracks"] = {
 }
 
 UnitTypeFiles["unit-human-siege-workshop"] = {
-  forest = "contrib/graphics/buildings/siege_workshop.png",
-  swamp = "contrib/graphics/buildings/siege_workshop.png",
-  forest_campaign = "contrib/graphics/buildings/siege_workshop.png",
-  swamp_campaign = "contrib/graphics/buildings/siege_workshop.png",
-  dungeon = "contrib/graphics/buildings/siege_workshop.png",
-  dungeon_campaign = "contrib/graphics/buildings/siege_workshop.png"
+  forest = "contrib/graphics/buildings/siege-workshop.png",
+  swamp = "contrib/graphics/buildings/siege-workshop.png",
+  forest_campaign = "contrib/graphics/buildings/siege-workshop.png",
+  swamp_campaign = "contrib/graphics/buildings/siege-workshop.png",
+  dungeon = "contrib/graphics/buildings/siege-workshop.png",
+  dungeon_campaign = "contrib/graphics/buildings/siege-workshop.png"
+}
+
+UnitTypeFiles["unit-orc-war-camp"] = {
+  forest = "contrib/graphics/buildings/war-camp.png",
+  swamp = "contrib/graphics/buildings/war-camp.png",
+  forest_campaign = "contrib/graphics/buildings/war-camp.png",
+  swamp_campaign = "contrib/graphics/buildings/war-camp.png",
+  dungeon = "contrib/graphics/buildings/war-camp.png",
+  dungeon_campaign = "contrib/graphics/buildings/war-camp.png"
 }
 
 DefineConstruction(
   "construction-human-siege-workshop",
   {
     Files = {
-      File = "contrib/graphics/buildings/siege_workshop_construction.png",
+      File = "contrib/graphics/buildings/siege-workshop-construction.png",
+      Size = {64, 64}
+    },
+    Constructions = {
+      {
+        Percent = 0,
+        File = "construction",
+        Frame = 0
+      },
+      {
+        Percent = 33,
+        File = "construction",
+        Frame = 1
+      },
+      {
+        Percent = 67,
+        File = "construction",
+        Frame = 2
+      }
+    }
+  }
+)
+
+DefineConstruction(
+  "construction-orc-war-camp",
+  {
+    Files = {
+      File = "contrib/graphics/buildings/war-camp-construction.png",
       Size = {64, 64}
     },
     Constructions = {

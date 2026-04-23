@@ -97,6 +97,7 @@ local editor_types = {
 --  "unit-orc-watch-tower",
   "", 
   "unit-orc-blacksmith",
+  "unit-orc-war-camp",
   "unit-orc-temple",
   "unit-orc-kennel",
   "unit-orc-tower",

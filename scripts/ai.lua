@@ -115,7 +115,7 @@ function AiSiegeWorkshop()
    if (AiGetRace() == race1) then
       return "unit-human-siege-workshop"
    else
-      return "unit-orc-barracks"
+      return "unit-orc-war-camp"
    end
 end
 

@@ -210,6 +210,40 @@ local DefineCustomIcons = function()
   local warwagon = CIcon:New("icon-war-wagon")
   warwagon.G = CPlayerColorGraphic:New("contrib/graphics/ui/human/icon-war-wagon.png", 27, 19)
   warwagon.Frame = 0
+
+  local orcwatchtower = CIcon:New("icon-orc-watch-tower")
+  if war1gus.tileset == "forest" or war1gus.tileset == "forest_campaign" then
+    orcwatchtower.G = CPlayerColorGraphic:New("contrib/graphics/ui/orc/icon-orc-watch-tower-forest.png", 27, 19)
+  else
+    orcwatchtower.G = CPlayerColorGraphic:New("contrib/graphics/ui/orc/icon-orc-watch-tower-swamp.png", 27, 19)
+  end
+  orcwatchtower.Frame = 0
+
+  local humanguardtower = CIcon:New("icon-human-guard-tower")
+  if war1gus.tileset == "forest" or war1gus.tileset == "forest_campaign" then
+    humanguardtower.G = CPlayerColorGraphic:New("contrib/graphics/ui/human/icon-human-guard-tower-forest.png", 27, 19)
+  else
+    humanguardtower.G = CPlayerColorGraphic:New("contrib/graphics/ui/human/icon-human-guard-tower-swamp.png", 27, 19)
+  end
+  humanguardtower.Frame = 0
+
+  local siegeworkshop = CIcon:New("icon-human-siege-workshop")
+  if war1gus.tileset == "forest" or war1gus.tileset == "forest_campaign" or
+     war1gus.tileset == "dungeon" or war1gus.tileset == "dungeon_campaign" then
+    siegeworkshop.G = CPlayerColorGraphic:New("contrib/graphics/ui/human/icon-human-siege-workshop-forest.png", 27, 19)
+  else
+    siegeworkshop.G = CPlayerColorGraphic:New("contrib/graphics/ui/human/icon-human-siege-workshop-swamp.png", 27, 19)
+  end
+  siegeworkshop.Frame = 0
+
+  local warcamp = CIcon:New("icon-orc-war-camp")
+  if war1gus.tileset == "forest" or war1gus.tileset == "forest_campaign" or
+     war1gus.tileset == "dungeon" or war1gus.tileset == "dungeon_campaign" then
+    warcamp.G = CPlayerColorGraphic:New("contrib/graphics/ui/orc/icon-orc-war-camp-forest.png", 27, 19)
+  else
+    warcamp.G = CPlayerColorGraphic:New("contrib/graphics/ui/orc/icon-orc-war-camp-swamp.png", 27, 19)
+  end
+  warcamp.Frame = 0
 end
 DefineCustomIcons()
 OnTilesetChangeFunctions:add(DefineCustomIcons)
