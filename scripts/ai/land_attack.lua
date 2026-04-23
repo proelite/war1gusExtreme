@@ -199,8 +199,8 @@ function CreateAiLandAttack(sleep_factor, max_force)
       --function() return AiResearch(AiUpgradeWeapon2()) end,
       --function() return AiResearch(AiUpgradeArmor2()) end,
       --function() return AiResearch(AiUpgradeMissile2()) end,
-      function() return AiNeed(AiBarracks()) end,
-	  function() return AiWait(AiBarracks()) end,
+      function() return AiNeed(AiSiegeWorkshop()) end,
+      function() return AiWait(AiSiegeWorkshop()) end,
 
       function () return GenerateRoads(true, true) end,
 

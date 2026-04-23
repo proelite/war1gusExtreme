@@ -271,6 +271,11 @@ DefineButton( { Pos = 4, Level = 2, Icon = "icon-human-tower",
   Key = "w", Hint = "BUILD TO~!WER",
   ForUnit = {"unit-peasant"} } )
 
+DefineButton( { Pos = 5, Level = 2, Icon = "icon-human-catapult",
+  Action = "build", Value = "unit-human-siege-workshop",
+  Key = "i", Hint = "BUILD S~!IEGE WORKSHOP",
+  ForUnit = {"unit-peasant"} } )
+
 DefineButton( { Pos = 6, Level = 2, Icon = "icon-cancel",
   Action = "button", Value = 0,
   Key = "esc", Hint = "~<ESC~> - CANCEL",
@@ -296,20 +301,21 @@ DefineButton( { Pos = 2, Level = 0, Icon = "icon-archer",
   Key = "a", Hint = "TRAIN ~!ARCHER",
   ForUnit = {"unit-human-barracks"} } )
 
-DefineButton( { Pos = 3, Level = 0, Icon = "icon-human-catapult",
-  Action = "train-unit", Value = "unit-human-catapult",
-  Key = "c", Hint = "BUILD ~!CATAPULT",
-  ForUnit = {"unit-human-barracks"} } )
-
 DefineButton( { Pos = 4, Level = 0, Icon = "icon-knight",
   Action = "train-unit", Value = "unit-knight",
   Key = "g", Hint = "TRAIN KNI~!GHT",
   ForUnit = {"unit-human-barracks"} } )
 
-DefineButton( { Pos = 5, Level = 0, Icon = "icon-war-wagon",
+DefineButton( { Pos = 1, Level = 0, Icon = "icon-human-catapult",
+  Action = "train-unit", Value = "unit-human-catapult",
+  Key = "c", Hint = "BUILD ~!CATAPULT",
+  ForUnit = {"unit-human-siege-workshop"} } )
+
+DefineButton( { Pos = 2, Level = 0, Icon = "icon-war-wagon",
   Action = "train-unit", Value = "unit-human-war-wagon",
+  Allowed = "check-units-or", AllowArg = {"unit-human-tower"},
   Key = "w", Hint = "TRAIN ~!WAR WAGON",
-  ForUnit = {"unit-human-barracks"} } )
+  ForUnit = {"unit-human-siege-workshop"} } )
 
 DefineButton( { Pos = 1, Level = 0, Icon = "icon-conjurer",
   Action = "train-unit", Value = "unit-conjurer",

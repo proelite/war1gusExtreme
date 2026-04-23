@@ -109,6 +109,17 @@ function AiBlacksmith()
 end
 
 --
+--  Siege workshop of the current race.
+--
+function AiSiegeWorkshop()
+   if (AiGetRace() == race1) then
+      return "unit-human-siege-workshop"
+   else
+      return "unit-orc-barracks"
+   end
+end
+
+--
 --  Upgrade armor 1 of the current race.
 --
 function AiUpgradeArmor1()

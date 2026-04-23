@@ -68,6 +68,7 @@ local editor_types = {
 --  "unit-human-guard-tower",
   "", 
   "unit-human-blacksmith", 
+  "unit-human-siege-workshop",
   "unit-human-church",
   "unit-human-stable",
   "unit-human-tower",

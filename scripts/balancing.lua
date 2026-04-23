@@ -1039,8 +1039,6 @@ DefineDependency("unit-human-guard-tower", { "unit-human-lumber-mill"} )
 
 DefineAllow("unit-human-war-wagon", "AAAAAAAAAAAAAAAA")
 
-DefineDependency("unit-human-war-wagon", { "unit-human-barracks"} )
-
 -----------------------------------------------------------------------
 -- Town hall salvage buttons
 -----------------------------------------------------------------------
@@ -1346,13 +1344,14 @@ DefineModifier("upgrade-human-CatapultAmmo1",
   {"apply-to", "unit-human-catapult"})
   
 DefineAllow("upgrade-human-CatapultAmmo1", "AAAAAAAAAAAAAAAA")
+DefineDependency("upgrade-human-CatapultAmmo1", { "unit-human-siege-workshop"} )
 
 DefineButton( { Pos = 3, Level = 0, Icon = "icon-human-CatapultAmmo1",
   Action = "research", Value = "upgrade-human-CatapultAmmo1",
   Allowed = "check-single-research",
   Key = "e", Hint = "RESEARCH ST~!EEL SHRAPNELS",
   Description = "Increase Catapul damage by ~<20~>",
-  ForUnit = {"unit-human-blacksmith"} } )
+   ForUnit = {"unit-human-siege-workshop"} } )
 
 
 -----------------------------------------------------------------------
@@ -1684,13 +1683,13 @@ DefineModifier("upgrade-human-CatapultSpeed",
 
 DefineAllow("upgrade-human-CatapultSpeed", "AAAAAAAAAAAAAAAA")
 
-DefineButton( { Pos = 3, Level = 0, Icon = "icon-human-CatapultSpeed",
+DefineButton( { Pos = 4, Level = 0, Icon = "icon-human-CatapultSpeed",
   Action = "research", Value = "upgrade-human-CatapultSpeed",
   Allowed = "check-single-research",
   Key = "s", Hint = "UPGRADE CATAPULT ~!SPEED",
-  ForUnit = {"unit-human-lumber-mill"} } )
+   ForUnit = {"unit-human-siege-workshop"} } )
 
-DefineDependency("upgrade-human-CatapultSpeed", { "unit-human-blacksmith"} )
+DefineDependency("upgrade-human-CatapultSpeed", { "unit-human-siege-workshop"} )
 
 DefineButton( { Pos = 1, Level = 0, Icon = "icon-human-CatapultSpeed",
   Action = "move",

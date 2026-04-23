@@ -192,7 +192,7 @@ local units = {
     organic = false,
     Missile = "missile-catapult-rock",
     Dependencies = {orc = {"blacksmith", "lumber-mill"},
-                    human = {"blacksmith", "lumber-mill"}}},
+                    human = {"siege-workshop"}}},
    {Names = {orc = "Warlock", human = "Conjurer"},
     Costs = {"time", 90, "gold", 900},
     HitPoints = 40,
@@ -391,6 +391,7 @@ DefineUnitType("unit-human-war-wagon", {
   SelectableByRectangle = true
 })
 table.insert(wc1_units.human, "unit-human-war-wagon")
+DefineDependency("unit-human-war-wagon", {"unit-human-siege-workshop", "unit-human-tower"})
 
 local dead_bodies = { Name = "Dead Body",
   Image = {"file", "neutral/units/dead_bodies.png", "size", {32, 32}},
