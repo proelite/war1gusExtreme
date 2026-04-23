@@ -260,7 +260,6 @@ local units = {
     PiercingDamage = 10,
     BasicDamage = 0,
     MaxAttackRange = 8,
-    Mana = {Max = 100, Enable = true},
     CanCastSpell = {
        human = {"spell-summon-spiders",
                 "spell-summon-daemon"}}}
@@ -296,7 +295,7 @@ DefineUnitType("unit-orc-warbeast", {
   Image = {"file", "contrib/graphics/units/warbeast.png", "size", {64, 64}},
   Animations = "animations-warbeast",
   Icon = "icon-orc-warbeast",
-  Costs = {"time", 60, "gold", 450, "wood", 50},
+  Costs = {"time", 500, "gold", 2000, "wood", 500},
   HitPoints = 300,
   DrawLevel = 180,
   MaxAttackRange = 5,
@@ -345,7 +344,7 @@ DefineUnitType("unit-human-war-wagon", {
   Image = {"file", "contrib/graphics/units/war_wagon.png", "size", {64, 64}},
   Animations = "animations-war-wagon",
   Icon = "icon-war-wagon",
-  Costs = {"time", 250, "gold", 700, "wood", 200},
+  Costs = {"time", 400, "gold", 1000, "wood", 1000},
   RepairHp = 4,
   RepairCosts = {"gold", 1, "wood", 1},
   PoisonDrain = 0,
