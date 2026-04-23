@@ -627,12 +627,12 @@ DefineUnitType("unit-human-guard-tower", {})
 
 local upgrades = {
    {orc = {"axe1", {"grunt", "raider"}, "axe2"},
-    human = {"sword1", {"footman", "knight"}, "sword2"},
+   human = {"sword1", {"footman", "knight", "human-scout"}, "sword2"},
     cost = {   1200,   750,     400,     0,     0,     0,     0},
 	modifier = {"PiercingDamage", -1}, -- == 2-1 =+1 this means the benefit is +1, instead +2
     },
    {orc = {"axe2", {"grunt", "raider"}, "axe3"},
-    human = {"sword2", {"footman", "knight"}, "sword3"},
+   human = {"sword2", {"footman", "knight", "human-scout"}, "sword3"},
     cost = {   1200,   1500,     800,     0,     0,     0,     0},
 	modifier = {"PiercingDamage", -1},
     },
@@ -658,11 +658,11 @@ local upgrades = {
     },
 
    {orc = {"wolves1", {"raider"}},
-    human = {"horse1", {"knight"}},
+      human = {"horse1", {"knight", "human-scout"}},
     cost = {   700,   750, 	400,     0,     0,     0,     0},
     },
    {orc = {"wolves2", {"raider"}},
-    human = {"horse2", {"knight"}},
+      human = {"horse2", {"knight", "human-scout"}},
     cost = {   700,   1500,     800,     0,     0,     0,     0},
    },	
     
@@ -1259,7 +1259,7 @@ humanLightArmorUpgrade1.Costs[2] = 400 -- wood
 DefineModifier("upgrade-human-LightArmor1",
   {"Level", 1},
   {"Armor", 1},
-  {"apply-to", "unit-archer"}, {"apply-to", "unit-cleric"}, {"apply-to", "unit-conjurer"}, {"apply-to", "unit-sorceress"})
+   {"apply-to", "unit-archer"}, {"apply-to", "unit-cleric"}, {"apply-to", "unit-conjurer"}, {"apply-to", "unit-sorceress"}, {"apply-to", "unit-human-scout"})
 
 DefineAllow("upgrade-human-LightArmor1", "AAAAAAAAAAAAAAAA")
 
@@ -1267,7 +1267,7 @@ DefineButton( { Pos = 4, Level = 0, Icon = "icon-human-LightArmor1",
   Action = "research", Value = "upgrade-human-LightArmor1",
   Allowed = "check-single-research",
   Key = "r", Hint = "UPGRADE LIGHT A~!RMOR",
-  Description = "Increase Archer, Cleric, Conjurer and Sorceress armor by ~<1~>",
+   Description = "Increase Archer, Cleric, Conjurer, Sorceress and Scout armor by ~<1~>",
   ForUnit = {"unit-human-blacksmith"} } )
 
 local humanLightArmorIcon2 = CIcon:New("icon-human-LightArmor2")
@@ -1283,7 +1283,7 @@ humanLightArmorUpgrade2.Costs[2] = 400 -- wood
 DefineModifier("upgrade-human-LightArmor2",
    {"Level", 1},
    {"Armor", 1},
-   {"apply-to", "unit-archer"}, {"apply-to", "unit-cleric"}, {"apply-to", "unit-conjurer"}, {"apply-to", "unit-sorceress"})
+   {"apply-to", "unit-archer"}, {"apply-to", "unit-cleric"}, {"apply-to", "unit-conjurer"}, {"apply-to", "unit-sorceress"}, {"apply-to", "unit-human-scout"})
 
 DefineAllow("upgrade-human-LightArmor2", "AAAAAAAAAAAAAAAA")
 
@@ -1291,7 +1291,7 @@ DefineButton( { Pos = 4, Level = 0, Icon = "icon-human-LightArmor2",
    Action = "research", Value = "upgrade-human-LightArmor2",
    Allowed = "check-upgrade", AllowArg = {"upgrade-human-LightArmor1"},
    Key = "r", Hint = "UPGRADE LIGHT A~!RMOR",
-   Description = "Increase Archer, Cleric, Conjurer and Sorceress armor by ~<1~>",
+   Description = "Increase Archer, Cleric, Conjurer, Sorceress and Scout armor by ~<1~>",
    ForUnit = {"unit-human-blacksmith"} } )
 
 DefineDependency("upgrade-human-LightArmor2", { "upgrade-human-LightArmor1"} )
@@ -1385,17 +1385,17 @@ humanHoldfire.Frame = 0
 DefineButton( { Pos = 5, Level = 0, Icon = "icon-human-patrol",
   Action = "patrol",
   Key = "r", Hint = "PAT~!ROL",
-  ForUnit = {"unit-footman", "unit-archer", "unit-knight", "unit-human-war-wagon", "unit-water-elemental", "unit-scorpion", "unit-lothar", "human-group", "unit-brigand", "unit-ogre"}}) 
+   ForUnit = {"unit-footman", "unit-archer", "unit-knight", "unit-human-scout", "unit-human-war-wagon", "unit-water-elemental", "unit-scorpion", "unit-lothar", "human-group", "unit-brigand", "unit-ogre"}}) 
 
 DefineButton( { Pos = 6, Level = 0, Icon = "icon-human-explore",
   Action = "explore",
   Key = "e", Hint = "~!EXPLORE",
-  ForUnit = {"unit-footman", "unit-archer", "unit-knight", "unit-human-war-wagon", "unit-water-elemental", "unit-scorpion", "unit-lothar", "human-group", "unit-brigand", "unit-ogre"}}) 
+   ForUnit = {"unit-footman", "unit-archer", "unit-knight", "unit-human-scout", "unit-human-war-wagon", "unit-water-elemental", "unit-scorpion", "unit-lothar", "human-group", "unit-brigand", "unit-ogre"}}) 
 
 DefineButton( { Pos = 4, Level = 0, Icon = "icon-human-standground",
   Action = "stand-ground",
   Key = "t", Hint = "S~!TAND GROUND",
-  ForUnit = {"unit-footman", "unit-archer", "unit-knight", "unit-human-catapult", "unit-human-catapult-noattack", "unit-human-war-wagon", "unit-water-elemental", "unit-lothar", "human-group", "unit-brigand", "unit-ogre"}}) 
+   ForUnit = {"unit-footman", "unit-archer", "unit-knight", "unit-human-scout", "unit-human-catapult", "unit-human-catapult-noattack", "unit-human-war-wagon", "unit-water-elemental", "unit-lothar", "human-group", "unit-brigand", "unit-ogre"}}) 
   
 -----------------------------------------------------------------------
 -- New Orders Buttons Orcs

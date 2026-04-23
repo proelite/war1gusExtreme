@@ -43,7 +43,7 @@ DefineButton( { Pos = 1, Level = 0, Icon = "icon-move-peasant",
   Action = "move",
   Key = "m", Hint = "~!MOVE",
   ForUnit = {"unit-footman", "unit-knight", "unit-archer",
-    "unit-human-catapult", "unit-human-catapult-noattack", "unit-human-war-wagon", "unit-peasant",
+    "unit-human-catapult", "unit-human-catapult-noattack", "unit-human-war-wagon", "unit-human-scout", "unit-peasant",
     "unit-water-elemental", "unit-scorpion",
     "unit-cleric", "unit-conjurer", "unit-medivh", "unit-lothar",
     "human-group", "unit-brigand", "unit-ogre", "unit-sorceress" } } )
@@ -52,19 +52,19 @@ DefineButton( { Pos = 1, Level = 0, Icon = "icon-horse1",
   Action = "move",
   Allowed = "check-upgrade", AllowArg = {"upgrade-horse1"},
   Key = "m", Hint = "~!MOVE",
-  ForUnit = { "unit-knight" } } )
+  ForUnit = { "unit-knight", "unit-human-scout" } } )
 
 DefineButton( { Pos = 1, Level = 0, Icon = "icon-horse2",
   Action = "move",
   Allowed = "check-upgrade", AllowArg = {"upgrade-horse2"},
   Key = "m", Hint = "~!MOVE",
-  ForUnit = { "unit-knight" } } )
+  ForUnit = { "unit-knight", "unit-human-scout" } } )
 
 DefineButton( { Pos = 2, Level = 0, Icon = "icon-human-shield1",
   Action = "stop",
   Key = "s", Hint = "~!STOP",
   ForUnit = {"unit-footman", "unit-archer",
-    "unit-knight",
+    "unit-knight", "unit-human-scout",
     "unit-human-catapult", "unit-human-catapult-noattack", "unit-human-war-wagon", "unit-peasant",
     "unit-water-elemental", "unit-scorpion",
     "unit-cleric", "unit-conjurer", "unit-medivh", "unit-lothar",
@@ -90,7 +90,7 @@ DefineButton( { Pos = 3, Level = 0, Icon = "icon-sword1",
   Action = "attack",
   Key = "a", Hint = "~!ATTACK",
   ForUnit = {"unit-footman", "unit-archer",
-    "unit-knight",
+    "unit-knight", "unit-human-scout",
     "unit-scorpion", "unit-lothar",
     "unit-human-catapult", "unit-human-war-wagon", "human-group", "unit-brigand", "unit-ogre"} } )
 
@@ -99,7 +99,7 @@ DefineButton( { Pos = 3, Level = 0, Icon = "icon-sword2",
   Allowed = "check-upgrade", AllowArg = {"upgrade-sword1"},
   Key = "a", Hint = "~!ATTACK",
   ForUnit = {"unit-footman", "unit-archer",
-    "unit-knight",
+    "unit-knight", "unit-human-scout",
     "unit-human-catapult"} } )
 
 DefineButton( { Pos = 3, Level = 0, Icon = "icon-sword3",
@@ -107,7 +107,7 @@ DefineButton( { Pos = 3, Level = 0, Icon = "icon-sword3",
   Allowed = "check-upgrade", AllowArg = {"upgrade-sword2"},
   Key = "a", Hint = "~!ATTACK",
   ForUnit = {"unit-footman", "unit-archer",
-    "unit-knight",
+    "unit-knight", "unit-human-scout",
     "unit-human-catapult"} } )
 
 DefineButton( { Pos = 3, Level = 0, Icon = "icon-arrow1",
@@ -289,6 +289,11 @@ DefineButton( { Pos = 1, Level = 0, Icon = "icon-peasant",
   Key = "e", Hint = "TRAIN P~!EASANT",
   ForUnit = {"unit-human-town-hall", "unit-human-stormwind-keep"} } )
 
+DefineButton( { Pos = 2, Level = 0, Icon = "icon-human-scout",
+  Action = "train-unit", Value = "unit-human-scout",
+  Key = "s", Hint = "TRAIN ~!SCOUT",
+  ForUnit = {"unit-human-town-hall", "unit-human-stormwind-keep"} } )
+
 -- training commands ---------------------------------------------------------
 
 DefineButton( { Pos = 1, Level = 0, Icon = "icon-footman",
@@ -333,14 +338,14 @@ DefineButton( { Pos = 1, Level = 0, Icon = "icon-sword2",
   Action = "research", Value = "upgrade-sword1",
   Allowed = "check-single-research",
   Key = "a", Hint = "UPGR~!ADE SWORD STRENGTH",
-  Description = "Increase Footman and Knights damage by ~<1~>", 
+  Description = "Increase Footman, Knights and Scout damage by ~<1~>", 
   ForUnit = {"unit-human-blacksmith"} } )
 
 DefineButton( { Pos = 1, Level = 0, Icon = "icon-sword3",
   Action = "research", Value = "upgrade-sword2",
   Allowed = "check-single-research",
   Key = "a", Hint = "UPGR~!ADE SWORD STRENGTH",
-  Description = "Increase Footman and Knights damage by ~<1~>", 
+  Description = "Increase Footman, Knights and Scout damage by ~<1~>", 
   ForUnit = {"unit-human-blacksmith"} } )
 
 DefineButton( { Pos = 2, Level = 0, Icon = "icon-human-shield2",

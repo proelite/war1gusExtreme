@@ -290,6 +290,51 @@ DefineUnitFromSpec({
    Dependencies = {orc = {EarlyMount, "kennel"},
                    human = {EarlyMount, "stable"}}})
 
+local scout_anim = BuildAnimations(
+    GetFrameNumbers(5, {5, 5, 5}),
+    {
+         attackspeed = 5,
+         coolofftime = 14,
+    }
+)
+DefineAnimations("animations-scout", scout_anim)
+
+DefineUnitType("unit-human-scout", {
+   Name = "Scout",
+   Image = {"file", "contrib/graphics/units/scout.png", "size", {32, 32}},
+   Animations = "animations-scout",
+   Icon = "icon-human-scout",
+   Costs = {"time", 60, "gold", 450},
+   HitPoints = 55,
+   Armor = 0,
+   Speed = 6,
+   AnnoyComputerFactor = 120,
+   PiercingDamage = 1,
+   BasicDamage = 1,
+   SightRange = 9,
+   DetectCloak = true,
+   ComputerReactionRange = 3,
+   PersonReactionRange = 3,
+   Demand = 1,
+   Type = "land",
+   RightMouseAction = "attack",
+   CanAttack = true,
+   CanTargetLand = true,
+   CanTargetSea = true,
+   CanTargetAir = true,
+   SelectableByRectangle = true,
+   Sounds = {
+      "attack", "human acknowledge",
+      "selected", "human selected",
+      "acknowledge", "human acknowledge",
+      "ready", "human ready",
+      "help", "human help 3",
+      "dead", "human dead"
+   }
+})
+table.insert(wc1_units.human, "unit-human-scout")
+DefineAllow("unit-human-scout", "AAAAAAAAAAAAAAAA")
+
 DefineUnitType("unit-orc-warbeast", {
   Name = "Warbeast",
   Image = {"file", "contrib/graphics/units/warbeast.png", "size", {64, 64}},
