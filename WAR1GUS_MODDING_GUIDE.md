@@ -244,6 +244,20 @@ DefinePlayerData(0, {
 
 3. **Debugging:** Check console output for Lua errors
 
+## Common Runtime Pitfall
+
+When testing local changes on macOS, War1gus runs from the runtime data directory under `~/Library/Application Support/Stratagus/data.War1gus/`.
+
+If you changed files in the repository (for example `scripts/units.lua`) but forget to deploy them, the game may still run stale data and crash in ways that look unrelated.
+
+Always sync before test runs:
+
+```bash
+./dev_scripts/copy_to_data.sh
+```
+
+Example from this project: a scout training-completion crash was resolved after copying the updated `scripts/units.lua` into the runtime data directory.
+
 ## Common Modding Tasks
 
 ### Change Unit Appearance

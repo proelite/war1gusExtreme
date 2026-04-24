@@ -35,6 +35,18 @@ This syncs `scripts/`, `campaigns/`, `contrib/`, `shaders/`, and `maps/` directo
 
 > Important: do **not** edit files directly under `~/Library/Application Support/Stratagus/data.War1gus/`. Those are runtime copies. Edit the repo files first, then run the script to update the installed data.
 
+### Troubleshooting: Crash after script changes
+
+If War1gus still crashes after you fix a Lua/unit definition in the repo, verify the runtime copy has been updated.
+
+Use:
+
+```bash
+./dev_scripts/copy_to_data.sh
+```
+
+This issue was observed while adding `unit-human-scout`: the crash on training completion disappeared once the latest `scripts/units.lua` was copied to `~/Library/Application Support/Stratagus/data.War1gus/`.
+
 ### Build status
 
 Windows: <a href="https://ci.appveyor.com/project/timfel/war1gus"><img width="100" src="https://ci.appveyor.com/api/projects/status/github/Wargus/war1gus?branch=master&svg=true"></a>

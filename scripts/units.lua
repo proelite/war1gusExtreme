@@ -306,13 +306,20 @@ DefineUnitType("unit-human-scout", {
    Icon = "icon-human-scout",
    Costs = {"time", 60, "gold", 450},
    HitPoints = 55,
+   DrawLevel = 180,
+   TileSize = {1, 1},
+   BoxSize = {15, 15},
    Armor = 0,
    Speed = 6,
    AnnoyComputerFactor = 120,
    PiercingDamage = 1,
    BasicDamage = 1,
+   Missile = "missile-none",
+   Priority = 50,
+   Points = 30,
    SightRange = 9,
    DetectCloak = true,
+   organic = true,
    ComputerReactionRange = 3,
    PersonReactionRange = 3,
    Demand = 1,
@@ -332,6 +339,7 @@ DefineUnitType("unit-human-scout", {
       "dead", "human dead"
    }
 })
+
 table.insert(wc1_units.human, "unit-human-scout")
 DefineAllow("unit-human-scout", "AAAAAAAAAAAAAAAA")
 
