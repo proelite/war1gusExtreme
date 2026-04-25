@@ -503,6 +503,8 @@ DefineUnitType(
    { Name = "Wall",
      Image = {"size", {16, 16}},
      Costs = {"time", 100, "gold", 100, "wood", 0},
+    RepairHp = 4,
+    RepairCosts = {"gold", 1, "wood", 1},
      BuildingRules = { -- all buildings except the town hall need a road
         {"distance", {Distance = 3, DistanceType = "<=", Owner = "allied"}}},
      BuilderOutside = true,
@@ -516,7 +518,7 @@ DefineUnitType(
      TileSize = {1, 1}, BoxSize = {16, 16},
      SightRange = 0,
      DrawLevel = 40,
-     IsNotSelectable = true,
+    IsNotSelectable = false,
      Wall = true,
      NoRandomPlacing = false,
      Type = "land", Building = true,

@@ -28,6 +28,8 @@ DefineUnitType("unit-human-church",			{SightRange = 5})
 DefineUnitType("unit-orc-temple",			{SightRange = 5})
 DefineUnitType("unit-human-tower",			{SightRange = 5})
 DefineUnitType("unit-orc-tower",			{SightRange = 5})
+DefineUnitType("unit-human-guard-tower",      {HitPoints = 150})
+DefineUnitType("unit-orc-watch-tower",        {HitPoints = 150})
 DefineUnitType("unit-stormwind-keep", 		{SightRange = 5})
 DefineUnitType("unit-blackrock-spire", 		{SightRange = 5})
 
