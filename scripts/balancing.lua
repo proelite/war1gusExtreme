@@ -1098,7 +1098,7 @@ DefineModifier("upgrade-orc-saliva1",
   {"Level", 1},
   {"regeneration-rate", 1},
   {"regeneration-frequency", 6},
-  {"apply-to", "unit-raider"})
+   {"apply-to", "unit-raider"}, {"apply-to", "unit-orc-tracker"})
 
 DefineAllow("upgrade-orc-saliva1", "AAAAAAAAAAAAAAAA")
 
@@ -1106,7 +1106,7 @@ DefineButton( { Pos = 2, Level = 0, Icon = "icon-orc-saliva1",
   Action = "research", Value = "upgrade-orc-saliva1",
   Allowed = "check-single-research",
   Key = "h", Hint = "RESEARCH ~!HEALING SALIVA",
-  Description = "Regenerate Riders Health",
+   Description = "Regenerate Riders and Trackers Health",
   ForUnit = {"unit-orc-kennel"} } )
 
 local orcSalivaIcon2 = CIcon:New("icon-orc-saliva2")
@@ -1123,7 +1123,7 @@ DefineModifier("upgrade-orc-saliva2",
    {"Level", 1},
    {"regeneration-rate", 1},
    {"regeneration-frequency", 4},
-   {"apply-to", "unit-raider"})
+   {"apply-to", "unit-raider"}, {"apply-to", "unit-orc-tracker"})
 
 DefineAllow("upgrade-orc-saliva2", "AAAAAAAAAAAAAAAA")
 
@@ -1131,7 +1131,7 @@ DefineButton( { Pos = 2, Level = 0, Icon = "icon-orc-saliva2",
    Action = "research", Value = "upgrade-orc-saliva2",
    Allowed = "check-upgrade", AllowArg = {"upgrade-orc-saliva1"},
    Key = "h", Hint = "RESEARCH ~!HEALING SALIVA",
-   Description = "Riders regeneration is ~<50%~> faster",
+   Description = "Riders and Trackers regeneration is ~<50%~> faster",
    ForUnit = {"unit-orc-kennel"} } )
 
 DefineDependency("upgrade-orc-saliva2", { "upgrade-orc-saliva1"} )
