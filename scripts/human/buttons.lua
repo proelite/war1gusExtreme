@@ -362,19 +362,19 @@ DefineButton( { Pos = 2, Level = 0, Icon = "icon-human-shield3",
   Description = "Increase Footman and Knights armor by ~<1~>",
   ForUnit = {"unit-human-blacksmith"} } )
 
-DefineButton( { Pos = 1, Level = 0, Icon = "icon-arrow2",
+DefineButton( { Pos = 3, Level = 0, Icon = "icon-arrow2",
   Action = "research", Value = "upgrade-arrow1",
   Allowed = "check-single-research",
   Key = "a", Hint = "UPGRADE ~!ARROW STRENGTH",
   Description = "Increase Archer and Tower damage by ~<1~>",
-  ForUnit = {"unit-human-lumber-mill"} } )
+  ForUnit = {"unit-human-blacksmith"} } )
 
-DefineButton( { Pos = 1, Level = 0, Icon = "icon-arrow3",
+DefineButton( { Pos = 3, Level = 0, Icon = "icon-arrow3",
   Action = "research", Value = "upgrade-arrow2",
   Allowed = "check-single-research",
   Key = "a", Hint = "UPGRADE ~!ARROW STRENGTH",
   Description = "Increase Archer and Tower damage by ~<1~>",
-  ForUnit = {"unit-human-lumber-mill"} } )
+  ForUnit = {"unit-human-blacksmith"} } )
 
 DefineButton( { Pos = 1, Level = 0, Icon = "icon-horse1",
   Action = "research", Value = "upgrade-horse1",

@@ -362,19 +362,19 @@ DefineButton( { Pos = 2, Level = 0, Icon = "icon-orc-shield3",
   Description = "Increase Grunts and Riders armor by ~<1~>", 
   ForUnit = {"unit-orc-blacksmith"} } )
 
-DefineButton( { Pos = 1, Level = 0, Icon = "icon-spear2",
+DefineButton( { Pos = 3, Level = 0, Icon = "icon-spear2",
   Action = "research", Value = "upgrade-spear1",
   Allowed = "check-single-research",
   Key = "a", Hint = "UPGRADE SPE~!AR STRENGTH",
   Description = "Increase Spearman, Warbeast and Tower damage by ~<1~>", 
-  ForUnit = {"unit-orc-lumber-mill"} } )
+  ForUnit = {"unit-orc-blacksmith"} } )
 
-DefineButton( { Pos = 1, Level = 0, Icon = "icon-spear3",
+DefineButton( { Pos = 3, Level = 0, Icon = "icon-spear3",
   Action = "research", Value = "upgrade-spear2",
   Allowed = "check-single-research",
   Key = "a", Hint = "UPGRADE SPE~!AR STRENGTH",
   Description = "Increase Spearman, Warbeast and Tower damage by ~<1~>", 
-  ForUnit = {"unit-orc-lumber-mill"} } )
+  ForUnit = {"unit-orc-blacksmith"} } )
 
 DefineButton( { Pos = 1, Level = 0, Icon = "icon-wolves1",
   Action = "research", Value = "upgrade-wolves1",
