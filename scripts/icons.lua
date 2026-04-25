@@ -219,6 +219,10 @@ local DefineCustomIcons = function()
   humanscout.G = CPlayerColorGraphic:New("contrib/graphics/ui/human/icon-human-scout.png", 27, 19)
   humanscout.Frame = 0
 
+  local orctracker = CIcon:New("icon-orc-tracker")
+  orctracker.G = CPlayerColorGraphic:New("contrib/graphics/ui/orc/icon-orc-tracker.png", 27, 19)
+  orctracker.Frame = 0
+
   local orcwatchtower = CIcon:New("icon-orc-watch-tower")
   if war1gus.tileset == "forest" or war1gus.tileset == "forest_campaign" then
     orcwatchtower.G = CPlayerColorGraphic:New("contrib/graphics/ui/orc/icon-orc-watch-tower-forest.png", 27, 19)

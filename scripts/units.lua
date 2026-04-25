@@ -343,6 +343,50 @@ DefineUnitType("unit-human-scout", {
 table.insert(wc1_units.human, "unit-human-scout")
 DefineAllow("unit-human-scout", "AAAAAAAAAAAAAAAA")
 
+DefineUnitType("unit-orc-tracker", {
+   Name = "Tracker",
+   Image = {"file", "contrib/graphics/units/tracker.png", "size", {32, 32}},
+   Animations = "animations-scout",
+   Icon = "icon-orc-tracker",
+   Costs = {"time", 60, "gold", 450},
+   HitPoints = 55,
+   DrawLevel = 180,
+   TileSize = {1, 1},
+   BoxSize = {15, 15},
+   Armor = 0,
+   Speed = 6,
+   AnnoyComputerFactor = 120,
+   PiercingDamage = 1,
+   BasicDamage = 1,
+   Missile = "missile-none",
+   Priority = 50,
+   Points = 30,
+   SightRange = 9,
+   DetectCloak = true,
+   organic = true,
+   ComputerReactionRange = 3,
+   PersonReactionRange = 3,
+   Demand = 1,
+   Type = "land",
+   RightMouseAction = "attack",
+   CanAttack = true,
+   CanTargetLand = true,
+   CanTargetSea = true,
+   CanTargetAir = true,
+   SelectableByRectangle = true,
+   Sounds = {
+      "attack", "orc acknowledge",
+      "selected", "orc selected",
+      "acknowledge", "orc acknowledge",
+      "ready", "orc ready",
+      "help", "orc help 3",
+      "dead", "orc dead"
+   }
+})
+
+table.insert(wc1_units.orc, "unit-orc-tracker")
+DefineAllow("unit-orc-tracker", "AAAAAAAAAAAAAAAA")
+
 DefineUnitType("unit-orc-warbeast", {
   Name = "Warbeast",
   Image = {"file", "contrib/graphics/units/warbeast.png", "size", {64, 64}},

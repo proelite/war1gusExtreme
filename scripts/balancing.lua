@@ -626,12 +626,12 @@ DefineUnitType("unit-orc-watch-tower", {})
 DefineUnitType("unit-human-guard-tower", {})
 
 local upgrades = {
-   {orc = {"axe1", {"grunt", "raider"}, "axe2"},
+   {orc = {"axe1", {"grunt", "raider", "orc-tracker"}, "axe2"},
    human = {"sword1", {"footman", "knight", "human-scout"}, "sword2"},
     cost = {   1200,   750,     400,     0,     0,     0,     0},
 	modifier = {"PiercingDamage", -1}, -- == 2-1 =+1 this means the benefit is +1, instead +2
     },
-   {orc = {"axe2", {"grunt", "raider"}, "axe3"},
+   {orc = {"axe2", {"grunt", "raider", "orc-tracker"}, "axe3"},
    human = {"sword2", {"footman", "knight", "human-scout"}, "sword3"},
     cost = {   1200,   1500,     800,     0,     0,     0,     0},
 	modifier = {"PiercingDamage", -1},
@@ -657,11 +657,11 @@ local upgrades = {
 	modifier = {"Armor", -1},
     },
 
-   {orc = {"wolves1", {"raider"}},
+   {orc = {"wolves1", {"raider", "orc-tracker"}},
       human = {"horse1", {"knight", "human-scout"}},
     cost = {   700,   750, 	400,     0,     0,     0,     0},
     },
-   {orc = {"wolves2", {"raider"}},
+   {orc = {"wolves2", {"raider", "orc-tracker"}},
       human = {"horse2", {"knight", "human-scout"}},
     cost = {   700,   1500,     800,     0,     0,     0,     0},
    },	
@@ -1205,7 +1205,7 @@ orcLightArmorUpgrade1.Costs[2] = 400 -- wood
 DefineModifier("upgrade-orc-LightArmor1",
   {"Level", 1},
   {"Armor", 1},
-  {"apply-to", "unit-spearman"}, {"apply-to", "unit-necrolyte"}, {"apply-to", "unit-warlock"})
+   {"apply-to", "unit-spearman"}, {"apply-to", "unit-necrolyte"}, {"apply-to", "unit-warlock"}, {"apply-to", "unit-orc-tracker"})
 
 DefineAllow("upgrade-orc-LightArmor1", "AAAAAAAAAAAAAAAA")
 
@@ -1213,7 +1213,7 @@ DefineButton( { Pos = 4, Level = 0, Icon = "icon-orc-LightArmor1",
   Action = "research", Value = "upgrade-orc-LightArmor1",
   Allowed = "check-single-research",
   Key = "r", Hint = "UPGRADE LIGHT A~!RMOR",
-  Description = "Increase Spearman, Necrolyte and Warlock armor by ~<1~>",
+   Description = "Increase Spearman, Necrolyte, Warlock and Tracker armor by ~<1~>",
   ForUnit = {"unit-orc-blacksmith"} } )
 
 local orcLightArmorIcon2 = CIcon:New("icon-orc-LightArmor2")
@@ -1229,7 +1229,7 @@ orcLightArmorUpgrade2.Costs[2] = 400 -- wood
 DefineModifier("upgrade-orc-LightArmor2",
    {"Level", 1},
    {"Armor", 1},
-   {"apply-to", "unit-spearman"}, {"apply-to", "unit-necrolyte"}, {"apply-to", "unit-warlock"})
+   {"apply-to", "unit-spearman"}, {"apply-to", "unit-necrolyte"}, {"apply-to", "unit-warlock"}, {"apply-to", "unit-orc-tracker"})
 
 DefineAllow("upgrade-orc-LightArmor2", "AAAAAAAAAAAAAAAA")
 
@@ -1237,7 +1237,7 @@ DefineButton( { Pos = 4, Level = 0, Icon = "icon-orc-LightArmor2",
    Action = "research", Value = "upgrade-orc-LightArmor2",
    Allowed = "check-upgrade", AllowArg = {"upgrade-orc-LightArmor1"},
    Key = "r", Hint = "UPGRADE LIGHT A~!RMOR",
-   Description = "Increase Spearman, Necrolyte and Warlock armor by ~<1~>",
+   Description = "Increase Spearman, Necrolyte, Warlock and Tracker armor by ~<1~>",
    ForUnit = {"unit-orc-blacksmith"} } )
 
 DefineDependency("upgrade-orc-LightArmor2", { "upgrade-orc-LightArmor1"} )
@@ -1419,17 +1419,17 @@ orcHoldfire.Frame = 0
 DefineButton( { Pos = 5, Level = 0, Icon = "icon-orc-patrol",
   Action = "patrol",
   Key = "r", Hint = "PAT~!ROL",
-  ForUnit = {"unit-grunt", "unit-spearman", "unit-raider", "unit-orc-warbeast", "unit-daemon", "unit-spider", "unit-the-dead", "unit-garona", "unit-griselda", "orc-group"}}) 
+   ForUnit = {"unit-grunt", "unit-spearman", "unit-raider", "unit-orc-tracker", "unit-orc-warbeast", "unit-daemon", "unit-spider", "unit-the-dead", "unit-garona", "unit-griselda", "orc-group"}}) 
 
 DefineButton( { Pos = 6, Level = 0, Icon = "icon-orc-explore",
   Action = "explore",
   Key = "e", Hint = "~!EXPLORE",
-  ForUnit = {"unit-grunt", "unit-spearman", "unit-raider", "unit-orc-warbeast", "unit-daemon", "unit-spider", "unit-the-dead", "unit-garona", "unit-griselda", "orc-group"}}) 
+   ForUnit = {"unit-grunt", "unit-spearman", "unit-raider", "unit-orc-tracker", "unit-orc-warbeast", "unit-daemon", "unit-spider", "unit-the-dead", "unit-garona", "unit-griselda", "orc-group"}}) 
 
 DefineButton( { Pos = 4, Level = 0, Icon = "icon-orc-standground",
   Action = "stand-ground",
   Key = "t", Hint = "S~!TAND GROUND",
-  ForUnit = {"unit-grunt", "unit-spearman", "unit-raider", "unit-orc-warbeast", "unit-orc-catapult","unit-orc-catapult-noattack", "unit-daemon", "unit-the-dead", "unit-garona", "unit-griselda", "orc-group"}}) 
+   ForUnit = {"unit-grunt", "unit-spearman", "unit-raider", "unit-orc-tracker", "unit-orc-warbeast", "unit-orc-catapult","unit-orc-catapult-noattack", "unit-daemon", "unit-the-dead", "unit-garona", "unit-griselda", "orc-group"}}) 
 
 -----------------------------------------------------------------------
 -- Spider Web skill

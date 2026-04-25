@@ -373,10 +373,25 @@ end
 --
 --  Cavalry of the current race.
 --
+local function AiCountUnitType(ident)
+   local count = 0
+   for _, unit in ipairs(GetUnits(AiPlayer())) do
+      if GetUnitVariable(unit, "Ident") == ident then
+         count = count + 1
+      end
+   end
+   return count
+end
+
 function AiCavalry()
    if (AiGetRace() == race1) then
       return "unit-knight"
    else
+      local raiderCount = AiCountUnitType("unit-raider")
+      local trackerCount = AiCountUnitType("unit-orc-tracker")
+      if trackerCount <= raiderCount then
+         return "unit-orc-tracker"
+      end
       return "unit-raider"
    end
 end
