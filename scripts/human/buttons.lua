@@ -365,14 +365,14 @@ DefineButton( { Pos = 2, Level = 0, Icon = "icon-human-shield3",
 DefineButton( { Pos = 3, Level = 0, Icon = "icon-arrow2",
   Action = "research", Value = "upgrade-arrow1",
   Allowed = "check-single-research",
-  Key = "a", Hint = "UPGRADE ~!ARROW STRENGTH",
+  Key = "w", Hint = "UPGRADE ARRO~!W STRENGTH",
   Description = "Increase Archer and Tower damage by ~<1~>",
   ForUnit = {"unit-human-blacksmith"} } )
 
 DefineButton( { Pos = 3, Level = 0, Icon = "icon-arrow3",
   Action = "research", Value = "upgrade-arrow2",
   Allowed = "check-single-research",
-  Key = "a", Hint = "UPGRADE ~!ARROW STRENGTH",
+  Key = "w", Hint = "UPGRADE ARRO~!W STRENGTH",
   Description = "Increase Archer and Tower damage by ~<1~>",
   ForUnit = {"unit-human-blacksmith"} } )
 
