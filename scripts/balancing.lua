@@ -1021,11 +1021,11 @@ local orcSalvageIcon = CIcon:New("icon-orc-town-hall-salvage")
 orcSalvageIcon.G = CPlayerColorGraphic:New("contrib/graphics/ui/orc/icon-orc-salvage-th.png", 27, 19)
 orcSalvageIcon.Frame = 0
 
-DefineButton( { Pos = 4, Level = 0, Icon = "icon-orc-town-hall-salvage",
+DefineButton( { Pos = 6, Level = 0, Icon = "icon-orc-town-hall-salvage",
   Action = "button", Value = 1,
   Description = "Salvage this town hall for gold to rebuild somewhere else.",
   Key = "v", Hint = "SAL~!VAGE",
-  ForUnit = {"unit-orc-town-hall"} } )
+   ForUnit = {"unit-orc-town-hall", "unit-orc-blackrock-spire"} } )
   
 DefineButton( { Pos = 2, Level = 1, Icon = "icon-cancel",
   Action = "button", Value = 0,
@@ -1053,11 +1053,11 @@ local humanSalvageIcon = CIcon:New("icon-human-town-hall-salvage")
 humanSalvageIcon.G = CPlayerColorGraphic:New("contrib/graphics/ui/human/icon-human-salvage-th.png", 27, 19)
 humanSalvageIcon.Frame = 0
 
-DefineButton( { Pos = 4, Level = 0, Icon = "icon-human-town-hall-salvage",
+DefineButton( { Pos = 6, Level = 0, Icon = "icon-human-town-hall-salvage",
   Action = "button", Value = 1,
   Description = "Salvage this town hall for gold to rebuild somewhere else.",
   Key = "v", Hint = "SAL~!VAGE",
-  ForUnit = {"unit-human-town-hall"} } )
+   ForUnit = {"unit-human-town-hall", "unit-human-stormwind-keep"} } )
   
 DefineButton( { Pos = 2, Level = 1, Icon = "icon-cancel",
   Action = "button", Value = 0,

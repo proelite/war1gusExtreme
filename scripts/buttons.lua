@@ -38,14 +38,14 @@ Load("scripts/orc/buttons.lua")
 
 -- general buttons -----------------------------------------------------------
 
-DefineButton( { Pos = 2, Level = 0, Icon = "icon-road",
+DefineButton( { Pos = 3, Level = 0, Icon = "icon-road",
   Action = "build", Value = "unit-road",
   Allowed = "check-no-research",
   Description = "Use shift+click and slow dragging to build entire road networks quickly.",
   Key = "r", Hint = "BUILD ~!ROAD",
   ForUnit = {"unit-orc-town-hall", "unit-human-town-hall", "unit-orc-blackrock-spire", "unit-human-stormwind-keep"} } )
 
-DefineButton( { Pos = 3, Level = 0, Icon = "icon-wall",
+DefineButton( { Pos = 4, Level = 0, Icon = "icon-wall",
   Action = "build", Value = "unit-wall",
   Key = "w", Hint = "BUILD ~!WALL",
   ForUnit = {"unit-orc-town-hall", "unit-human-town-hall", "unit-orc-blackrock-spire", "unit-human-stormwind-keep"} } )

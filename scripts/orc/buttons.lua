@@ -289,7 +289,7 @@ DefineButton( { Pos = 1, Level = 0, Icon = "icon-peon",
   Key = "e", Hint = "TRAIN P~!EON",
   ForUnit = {"unit-orc-town-hall", "unit-orc-blackrock-spire"} } )
 
-DefineButton( { Pos = 6, Level = 0, Icon = "icon-orc-tracker",
+DefineButton( { Pos = 2, Level = 0, Icon = "icon-orc-tracker",
   Action = "train-unit", Value = "unit-orc-tracker",
   Key = "t", Hint = "TRAIN ~!TRACKER",
   ForUnit = {"unit-orc-town-hall", "unit-orc-blackrock-spire"} } )
