@@ -345,14 +345,14 @@ DefineAllow("unit-human-scout", "AAAAAAAAAAAAAAAA")
 
 DefineUnitType("unit-orc-tracker", {
    Name = "Tracker",
-   Image = {"file", "contrib/graphics/units/tracker.png", "size", {32, 32}},
+   Image = {"file", "contrib/graphics/units/tracker.png", "size", {48, 48}},
    Animations = "animations-scout",
    Icon = "icon-orc-tracker",
    Costs = {"time", 60, "gold", 450},
    HitPoints = 55,
    DrawLevel = 180,
    TileSize = {1, 1},
-   BoxSize = {15, 15},
+   BoxSize = {31, 31},
    Armor = 0,
    Speed = 6,
    AnnoyComputerFactor = 120,
