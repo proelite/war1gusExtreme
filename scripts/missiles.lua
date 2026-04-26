@@ -130,6 +130,12 @@ DefineMissileType("missile-shotgun-blast",
     Class = "missile-class-point-to-point", Sleep = 1, Speed = 8, Range = 0,
     ImpactMissile = "missile-explosion", SplashFactor = 2 } )
 
+DefineMissileType("missile-ogre-smash",
+  { File = "graphics/missiles/hit.png", Size = {32, 32}, Frames = 1, NumDirections = 1,
+    DrawLevel = 0, ImpactSound = "fist attack",
+    Class = "missile-class-point-to-point-with-hit", Sleep = 1, Speed = 32, Range = 0,
+    SplashFactor = 2 } )
+
 DefineMissileType("missile-hail",
   { File = "contrib/graphics/missiles/hail.png", Size = {32, 32}, Frames = 4, NumDirections = 1,
   DrawLevel = 200, Class = "missile-class-flame-shield", Sleep = 6, Speed = 14, Range = 1 } )
