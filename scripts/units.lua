@@ -436,7 +436,7 @@ DefineDependency("unit-human-sapper", {"unit-human-barracks", "unit-human-blacks
 
 DefineUnitType("unit-orc-ogre", {
    Name = "Ogre",
-   Image = {"file", "graphics/neutral/units/ogre.png", "size", {32, 32}},
+   Image = {"file", "neutral/units/ogre.png", "size", {32, 32}},
    Animations = "animations-ogre",
    Icon = "icon-ogre",
    Costs = {"time", 300, "gold", 800, "wood", 100},
