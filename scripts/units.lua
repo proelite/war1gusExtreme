@@ -389,6 +389,51 @@ DefineUnitType("unit-orc-tracker", {
 table.insert(wc1_units.orc, "unit-orc-tracker")
 DefineAllow("unit-orc-tracker", "AAAAAAAAAAAAAAAA")
 
+DefineUnitType("unit-human-sapper", {
+   Name = "Sapper",
+   Image = {"file", "contrib/graphics/units/sapper.png", "size", {32, 32}},
+   Animations = "animations-sapper",
+   Icon = "icon-human-sapper",
+   Costs = {"time", 250, "gold", 600, "wood", 100},
+   HitPoints = 60,
+   DrawLevel = 180,
+   MaxAttackRange = 2,
+   TileSize = {1, 1},
+   BoxSize = {15, 15},
+   Armor = 1,
+   Speed = 3,
+   AnnoyComputerFactor = 150,
+   PiercingDamage = 0,
+   BasicDamage = 40,
+   Missile = "missile-shotgun-blast",
+   Priority = 55,
+   Points = 80,
+   SightRange = 5,
+   organic = true,
+   ComputerReactionRange = 3,
+   PersonReactionRange = 4,
+   Demand = 2,
+   Type = "land",
+   RightMouseAction = "attack",
+   CanAttack = true,
+   CanTargetLand = true,
+   CanTargetSea = true,
+   CanTargetAir = true,
+   SelectableByRectangle = true,
+   Sounds = {
+      "attack", "shotgun attack",
+      "selected", "human selected",
+      "acknowledge", "human acknowledge",
+      "ready", "human ready",
+      "help", "human help 3",
+      "dead", "human dead"
+   }
+})
+
+table.insert(wc1_units.human, "unit-human-sapper")
+DefineAllow("unit-human-sapper", "AAAAAAAAAAAAAAAA")
+DefineDependency("unit-human-sapper", {"unit-human-barracks", "unit-human-blacksmith"})
+
 DefineUnitType("unit-orc-warbeast", {
   Name = "Warbeast",
   Image = {"file", "contrib/graphics/units/warbeast.png", "size", {64, 64}},

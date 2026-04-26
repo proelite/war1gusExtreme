@@ -219,6 +219,10 @@ local DefineCustomIcons = function()
   humanscout.G = CPlayerColorGraphic:New("contrib/graphics/ui/human/icon-human-scout.png", 27, 19)
   humanscout.Frame = 0
 
+  local humansapper = CIcon:New("icon-human-sapper")
+  humansapper.G = CPlayerColorGraphic:New("contrib/graphics/ui/human/icon-human-sapper.png", 27, 19)
+  humansapper.Frame = 0
+
   local orctracker = CIcon:New("icon-orc-tracker")
   orctracker.G = CPlayerColorGraphic:New("contrib/graphics/ui/orc/icon-orc-tracker.png", 27, 19)
   orctracker.Frame = 0

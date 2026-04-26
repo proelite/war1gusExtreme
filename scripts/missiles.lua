@@ -127,7 +127,8 @@ DefineMissileType("missile-iceshard",
 DefineMissileType("missile-shotgun-blast",
   { File = "contrib/graphics/missiles/blast.png", Size = {32, 32}, Frames = 5, NumDirections = 9,
     DrawLevel = 200, ImpactSound = "shotgun attack",
-    Class = "missile-class-point-to-point", Sleep = 1, Speed = 6, Range = 0 } )
+    Class = "missile-class-point-to-point", Sleep = 1, Speed = 8, Range = 0,
+    ImpactMissile = "missile-explosion", SplashFactor = 2 } )
 
 DefineMissileType("missile-hail",
   { File = "contrib/graphics/missiles/hail.png", Size = {32, 32}, Frames = 4, NumDirections = 1,

@@ -445,6 +445,10 @@ DefineAnimations("animations-archer",
 		 BuildAnimations(frameNumbers_5_5_2_3,
 				 {attackspeed = 13,
 				  attacksound = "arrow attack"}))
+DefineAnimations("animations-sapper",
+       BuildAnimations(frameNumbers_5_5_2_3,
+             {attackspeed = 26,
+              attacksound = "shotgun attack"}))
 DefineAnimations("animations-spearman",
 		 BuildAnimations(frameNumbers_5_5_2_3,
 				 {attackspeed = 11,
