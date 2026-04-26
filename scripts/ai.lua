@@ -232,7 +232,7 @@ end
 --
 function AiUpgradeCatapult1()
    if (AiGetRace() == race1) then
-      return "upgrade-human-CatapultAmmo1"
+      return "upgrade-human-CannonHeatedShot"
    else
       return "upgrade-orc-CatapultAmmo1"
    end
@@ -254,7 +254,7 @@ end
 --
 function AiUpgradeCatapultSpeed1()
    if (AiGetRace() == race1) then
-      return "upgrade-human-CatapultSpeed"
+      return "upgrade-human-CannonSpeed"
    else
       return "upgrade-orc-CatapultSpeed"
    end
@@ -423,7 +423,7 @@ end
 --
 function AiCatapult()
    if (AiGetRace() == race1) then
-      return "unit-human-catapult"
+      return "unit-human-cannon"
    else
       return "unit-orc-catapult"
    end

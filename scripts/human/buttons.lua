@@ -316,9 +316,9 @@ DefineButton( { Pos = 4, Level = 0, Icon = "icon-knight",
   Key = "g", Hint = "TRAIN KNI~!GHT",
   ForUnit = {"unit-human-barracks"} } )
 
-DefineButton( { Pos = 1, Level = 0, Icon = "icon-human-catapult",
-  Action = "train-unit", Value = "unit-human-catapult",
-  Key = "c", Hint = "BUILD ~!CATAPULT",
+DefineButton( { Pos = 1, Level = 0, Icon = "icon-human-cannon",
+  Action = "train-unit", Value = "unit-human-cannon",
+  Key = "c", Hint = "BUILD ~!CANNON",
   ForUnit = {"unit-human-siege-workshop"} } )
 
 DefineButton( { Pos = 2, Level = 0, Icon = "icon-war-wagon",
@@ -327,10 +327,8 @@ DefineButton( { Pos = 2, Level = 0, Icon = "icon-war-wagon",
   Key = "w", Hint = "TRAIN ~!WAR WAGON",
   ForUnit = {"unit-human-siege-workshop"} } )
 
-DefineButton( { Pos = 6, Level = 0, Icon = "icon-human-cannon",
-  Action = "train-unit", Value = "unit-human-cannon",
-  Key = "n", Hint = "BUILD CA~!NNON",
-  ForUnit = {"unit-human-siege-workshop"} } )
+-- Keep catapult and its old data definitions intact, but remove it from the
+-- siege workshop UI in favor of cannon.
 
 DefineButton( { Pos = 1, Level = 0, Icon = "icon-conjurer",
   Action = "train-unit", Value = "unit-conjurer",

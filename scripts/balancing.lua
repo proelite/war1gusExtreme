@@ -1324,7 +1324,32 @@ DefineButton( { Pos = 3, Level = 0, Icon = "icon-human-CatapultAmmo1",
   Allowed = "check-single-research",
   Key = "e", Hint = "RESEARCH ST~!EEL SHRAPNELS",
   Description = "Increase Catapul damage by ~<20~>",
-   ForUnit = {"unit-human-siege-workshop"} } )
+    ForUnit = {"unit-human-catapult"} } )
+
+local humanCannonHeatedShotIcon = CIcon:New("icon-human-CannonHeatedShot")
+humanCannonHeatedShotIcon.G = CPlayerColorGraphic:New("contrib/graphics/ui/human/icon-human-catapult-steel-upg.png", 26, 19)
+humanCannonHeatedShotIcon.Frame = 0
+
+local humanCannonHeatedShotUpgrade = CUpgrade:New("upgrade-human-CannonHeatedShot")
+humanCannonHeatedShotUpgrade.Icon = humanCannonHeatedShotIcon
+humanCannonHeatedShotUpgrade.Costs[0] = 700 -- time
+humanCannonHeatedShotUpgrade.Costs[1] = 750 -- gold
+humanCannonHeatedShotUpgrade.Costs[2] = 400 -- wood
+
+DefineModifier("upgrade-human-CannonHeatedShot",
+   {"Level", 1},
+   {"PiercingDamage", 20},
+   {"apply-to", "unit-human-cannon"})
+
+DefineAllow("upgrade-human-CannonHeatedShot", "AAAAAAAAAAAAAAAA")
+DefineDependency("upgrade-human-CannonHeatedShot", { "unit-human-siege-workshop"} )
+
+DefineButton( { Pos = 3, Level = 0, Icon = "icon-human-CannonHeatedShot",
+   Action = "research", Value = "upgrade-human-CannonHeatedShot",
+   Allowed = "check-single-research",
+   Key = "e", Hint = "RESEARCH H~!EATED SHOT",
+   Description = "Increase Cannon damage by ~<20~>",
+    ForUnit = {"unit-human-siege-workshop"} } )
 
 
 -----------------------------------------------------------------------
@@ -1661,7 +1686,7 @@ DefineButton( { Pos = 4, Level = 0, Icon = "icon-human-CatapultSpeed",
   Action = "research", Value = "upgrade-human-CatapultSpeed",
   Allowed = "check-single-research",
   Key = "s", Hint = "UPGRADE CATAPULT ~!SPEED",
-   ForUnit = {"unit-human-siege-workshop"} } )
+   ForUnit = {"unit-human-catapult"} } )
 
 DefineDependency("upgrade-human-CatapultSpeed", { "unit-human-siege-workshop"} )
 
@@ -1670,6 +1695,36 @@ DefineButton( { Pos = 1, Level = 0, Icon = "icon-human-CatapultSpeed",
   Key = "m", Hint = "~!MOVE",
   Allowed = "check-upgrade", AllowArg = {"upgrade-human-CatapultSpeed"},
   ForUnit = {"unit-human-catapult"} } )
+
+local humanCannonSpeedIcon = CIcon:New("icon-human-CannonSpeed")
+humanCannonSpeedIcon.G = CPlayerColorGraphic:New("contrib/graphics/ui/human/icon-human-catapult-speed.png", 27, 19)
+humanCannonSpeedIcon.Frame = 0
+
+local humanCannonSpeedUpgrade = CUpgrade:New("upgrade-human-CannonSpeed")
+humanCannonSpeedUpgrade.Icon = humanCannonSpeedIcon
+humanCannonSpeedUpgrade.Costs[0] = 700 -- time
+humanCannonSpeedUpgrade.Costs[1] = 750 -- gold
+humanCannonSpeedUpgrade.Costs[2] = 400 -- wood
+
+DefineModifier("upgrade-human-CannonSpeed",
+   {"Level", 1},
+   {"Speed", 1},
+   {"apply-to", "unit-human-cannon"})
+
+DefineAllow("upgrade-human-CannonSpeed", "AAAAAAAAAAAAAAAA")
+DefineDependency("upgrade-human-CannonSpeed", { "unit-human-siege-workshop"} )
+
+DefineButton( { Pos = 4, Level = 0, Icon = "icon-human-CannonSpeed",
+   Action = "research", Value = "upgrade-human-CannonSpeed",
+   Allowed = "check-single-research",
+   Key = "s", Hint = "UPGRADE CANNON ~!SPEED",
+    ForUnit = {"unit-human-siege-workshop"} } )
+
+DefineButton( { Pos = 1, Level = 0, Icon = "icon-human-CannonSpeed",
+   Action = "move",
+   Key = "m", Hint = "~!MOVE",
+   Allowed = "check-upgrade", AllowArg = {"upgrade-human-CannonSpeed"},
+   ForUnit = {"unit-human-cannon"} } )
 
 -----------------------------------------------------------------------
 -- Orc Catapult speed upgrades
