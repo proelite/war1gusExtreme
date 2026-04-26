@@ -415,6 +415,15 @@ local catapult_anim = BuildAnimations(
 DefineAnimations("animations-human-catapult", catapult_anim)
 DefineAnimations("animations-orc-catapult", catapult_anim)
 
+-- Cannon: row0=idle, row1-2=move, row3-4-6=death, row5=fire (5 dirs × 32px = 160w, 7 rows = 224h)
+local cannon_anim = BuildAnimations(
+   {{5, 10}, {25}, {15, 20, 30}},
+   { attackspeed = 25,
+     coolofftime = 49,
+     attacksound = "cannon2" }
+)
+DefineAnimations("animations-human-cannon", cannon_anim)
+
 local anim_rider = BuildAnimations(frameNumbers_5_5_5_5, {})
 DefineAnimations("animations-knight", anim_rider)
 DefineAnimations("animations-raider", anim_rider)

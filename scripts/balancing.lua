@@ -221,11 +221,15 @@ DefineButton( { Pos = 3, Level = 0, Icon = "icon-human-CatapultAmmo1",
 local attackGroundIcon = CIcon:New("icon-attack-ground")
 attackGroundIcon.G = CPlayerColorGraphic:New("contrib/graphics/ui/icon-attack-ground.png", 27, 19)
 attackGroundIcon.Frame = 0
+
+local humanCannonIcon = CIcon:New("icon-human-cannon")
+humanCannonIcon.G = CPlayerColorGraphic:New("contrib/graphics/ui/human/icon-human-cannon.png", 27, 19)
+humanCannonIcon.Frame = 0
   
  DefineButton( { Pos = 5, Level = 0, Icon = "icon-attack-ground",
   Action = "attack-ground",
   Key = "d", Hint = "ATTACK GROUN~!D",
-  ForUnit = {"unit-orc-catapult", "unit-human-catapult"}})
+  ForUnit = {"unit-orc-catapult", "unit-human-catapult", "unit-human-cannon"}})
 
 local HoldFireButtonAction = function(unit)
 TransformUnit(unit, "unit-".. GetPlayerData(GetThisPlayer(), "RaceName").. "-catapult-noattack") 
@@ -1392,7 +1396,7 @@ DefineButton( { Pos = 6, Level = 0, Icon = "icon-human-explore",
 DefineButton( { Pos = 4, Level = 0, Icon = "icon-human-standground",
   Action = "stand-ground",
   Key = "t", Hint = "S~!TAND GROUND",
-   ForUnit = {"unit-footman", "unit-archer", "unit-human-sapper", "unit-knight", "unit-human-scout", "unit-human-catapult", "unit-human-catapult-noattack", "unit-human-war-wagon", "unit-water-elemental", "unit-lothar", "human-group", "unit-brigand", "unit-ogre"}}) 
+   ForUnit = {"unit-footman", "unit-archer", "unit-human-sapper", "unit-knight", "unit-human-scout", "unit-human-catapult", "unit-human-catapult-noattack", "unit-human-war-wagon", "unit-human-cannon", "unit-water-elemental", "unit-lothar", "human-group", "unit-brigand", "unit-ogre"}})
   
 -----------------------------------------------------------------------
 -- New Orders Buttons Orcs

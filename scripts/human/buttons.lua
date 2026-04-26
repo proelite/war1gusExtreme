@@ -43,7 +43,7 @@ DefineButton( { Pos = 1, Level = 0, Icon = "icon-move-peasant",
   Action = "move",
   Key = "m", Hint = "~!MOVE",
   ForUnit = {"unit-footman", "unit-knight", "unit-archer",
-    "unit-human-sapper", "unit-human-catapult", "unit-human-catapult-noattack", "unit-human-war-wagon", "unit-human-scout", "unit-peasant",
+    "unit-human-sapper", "unit-human-catapult", "unit-human-catapult-noattack", "unit-human-cannon", "unit-human-war-wagon", "unit-human-scout", "unit-peasant",
     "unit-water-elemental", "unit-scorpion",
     "unit-cleric", "unit-conjurer", "unit-medivh", "unit-lothar",
     "human-group", "unit-brigand", "unit-ogre", "unit-sorceress" } } )
@@ -65,7 +65,7 @@ DefineButton( { Pos = 2, Level = 0, Icon = "icon-human-shield1",
   Key = "s", Hint = "~!STOP",
   ForUnit = {"unit-footman", "unit-archer",
     "unit-human-sapper", "unit-knight", "unit-human-scout",
-    "unit-human-catapult", "unit-human-catapult-noattack", "unit-human-war-wagon", "unit-peasant",
+    "unit-human-catapult", "unit-human-catapult-noattack", "unit-human-cannon", "unit-human-war-wagon", "unit-peasant",
     "unit-water-elemental", "unit-scorpion",
     "unit-cleric", "unit-conjurer", "unit-medivh", "unit-lothar",
     "human-group", "unit-brigand", "unit-ogre", "unit-sorceress"} } )
@@ -92,7 +92,7 @@ DefineButton( { Pos = 3, Level = 0, Icon = "icon-sword1",
   ForUnit = {"unit-footman", "unit-archer",
     "unit-human-sapper", "unit-knight", "unit-human-scout",
     "unit-scorpion", "unit-lothar",
-    "unit-human-catapult", "unit-human-war-wagon", "human-group", "unit-brigand", "unit-ogre"} } )
+    "unit-human-catapult", "unit-human-cannon", "unit-human-war-wagon", "human-group", "unit-brigand", "unit-ogre"} } )
 
 DefineButton( { Pos = 3, Level = 0, Icon = "icon-sword2",
   Action = "attack",
@@ -325,6 +325,11 @@ DefineButton( { Pos = 2, Level = 0, Icon = "icon-war-wagon",
   Action = "train-unit", Value = "unit-human-war-wagon",
   Allowed = "check-units-or", AllowArg = {"unit-human-tower"},
   Key = "w", Hint = "TRAIN ~!WAR WAGON",
+  ForUnit = {"unit-human-siege-workshop"} } )
+
+DefineButton( { Pos = 5, Level = 0, Icon = "icon-human-cannon",
+  Action = "train-unit", Value = "unit-human-cannon",
+  Key = "n", Hint = "BUILD CA~!NNON",
   ForUnit = {"unit-human-siege-workshop"} } )
 
 DefineButton( { Pos = 1, Level = 0, Icon = "icon-conjurer",

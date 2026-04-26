@@ -605,6 +605,56 @@ DefineUnitType("unit-human-war-wagon", {
 table.insert(wc1_units.human, "unit-human-war-wagon")
 DefineDependency("unit-human-war-wagon", {"unit-human-siege-workshop", "unit-human-tower"})
 
+DefineUnitType("unit-human-cannon", {
+   Name = "Cannon",
+   Image = {"file", "contrib/graphics/units/cannon.png", "size", {32, 32}},
+   Animations = "animations-human-cannon",
+   Icon = "icon-human-cannon",
+   Costs = {"time", 400, "gold", 800, "wood", 400},
+   HitPoints = 150,
+   DrawLevel = 60,
+   MaxAttackRange = 9,
+   MinAttackRange = 2,
+   TileSize = {1, 1},
+   BoxSize = {15, 15},
+   Armor = 0,
+   Speed = 2,
+   AnnoyComputerFactor = 150,
+   PiercingDamage = 0,
+   BasicDamage = 120,
+   Missile = "missile-cannonball",
+   Priority = 60,
+   Points = 150,
+   SightRange = 5,
+   RepairHp = 4,
+   RepairCosts = {"gold", 1, "wood", 1},
+   PoisonDrain = 0,
+   organic = false,
+   Corpse = nil,
+   ComputerReactionRange = 5,
+   PersonReactionRange = 6,
+   Demand = 3,
+   Type = "land",
+   RightMouseAction = "attack",
+   CanAttack = true,
+   GroundAttack = true,
+   CanTargetLand = true,
+   CanTargetSea = true,
+   CanTargetAir = false,
+   SelectableByRectangle = true,
+   Sounds = {
+      "attack", "human acknowledge",
+      "selected", "human selected",
+      "acknowledge", "human acknowledge",
+      "ready", "human ready",
+      "help", "human help 3",
+      "dead", "human dead"
+   }
+})
+table.insert(wc1_units.human, "unit-human-cannon")
+DefineAllow("unit-human-cannon", "AAAAAAAAAAAAAAAA")
+DefineDependency("unit-human-cannon", {"unit-human-siege-workshop"})
+
 local dead_bodies = { Name = "Dead Body",
   Image = {"file", "neutral/units/dead_bodies.png", "size", {32, 32}},
   Animations = "animations-human-dead-body", Icon = "icon-peasant",

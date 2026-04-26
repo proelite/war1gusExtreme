@@ -128,6 +128,7 @@ MakeSound("tree chopping",
 
 MakeSound("catapult attack", "missiles/catapult_rock_fired.wav")
 MakeSound("catapult hit", "missiles/catapult_fire_explosion.wav")
+MakeSound("cannon2", "cannon2.wav")
 MakeSound("fireball attack", "missiles/fireball.wav")
 MakeSound("arrow attack", "missiles/arrow,spear.wav")
 MakeSound("arrow hit", "missiles/arrow,spear_hit.wav")
