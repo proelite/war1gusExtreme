@@ -436,7 +436,7 @@ DefineDependency("unit-human-sapper", {"unit-human-barracks", "unit-human-blacks
 
 DefineUnitType("unit-orc-ogre", {
    Name = "Ogre",
-   Image = {"file", "neutral/units/ogre.png", "size", {32, 32}},
+   Image = {"file", "neutral/units/ogre.png", "size", {48, 48}},
    Animations = "animations-ogre",
    Icon = "icon-ogre",
    Costs = {"time", 300, "gold", 800, "wood", 100},
@@ -444,7 +444,7 @@ DefineUnitType("unit-orc-ogre", {
    DrawLevel = 180,
    MaxAttackRange = 1,
    TileSize = {1, 1},
-   BoxSize = {24, 24},
+   BoxSize = {32, 32},
    Armor = 3,
    Speed = 2,
    AnnoyComputerFactor = 150,
