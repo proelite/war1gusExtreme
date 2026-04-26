@@ -686,17 +686,13 @@ end
 -----------------------------------------------------------------------
 -- Orcs can heal at their temple
 -----------------------------------------------------------------------
-DefineMissileType("missile-temple-heal",
-  { File = "missiles/healing.png", Size = {16, 16}, Frames = 6, NumDirections = 1,
-    DrawLevel = 250, Class = "missile-class-stay", Sleep = 10, Speed = 0, Range = 1 } )
-
 DefineUnitType("unit-orc-temple", {
    OnEachSecond = function (temple)
       local freq = GetUnitVariable(temple, "RegenerationFrequency")
       local doheal = freq <= 1
       local dodraw = (freq % 2 == 1)
       if dodraw then
-         for i,unit in ipairs(GetUnitsAroundUnit(temple, 2, false)) do
+         for i,unit in ipairs(GetUnitsAroundUnit(temple, 4, false)) do
             if GetUnitVariable(unit, "organic") then
                local hp = GetUnitVariable(unit, "HitPoints")
                local maxhp = GetUnitVariable(unit, "HitPoints", "Max")
@@ -704,7 +700,7 @@ DefineUnitType("unit-orc-temple", {
                   if doheal then
                      SetUnitVariable(unit, "HitPoints", hp + 1)
                   end
-                  CreateMissile("missile-temple-heal", {8, 8}, {8, 8}, unit, unit, false)
+                  CreateMissile("missile-heal", {8, 8}, {8, 8}, unit, unit, false)
                end
             end
          end
@@ -724,30 +720,29 @@ DefineUnitType("unit-orc-temple", {
 DefineUnitType("unit-human-church", {
    OnEachSecond = function (church)
       local freq = GetUnitVariable(church, "RegenerationFrequency")
-      local doheal = freq <= 1
+      local doManaRegen = freq <= 1
       local dodraw = (freq % 2 == 1)
       if dodraw then
-         for i,unit in ipairs(GetUnitsAroundUnit(church, 2, false)) do
+         for i,unit in ipairs(GetUnitsAroundUnit(church, 4, false)) do
             if GetUnitVariable(unit, "organic") then
                local hp = GetUnitVariable(unit, "Mana")
                local maxhp = GetUnitVariable(unit, "Mana", "Max")
                if hp < maxhp then
-                  if doheal then
+                  if doManaRegen then
                      SetUnitVariable(unit, "Mana", hp + 1)
                   end
-                  CreateMissile("missile-temple-heal", {8, 8}, {8, 8}, unit, unit, false)
+                  CreateMissile("missile-heal", {8, 8}, {8, 8}, unit, unit, false)
                end
             end
          end
       end
-      if doheal then
+      if doManaRegen then
          SetUnitVariable(church, "RegenerationFrequency", 3)
       else
          SetUnitVariable(church, "RegenerationFrequency", freq - 1)
       end
    end
 })
-
 
 -----------------------------------------------------------------------
 -- Orc watch tower

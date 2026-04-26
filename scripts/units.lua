@@ -486,7 +486,31 @@ DefineUnitType("unit-human-war-wagon", {
     "help", "human help 1",
     "dead", "human dead"
   },
-  SelectableByRectangle = true
+  SelectableByRectangle = true,
+  OnEachSecond = function (war_wagon)
+      local freq = GetUnitVariable(war_wagon, "RepairFrequency")
+      local doRepair = freq <= 1
+      local dodraw = (freq % 2 == 1)
+      if dodraw then
+         for i,unit in ipairs(GetUnitsAroundUnit(war_wagon, 1, false)) do
+            if not GetUnitVariable(unit, "organic") then
+               local hp = GetUnitVariable(unit, "HitPoints")
+               local maxhp = GetUnitVariable(unit, "HitPoints", "Max")
+               if hp < maxhp then
+                  if doRepair then
+                     SetUnitVariable(unit, "HitPoints", hp + 1)
+                  end
+                  CreateMissile("missile-heal", {8, 8}, {8, 8}, unit, unit, false)
+               end
+            end
+         end
+      end
+      if doRepair then
+         SetUnitVariable(war_wagon, "RepairFrequency", 3)
+      else
+         SetUnitVariable(war_wagon, "RepairFrequency", freq - 1)
+      end
+   end
 })
 table.insert(wc1_units.human, "unit-human-war-wagon")
 DefineDependency("unit-human-war-wagon", {"unit-human-siege-workshop", "unit-human-tower"})
