@@ -544,7 +544,7 @@ DefineUnitType("unit-human-war-wagon", {
   TileSize = {1, 1},
   BoxSize = {31, 31},
   SightRange = 6,
-  Speed = 2,
+  Speed = 3,
   organic = false,
   ComputerReactionRange = 4,
   PersonReactionRange = 6,
@@ -612,7 +612,7 @@ DefineUnitType("unit-human-cannon", {
    Icon = "icon-human-cannon",
    Costs = {"time", 400, "gold", 800, "wood", 400},
    HitPoints = 150,
-   DrawLevel = 60,
+   DrawLevel = 180,
    MaxAttackRange = 9,
    MinAttackRange = 2,
    TileSize = {1, 1},
@@ -624,7 +624,7 @@ DefineUnitType("unit-human-cannon", {
    BasicDamage = 120,
    Missile = "missile-cannonball",
    Priority = 60,
-   Points = 150,
+   Points = 160,
    SightRange = 5,
    RepairHp = 4,
    RepairCosts = {"gold", 1, "wood", 1},
@@ -653,7 +653,6 @@ DefineUnitType("unit-human-cannon", {
 })
 table.insert(wc1_units.human, "unit-human-cannon")
 DefineAllow("unit-human-cannon", "AAAAAAAAAAAAAAAA")
-DefineDependency("unit-human-cannon", {"unit-human-siege-workshop"})
 
 local dead_bodies = { Name = "Dead Body",
   Image = {"file", "neutral/units/dead_bodies.png", "size", {32, 32}},

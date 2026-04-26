@@ -226,7 +226,7 @@ local humanCannonIcon = CIcon:New("icon-human-cannon")
 humanCannonIcon.G = CPlayerColorGraphic:New("contrib/graphics/ui/human/icon-human-cannon.png", 27, 19)
 humanCannonIcon.Frame = 0
   
- DefineButton( { Pos = 5, Level = 0, Icon = "icon-attack-ground",
+DefineButton( { Pos = 5, Level = 0, Icon = "icon-attack-ground",
   Action = "attack-ground",
   Key = "d", Hint = "ATTACK GROUN~!D",
   ForUnit = {"unit-orc-catapult", "unit-human-catapult", "unit-human-cannon"}})
