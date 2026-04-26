@@ -132,6 +132,7 @@ MakeSound("fireball attack", "missiles/fireball.wav")
 MakeSound("arrow attack", "missiles/arrow,spear.wav")
 MakeSound("arrow hit", "missiles/arrow,spear_hit.wav")
 MakeSound("fist attack", "missiles/fist_attack.wav")
+MakeSound("shotgun attack", "contrib/sounds/human/shotgun.wav.gz")
 MakeSound("sword attack",
   { "missiles/sword_attack_1.wav",
     "missiles/sword_attack_2.wav",
