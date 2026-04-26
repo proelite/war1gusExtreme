@@ -434,6 +434,52 @@ table.insert(wc1_units.human, "unit-human-sapper")
 DefineAllow("unit-human-sapper", "AAAAAAAAAAAAAAAA")
 DefineDependency("unit-human-sapper", {"unit-human-barracks", "unit-human-blacksmith"})
 
+DefineUnitType("unit-orc-ogre", {
+   Name = "Ogre",
+   Image = {"file", "graphics/neutral/units/ogre.png", "size", {32, 32}},
+   Animations = "animations-ogre",
+   Icon = "icon-ogre",
+   Costs = {"time", 300, "gold", 800, "wood", 100},
+   HitPoints = 100,
+   DrawLevel = 180,
+   MaxAttackRange = 1,
+   TileSize = {1, 1},
+   BoxSize = {24, 24},
+   Armor = 3,
+   Speed = 2,
+   AnnoyComputerFactor = 150,
+   PiercingDamage = 4,
+   BasicDamage = 24,
+   Missile = "missile-cannonball",
+   Impact = {"general", "missile-hit"},
+   Priority = 60,
+   Points = 100,
+   SightRange = 4,
+   organic = true,
+   ComputerReactionRange = 3,
+   PersonReactionRange = 4,
+   Demand = 3,
+   Type = "land",
+   RightMouseAction = "attack",
+   CanAttack = true,
+   CanTargetLand = true,
+   CanTargetSea = true,
+   CanTargetAir = true,
+   SelectableByRectangle = true,
+   Sounds = {
+      "attack", "fist attack",
+      "selected", "orc selected",
+      "acknowledge", "orc acknowledge",
+      "ready", "orc ready",
+      "help", "orc help 3",
+      "dead", "orc dead"
+   }
+})
+
+table.insert(wc1_units.orc, "unit-orc-ogre")
+DefineAllow("unit-orc-ogre", "AAAAAAAAAAAAAAAA")
+DefineDependency("unit-orc-ogre", {"unit-orc-barracks", "unit-orc-blacksmith"})
+
 DefineUnitType("unit-orc-warbeast", {
   Name = "Warbeast",
   Image = {"file", "contrib/graphics/units/warbeast.png", "size", {64, 64}},

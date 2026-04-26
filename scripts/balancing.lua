@@ -628,12 +628,12 @@ DefineUnitType("unit-orc-watch-tower", {})
 DefineUnitType("unit-human-guard-tower", {})
 
 local upgrades = {
-   {orc = {"axe1", {"grunt", "raider", "orc-tracker"}, "axe2"},
+      {orc = {"axe1", {"grunt", "orc-ogre", "raider", "orc-tracker"}, "axe2"},
    human = {"sword1", {"footman", "knight", "human-scout"}, "sword2"},
     cost = {   1200,   750,     400,     0,     0,     0,     0},
 	modifier = {"PiercingDamage", -1}, -- == 2-1 =+1 this means the benefit is +1, instead +2
     },
-   {orc = {"axe2", {"grunt", "raider", "orc-tracker"}, "axe3"},
+      {orc = {"axe2", {"grunt", "orc-ogre", "raider", "orc-tracker"}, "axe3"},
    human = {"sword2", {"footman", "knight", "human-scout"}, "sword3"},
     cost = {   1200,   1500,     800,     0,     0,     0,     0},
 	modifier = {"PiercingDamage", -1},
@@ -648,12 +648,12 @@ local upgrades = {
     cost = {   1400,   1500,     800,     0,     0,     0,     0},
     },
 
-   {orc = {"orc-shield1", {"grunt", "raider"}, "orc-shield2"},
+      {orc = {"orc-shield1", {"grunt", "orc-ogre", "raider"}, "orc-shield2"},
     human = {"human-shield1", {"footman", "knight"}, "human-shield2"},
     cost = {   1200,   750, 	400,     0,     0,     0,     0},
 	modifier = {"Armor", -1},
    },  
-   {orc = {"orc-shield2", {"grunt", "raider"}, "orc-shield3"},
+      {orc = {"orc-shield2", {"grunt", "orc-ogre", "raider"}, "orc-shield3"},
     human = {"human-shield2", {"footman", "knight"}, "human-shield3"},
     cost = {   1200,   1500,     800,     0,     0,     0,     0}, 
 	modifier = {"Armor", -1},
@@ -1416,17 +1416,17 @@ orcHoldfire.Frame = 0
 DefineButton( { Pos = 5, Level = 0, Icon = "icon-orc-patrol",
   Action = "patrol",
   Key = "r", Hint = "PAT~!ROL",
-   ForUnit = {"unit-grunt", "unit-spearman", "unit-raider", "unit-orc-tracker", "unit-orc-warbeast", "unit-daemon", "unit-spider", "unit-the-dead", "unit-garona", "unit-griselda", "orc-group"}}) 
+   ForUnit = {"unit-grunt", "unit-orc-ogre", "unit-spearman", "unit-raider", "unit-orc-tracker", "unit-orc-warbeast", "unit-daemon", "unit-spider", "unit-the-dead", "unit-garona", "unit-griselda", "orc-group"}}) 
 
 DefineButton( { Pos = 6, Level = 0, Icon = "icon-orc-explore",
   Action = "explore",
   Key = "e", Hint = "~!EXPLORE",
-   ForUnit = {"unit-grunt", "unit-spearman", "unit-raider", "unit-orc-tracker", "unit-orc-warbeast", "unit-daemon", "unit-spider", "unit-the-dead", "unit-garona", "unit-griselda", "orc-group"}}) 
+   ForUnit = {"unit-grunt", "unit-orc-ogre", "unit-spearman", "unit-raider", "unit-orc-tracker", "unit-orc-warbeast", "unit-daemon", "unit-spider", "unit-the-dead", "unit-garona", "unit-griselda", "orc-group"}}) 
 
 DefineButton( { Pos = 4, Level = 0, Icon = "icon-orc-standground",
   Action = "stand-ground",
   Key = "t", Hint = "S~!TAND GROUND",
-   ForUnit = {"unit-grunt", "unit-spearman", "unit-raider", "unit-orc-tracker", "unit-orc-warbeast", "unit-orc-catapult","unit-orc-catapult-noattack", "unit-daemon", "unit-the-dead", "unit-garona", "unit-griselda", "orc-group"}}) 
+   ForUnit = {"unit-grunt", "unit-orc-ogre", "unit-spearman", "unit-raider", "unit-orc-tracker", "unit-orc-warbeast", "unit-orc-catapult","unit-orc-catapult-noattack", "unit-daemon", "unit-the-dead", "unit-garona", "unit-griselda", "orc-group"}}) 
 
 -----------------------------------------------------------------------
 -- Spider Web skill
@@ -2117,23 +2117,22 @@ DefineUnitType("unit-brigand", {
 })
 
 DefineUnitType("unit-ogre", {
-	Speed = 3,
+       Speed = 3,
     HitPoints = 100,
     Demand = 3,
-	Armor = 0, 
+       Armor = 0, 
     BasicDamage = 29,
 })
 
 DefineAnimations("animations-ogre",
-		 BuildAnimations(GetFrameNumbers(5, {5, 5, 5}),
-				 {attackspeed = 10,
-				 coolofftime = 50,
-				 attacksound = "fist attack"}))
+                BuildAnimations(GetFrameNumbers(5, {5, 5, 5}),
+                                {attackspeed = 10,
+                                coolofftime = 50,
+                                attacksound = "fist attack"}))
 
 DefineAllow("unit-ruin", "AAAAAAAAAAAAAAAA")
 DefineAllow("unit-brigand", "AAAAAAAAAAAAAAAA")
 DefineAllow("unit-ogre", "AAAAAAAAAAAAAAAA")
-
 -----------------------------------------------------------------------
 -- Low health sprites
 -----------------------------------------------------------------------

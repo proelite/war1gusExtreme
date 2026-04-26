@@ -42,7 +42,7 @@ DefineUnitType("unit-griselda", {})
 DefineButton( { Pos = 1, Level = 0, Icon = "icon-move-peon",
   Action = "move",
   Key = "m", Hint = "~!MOVE",
-  ForUnit = {"unit-grunt", "unit-raider", "unit-orc-tracker", "unit-spearman", "unit-orc-warbeast",
+  ForUnit = {"unit-grunt", "unit-orc-ogre", "unit-raider", "unit-orc-tracker", "unit-spearman", "unit-orc-warbeast",
     "unit-orc-catapult", "unit-orc-catapult-noattack", "unit-peon",
     "unit-daemon", "unit-spider", "unit-the-dead",
     "unit-necrolyte", "unit-warlock", "unit-garona", "unit-griselda",
@@ -63,7 +63,7 @@ DefineButton( { Pos = 1, Level = 0, Icon = "icon-wolves2",
 DefineButton( { Pos = 2, Level = 0, Icon = "icon-orc-shield1",
   Action = "stop",
   Key = "s", Hint = "~!STOP",
-  ForUnit = {"unit-grunt", "unit-spearman", "unit-orc-tracker", "unit-orc-warbeast",
+  ForUnit = {"unit-grunt", "unit-orc-ogre", "unit-spearman", "unit-orc-tracker", "unit-orc-warbeast",
     "unit-raider",
     "unit-orc-catapult", "unit-orc-catapult-noattack", "unit-peon", "unit-the-dead",
     "unit-daemon", "unit-spider",
@@ -74,7 +74,7 @@ DefineButton( { Pos = 2, Level = 0, Icon = "icon-orc-shield2",
   Action = "stop",
   Allowed = "check-upgrade", AllowArg = {"upgrade-orc-shield1"},
   Key = "s", Hint = "~!STOP",
-  ForUnit = {"unit-grunt", "unit-spearman",
+  ForUnit = {"unit-grunt", "unit-orc-ogre", "unit-spearman",
     "unit-raider",
     "unit-orc-catapult"}} )
 
@@ -82,14 +82,14 @@ DefineButton( { Pos = 2, Level = 0, Icon = "icon-orc-shield3",
   Action = "stop",
   Allowed = "check-upgrade", AllowArg = {"upgrade-orc-shield2"},
   Key = "s", Hint = "~!STOP",
-  ForUnit = {"unit-grunt", "unit-spearman",
+  ForUnit = {"unit-grunt", "unit-orc-ogre", "unit-spearman",
     "unit-raider",
     "unit-orc-catapult"}} )
 
 DefineButton( { Pos = 3, Level = 0, Icon = "icon-axe1",
   Action = "attack",
   Key = "a", Hint = "~!ATTACK",
-  ForUnit = {"unit-grunt", "unit-spearman", "unit-orc-tracker", "unit-orc-warbeast",
+  ForUnit = {"unit-grunt", "unit-orc-ogre", "unit-spearman", "unit-orc-tracker", "unit-orc-warbeast",
     "unit-raider",
     "unit-daemon", "unit-spider", "unit-the-dead",
     "unit-orc-catapult", "orc-group"} } )
@@ -98,7 +98,7 @@ DefineButton( { Pos = 3, Level = 0, Icon = "icon-axe2",
   Action = "attack",
   Allowed = "check-upgrade", AllowArg = {"upgrade-axe1"},
   Key = "a", Hint = "~!ATTACK",
-  ForUnit = {"unit-grunt", "unit-spearman", "unit-orc-tracker",
+  ForUnit = {"unit-grunt", "unit-orc-ogre", "unit-spearman", "unit-orc-tracker",
     "unit-raider",
     "unit-orc-catapult"} } )
 
@@ -106,7 +106,7 @@ DefineButton( { Pos = 3, Level = 0, Icon = "icon-axe3",
   Action = "attack",
   Allowed = "check-upgrade", AllowArg = {"upgrade-axe2"},
   Key = "a", Hint = "~!ATTACK",
-  ForUnit = {"unit-grunt", "unit-spearman", "unit-orc-tracker",
+  ForUnit = {"unit-grunt", "unit-orc-ogre", "unit-spearman", "unit-orc-tracker",
     "unit-raider",
     "unit-orc-catapult"} } )
 
@@ -306,6 +306,11 @@ DefineButton( { Pos = 2, Level = 0, Icon = "icon-spearman",
   Key = "s", Hint = "TRAIN ~!SPEARMAN",
   ForUnit = {"unit-orc-barracks"} } )
 
+DefineButton( { Pos = 3, Level = 0, Icon = "icon-ogre",
+  Action = "train-unit", Value = "unit-orc-ogre",
+  Key = "o", Hint = "TRAIN ~!OGRE",
+  ForUnit = {"unit-orc-barracks"} } )
+
 DefineButton( { Pos = 4, Level = 0, Icon = "icon-raider",
   Action = "train-unit", Value = "unit-raider",
   Key = "r", Hint = "TRAIN ~!RAIDER",
@@ -338,28 +343,28 @@ DefineButton( { Pos = 1, Level = 0, Icon = "icon-axe2",
   Action = "research", Value = "upgrade-axe1",
   Allowed = "check-single-research",
   Key = "a", Hint = "UPGRADE ~!AXE STRENGTH",
-  Description = "Increase Grunts and Riders damage by ~<1~>", 
+  Description = "Increase Grunts, Ogres and Riders damage by ~<1~>", 
   ForUnit = {"unit-orc-blacksmith"} } )
 
 DefineButton( { Pos = 1, Level = 0, Icon = "icon-axe3",
   Action = "research", Value = "upgrade-axe2",
   Allowed = "check-single-research",
   Key = "a", Hint = "UPGRADE ~!AXE STRENGTH",
-  Description = "Increase Grunts and Riders damage by ~<1~>", 
+  Description = "Increase Grunts, Ogres and Riders damage by ~<1~>", 
   ForUnit = {"unit-orc-blacksmith"} } )
 
 DefineButton( { Pos = 2, Level = 0, Icon = "icon-orc-shield2",
   Action = "research", Value = "upgrade-orc-shield1",
   Allowed = "check-single-research",
   Key = "s", Hint = "UPGRADE ~!SHIELD STRENGTH",
-  Description = "Increase Grunts and Riders armor by ~<1~>", 
+  Description = "Increase Grunts, Ogres and Riders armor by ~<1~>", 
   ForUnit = {"unit-orc-blacksmith"} } )
 
 DefineButton( { Pos = 2, Level = 0, Icon = "icon-orc-shield3",
   Action = "research", Value = "upgrade-orc-shield2",
   Allowed = "check-single-research",
   Key = "s", Hint = "UPGRADE ~!SHIELD STRENGTH",
-  Description = "Increase Grunts and Riders armor by ~<1~>", 
+  Description = "Increase Grunts, Ogres and Riders armor by ~<1~>", 
   ForUnit = {"unit-orc-blacksmith"} } )
 
 DefineButton( { Pos = 3, Level = 0, Icon = "icon-spear2",
