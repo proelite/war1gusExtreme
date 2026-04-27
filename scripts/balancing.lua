@@ -1572,6 +1572,58 @@ DefineAllow("unit-orc-first-town-hall", "AAAAAAAAAAAAAAAA")
 -- Human building armor upgrades
 -----------------------------------------------------------------------
 
+local humanFortificationHealthIcon1 = CIcon:New("icon-human-fortification-health1")
+humanFortificationHealthIcon1.G = CGraphic:New("contrib/graphics/ui/human/icon-human-fortification-health1.png", 27, 19)
+humanFortificationHealthIcon1.Frame = 0
+
+local humanFortificationHealthUpgrade1 = CUpgrade:New("upgrade-human-fortification-health1")
+humanFortificationHealthUpgrade1.Icon = humanFortificationHealthIcon1
+humanFortificationHealthUpgrade1.Costs[0] = 700 -- time
+humanFortificationHealthUpgrade1.Costs[1] = 750 -- gold
+humanFortificationHealthUpgrade1.Costs[2] = 400 -- wood
+
+DefineModifier("upgrade-human-fortification-health1",
+   {"Level", 1},
+   {"HitPoints", 50},
+   {"apply-to", "unit-human-guard-tower"},
+   {"apply-to", "unit-wall"})
+
+DefineAllow("upgrade-human-fortification-health1", "AAAAAAAAAAAAAAAA")
+
+DefineButton( { Pos = 1, Level = 0, Icon = "icon-human-fortification-health1",
+   Action = "research", Value = "upgrade-human-fortification-health1",
+   Allowed = "check-single-research",
+   Key = "f", Hint = "RESEARCH ~!FORTIFICATION",
+   Description = "Increase Guard Tower and Wall hit points by ~<50~>",
+   ForUnit = {"unit-human-lumber-mill"} } )
+
+local humanFortificationHealthIcon2 = CIcon:New("icon-human-fortification-health2")
+humanFortificationHealthIcon2.G = CGraphic:New("contrib/graphics/ui/human/icon-human-fortification-health2.png", 27, 19)
+humanFortificationHealthIcon2.Frame = 0
+
+local humanFortificationHealthUpgrade2 = CUpgrade:New("upgrade-human-fortification-health2")
+humanFortificationHealthUpgrade2.Icon = humanFortificationHealthIcon2
+humanFortificationHealthUpgrade2.Costs[0] = 700 -- time
+humanFortificationHealthUpgrade2.Costs[1] = 1500 -- gold
+humanFortificationHealthUpgrade2.Costs[2] = 800 -- wood
+
+DefineModifier("upgrade-human-fortification-health2",
+    {"Level", 1},
+    {"HitPoints", 50},
+    {"apply-to", "unit-human-guard-tower"},
+    {"apply-to", "unit-wall"})
+
+DefineAllow("upgrade-human-fortification-health2", "AAAAAAAAAAAAAAAA")
+
+DefineButton( { Pos = 1, Level = 0, Icon = "icon-human-fortification-health2",
+    Action = "research", Value = "upgrade-human-fortification-health2",
+    Allowed = "check-upgrade", AllowArg = {"upgrade-human-fortification-health1"},
+    Key = "f", Hint = "RESEARCH ~!FORTIFICATION",
+    Description = "Increase Guard Tower and Wall hit points by ~<50~>",
+    ForUnit = {"unit-human-lumber-mill"} } )
+
+DefineDependency("upgrade-human-fortification-health2", { "upgrade-human-fortification-health1"} )
+
 local humanBuildingArmorIcon1 = CIcon:New("icon-human-BuildingArmor1")
 humanBuildingArmorIcon1.G = CPlayerColorGraphic:New("contrib/graphics/ui/human/icon-human-building-armor1.png", 27, 19)
 humanBuildingArmorIcon1.Frame = 0
@@ -1626,6 +1678,58 @@ DefineDependency("upgrade-human-BuildingArmor2", { "upgrade-human-BuildingArmor1
 -----------------------------------------------------------------------
 -- Orc building armor upgrades
 -----------------------------------------------------------------------
+
+local orcFortificationIcon1 = CIcon:New("icon-orc-fortification1")
+orcFortificationIcon1.G = CGraphic:New("contrib/graphics/ui/orc/icon-orc-fortification1.png", 27, 19)
+orcFortificationIcon1.Frame = 0
+
+local orcFortificationUpgrade1 = CUpgrade:New("upgrade-orc-fortification1")
+orcFortificationUpgrade1.Icon = orcFortificationIcon1
+orcFortificationUpgrade1.Costs[0] = 700 -- time
+orcFortificationUpgrade1.Costs[1] = 750 -- gold
+orcFortificationUpgrade1.Costs[2] = 400 -- wood
+
+DefineModifier("upgrade-orc-fortification1",
+  {"Level", 1},
+  {"HitPoints", 50},
+   {"apply-to", "unit-orc-watch-tower"},
+   {"apply-to", "unit-wall"})
+
+DefineAllow("upgrade-orc-fortification1", "AAAAAAAAAAAAAAAA")
+
+DefineButton( { Pos = 1, Level = 0, Icon = "icon-orc-fortification1",
+  Action = "research", Value = "upgrade-orc-fortification1",
+  Allowed = "check-single-research",
+  Key = "f", Hint = "RESEARCH ~!FORTIFICATION",
+  Description = "Increase Watch Tower and Wall hit points by ~<50~>",
+  ForUnit = {"unit-orc-lumber-mill"} } )
+
+local orcFortificationIcon2 = CIcon:New("icon-orc-fortification2")
+orcFortificationIcon2.G = CGraphic:New("contrib/graphics/ui/orc/icon-orc-fortification2.png", 27, 19)
+orcFortificationIcon2.Frame = 0
+
+local orcFortificationUpgrade2 = CUpgrade:New("upgrade-orc-fortification2")
+orcFortificationUpgrade2.Icon = orcFortificationIcon2
+orcFortificationUpgrade2.Costs[0] = 700 -- time
+orcFortificationUpgrade2.Costs[1] = 1500 -- gold
+orcFortificationUpgrade2.Costs[2] = 800 -- wood
+
+DefineModifier("upgrade-orc-fortification2",
+   {"Level", 1},
+   {"HitPoints", 50},
+   {"apply-to", "unit-orc-watch-tower"},
+   {"apply-to", "unit-wall"})
+
+DefineAllow("upgrade-orc-fortification2", "AAAAAAAAAAAAAAAA")
+
+DefineButton( { Pos = 1, Level = 0, Icon = "icon-orc-fortification2",
+   Action = "research", Value = "upgrade-orc-fortification2",
+   Allowed = "check-upgrade", AllowArg = {"upgrade-orc-fortification1"},
+   Key = "f", Hint = "RESEARCH ~!FORTIFICATION",
+   Description = "Increase Watch Tower and Wall hit points by ~<50~>",
+   ForUnit = {"unit-orc-lumber-mill"} } )
+
+DefineDependency("upgrade-orc-fortification2", { "upgrade-orc-fortification1"} )
 
 local orcBuildingArmorIcon1 = CIcon:New("icon-orc-BuildingArmor1")
 orcBuildingArmorIcon1.G = CPlayerColorGraphic:New("contrib/graphics/ui/orc/icon-orc-building-armor1.png", 27, 19)
