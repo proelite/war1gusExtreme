@@ -511,7 +511,7 @@ DefineUnitType(
      Animations = "animations-building",
      Construction = "construction-wall",
      Priority = 0,
-     HitPoints = 60,
+     HitPoints = 100,
      Flip = false,
      NumDirections = 16, 
      Icon = "icon-wall",
