@@ -91,6 +91,22 @@ DefineDependency("unit-orc-kennel", { "unit-orc-blacksmith"} )
 DefineDependency("unit-human-lumber-mill", { "unit-human-barracks"} )
 DefineDependency("unit-orc-lumber-mill", { "unit-orc-barracks"} )
 
+-- Remove the road-adjacent placement requirement for lumber mills.
+DefineUnitType("unit-human-lumber-mill", {
+   BuildingRules = {
+      {
+         "distance", { Distance = 5, DistanceType = "<", Owner = "self" }
+      }
+   }
+})
+DefineUnitType("unit-orc-lumber-mill", {
+   BuildingRules = {
+      {
+         "distance", { Distance = 5, DistanceType = "<", Owner = "self" }
+      }
+   }
+})
+
 -----------------------------------------------------------------------
 -- Cost Rebalancing Units
 -----------------------------------------------------------------------
