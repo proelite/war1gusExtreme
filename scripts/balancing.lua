@@ -1355,7 +1355,8 @@ humanCannonHeatedShotUpgrade.Costs[2] = 400 -- wood
 DefineModifier("upgrade-human-CannonHeatedShot",
    {"Level", 1},
    {"PiercingDamage", 20},
-   {"apply-to", "unit-human-cannon"})
+   {"apply-to", "unit-human-cannon"},
+   {"apply-to", "unit-human-war-wagon"})
 
 DefineAllow("upgrade-human-CannonHeatedShot", "AAAAAAAAAAAAAAAA")
 DefineDependency("upgrade-human-CannonHeatedShot", { "unit-human-siege-workshop"} )
@@ -1364,7 +1365,7 @@ DefineButton( { Pos = 3, Level = 0, Icon = "icon-human-CannonHeatedShot",
    Action = "research", Value = "upgrade-human-CannonHeatedShot",
    Allowed = "check-single-research",
    Key = "e", Hint = "RESEARCH H~!EATED SHOT",
-   Description = "Increase Cannon damage by ~<20~>",
+   Description = "Increase Cannon and War Wagon damage by ~<20~>",
     ForUnit = {"unit-human-siege-workshop"} } )
 
 
@@ -1725,7 +1726,8 @@ humanCannonSpeedUpgrade.Costs[2] = 400 -- wood
 DefineModifier("upgrade-human-CannonSpeed",
    {"Level", 1},
    {"Speed", 1},
-   {"apply-to", "unit-human-cannon"})
+   {"apply-to", "unit-human-cannon"},
+   {"apply-to", "unit-human-war-wagon"})
 
 DefineAllow("upgrade-human-CannonSpeed", "AAAAAAAAAAAAAAAA")
 DefineDependency("upgrade-human-CannonSpeed", { "unit-human-siege-workshop"} )
@@ -1733,7 +1735,8 @@ DefineDependency("upgrade-human-CannonSpeed", { "unit-human-siege-workshop"} )
 DefineButton( { Pos = 4, Level = 0, Icon = "icon-human-CannonSpeed",
    Action = "research", Value = "upgrade-human-CannonSpeed",
    Allowed = "check-single-research",
-   Key = "s", Hint = "UPGRADE CANNON ~!SPEED",
+   Key = "s", Hint = "UPGRADE WAR MACHINE ~!SPEED",
+   Description = "Increase Cannon and War Wagon speed by ~<1~>",
     ForUnit = {"unit-human-siege-workshop"} } )
 
 DefineButton( { Pos = 1, Level = 0, Icon = "icon-human-CannonSpeed",
