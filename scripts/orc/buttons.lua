@@ -311,11 +311,6 @@ DefineButton( { Pos = 3, Level = 0, Icon = "icon-ogre",
   Key = "o", Hint = "TRAIN ~!OGRE",
   ForUnit = {"unit-orc-barracks"} } )
 
-DefineButton( { Pos = 4, Level = 0, Icon = "icon-raider",
-  Action = "train-unit", Value = "unit-raider",
-  Key = "r", Hint = "TRAIN ~!RAIDER",
-  ForUnit = {"unit-orc-barracks"} } )
-
 DefineButton( { Pos = 1, Level = 0, Icon = "icon-orc-catapult",
   Action = "train-unit", Value = "unit-orc-catapult",
   Key = "c", Hint = "BUILD ~!CATAPULT",
@@ -381,13 +376,23 @@ DefineButton( { Pos = 3, Level = 0, Icon = "icon-spear3",
   Description = "Increase Spearman, Warbeast and Tower damage by ~<1~>", 
   ForUnit = {"unit-orc-blacksmith"} } )
 
-DefineButton( { Pos = 1, Level = 0, Icon = "icon-wolves1",
+DefineButton( { Pos = 1, Level = 0, Icon = "icon-orc-tracker",
+  Action = "train-unit", Value = "unit-orc-tracker",
+  Key = "t", Hint = "TRAIN ~!TRACKER",
+  ForUnit = {"unit-orc-kennel"} } )
+
+DefineButton( { Pos = 2, Level = 0, Icon = "icon-raider",
+  Action = "train-unit", Value = "unit-raider",
+  Key = "r", Hint = "TRAIN ~!RAIDER",
+  ForUnit = {"unit-orc-kennel"} } )
+
+DefineButton( { Pos = 4, Level = 0, Icon = "icon-wolves1",
   Action = "research", Value = "upgrade-wolves1",
   Allowed = "check-single-research",
   Key = "b", Hint = "~!BREED FASTER WOLVES",
   ForUnit = {"unit-orc-kennel"} } )
 
-DefineButton( { Pos = 1, Level = 0, Icon = "icon-wolves2",
+DefineButton( { Pos = 4, Level = 0, Icon = "icon-wolves2",
   Action = "research", Value = "upgrade-wolves2",
   Allowed = "check-single-research",
   Key = "b", Hint = "~!BREED FASTER WOLVES",
