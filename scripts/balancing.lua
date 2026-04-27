@@ -1573,7 +1573,7 @@ DefineAllow("unit-orc-first-town-hall", "AAAAAAAAAAAAAAAA")
 -----------------------------------------------------------------------
 
 local humanFortificationHealthIcon1 = CIcon:New("icon-human-fortification-health1")
-humanFortificationHealthIcon1.G = CGraphic:New("contrib/graphics/ui/human/icon-human-fortification-health1.png", 27, 19)
+humanFortificationHealthIcon1.G = CPlayerColorGraphic:New("contrib/graphics/ui/human/icon-human-fortification-health1.png", 27, 19)
 humanFortificationHealthIcon1.Frame = 0
 
 local humanFortificationHealthUpgrade1 = CUpgrade:New("upgrade-human-fortification-health1")
@@ -1598,7 +1598,7 @@ DefineButton( { Pos = 1, Level = 0, Icon = "icon-human-fortification-health1",
    ForUnit = {"unit-human-lumber-mill"} } )
 
 local humanFortificationHealthIcon2 = CIcon:New("icon-human-fortification-health2")
-humanFortificationHealthIcon2.G = CGraphic:New("contrib/graphics/ui/human/icon-human-fortification-health2.png", 27, 19)
+humanFortificationHealthIcon2.G = CPlayerColorGraphic:New("contrib/graphics/ui/human/icon-human-fortification-health2.png", 27, 19)
 humanFortificationHealthIcon2.Frame = 0
 
 local humanFortificationHealthUpgrade2 = CUpgrade:New("upgrade-human-fortification-health2")
@@ -1680,7 +1680,7 @@ DefineDependency("upgrade-human-BuildingArmor2", { "upgrade-human-BuildingArmor1
 -----------------------------------------------------------------------
 
 local orcFortificationIcon1 = CIcon:New("icon-orc-fortification1")
-orcFortificationIcon1.G = CGraphic:New("contrib/graphics/ui/orc/icon-orc-fortification1.png", 27, 19)
+orcFortificationIcon1.G = CPlayerColorGraphic:New("contrib/graphics/ui/orc/icon-orc-fortification1.png", 27, 19)
 orcFortificationIcon1.Frame = 0
 
 local orcFortificationUpgrade1 = CUpgrade:New("upgrade-orc-fortification1")
@@ -1705,7 +1705,7 @@ DefineButton( { Pos = 1, Level = 0, Icon = "icon-orc-fortification1",
   ForUnit = {"unit-orc-lumber-mill"} } )
 
 local orcFortificationIcon2 = CIcon:New("icon-orc-fortification2")
-orcFortificationIcon2.G = CGraphic:New("contrib/graphics/ui/orc/icon-orc-fortification2.png", 27, 19)
+orcFortificationIcon2.G = CPlayerColorGraphic:New("contrib/graphics/ui/orc/icon-orc-fortification2.png", 27, 19)
 orcFortificationIcon2.Frame = 0
 
 local orcFortificationUpgrade2 = CUpgrade:New("upgrade-orc-fortification2")
