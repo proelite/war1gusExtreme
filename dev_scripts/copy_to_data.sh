@@ -59,4 +59,14 @@ else
     echo "Warning: maps directory not found"
 fi
 
+# Ensure generated runtime config exists even if it is not present in source scripts.
+WC1_CONFIG="$DATA_DIR/scripts/wc1-config.lua"
+if [ ! -f "$WC1_CONFIG" ]; then
+    echo "Creating missing scripts/wc1-config.lua with default .ogg music extension..."
+    mkdir -p "$(dirname "$WC1_CONFIG")"
+    cat > "$WC1_CONFIG" <<'EOF'
+war1gus.music_extension = ".ogg"
+EOF
+fi
+
 echo "Done! Files copied to $DATA_DIR"
