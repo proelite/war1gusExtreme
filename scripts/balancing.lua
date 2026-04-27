@@ -1572,57 +1572,57 @@ DefineAllow("unit-orc-first-town-hall", "AAAAAAAAAAAAAAAA")
 -- Human building armor upgrades
 -----------------------------------------------------------------------
 
-local humanFortificationHealthIcon1 = CIcon:New("icon-human-fortification-health1")
-humanFortificationHealthIcon1.G = CPlayerColorGraphic:New("contrib/graphics/ui/human/icon-human-fortification-health1.png", 27, 19)
-humanFortificationHealthIcon1.Frame = 0
+local humanFortificationIcon1 = CIcon:New("icon-human-fortification1")
+humanFortificationIcon1.G = CPlayerColorGraphic:New("contrib/graphics/ui/human/icon-human-fortification1.png", 27, 19)
+humanFortificationIcon1.Frame = 0
 
-local humanFortificationHealthUpgrade1 = CUpgrade:New("upgrade-human-fortification-health1")
-humanFortificationHealthUpgrade1.Icon = humanFortificationHealthIcon1
-humanFortificationHealthUpgrade1.Costs[0] = 700 -- time
-humanFortificationHealthUpgrade1.Costs[1] = 750 -- gold
-humanFortificationHealthUpgrade1.Costs[2] = 400 -- wood
+local humanFortificationUpgrade1 = CUpgrade:New("upgrade-human-fortification1")
+humanFortificationUpgrade1.Icon = humanFortificationIcon1
+humanFortificationUpgrade1.Costs[0] = 700 -- time
+humanFortificationUpgrade1.Costs[1] = 750 -- gold
+humanFortificationUpgrade1.Costs[2] = 400 -- wood
 
-DefineModifier("upgrade-human-fortification-health1",
+DefineModifier("upgrade-human-fortification1",
    {"Level", 1},
    {"HitPoints", 50},
    {"apply-to", "unit-human-guard-tower"},
    {"apply-to", "unit-wall"})
 
-DefineAllow("upgrade-human-fortification-health1", "AAAAAAAAAAAAAAAA")
+DefineAllow("upgrade-human-fortification1", "AAAAAAAAAAAAAAAA")
 
-DefineButton( { Pos = 1, Level = 0, Icon = "icon-human-fortification-health1",
-   Action = "research", Value = "upgrade-human-fortification-health1",
+DefineButton( { Pos = 1, Level = 0, Icon = "icon-human-fortification1",
+   Action = "research", Value = "upgrade-human-fortification1",
    Allowed = "check-single-research",
    Key = "f", Hint = "RESEARCH ~!FORTIFICATION",
    Description = "Increase Guard Tower and Wall hit points by ~<50~>",
    ForUnit = {"unit-human-lumber-mill"} } )
 
-local humanFortificationHealthIcon2 = CIcon:New("icon-human-fortification-health2")
-humanFortificationHealthIcon2.G = CPlayerColorGraphic:New("contrib/graphics/ui/human/icon-human-fortification-health2.png", 27, 19)
-humanFortificationHealthIcon2.Frame = 0
+local humanFortificationIcon2 = CIcon:New("icon-human-fortification2")
+humanFortificationIcon2.G = CPlayerColorGraphic:New("contrib/graphics/ui/human/icon-human-fortification2.png", 27, 19)
+humanFortificationIcon2.Frame = 0
 
-local humanFortificationHealthUpgrade2 = CUpgrade:New("upgrade-human-fortification-health2")
-humanFortificationHealthUpgrade2.Icon = humanFortificationHealthIcon2
-humanFortificationHealthUpgrade2.Costs[0] = 700 -- time
-humanFortificationHealthUpgrade2.Costs[1] = 1500 -- gold
-humanFortificationHealthUpgrade2.Costs[2] = 800 -- wood
+local humanFortificationUpgrade2 = CUpgrade:New("upgrade-human-fortification2")
+humanFortificationUpgrade2.Icon = humanFortificationIcon2
+humanFortificationUpgrade2.Costs[0] = 700 -- time
+humanFortificationUpgrade2.Costs[1] = 1500 -- gold
+humanFortificationUpgrade2.Costs[2] = 800 -- wood
 
-DefineModifier("upgrade-human-fortification-health2",
+DefineModifier("upgrade-human-fortification2",
     {"Level", 1},
     {"HitPoints", 50},
     {"apply-to", "unit-human-guard-tower"},
     {"apply-to", "unit-wall"})
 
-DefineAllow("upgrade-human-fortification-health2", "AAAAAAAAAAAAAAAA")
+DefineAllow("upgrade-human-fortification2", "AAAAAAAAAAAAAAAA")
 
-DefineButton( { Pos = 1, Level = 0, Icon = "icon-human-fortification-health2",
-    Action = "research", Value = "upgrade-human-fortification-health2",
-    Allowed = "check-upgrade", AllowArg = {"upgrade-human-fortification-health1"},
+DefineButton( { Pos = 1, Level = 0, Icon = "icon-human-fortification2",
+   Action = "research", Value = "upgrade-human-fortification2",
+   Allowed = "check-upgrade", AllowArg = {"upgrade-human-fortification1"},
     Key = "f", Hint = "RESEARCH ~!FORTIFICATION",
     Description = "Increase Guard Tower and Wall hit points by ~<50~>",
     ForUnit = {"unit-human-lumber-mill"} } )
 
-DefineDependency("upgrade-human-fortification-health2", { "upgrade-human-fortification-health1"} )
+DefineDependency("upgrade-human-fortification2", { "upgrade-human-fortification1"} )
 
 local humanBuildingArmorIcon1 = CIcon:New("icon-human-BuildingArmor1")
 humanBuildingArmorIcon1.G = CPlayerColorGraphic:New("contrib/graphics/ui/human/icon-human-building-armor1.png", 27, 19)
