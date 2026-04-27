@@ -1117,7 +1117,7 @@ DefineModifier("upgrade-orc-saliva1",
 
 DefineAllow("upgrade-orc-saliva1", "AAAAAAAAAAAAAAAA")
 
-DefineButton( { Pos = 5, Level = 0, Icon = "icon-orc-saliva1",
+DefineButton( { Pos = 3, Level = 0, Icon = "icon-orc-saliva1",
   Action = "research", Value = "upgrade-orc-saliva1",
   Allowed = "check-single-research",
   Key = "h", Hint = "RESEARCH ~!HEALING SALIVA",
@@ -1142,7 +1142,7 @@ DefineModifier("upgrade-orc-saliva2",
 
 DefineAllow("upgrade-orc-saliva2", "AAAAAAAAAAAAAAAA")
 
-DefineButton( { Pos = 5, Level = 0, Icon = "icon-orc-saliva2",
+DefineButton( { Pos = 3, Level = 0, Icon = "icon-orc-saliva2",
    Action = "research", Value = "upgrade-orc-saliva2",
    Allowed = "check-upgrade", AllowArg = {"upgrade-orc-saliva1"},
    Key = "h", Hint = "RESEARCH ~!HEALING SALIVA",
@@ -1172,7 +1172,7 @@ DefineModifier("upgrade-human-barding1",
 
 DefineAllow("upgrade-human-barding1", "AAAAAAAAAAAAAAAA")
 
-DefineButton( { Pos = 5, Level = 0, Icon = "icon-human-barding1",
+DefineButton( { Pos = 3, Level = 0, Icon = "icon-human-barding1",
   Action = "research", Value = "upgrade-human-barding1",
   Allowed = "check-single-research",
   Key = "r", Hint = "~!RESEARCH BARDING",
@@ -1196,7 +1196,7 @@ DefineModifier("upgrade-human-barding2",
 
 DefineAllow("upgrade-human-barding2", "AAAAAAAAAAAAAAAA")
 
-DefineButton( { Pos = 5, Level = 0, Icon = "icon-human-barding2",
+DefineButton( { Pos = 3, Level = 0, Icon = "icon-human-barding2",
    Action = "research", Value = "upgrade-human-barding2",
    Allowed = "check-upgrade", AllowArg = {"upgrade-human-barding1"},
    Key = "r", Hint = "~!RESEARCH BARDING",

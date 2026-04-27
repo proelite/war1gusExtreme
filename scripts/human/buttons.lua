@@ -379,7 +379,7 @@ DefineButton( { Pos = 3, Level = 0, Icon = "icon-arrow3",
   Description = "Increase Archer and Tower damage by ~<1~>",
   ForUnit = {"unit-human-blacksmith"} } )
 
-DefineButton( { Pos = 1, Level = 0, Icon = "icon-horse1",
+DefineButton( { Pos = 1, Level = 0, Icon = "icon-human-scout",
   Action = "train-unit", Value = "unit-human-scout",
   Key = "s", Hint = "TRAIN ~!SCOUT",
   ForUnit = {"unit-human-stable"} } )
