@@ -421,7 +421,7 @@ DefineUnitType("unit-human-sapper", {
    CanTargetAir = true,
    SelectableByRectangle = true,
    Sounds = {
-      "attack", "shotgun attack",
+      "attack", "human acknowledge",
       "selected", "human selected",
       "acknowledge", "human acknowledge",
       "ready", "human ready",
@@ -530,7 +530,7 @@ DefineDependency("unit-orc-warbeast", {"unit-orc-war-camp", "unit-orc-tower"})
 
 DefineUnitType("unit-human-war-wagon", {
   Name = "War Wagon",
-  Image = {"file", "contrib/graphics/units/war_wagon.png", "size", {64, 64}},
+  Image = {"file", "contrib/graphics/units/war-wagon.png", "size", {64, 64}},
   Animations = "animations-war-wagon",
   Icon = "icon-war-wagon",
   Costs = {"time", 400, "gold", 1000, "wood", 1000},
@@ -542,7 +542,7 @@ DefineUnitType("unit-human-war-wagon", {
   MaxAttackRange = 6,
   MinAttackRange = 2,
   TileSize = {1, 1},
-  BoxSize = {31, 31},
+  BoxSize = {32, 32},
   SightRange = 6,
   Speed = 3,
   organic = false,
@@ -569,7 +569,7 @@ DefineUnitType("unit-human-war-wagon", {
   Corpse = nil,
   ExplodeWhenKilled = "missile-explosion",
   Sounds = {
-    "attack", "cannon",
+    "attack", "human acknowledge",
     "selected", "human-selected",
     "acknowledge", "human acknowledge",
     "ready", "human work complete",
