@@ -215,6 +215,14 @@ local DefineCustomIcons = function()
   warwagon.G = CPlayerColorGraphic:New("contrib/graphics/ui/human/icon-war-wagon.png", 27, 19)
   warwagon.Frame = 0
 
+  local goldToWood = CIcon:New("icon-gold-to-wood")
+  goldToWood.G = CPlayerColorGraphic:New("contrib/graphics/ui/icon-gold-to-wood.png", 27, 19)
+  goldToWood.Frame = 0
+
+  local woodToGold = CIcon:New("icon-wood-to-gold")
+  woodToGold.G = CPlayerColorGraphic:New("contrib/graphics/ui/icon-wood-to-gold.png", 27, 19)
+  woodToGold.Frame = 0
+
   local humanscout = CIcon:New("icon-human-scout")
   humanscout.G = CPlayerColorGraphic:New("contrib/graphics/ui/human/icon-human-scout.png", 27, 19)
   humanscout.Frame = 0

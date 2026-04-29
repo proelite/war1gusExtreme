@@ -1120,6 +1120,36 @@ DefineButton( { Pos = 1, Level = 1, Icon = "icon-orc-town-hall-salvage",
    Key = "s", Hint = "~!SALVAGE CONFIRM",
    ForUnit = {"unit-orc-lumber-mill"} } )
 
+DefineButton( { Pos = 1, Level = 0, Icon = "icon-wood-to-gold",
+   Action = "callback", Value = function(lumberMill)
+      local player = GetThisPlayer()
+      local wood = GetPlayerData(player, "Resources", "wood")
+      if wood < 500 then
+         AddMessage("Need at least 500 wood to sell.")
+         return
+      end
+      SetPlayerData(player, "Resources", "wood", wood - 500)
+      SetPlayerData(player, "Resources", "gold",
+                    GetPlayerData(player, "Resources", "gold") + 250)
+   end,
+   Description = "Sell 500 wood for 250 gold.",
+   ForUnit = {"unit-orc-lumber-mill"} } )
+
+DefineButton( { Pos = 2, Level = 0, Icon = "icon-gold-to-wood",
+   Action = "callback", Value = function(lumberMill)
+      local player = GetThisPlayer()
+      local gold = GetPlayerData(player, "Resources", "gold")
+      if gold < 500 then
+         AddMessage("Need at least 500 gold to buy wood.")
+         return
+      end
+      SetPlayerData(player, "Resources", "gold", gold - 500)
+      SetPlayerData(player, "Resources", "wood",
+                    GetPlayerData(player, "Resources", "wood") + 500)
+   end,
+   Description = "Buy 500 wood for 500 gold.",
+   ForUnit = {"unit-orc-lumber-mill"} } )
+
 DefineButton( { Pos = 6, Level = 0, Icon = "icon-human-town-hall-salvage",
   Action = "button", Value = 1,
   Description = "Salvage this lumber mill for gold.",
@@ -1143,6 +1173,36 @@ DefineButton( { Pos = 1, Level = 1, Icon = "icon-human-town-hall-salvage",
    Allowed = "check-units-or", AllowArg = {"unit-peasant"},
    Description = "Confirm salvaging of this Lumber Mill.",
    Key = "s", Hint = "~!SALVAGE CONFIRM",
+   ForUnit = {"unit-human-lumber-mill"} } )
+
+DefineButton( { Pos = 1, Level = 0, Icon = "icon-wood-to-gold",
+   Action = "callback", Value = function(lumberMill)
+      local player = GetThisPlayer()
+      local wood = GetPlayerData(player, "Resources", "wood")
+      if wood < 500 then
+         AddMessage("Need at least 500 wood to sell.")
+         return
+      end
+      SetPlayerData(player, "Resources", "wood", wood - 500)
+      SetPlayerData(player, "Resources", "gold",
+                    GetPlayerData(player, "Resources", "gold") + 250)
+   end,
+   Description = "Sell 500 wood for 250 gold.",
+   ForUnit = {"unit-human-lumber-mill"} } )
+
+DefineButton( { Pos = 2, Level = 0, Icon = "icon-gold-to-wood",
+   Action = "callback", Value = function(lumberMill)
+      local player = GetThisPlayer()
+      local gold = GetPlayerData(player, "Resources", "gold")
+      if gold < 500 then
+         AddMessage("Need at least 500 gold to buy wood.")
+         return
+      end
+      SetPlayerData(player, "Resources", "gold", gold - 500)
+      SetPlayerData(player, "Resources", "wood",
+                    GetPlayerData(player, "Resources", "wood") + 500)
+   end,
+   Description = "Buy 500 wood for 500 gold.",
    ForUnit = {"unit-human-lumber-mill"} } )
 
 -----------------------------------------------------------------------
@@ -1640,7 +1700,7 @@ DefineModifier("upgrade-human-fortification1",
 
 DefineAllow("upgrade-human-fortification1", "AAAAAAAAAAAAAAAA")
 
-DefineButton( { Pos = 1, Level = 0, Icon = "icon-human-fortification1",
+DefineButton( { Pos = 3, Level = 0, Icon = "icon-human-fortification1",
    Action = "research", Value = "upgrade-human-fortification1",
    Allowed = "check-single-research",
    Key = "f", Hint = "RESEARCH ~!FORTIFICATION",
@@ -1665,7 +1725,7 @@ DefineModifier("upgrade-human-fortification2",
 
 DefineAllow("upgrade-human-fortification2", "AAAAAAAAAAAAAAAA")
 
-DefineButton( { Pos = 1, Level = 0, Icon = "icon-human-fortification2",
+DefineButton( { Pos = 3, Level = 0, Icon = "icon-human-fortification2",
    Action = "research", Value = "upgrade-human-fortification2",
    Allowed = "check-upgrade", AllowArg = {"upgrade-human-fortification1"},
     Key = "f", Hint = "RESEARCH ~!FORTIFICATION",
@@ -1691,7 +1751,7 @@ DefineModifier("upgrade-human-BuildingArmor1",
 
 DefineAllow("upgrade-human-BuildingArmor1", "AAAAAAAAAAAAAAAA")
 
-DefineButton( { Pos = 2, Level = 0, Icon = "icon-human-BuildingArmor1",
+DefineButton( { Pos = 4, Level = 0, Icon = "icon-human-BuildingArmor1",
   Action = "research", Value = "upgrade-human-BuildingArmor1",
   Allowed = "check-single-research",
   Key = "r", Hint = "UPG~!RADE ROOFS",
@@ -1716,7 +1776,7 @@ DefineModifier("upgrade-human-BuildingArmor2",
 
 DefineAllow("upgrade-human-BuildingArmor2", "AAAAAAAAAAAAAAAA")
 
-DefineButton( { Pos = 2, Level = 0, Icon = "icon-human-BuildingArmor2",
+DefineButton( { Pos = 4, Level = 0, Icon = "icon-human-BuildingArmor2",
    Action = "research", Value = "upgrade-human-BuildingArmor2",
    Allowed = "check-upgrade", AllowArg = {"upgrade-human-BuildingArmor1"},
    Key = "r", Hint = "UPG~!RADE WALLS",
@@ -1747,7 +1807,7 @@ DefineModifier("upgrade-orc-fortification1",
 
 DefineAllow("upgrade-orc-fortification1", "AAAAAAAAAAAAAAAA")
 
-DefineButton( { Pos = 1, Level = 0, Icon = "icon-orc-fortification1",
+DefineButton( { Pos = 3, Level = 0, Icon = "icon-orc-fortification1",
   Action = "research", Value = "upgrade-orc-fortification1",
   Allowed = "check-single-research",
   Key = "f", Hint = "RESEARCH ~!FORTIFICATION",
@@ -1772,7 +1832,7 @@ DefineModifier("upgrade-orc-fortification2",
 
 DefineAllow("upgrade-orc-fortification2", "AAAAAAAAAAAAAAAA")
 
-DefineButton( { Pos = 1, Level = 0, Icon = "icon-orc-fortification2",
+DefineButton( { Pos = 3, Level = 0, Icon = "icon-orc-fortification2",
    Action = "research", Value = "upgrade-orc-fortification2",
    Allowed = "check-upgrade", AllowArg = {"upgrade-orc-fortification1"},
    Key = "f", Hint = "RESEARCH ~!FORTIFICATION",
@@ -1798,7 +1858,7 @@ DefineModifier("upgrade-orc-BuildingArmor1",
 
 DefineAllow("upgrade-orc-BuildingArmor1", "AAAAAAAAAAAAAAAA")
 
-DefineButton( { Pos = 2, Level = 0, Icon = "icon-orc-BuildingArmor1",
+DefineButton( { Pos = 4, Level = 0, Icon = "icon-orc-BuildingArmor1",
   Action = "research", Value = "upgrade-orc-BuildingArmor1",
   Allowed = "check-single-research",
   Key = "r", Hint = "UPG~!RADE BUILDINGS FIRE SUPPRESION",
@@ -1823,7 +1883,7 @@ DefineModifier("upgrade-orc-BuildingArmor2",
 
 DefineAllow("upgrade-orc-BuildingArmor2", "AAAAAAAAAAAAAAAA")
 
-DefineButton( { Pos = 2, Level = 0, Icon = "icon-orc-BuildingArmor2",
+DefineButton( { Pos = 4, Level = 0, Icon = "icon-orc-BuildingArmor2",
    Action = "research", Value = "upgrade-orc-BuildingArmor2",
    Allowed = "check-upgrade", AllowArg = {"upgrade-orc-BuildingArmor1"},
    Key = "r", Hint = "UPG~!RADE WALLS",
