@@ -43,7 +43,7 @@ DefineButton( { Pos = 1, Level = 0, Icon = "icon-move-peasant",
   Action = "move",
   Key = "m", Hint = "~!MOVE",
   ForUnit = {"unit-footman", "unit-knight", "unit-archer",
-    "unit-human-sapper", "unit-human-catapult", "unit-human-catapult-noattack", "unit-human-cannon", "unit-human-wa", "unit-human-scout", "unit-peasant",
+    "unit-human-sapper", "unit-human-catapult", "unit-human-catapult-noattack", "unit-human-cannon", "unit-human-wagon", "unit-human-scout", "unit-peasant",
     "unit-water-elemental", "unit-scorpion",
     "unit-cleric", "unit-conjurer", "unit-medivh", "unit-lothar",
     "human-group", "unit-brigand", "unit-ogre", "unit-sorceress" } } )
