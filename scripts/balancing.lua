@@ -197,13 +197,14 @@ DefineUnitType("unit-orc-catapult", {
                   Demand = 2,
                   RepairHp = 4,
                   RepairCosts = { "gold", 1, "wood", 1 },
-		  PoisonDrain = 0,
+		            PoisonDrain = 0,
                   organic = false,
-				  Corpse = nil,
+				      Corpse = nil,
                   BasicDamage = 80,
                   MaxAttackRange = 8,
                   MinAttackRange = 3,
-				  GroundAttack = true,
+				      GroundAttack = true,
+                  NoFriendlyFire = true,
 })
 
 DefineMissileType("missile-catapult-rock", {
@@ -818,7 +819,6 @@ DefineUnitType("unit-orc-watch-tower", { Name = _("Watch Tower"),
   TileSize = {2, 2}, BoxSize = {32, 32},
   SightRange = 9, ComputerReactionRange = 6, PersonReactionRange = 6,
   Armor = 0, BasicDamage = 8, PiercingDamage = 8, Missile = "missile-arrow",
-  NoFriendlyFire = true,
   RightMouseAction = "attack",
   MaxAttackRange = 6,
   Priority = 50, AnnoyComputerFactor = 60,
@@ -949,7 +949,6 @@ DefineUnitType("unit-human-guard-tower", { Name = _("Guard Tower"),
   TileSize = {2, 2}, BoxSize = {32, 32},
   SightRange = 9, ComputerReactionRange = 6, PersonReactionRange = 6,
   Armor = 5, BasicDamage = 8, PiercingDamage = 8, Missile = "missile-arrow",
-  NoFriendlyFire = true,
   RightMouseAction = "attack",
   MaxAttackRange = 6,
   Priority = 50, AnnoyComputerFactor = 60,
@@ -1539,6 +1538,11 @@ local humanHoldfire = CIcon:New("icon-human-holdfire")
 humanHoldfire.G = CPlayerColorGraphic:New("contrib/graphics/ui/human/icon-human-holdfire.png", 27, 19)
 humanHoldfire.Frame = 0
 
+DefineButton( { Pos = 4, Level = 0, Icon = "icon-human-standground",
+  Action = "stand-ground",
+  Key = "t", Hint = "S~!TAND GROUND",
+   ForUnit = {"unit-footman", "unit-archer", "unit-human-sapper", "unit-knight", "unit-human-scout", "unit-human-catapult", "unit-human-catapult-noattack", "unit-human-war-wagon", "unit-human-cannon", "unit-water-elemental", "unit-lothar", "human-group", "unit-brigand", "unit-ogre"}})
+
 DefineButton( { Pos = 5, Level = 0, Icon = "icon-human-patrol",
   Action = "patrol",
   Key = "r", Hint = "PAT~!ROL",
@@ -1547,13 +1551,8 @@ DefineButton( { Pos = 5, Level = 0, Icon = "icon-human-patrol",
 DefineButton( { Pos = 6, Level = 0, Icon = "icon-human-explore",
   Action = "explore",
   Key = "e", Hint = "~!EXPLORE",
-   ForUnit = {"unit-footman", "unit-archer", "unit-human-sapper", "unit-knight", "unit-human-scout", "unit-human-war-wagon", "unit-water-elemental", "unit-scorpion", "unit-lothar", "human-group", "unit-brigand", "unit-ogre"}}) 
+   ForUnit = {"unit-footman", "unit-archer", "unit-knight", "unit-human-scout", "unit-human-war-wagon", "unit-water-elemental", "unit-scorpion", "unit-lothar", "human-group", "unit-brigand", "unit-ogre"}}) 
 
-DefineButton( { Pos = 4, Level = 0, Icon = "icon-human-standground",
-  Action = "stand-ground",
-  Key = "t", Hint = "S~!TAND GROUND",
-   ForUnit = {"unit-footman", "unit-archer", "unit-human-sapper", "unit-knight", "unit-human-scout", "unit-human-catapult", "unit-human-catapult-noattack", "unit-human-war-wagon", "unit-human-cannon", "unit-water-elemental", "unit-lothar", "human-group", "unit-brigand", "unit-ogre"}})
-  
 -----------------------------------------------------------------------
 -- New Orders Buttons Orcs
 -----------------------------------------------------------------------
@@ -1573,6 +1572,11 @@ local orcHoldfire = CIcon:New("icon-orc-holdfire")
 orcHoldfire.G = CPlayerColorGraphic:New("contrib/graphics/ui/orc/icon-orc-holdfire.png", 27, 19)
 orcHoldfire.Frame = 0
 
+DefineButton( { Pos = 4, Level = 0, Icon = "icon-orc-standground",
+  Action = "stand-ground",
+  Key = "t", Hint = "S~!TAND GROUND",
+   ForUnit = {"unit-grunt", "unit-orc-ogre", "unit-spearman", "unit-raider", "unit-orc-tracker", "unit-orc-warbeast", "unit-orc-catapult","unit-orc-catapult-noattack", "unit-daemon", "unit-the-dead", "unit-garona", "unit-griselda", "orc-group"}}) 
+
 DefineButton( { Pos = 5, Level = 0, Icon = "icon-orc-patrol",
   Action = "patrol",
   Key = "r", Hint = "PAT~!ROL",
@@ -1581,12 +1585,7 @@ DefineButton( { Pos = 5, Level = 0, Icon = "icon-orc-patrol",
 DefineButton( { Pos = 6, Level = 0, Icon = "icon-orc-explore",
   Action = "explore",
   Key = "e", Hint = "~!EXPLORE",
-   ForUnit = {"unit-grunt", "unit-orc-ogre", "unit-spearman", "unit-raider", "unit-orc-tracker", "unit-orc-warbeast", "unit-daemon", "unit-spider", "unit-the-dead", "unit-garona", "unit-griselda", "orc-group"}}) 
-
-DefineButton( { Pos = 4, Level = 0, Icon = "icon-orc-standground",
-  Action = "stand-ground",
-  Key = "t", Hint = "S~!TAND GROUND",
-   ForUnit = {"unit-grunt", "unit-orc-ogre", "unit-spearman", "unit-raider", "unit-orc-tracker", "unit-orc-warbeast", "unit-orc-catapult","unit-orc-catapult-noattack", "unit-daemon", "unit-the-dead", "unit-garona", "unit-griselda", "orc-group"}}) 
+   ForUnit = {"unit-grunt", "unit-orc-ogre", "unit-spearman", "unit-raider", "unit-orc-tracker", "unit-daemon", "unit-spider", "unit-the-dead", "unit-garona", "unit-griselda", "orc-group"}}) 
 
 -----------------------------------------------------------------------
 -- Spider Web skill

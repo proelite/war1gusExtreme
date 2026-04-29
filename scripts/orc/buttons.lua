@@ -70,6 +70,11 @@ DefineButton( { Pos = 2, Level = 0, Icon = "icon-orc-shield1",
     "unit-necrolyte", "unit-warlock", "unit-garona", "unit-griselda",
     "orc-group"} } )
 
+DefineButton( { Pos = 6, Level = 0, Icon = "icon-return-goods",
+  Action = "unload",
+  Key = "u", Hint = "~!UNLOAD",
+  ForUnit = {"unit-orc-warbeast"} } )
+
 DefineButton( { Pos = 2, Level = 0, Icon = "icon-orc-shield2",
   Action = "stop",
   Allowed = "check-upgrade", AllowArg = {"upgrade-orc-shield1"},
@@ -319,7 +324,7 @@ DefineButton( { Pos = 1, Level = 0, Icon = "icon-orc-catapult",
 DefineButton( { Pos = 2, Level = 0, Icon = "icon-orc-warbeast",
   Action = "train-unit", Value = "unit-orc-warbeast",
   Allowed = "check-units-or", AllowArg = {"unit-orc-tower"},
-  Key = "w", Hint = "TRAIN ~!WARBEAST",
+  Key = "w", Hint = "TRAIN ~!WARBEAST. GARRISONS 4 UNITS.",
   ForUnit = {"unit-orc-war-camp"} } )
 
 DefineButton( { Pos = 1, Level = 0, Icon = "icon-warlock",

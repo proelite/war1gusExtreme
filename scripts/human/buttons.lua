@@ -70,6 +70,11 @@ DefineButton( { Pos = 2, Level = 0, Icon = "icon-human-shield1",
     "unit-cleric", "unit-conjurer", "unit-medivh", "unit-lothar",
     "human-group", "unit-brigand", "unit-ogre", "unit-sorceress"} } )
 
+DefineButton( { Pos = 3, Level = 0, Icon = "icon-return-goods",
+  Action = "unload",
+  Key = "u", Hint = "~!UNLOAD",
+  ForUnit = {"unit-human-war-wagon"} } )
+
 DefineButton( { Pos = 2, Level = 0, Icon = "icon-human-shield2",
   Action = "stop",
   Allowed = "check-upgrade", AllowArg = {"upgrade-human-shield1"},
