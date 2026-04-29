@@ -602,25 +602,11 @@ DefineUnitType("unit-human-war-wagon", {
   },
   SelectableByRectangle = true,
   OnEachSecond = function (war_wagon)
-      local freq = GetUnitVariable(war_wagon, "RegenerationFrequency")
-      local doRepair = freq <= 1
-      local dodraw = (freq % 2 == 1)
-      if dodraw then
-         for i,unit in ipairs(GetUnitsAroundUnit(war_wagon, 4, false)) do
-            local hp = GetUnitVariable(unit, "HitPoints")
-            local maxhp = GetUnitVariable(unit, "HitPoints", "Max")
-            if hp < maxhp then
-               if doRepair then
-                  SetUnitVariable(unit, "HitPoints", hp + 1)
-               end
-               CreateMissile("missile-heal", {8, 8}, {8, 8}, unit, unit, false)
-            end
-         end
-      end
-      if doRepair then
-         SetUnitVariable(war_wagon, "RegenerationFrequency", 3)
-      else
-         SetUnitVariable(war_wagon, "RegenerationFrequency", freq - 1)
+      local hp = GetUnitVariable(war_wagon, "HitPoints")
+      local maxhp = GetUnitVariable(war_wagon, "HitPoints", "Max")
+      if hp < maxhp then
+         local repair = GetUnitVariable(war_wagon, "RepairHp") or 4
+         SetUnitVariable(war_wagon, "HitPoints", math.min(maxhp, hp + repair))
       end
    end
 })

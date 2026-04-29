@@ -1133,6 +1133,7 @@ DefineButton( { Pos = 1, Level = 0, Icon = "icon-wood-to-gold",
                     GetPlayerData(player, "Resources", "gold") + 250)
    end,
    Description = "Sell 500 wood for 250 gold.",
+   Key = "s", Hint = "SE~!LL WOOD",
    ForUnit = {"unit-orc-lumber-mill"} } )
 
 DefineButton( { Pos = 2, Level = 0, Icon = "icon-gold-to-wood",
@@ -1148,6 +1149,7 @@ DefineButton( { Pos = 2, Level = 0, Icon = "icon-gold-to-wood",
                     GetPlayerData(player, "Resources", "wood") + 500)
    end,
    Description = "Buy 500 wood for 500 gold.",
+   Key = "b", Hint = "BU~!Y WOOD",
    ForUnit = {"unit-orc-lumber-mill"} } )
 
 DefineButton( { Pos = 6, Level = 0, Icon = "icon-human-town-hall-salvage",
@@ -1188,6 +1190,7 @@ DefineButton( { Pos = 1, Level = 0, Icon = "icon-wood-to-gold",
                     GetPlayerData(player, "Resources", "gold") + 250)
    end,
    Description = "Sell 500 wood for 250 gold.",
+   Key = "s", Hint = "SE~!LL WOOD",
    ForUnit = {"unit-human-lumber-mill"} } )
 
 DefineButton( { Pos = 2, Level = 0, Icon = "icon-gold-to-wood",
@@ -1203,6 +1206,7 @@ DefineButton( { Pos = 2, Level = 0, Icon = "icon-gold-to-wood",
                     GetPlayerData(player, "Resources", "wood") + 500)
    end,
    Description = "Buy 500 wood for 500 gold.",
+   Key = "b", Hint = "BU~!Y WOOD",
    ForUnit = {"unit-human-lumber-mill"} } )
 
 -----------------------------------------------------------------------
