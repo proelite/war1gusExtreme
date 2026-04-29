@@ -1095,6 +1095,56 @@ DefineButton( { Pos = 1, Level = 1, Icon = "icon-human-town-hall-salvage",
    Key = "s", Hint = "~!SALVAGE CONFIRM",
    ForUnit = {"unit-human-town-hall", "unit-human-stormwind-keep"} } )
 
+DefineButton( { Pos = 6, Level = 0, Icon = "icon-orc-town-hall-salvage",
+  Action = "button", Value = 1,
+  Description = "Salvage this lumber mill for gold.",
+  Key = "v", Hint = "SAL~!VAGE",
+  ForUnit = {"unit-orc-lumber-mill"} } )
+
+DefineButton( { Pos = 2, Level = 1, Icon = "icon-cancel",
+  Action = "button", Value = 0,
+  Key = "esc", Hint = "~<ESC~> - CANCEL",
+  ForUnit = {"unit-orc-lumber-mill"} } )
+
+DefineButton( { Pos = 1, Level = 1, Icon = "icon-orc-town-hall-salvage",
+   AlwaysShow = true,
+   Action = "callback", Value = function(lumberMill)
+      DamageUnit(-1, lumberMill, GetUnitVariable(lumberMill, "HitPoints"))
+      SetPlayerData(GetThisPlayer(), "Resources", "gold",
+                    GetPlayerData(GetThisPlayer(), "Resources", "gold") + GetUnitTypeData("unit-orc-lumber-mill", "Costs", "gold"))
+      SetPlayerData(GetThisPlayer(), "Resources", "wood",
+                    GetPlayerData(GetThisPlayer(), "Resources", "wood") + math.floor(GetUnitTypeData("unit-orc-lumber-mill", "Costs", "wood")))
+   end,
+   Allowed = "check-units-or", AllowArg = {"unit-peon"},
+   Description = "Confirm salvaging of this Lumber Mill.",
+   Key = "s", Hint = "~!SALVAGE CONFIRM",
+   ForUnit = {"unit-orc-lumber-mill"} } )
+
+DefineButton( { Pos = 6, Level = 0, Icon = "icon-human-town-hall-salvage",
+  Action = "button", Value = 1,
+  Description = "Salvage this lumber mill for gold.",
+  Key = "v", Hint = "SAL~!VAGE",
+  ForUnit = {"unit-human-lumber-mill"} } )
+
+DefineButton( { Pos = 2, Level = 1, Icon = "icon-cancel",
+  Action = "button", Value = 0,
+  Key = "esc", Hint = "~<ESC~> - CANCEL",
+  ForUnit = {"unit-human-lumber-mill"} } )
+
+DefineButton( { Pos = 1, Level = 1, Icon = "icon-human-town-hall-salvage",
+   AlwaysShow = true,
+   Action = "callback", Value = function(lumberMill)
+      DamageUnit(-1, lumberMill, GetUnitVariable(lumberMill, "HitPoints"))
+      SetPlayerData(GetThisPlayer(), "Resources", "gold",
+                        GetPlayerData(GetThisPlayer(), "Resources", "gold") + GetUnitTypeData("unit-human-lumber-mill", "Costs", "gold"))
+      SetPlayerData(GetThisPlayer(), "Resources", "wood",
+                        GetPlayerData(GetThisPlayer(), "Resources", "wood") + math.floor(GetUnitTypeData("unit-human-lumber-mill", "Costs", "wood")))
+   end,
+   Allowed = "check-units-or", AllowArg = {"unit-peasant"},
+   Description = "Confirm salvaging of this Lumber Mill.",
+   Key = "s", Hint = "~!SALVAGE CONFIRM",
+   ForUnit = {"unit-human-lumber-mill"} } )
+
 -----------------------------------------------------------------------
 -- Orc saliva upgrades
 -----------------------------------------------------------------------
