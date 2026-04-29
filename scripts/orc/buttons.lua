@@ -386,13 +386,13 @@ DefineButton( { Pos = 2, Level = 0, Icon = "icon-raider",
   Key = "r", Hint = "TRAIN ~!RAIDER",
   ForUnit = {"unit-orc-kennel"} } )
 
-DefineButton( { Pos = 4, Level = 0, Icon = "icon-wolves1",
+DefineButton( { Pos = 6, Level = 0, Icon = "icon-wolves1",
   Action = "research", Value = "upgrade-wolves1",
   Allowed = "check-single-research",
   Key = "b", Hint = "~!BREED FASTER WOLVES",
   ForUnit = {"unit-orc-kennel"} } )
 
-DefineButton( { Pos = 4, Level = 0, Icon = "icon-wolves2",
+DefineButton( { Pos = 6, Level = 0, Icon = "icon-wolves2",
   Action = "research", Value = "upgrade-wolves2",
   Allowed = "check-single-research",
   Key = "b", Hint = "~!BREED FASTER WOLVES",

@@ -43,7 +43,7 @@ DefineButton( { Pos = 1, Level = 0, Icon = "icon-move-peasant",
   Action = "move",
   Key = "m", Hint = "~!MOVE",
   ForUnit = {"unit-footman", "unit-knight", "unit-archer",
-    "unit-human-sapper", "unit-human-catapult", "unit-human-catapult-noattack", "unit-human-cannon", "unit-human-war-wagon", "unit-human-scout", "unit-peasant",
+    "unit-human-sapper", "unit-human-catapult", "unit-human-catapult-noattack", "unit-human-cannon", "unit-human-wa", "unit-human-scout", "unit-peasant",
     "unit-water-elemental", "unit-scorpion",
     "unit-cleric", "unit-conjurer", "unit-medivh", "unit-lothar",
     "human-group", "unit-brigand", "unit-ogre", "unit-sorceress" } } )
@@ -389,13 +389,13 @@ DefineButton( { Pos = 2, Level = 0, Icon = "icon-knight",
   Key = "g", Hint = "TRAIN KNI~!GHT",
   ForUnit = {"unit-human-stable"} } )
 
-DefineButton( { Pos = 4, Level = 0, Icon = "icon-horse1",
+DefineButton( { Pos = 6, Level = 0, Icon = "icon-horse1",
   Action = "research", Value = "upgrade-horse1",
   Allowed = "check-single-research",
   Key = "b", Hint = "~!BREED FASTER HORSES",
   ForUnit = {"unit-human-stable"} } )
 
-DefineButton( { Pos = 4, Level = 0, Icon = "icon-horse2",
+DefineButton( { Pos = 6, Level = 0, Icon = "icon-horse2",
   Action = "research", Value = "upgrade-horse2",
   Allowed = "check-single-research",
   Key = "b", Hint = "~!BREED FASTER HORSES",

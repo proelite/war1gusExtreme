@@ -648,13 +648,13 @@ DefineUnitType("unit-orc-watch-tower", {})
 DefineUnitType("unit-human-guard-tower", {})
 
 local upgrades = {
-      {orc = {"axe1", {"grunt", "orc-ogre", "raider", "orc-tracker"}, "axe2"},
-   human = {"sword1", {"footman", "knight", "human-scout"}, "sword2"},
+      {orc = {"axe1", {"grunt", "orc-ogre", "raider"}, "axe2"},
+   human = {"sword1", {"footman", "knight"}, "sword2"},
     cost = {   1200,   750,     400,     0,     0,     0,     0},
 	modifier = {"PiercingDamage", -1}, -- == 2-1 =+1 this means the benefit is +1, instead +2
     },
-      {orc = {"axe2", {"grunt", "orc-ogre", "raider", "orc-tracker"}, "axe3"},
-   human = {"sword2", {"footman", "knight", "human-scout"}, "sword3"},
+      {orc = {"axe2", {"grunt", "orc-ogre", "raider"}, "axe3"},
+   human = {"sword2", {"footman", "knight"}, "sword3"},
     cost = {   1200,   1500,     800,     0,     0,     0,     0},
 	modifier = {"PiercingDamage", -1},
     },
@@ -1231,7 +1231,7 @@ DefineModifier("upgrade-orc-saliva1",
 
 DefineAllow("upgrade-orc-saliva1", "AAAAAAAAAAAAAAAA")
 
-DefineButton( { Pos = 3, Level = 0, Icon = "icon-orc-saliva1",
+DefineButton( { Pos = 4, Level = 0, Icon = "icon-orc-saliva1",
   Action = "research", Value = "upgrade-orc-saliva1",
   Allowed = "check-single-research",
   Key = "h", Hint = "RESEARCH ~!HEALING SALIVA",
@@ -1256,7 +1256,7 @@ DefineModifier("upgrade-orc-saliva2",
 
 DefineAllow("upgrade-orc-saliva2", "AAAAAAAAAAAAAAAA")
 
-DefineButton( { Pos = 3, Level = 0, Icon = "icon-orc-saliva2",
+DefineButton( { Pos = 4, Level = 0, Icon = "icon-orc-saliva2",
    Action = "research", Value = "upgrade-orc-saliva2",
    Allowed = "check-upgrade", AllowArg = {"upgrade-orc-saliva1"},
    Key = "h", Hint = "RESEARCH ~!HEALING SALIVA",
@@ -1286,7 +1286,7 @@ DefineModifier("upgrade-human-barding1",
 
 DefineAllow("upgrade-human-barding1", "AAAAAAAAAAAAAAAA")
 
-DefineButton( { Pos = 3, Level = 0, Icon = "icon-human-barding1",
+DefineButton( { Pos = 4, Level = 0, Icon = "icon-human-barding1",
   Action = "research", Value = "upgrade-human-barding1",
   Allowed = "check-single-research",
   Key = "r", Hint = "~!RESEARCH BARDING",
@@ -1310,7 +1310,7 @@ DefineModifier("upgrade-human-barding2",
 
 DefineAllow("upgrade-human-barding2", "AAAAAAAAAAAAAAAA")
 
-DefineButton( { Pos = 3, Level = 0, Icon = "icon-human-barding2",
+DefineButton( { Pos = 4, Level = 0, Icon = "icon-human-barding2",
    Action = "research", Value = "upgrade-human-barding2",
    Allowed = "check-upgrade", AllowArg = {"upgrade-human-barding1"},
    Key = "r", Hint = "~!RESEARCH BARDING",
@@ -2021,6 +2021,26 @@ DefineButton( { Pos = 1, Level = 0, Icon = "icon-orc-CatapultSpeed",
   {"Level", 1},
   {"PiercingDamage", 1},
   {"apply-to", "unit-archer"}, {"apply-to", "unit-human-guard-tower"})
+
+DefineModifier("upgrade-sword1",
+  {"Level", 1},
+  {"PiercingDamage", -1},
+  {"apply-to", "unit-human-scout"})
+
+DefineModifier("upgrade-sword2",
+  {"Level", 1},
+  {"PiercingDamage", -1},
+  {"apply-to", "unit-human-scout"})
+
+DefineModifier("upgrade-axe1",
+  {"Level", 1},
+  {"PiercingDamage", -1},
+  {"apply-to", "unit-orc-tracker"})
+
+DefineModifier("upgrade-axe2",
+  {"Level", 1},
+  {"PiercingDamage", -1},
+  {"apply-to", "unit-orc-tracker"})
 
 -----------------------------------------------------------------------
 -- neutral buildings
