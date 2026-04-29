@@ -495,7 +495,7 @@ DefineUnitType("unit-orc-warbeast", {
   organic = true,
   ComputerReactionRange = 4,
   PersonReactionRange = 6,
-  Armor = 0,
+  Armor = 1,
   BasicDamage = 9,
   PiercingDamage = 3,
   Missile = "missile-arrow",
@@ -522,7 +522,31 @@ DefineUnitType("unit-orc-warbeast", {
     "help", "orc help 3",
     "dead", "orc warbeast dead"
   },
-  SelectableByRectangle = true
+  SelectableByRectangle = true,
+  OnEachSecond = function (warbeast)
+      local freq = GetUnitVariable(warbeast, "RegenerationFrequency")
+      local doheal = freq <= 1
+      local dodraw = (freq % 2 == 1)
+      if dodraw then
+         for i,unit in ipairs(GetUnitsAroundUnit(warbeast, 4, false)) do
+            if GetUnitVariable(unit, "organic") then
+               local hp = GetUnitVariable(unit, "HitPoints")
+               local maxhp = GetUnitVariable(unit, "HitPoints", "Max")
+               if hp < maxhp then
+                  if doheal then
+                     SetUnitVariable(unit, "HitPoints", hp + 1)
+                  end
+                  CreateMissile("missile-heal", {8, 8}, {8, 8}, unit, unit, false)
+               end
+            end
+         end
+      end
+      if doheal then
+         SetUnitVariable(warbeast, "RegenerationFrequency", 2)
+      else
+         SetUnitVariable(warbeast, "RegenerationFrequency", freq - 1)
+      end
+   end
 })
 table.insert(wc1_units.orc, "unit-orc-warbeast")
 DefineAllow("unit-orc-warbeast", "AAAAAAAAAAAAAAAA")
@@ -549,8 +573,8 @@ DefineUnitType("unit-human-war-wagon", {
   ComputerReactionRange = 4,
   PersonReactionRange = 6,
   Armor = 2,
-  BasicDamage = 30,
-  PiercingDamage = 10,
+  BasicDamage = 40,
+  PiercingDamage = 0,
   Missile = "missile-cannonball",
   Impact = {"general", "missile-hit"},
   Priority = 63,
@@ -582,7 +606,7 @@ DefineUnitType("unit-human-war-wagon", {
       local doRepair = freq <= 1
       local dodraw = (freq % 2 == 1)
       if dodraw then
-         for i,unit in ipairs(GetUnitsAroundUnit(war_wagon, 1, false)) do
+         for i,unit in ipairs(GetUnitsAroundUnit(war_wagon, 4, false)) do
             if not GetUnitVariable(unit, "organic") then
                local hp = GetUnitVariable(unit, "HitPoints")
                local maxhp = GetUnitVariable(unit, "HitPoints", "Max")
@@ -617,7 +641,7 @@ DefineUnitType("unit-human-cannon", {
    MinAttackRange = 2,
    TileSize = {1, 1},
    BoxSize = {15, 15},
-   Armor = 0,
+   Armor = 1,
    Speed = 2,
    AnnoyComputerFactor = 150,
    PiercingDamage = 0,

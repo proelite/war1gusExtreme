@@ -418,8 +418,8 @@ DefineAnimations("animations-orc-catapult", catapult_anim)
 -- Cannon: row0=idle, row1-2=move, row3-4-6=death, row5=fire (5 dirs × 32px = 160w, 7 rows = 224h)
 local cannon_anim = BuildAnimations(
    {{5, 10}, {25}, {15, 20, 30}},
-   { attackspeed = 5,
-     coolofftime = 100,
+   { attackspeed = 2,
+     coolofftime = 150,
      attacksound = "cannon2" }
 )
 DefineAnimations("animations-human-cannon", cannon_anim)
@@ -504,8 +504,10 @@ DefineAnimations("animations-war-wagon",
    {Still = {"frame 0", "wait 30"},
     Move = BuildMoveAnimation({0, 5}),
     Attack = {"unbreakable begin",
-              "frame 0", "attack", "sound cannon", "wait 50",
-              "frame 1", "wait 3",
+              "frame 0", "attack", "sound cannon", "wait 15",
+              "frame 0", "attack", "sound cannon", "wait 15",
+              "frame 0", "attack", "sound cannon", "wait 15",
+              "wait 30",
               "unbreakable end",
               "frame 0", "wait 1"},
     Death = {"unbreakable begin",
