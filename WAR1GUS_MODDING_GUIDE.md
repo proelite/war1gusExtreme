@@ -258,6 +258,91 @@ Always sync before test runs:
 
 Example from this project: a scout training-completion crash was resolved after copying the updated `scripts/units.lua` into the runtime data directory.
 
+## Verified API Notes (from this codebase)
+
+The notes below are based on helper usage in this repository and are useful for day-to-day modding in `scripts/*.lua`.
+
+### Frequently Used Helper Functions
+
+- `GetUnitsAroundUnit(centerUnit, radius, includeAll)`
+    - Returns nearby units.
+    - Used for aura/heal checks, ownership checks, and local target scans.
+    - Example patterns:
+        - `GetUnitsAroundUnit(unit, 1, true)` for immediate neighbors.
+        - `GetUnitsAroundUnit(unit, 4, false)` for wider area effects.
+
+- `GetUnitVariable(unit, name[, field])`
+    - Reads unit state like `"HitPoints"`, `"Mana"`, `"Player"`, `"PosX"`, `"PosY"`, `"Ident"`, `"PixelPos"`.
+    - Use optional `field` for metadata, such as:
+        - `GetUnitVariable(unit, "HitPoints", "Max")`
+        - `GetUnitVariable(unit, "Mana", "Max")`
+
+- `SetUnitVariable(unit, name, value[, field])`
+    - Writes unit state.
+    - Common patterns:
+        - `SetUnitVariable(unit, "HitPoints", hp + 1)`
+        - `SetUnitVariable(unit, "Supply", 0, "Max")`
+
+- `GetUnitBoolFlag(unit, flagName)`
+    - Boolean checks for flags like `"Building"`.
+    - Useful when filtering neighbors returned by `GetUnitsAroundUnit`.
+
+- `CreateMissile(missileIdent, fromPos, toPos, sourceUnit, goalUnit, mapRelative, alwaysDisplay)`
+    - Spawns a missile/effect.
+    - Common use in this mod: visual effects and scripted area retaliation.
+
+- `DamageUnit(attackerUnitOrMinusOne, targetUnit, amount)`
+    - Applies direct scripted damage.
+    - `-1` is commonly used for script/system damage.
+
+- `OrderUnit(player, unitIdent, fromRect, toRect, orderString)`
+    - Issues scripted orders such as `"attack"` and `"explore"`.
+
+- `ChangeUnitsOwner(topLeft, bottomRight, oldPlayer, newPlayer, unitTypeIdent)`
+    - Transfers ownership in an area for a unit type.
+
+### Unit Callback Hooks Confirmed in Engine + Used Here
+
+These hooks are supported by Stratagus unit definitions and are used in War1gus scripts:
+
+- `OnInit(unit)`
+- `OnReady(unit)`
+- `OnDeath(unit, x, y)`
+- `OnHit(unit, attacker, damage)`
+- `OnEachCycle(unit)`
+- `OnEachSecond(unit)`
+
+Practical note: `OnHit` is a hit-event callback (not every frame for all units).
+
+## Missile Types and Classes
+
+Missiles are defined via `DefineMissileType("id", { ... })` in `scripts/missiles.lua`.
+
+### Common Definition Fields
+
+- `File`, `Size`, `Frames`, `NumDirections`
+- `Class`
+- `Sleep`, `Speed`, `Range`
+- Optional behavior fields seen in this mod:
+    - `ImpactSound`, `ImpactMissile`, `SplashFactor`, `NumBounces`, `DrawLevel`
+
+### Missile Classes Currently Used by War1gus
+
+The following classes are present in this repository's missile definitions:
+
+- `missile-class-point-to-point`
+- `missile-class-parabolic`
+- `missile-class-fire`
+- `missile-class-stay`
+- `missile-class-point-to-point-with-hit`
+- `missile-class-none`
+- `missile-class-hit`
+- `missile-class-cycle-once`
+- `missile-class-flame-shield`
+- `missile-class-clip-to-target`
+
+For concrete examples, review `scripts/missiles.lua` and `scripts/balancing.lua` (for custom missile usage like `missile-demon-hate`).
+
 ## Common Modding Tasks
 
 ### Change Unit Appearance
