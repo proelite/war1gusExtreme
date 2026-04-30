@@ -419,7 +419,7 @@ DefineAnimations("animations-orc-catapult", catapult_anim)
 local cannon_anim = BuildAnimations(
    {{5, 10}, {25}, {15, 20, 30}},
    { attackspeed = 2,
-     coolofftime = 150,
+     coolofftime = 300,
      attacksound = "cannon2" }
 )
 DefineAnimations("animations-human-cannon", cannon_anim)

@@ -137,7 +137,7 @@ local units = {
     AnnoyComputerFactor = 100,
     Armor = 0,
     RightMouseAction = "harvest",
-    RepairRange = 1,
+    AutoRepairRange = 2,
     CanGatherResources = {
        {"resource-id", "gold",
         "resource-capacity", 100,
@@ -592,7 +592,7 @@ DefineUnitType("unit-human-war-wagon", {
   Vanishes = false,
   NonSolid = false,
   IsNotSelectable = false,
-  RepairRange = 0,
+  AutoRepairRange = 2,
   Corpse = nil,
   ExplodeWhenKilled = "missile-explosion",
   Sounds = {
@@ -604,14 +604,14 @@ DefineUnitType("unit-human-war-wagon", {
     "dead", "human dead"
   },
   SelectableByRectangle = true,
-  OnEachSecond = function (war_wagon)
-      local hp = GetUnitVariable(war_wagon, "HitPoints")
-      local maxhp = GetUnitVariable(war_wagon, "HitPoints", "Max")
-      if hp < maxhp then
-         local repair = GetUnitVariable(war_wagon, "RepairHp") or 4
-         SetUnitVariable(war_wagon, "HitPoints", math.min(maxhp, hp + repair))
-      end
-   end
+--   OnEachSecond = function (war_wagon)
+--       local hp = GetUnitVariable(war_wagon, "HitPoints")
+--       local maxhp = GetUnitVariable(war_wagon, "HitPoints", "Max")
+--       if hp < maxhp then
+--          local repair = GetUnitVariable(war_wagon, "RepairHp") or 4
+--          SetUnitVariable(war_wagon, "HitPoints", math.min(maxhp, hp + repair))
+--       end
+--    end
 })
 table.insert(wc1_units.human, "unit-human-war-wagon")
 DefineDependency("unit-human-war-wagon", {"unit-human-siege-workshop", "unit-human-tower"})

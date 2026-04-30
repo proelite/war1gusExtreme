@@ -518,7 +518,7 @@ DefineUnitType(
      TileSize = {1, 1}, BoxSize = {16, 16},
      SightRange = 0,
      DrawLevel = 40,
-    IsNotSelectable = false,
+     IsNotSelectable = false,
      Wall = true,
      NoRandomPlacing = false,
      Type = "land", Building = true,

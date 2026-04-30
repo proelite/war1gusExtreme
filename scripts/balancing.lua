@@ -82,7 +82,7 @@ DefineUnitType("unit-orc-temple",			{Costs = {"time", 300, "gold", 700, 	"wood",
 DefineUnitType("unit-human-tower",			{Costs = {"time", 400, "gold", 1400, 	"wood", 300},Armor = 0})
 DefineUnitType("unit-orc-tower",			{Costs = {"time", 400, "gold", 1400, 	"wood", 300},Armor = 0})
 
-DefineUnitType("unit-wall",					{Costs = {"time", 3,  "gold", 0,		"wood", 50}, Armor = 20})
+DefineUnitType("unit-wall",					{Costs = {"time", 10,  "gold", 0,		"wood", 50}, Armor = 20})
 
 DefineUnitType("unit-gold-mine",			{MaxOnBoard = 3})
 
