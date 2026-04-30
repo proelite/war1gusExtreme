@@ -576,7 +576,7 @@ DefineUnitType("unit-human-war-wagon", {
   ComputerReactionRange = 4,
   PersonReactionRange = 6,
   Armor = 2,
-  BasicDamage = 30,
+  BasicDamage = 20,
   PiercingDamage = 0,
   Missile = "missile-cannonball",
   Impact = {"general", "missile-hit"},

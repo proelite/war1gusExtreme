@@ -160,28 +160,28 @@ DefineModifier("upgrade-orc-cash-crops2",
 DefineAllow("upgrade-orc-cash-crops2", "AAAAAAAAAAAAAAAA")
 DefineDependency("upgrade-orc-cash-crops2", { "upgrade-orc-cash-crops1"} )
 
-DefineButton( { Pos = 4, Level = 0, Icon = "icon-cash-crops1",
+DefineButton( { Pos = 43, Level = 0, Icon = "icon-cash-crops1",
   Action = "research", Value = "upgrade-human-cash-crops1",
   Allowed = "check-single-research",
   Key = "c", Hint = "RESEARCH ~!CASH CROPS I",
-  Description = "Increase farm gold income.",
+  Description = "Farms generate 60 gold per minute.",
   ForUnit = {"unit-human-farm"} } )
 
-DefineButton( { Pos = 5, Level = 0, Icon = "icon-cash-crops2",
+DefineButton( { Pos = 3, Level = 0, Icon = "icon-cash-crops2",
   Action = "research", Value = "upgrade-human-cash-crops2",
   Allowed = "check-single-research",
   Key = "d", Hint = "RESEARCH ~!CASH CROPS II",
-  Description = "Further increase farm gold income.",
+  Description = "Farms generate 120 gold per minute.",
   ForUnit = {"unit-human-farm"} } )
 
-DefineButton( { Pos = 4, Level = 0, Icon = "icon-cash-crops1",
+DefineButton( { Pos = 3, Level = 0, Icon = "icon-cash-crops1",
   Action = "research", Value = "upgrade-orc-cash-crops1",
   Allowed = "check-single-research",
   Key = "c", Hint = "RESEARCH ~!CASH CROPS I",
   Description = "Farms generate 60 gold per minute.",
   ForUnit = {"unit-orc-farm"} } )
 
-DefineButton( { Pos = 5, Level = 0, Icon = "icon-cash-crops2",
+DefineButton( { Pos = 3, Level = 0, Icon = "icon-cash-crops2",
   Action = "research", Value = "upgrade-orc-cash-crops2",
   Allowed = "check-single-research",
   Key = "d", Hint = "RESEARCH ~!CASH CROPS II",
@@ -1602,8 +1602,7 @@ humanCannonHeatedShotUpgrade.Costs[2] = 400 -- wood
 DefineModifier("upgrade-human-CannonHeatedShot",
    {"Level", 1},
    {"PiercingDamage", 20},
-   {"apply-to", "unit-human-cannon"},
-   {"apply-to", "unit-human-war-wagon"})
+   {"apply-to", "unit-human-cannon"})
 
 DefineAllow("upgrade-human-CannonHeatedShot", "AAAAAAAAAAAAAAAA")
 DefineDependency("upgrade-human-CannonHeatedShot", { "unit-human-siege-workshop"} )
@@ -1612,7 +1611,7 @@ DefineButton( { Pos = 3, Level = 0, Icon = "icon-human-CannonHeatedShot",
    Action = "research", Value = "upgrade-human-CannonHeatedShot",
    Allowed = "check-single-research",
    Key = "e", Hint = "RESEARCH H~!EATED SHOT",
-   Description = "Increase Cannon and War Wagon damage by ~<20~>",
+   Description = "Increase cannon damage by ~<20~>",
     ForUnit = {"unit-human-siege-workshop"} } )
 
 
