@@ -644,7 +644,7 @@ DefineUnitType("unit-human-cannon", {
    Corpse = nil,
    ComputerReactionRange = 5,
    PersonReactionRange = 6,
-   Demand = 3,
+   Demand = 2,
    Type = "land",
    RightMouseAction = "attack",
    CanAttack = true,
