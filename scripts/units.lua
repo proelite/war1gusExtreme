@@ -632,7 +632,7 @@ DefineUnitType("unit-human-cannon", {
    Speed = 2,
    AnnoyComputerFactor = 150,
    PiercingDamage = 0,
-   BasicDamage = 100,
+   BasicDamage = 60,
    Missile = "missile-cannonball",
    Priority = 60,
    Points = 150,
