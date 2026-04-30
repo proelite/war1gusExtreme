@@ -160,6 +160,34 @@ DefineModifier("upgrade-orc-cash-crops2",
 DefineAllow("upgrade-orc-cash-crops2", "AAAAAAAAAAAAAAAA")
 DefineDependency("upgrade-orc-cash-crops2", { "upgrade-orc-cash-crops1"} )
 
+DefineButton( { Pos = 4, Level = 0, Icon = "icon-cash-crops1",
+  Action = "research", Value = "upgrade-human-cash-crops1",
+  Allowed = "check-single-research",
+  Key = "c", Hint = "RESEARCH ~!CASH CROPS I",
+  Description = "Increase farm gold income.",
+  ForUnit = {"unit-human-farm"} } )
+
+DefineButton( { Pos = 5, Level = 0, Icon = "icon-cash-crops2",
+  Action = "research", Value = "upgrade-human-cash-crops2",
+  Allowed = "check-single-research",
+  Key = "d", Hint = "RESEARCH ~!CASH CROPS II",
+  Description = "Further increase farm gold income.",
+  ForUnit = {"unit-human-farm"} } )
+
+DefineButton( { Pos = 4, Level = 0, Icon = "icon-cash-crops1",
+  Action = "research", Value = "upgrade-orc-cash-crops1",
+  Allowed = "check-single-research",
+  Key = "c", Hint = "RESEARCH ~!CASH CROPS I",
+  Description = "Farms generate 60 gold per minute.",
+  ForUnit = {"unit-orc-farm"} } )
+
+DefineButton( { Pos = 5, Level = 0, Icon = "icon-cash-crops2",
+  Action = "research", Value = "upgrade-orc-cash-crops2",
+  Allowed = "check-single-research",
+  Key = "d", Hint = "RESEARCH ~!CASH CROPS II",
+  Description = "Farms generate 120 gold per minute.",
+  ForUnit = {"unit-orc-farm"} } )
+
 DefineUnitType("unit-human-barracks",		{Costs = {"time", 400, "gold", 600, 	"wood", 500},Armor = 0})
 DefineUnitType("unit-orc-barracks",			{Costs = {"time", 400, "gold", 600, 	"wood", 500},Armor = 0})
 DefineUnitType("unit-human-lumber-mill",	{Costs = {"time", 250, "gold", 600, 	"wood", 150},Armor = 0})

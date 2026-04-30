@@ -381,20 +381,6 @@ DefineButton( { Pos = 3, Level = 0, Icon = "icon-spear3",
   Description = "Increase Spearman, Warbeast and Tower damage by ~<1~>", 
   ForUnit = {"unit-orc-blacksmith"} } )
 
-DefineButton( { Pos = 1, Level = 0, Icon = "icon-cash-crops1",
-  Action = "research", Value = "upgrade-orc-cash-crops1",
-  Allowed = "check-single-research",
-  Key = "c", Hint = "RESEARCH ~!CASH CROPS I",
-  Description = "Farms generate 60 gold per minute.",
-  ForUnit = {"unit-orc-farm"} } )
-
-DefineButton( { Pos = 1, Level = 0, Icon = "icon-cash-crops2",
-  Action = "research", Value = "upgrade-orc-cash-crops2",
-  Allowed = "check-single-research",
-  Key = "d", Hint = "RESEARCH ~!CASH CROPS II",
-  Description = "Farms generate 120 gold per minute.",
-  ForUnit = {"unit-orc-farm"} } )
-
 DefineButton( { Pos = 1, Level = 0, Icon = "icon-orc-tracker",
   Action = "train-unit", Value = "unit-orc-tracker",
   Key = "t", Hint = "TRAIN ~!TRACKER",

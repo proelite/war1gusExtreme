@@ -384,20 +384,6 @@ DefineButton( { Pos = 3, Level = 0, Icon = "icon-arrow3",
   Description = "Increase Archer and Tower damage by ~<1~>",
   ForUnit = {"unit-human-blacksmith"} } )
 
-DefineButton( { Pos = 1, Level = 0, Icon = "icon-cash-crops1",
-  Action = "research", Value = "upgrade-human-cash-crops1",
-  Allowed = "check-single-research",
-  Key = "c", Hint = "RESEARCH ~!CASH CROPS I",
-  Description = "Increase farm gold income.",
-  ForUnit = {"unit-human-farm"} } )
-
-DefineButton( { Pos = 1, Level = 0, Icon = "icon-cash-crops2",
-  Action = "research", Value = "upgrade-human-cash-crops2",
-  Allowed = "check-single-research",
-  Key = "d", Hint = "RESEARCH ~!CASH CROPS II",
-  Description = "Further increase farm gold income.",
-  ForUnit = {"unit-human-farm"} } )
-
 DefineButton( { Pos = 1, Level = 0, Icon = "icon-human-scout",
   Action = "train-unit", Value = "unit-human-scout",
   Key = "s", Hint = "TRAIN ~!SCOUT",
