@@ -70,7 +70,7 @@ DefineButton( { Pos = 2, Level = 0, Icon = "icon-orc-shield1",
     "unit-necrolyte", "unit-warlock", "unit-garona", "unit-griselda",
     "orc-group"} } )
 
-DefineButton( { Pos = 6, Level = 0, Icon = "icon-return-goods",
+DefineButton( { Pos = 6, Level = 0, Icon = "icon-orc-unload",
   Action = "unload",
   Key = "u", Hint = "~!UNLOAD",
   ForUnit = {"unit-orc-warbeast"} } )
