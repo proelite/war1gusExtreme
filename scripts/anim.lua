@@ -430,11 +430,11 @@ DefineAnimations("animations-raider", anim_rider)
 
 DefineAnimations("animations-warbeast",
          {
-            Still = {"frame 5", "wait 30"},
+            Still = {"frame 5", "wait 10"},
             Move = BuildMoveAnimation({0, 10}),
             Attack = {"unbreakable begin",
                       "frame 5", "attack", "sound arrow attack", 
-                      "wait 30",
+                      "wait 10",
                       "unbreakable end",
                       "frame 5", "wait 1"},
             Death = BuildDeathAnimation({15, 20, 25, 30})
@@ -507,7 +507,7 @@ DefineAnimations("animations-war-wagon",
               "frame 0", "attack", "sound cannon", "wait 15",
               "frame 0", "attack", "sound cannon", "wait 15",
               "frame 0", "attack", "sound cannon", "wait 15",
-              "wait 100",
+              "wait 150",
               "unbreakable end",
               "frame 0", "wait 1"},
     Death = {"unbreakable begin",
