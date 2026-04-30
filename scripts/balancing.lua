@@ -65,8 +65,101 @@ DefineUnitType("unit-water-elemental",	{SightRange = 6})
 DefineUnitType("unit-human-town-hall",		{Costs = {"time", 50, "gold", 400,	"wood", 400},Armor = 0, Supply = 10, HitPoints = 1500}) --this is AI town hall, normal for player is fast town hall 1483 line
 DefineUnitType("unit-orc-town-hall",		{Costs = {"time", 50, "gold", 400,	"wood", 400},Armor = 0, Supply = 10, HitPoints = 1500})
 
-DefineUnitType("unit-human-farm",			{Costs = {"time", 200, "gold", 500,		"wood", 300},Armor = 0, Supply = 5})
-DefineUnitType("unit-orc-farm",				{Costs = {"time", 200, "gold", 500,		"wood", 300},Armor = 0, Supply = 5})
+DefineUnitType("unit-human-farm", {Costs = {"time", 200, "gold", 500,        "wood", 300}, Armor = 0, Supply = 5,
+  OnEachSecond = function(farm)
+    local player = GetUnitVariable(farm, "Player")
+    local gold = 0
+    if GetPlayerData(player, "Allow", "upgrade-human-cash-crops1") == "R" then
+      gold = gold + 1
+    end
+    if GetPlayerData(player, "Allow", "upgrade-human-cash-crops2") == "R" then
+      gold = gold + 1
+    end
+    if gold > 0 then
+      SetPlayerData(player, "Resources", "gold", GetPlayerData(player, "Resources", "gold") + gold)
+    end
+  end})
+DefineUnitType("unit-orc-farm", {Costs = {"time", 200, "gold", 500,        "wood", 300}, Armor = 0, Supply = 5,
+  OnEachSecond = function(farm)
+    local player = GetUnitVariable(farm, "Player")
+    local gold = 0
+    if GetPlayerData(player, "Allow", "upgrade-orc-cash-crops1") == "R" then
+      gold = gold + 1
+    end
+    if GetPlayerData(player, "Allow", "upgrade-orc-cash-crops2") == "R" then
+      gold = gold + 1
+    end
+    if gold > 0 then
+      SetPlayerData(player, "Resources", "gold", GetPlayerData(player, "Resources", "gold") + gold)
+    end
+  end})
+
+local humanCashCropsIcon1 = CIcon:New("icon-cash-crops1")
+humanCashCropsIcon1.G = CPlayerColorGraphic:New("contrib/graphics/ui/icon-cash-crops1.png", 27, 19)
+humanCashCropsIcon1.Frame = 0
+
+local humanCashCropsUpgrade1 = CUpgrade:New("upgrade-human-cash-crops1")
+humanCashCropsUpgrade1.Icon = humanCashCropsIcon1
+humanCashCropsUpgrade1.Costs[0] = 700
+humanCashCropsUpgrade1.Costs[1] = 500
+humanCashCropsUpgrade1.Costs[2] = 1000
+
+DefineModifier("upgrade-human-cash-crops1",
+  {"Level", 1},
+  {"apply-to", "unit-human-farm"})
+
+DefineAllow("upgrade-human-cash-crops1", "AAAAAAAAAAAAAAAA")
+
+local humanCashCropsIcon2 = CIcon:New("icon-cash-crops2")
+humanCashCropsIcon2.G = CPlayerColorGraphic:New("contrib/graphics/ui/icon-cash-crops2.png", 27, 19)
+humanCashCropsIcon2.Frame = 0
+
+local humanCashCropsUpgrade2 = CUpgrade:New("upgrade-human-cash-crops2")
+humanCashCropsUpgrade2.Icon = humanCashCropsIcon2
+humanCashCropsUpgrade2.Costs[0] = 700
+humanCashCropsUpgrade2.Costs[1] = 500
+humanCashCropsUpgrade2.Costs[2] = 1000
+
+DefineModifier("upgrade-human-cash-crops2",
+  {"Level", 1},
+  {"apply-to", "unit-human-farm"})
+
+DefineAllow("upgrade-human-cash-crops2", "AAAAAAAAAAAAAAAA")
+DefineDependency("upgrade-human-cash-crops2", { "upgrade-human-cash-crops1"} )
+
+local orcCashCropsIcon1 = CIcon:New("icon-cash-crops1")
+orcCashCropsIcon1.G = CPlayerColorGraphic:New("contrib/graphics/ui/icon-cash-crops1.png", 27, 19)
+orcCashCropsIcon1.Frame = 0
+
+local orcCashCropsUpgrade1 = CUpgrade:New("upgrade-orc-cash-crops1")
+orcCashCropsUpgrade1.Icon = orcCashCropsIcon1
+orcCashCropsUpgrade1.Costs[0] = 700
+orcCashCropsUpgrade1.Costs[1] = 500
+orcCashCropsUpgrade1.Costs[2] = 1000
+
+DefineModifier("upgrade-orc-cash-crops1",
+  {"Level", 1},
+  {"apply-to", "unit-orc-farm"})
+
+DefineAllow("upgrade-orc-cash-crops1", "AAAAAAAAAAAAAAAA")
+
+local orcCashCropsIcon2 = CIcon:New("icon-cash-crops2")
+orcCashCropsIcon2.G = CPlayerColorGraphic:New("contrib/graphics/ui/icon-cash-crops2.png", 27, 19)
+orcCashCropsIcon2.Frame = 0
+
+local orcCashCropsUpgrade2 = CUpgrade:New("upgrade-orc-cash-crops2")
+orcCashCropsUpgrade2.Icon = orcCashCropsIcon2
+orcCashCropsUpgrade2.Costs[0] = 700
+orcCashCropsUpgrade2.Costs[1] = 500
+orcCashCropsUpgrade2.Costs[2] = 1000
+
+DefineModifier("upgrade-orc-cash-crops2",
+  {"Level", 1},
+  {"apply-to", "unit-orc-farm"})
+
+DefineAllow("upgrade-orc-cash-crops2", "AAAAAAAAAAAAAAAA")
+DefineDependency("upgrade-orc-cash-crops2", { "upgrade-orc-cash-crops1"} )
+
 DefineUnitType("unit-human-barracks",		{Costs = {"time", 400, "gold", 600, 	"wood", 500},Armor = 0})
 DefineUnitType("unit-orc-barracks",			{Costs = {"time", 400, "gold", 600, 	"wood", 500},Armor = 0})
 DefineUnitType("unit-human-lumber-mill",	{Costs = {"time", 250, "gold", 600, 	"wood", 150},Armor = 0})

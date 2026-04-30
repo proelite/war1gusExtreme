@@ -227,6 +227,14 @@ local DefineCustomIcons = function()
   woodToGold.G = CPlayerColorGraphic:New("contrib/graphics/ui/icon-wood-to-gold.png", 27, 19)
   woodToGold.Frame = 0
 
+  local cashCrops1 = CIcon:New("icon-cash-crops1")
+  cashCrops1.G = CPlayerColorGraphic:New("contrib/graphics/ui/icon-cash-crops1.png", 27, 19)
+  cashCrops1.Frame = 0
+
+  local cashCrops2 = CIcon:New("icon-cash-crops2")
+  cashCrops2.G = CPlayerColorGraphic:New("contrib/graphics/ui/icon-cash-crops2.png", 27, 19)
+  cashCrops2.Frame = 0
+
   local humanscout = CIcon:New("icon-human-scout")
   humanscout.G = CPlayerColorGraphic:New("contrib/graphics/ui/human/icon-human-scout.png", 27, 19)
   humanscout.Frame = 0
