@@ -385,14 +385,14 @@ DefineButton( { Pos = 1, Level = 0, Icon = "icon-cash-crops1",
   Action = "research", Value = "upgrade-orc-cash-crops1",
   Allowed = "check-single-research",
   Key = "c", Hint = "RESEARCH ~!CASH CROPS I",
-  Description = "Increase farm gold income.",
+  Description = "Farms generate 60 gold per minute.",
   ForUnit = {"unit-orc-farm"} } )
 
 DefineButton( { Pos = 1, Level = 0, Icon = "icon-cash-crops2",
   Action = "research", Value = "upgrade-orc-cash-crops2",
   Allowed = "check-single-research",
   Key = "d", Hint = "RESEARCH ~!CASH CROPS II",
-  Description = "Further increase farm gold income.",
+  Description = "Farms generate 120 gold per minute.",
   ForUnit = {"unit-orc-farm"} } )
 
 DefineButton( { Pos = 1, Level = 0, Icon = "icon-orc-tracker",
