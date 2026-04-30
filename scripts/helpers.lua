@@ -141,7 +141,6 @@ function DefineBuildingFromSpec(building)
             Missile = "missile-none",
             RightMouseAction = "none",
             Speed = 0,
-            Type = "land",
             CanAttack = false,
             Coward = false,
             Priority = 20,

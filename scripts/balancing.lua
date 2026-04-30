@@ -92,10 +92,17 @@ DefineDependency("unit-human-lumber-mill", { "unit-human-barracks"} )
 DefineDependency("unit-orc-lumber-mill", { "unit-orc-barracks"} )
 
 -- Remove the road-adjacent placement requirement for lumber mills.
+-- Keep AI placement restrictions matching the default building rules.
 DefineUnitType("unit-human-lumber-mill", {
    BuildingRules = {
       {
          "distance", { Distance = 5, DistanceType = "<", Owner = "self" }
+      }
+   },
+   AiBuildingRules = {
+      {
+         "distance", { Distance = 2, DistanceType = ">=", Type = "unit-gold-mine" },
+         "distance", { Distance = 2, DistanceType = ">=", Owner = "self" }
       }
    }
 })
@@ -103,6 +110,12 @@ DefineUnitType("unit-orc-lumber-mill", {
    BuildingRules = {
       {
          "distance", { Distance = 5, DistanceType = "<", Owner = "self" }
+      }
+   },
+   AiBuildingRules = {
+      {
+         "distance", { Distance = 2, DistanceType = ">=", Type = "unit-gold-mine" },
+         "distance", { Distance = 2, DistanceType = ">=", Owner = "self" }
       }
    }
 })
