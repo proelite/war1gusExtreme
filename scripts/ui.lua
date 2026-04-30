@@ -108,6 +108,23 @@ DefinePanelContents(
                                                   return "Demand: " .. GetPlayerData(GetThisPlayer(), "Demand")
                                                end
                                  end }}
+         },
+         { Pos = third_line, More = {"Text", {Text = function ()
+                                               local ident = ActiveUnitVar("Ident")
+                                               if ident == "unit-human-farm" or ident == "unit-orc-farm" then
+                                                  local player = ActiveUnitVar("Player")
+                                                  local rate = 0
+                                                  if ident == "unit-human-farm" then
+                                                     if GetPlayerData(player, "Allow", "upgrade-human-cash-crops1") == "R" then rate = rate + 60 end
+                                                     if GetPlayerData(player, "Allow", "upgrade-human-cash-crops2") == "R" then rate = rate + 60 end
+                                                  else
+                                                     if GetPlayerData(player, "Allow", "upgrade-orc-cash-crops1") == "R" then rate = rate + 60 end
+                                                     if GetPlayerData(player, "Allow", "upgrade-orc-cash-crops2") == "R" then rate = rate + 60 end
+                                                  end
+                                                  return "Gold/min: " .. rate
+                                               end
+                                               return ""
+                                 end }}
          }
       }
    },
