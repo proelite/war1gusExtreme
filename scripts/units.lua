@@ -137,7 +137,7 @@ local units = {
     AnnoyComputerFactor = 100,
     Armor = 0,
     RightMouseAction = "harvest",
-    AutoRepairRange = 2,
+    RepairRange = 2,
     CanGatherResources = {
        {"resource-id", "gold",
         "resource-capacity", 100,
@@ -592,7 +592,7 @@ DefineUnitType("unit-human-war-wagon", {
   Vanishes = false,
   NonSolid = false,
   IsNotSelectable = false,
-  AutoRepairRange = 2,
+  RepairRange = 2,
   Corpse = nil,
   ExplodeWhenKilled = "missile-explosion",
   Sounds = {
