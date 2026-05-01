@@ -160,7 +160,7 @@ DefineModifier("upgrade-orc-cash-crops2",
 DefineAllow("upgrade-orc-cash-crops2", "AAAAAAAAAAAAAAAA")
 DefineDependency("upgrade-orc-cash-crops2", { "upgrade-orc-cash-crops1"} )
 
-DefineButton( { Pos = 43, Level = 0, Icon = "icon-cash-crops1",
+DefineButton( { Pos = 3, Level = 0, Icon = "icon-cash-crops1",
   Action = "research", Value = "upgrade-human-cash-crops1",
   Allowed = "check-single-research",
   Key = "c", Hint = "RESEARCH ~!CASH CROPS I",
@@ -1684,7 +1684,7 @@ DefineButton( { Pos = 5, Level = 0, Icon = "icon-human-patrol",
 DefineButton( { Pos = 6, Level = 0, Icon = "icon-human-explore",
   Action = "explore",
   Key = "e", Hint = "~!EXPLORE",
-   ForUnit = {"unit-footman", "unit-archer", "unit-knight", "unit-human-scout", "unit-human-war-wagon", "unit-water-elemental", "unit-scorpion", "unit-lothar", "human-group", "unit-brigand", "unit-ogre"}}) 
+   ForUnit = {"unit-footman", "unit-archer", "unit-knight", "unit-human-scout", "unit-water-elemental", "unit-scorpion", "unit-lothar", "human-group", "unit-brigand", "unit-ogre"}}) 
 
 -----------------------------------------------------------------------
 -- New Orders Buttons Orcs

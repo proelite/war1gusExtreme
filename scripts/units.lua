@@ -592,7 +592,8 @@ DefineUnitType("unit-human-war-wagon", {
   Vanishes = false,
   NonSolid = false,
   IsNotSelectable = false,
-  RepairRange = 2,
+  RepairRange = 4,
+  AutoRepairRange = 4,
   Corpse = nil,
   ExplodeWhenKilled = "missile-explosion",
   Sounds = {

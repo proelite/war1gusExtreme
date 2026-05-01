@@ -169,7 +169,8 @@ local buildings = {
    AnnoyComputerFactor = 60,
    Size = {64, 64},
    Dependency = {human = "blacksmith"},
-    Icon = "icon-human-siege-workshop",
+   Icon = "icon-human-siege-workshop",
+   Armor = 0,
    Sounds = {
     "ready", "human work complete",
     "selected", "human-selected",
@@ -183,6 +184,7 @@ local buildings = {
    Size = {64, 64},
    Dependency = {orc = "blacksmith"},
    Icon = "icon-orc-war-camp",
+   Armor = 0,
    Sounds = {
     "ready", "orc work complete",
     "selected", "orc-selected",
