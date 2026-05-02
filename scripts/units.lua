@@ -615,10 +615,14 @@ DefineUnitType("unit-human-war-wagon", {
           local riders = {}
          for i = 1, 3 do
              local rider = CreateUnit("unit-human-war-wagon-attack", player, pos)
-             Unit(rider, {"boarded"})
-             riders[i] = string.format("U%04X", rider)
+             if type(rider) == "number" and rider >= 0 then
+                Unit(rider, {"boarded"})
+                riders[#riders + 1] = string.format("U%04X", rider)
+             end
          end
-         Unit(war_wagon, {"units-boarded-count", 3, "units-contained", riders})
+          if #riders > 0 then
+             Unit(war_wagon, {"units-boarded-count", #riders, "units-contained", riders})
+          end
     end,
   SelectableByRectangle = true,
 --   OnEachSecond = function (war_wagon)
