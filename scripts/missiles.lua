@@ -44,7 +44,7 @@ DefineMissileType("missile-cannonball",
   { File = "missiles/fireball.png", Size = {32, 32}, Frames = 10, NumDirections = 9,
   ImpactSound = "explosion",
   DrawLevel = 170, Class = "missile-class-point-to-point", Sleep = 1, Speed = 3, Range = 0,
-  ImpactMissile = "missile-explosion", SplashFactor = 2 } )
+  ImpactMissile = "missile-explosion", SplashFactor = 4 } )
 
 DefineMissileType("missile-small-fire",
   { File = "missiles/small_fire.png", Size = {16, 32}, Frames = 4, NumDirections = 1,
@@ -127,13 +127,13 @@ DefineMissileType("missile-iceshard",
 DefineMissileType("missile-shotgun-blast",
   { File = "contrib/graphics/missiles/blast.png", Size = {32, 32}, Frames = 5, NumDirections = 9,
     DrawLevel = 200, ImpactSound = "shotgun attack",
-    Class = "missile-class-point-to-point", Sleep = 1, Speed = 8, Range = 0, SplashFactor = 2 } )
+    Class = "missile-class-point-to-point", Sleep = 1, Speed = 8, Range = 0, SplashFactor = 4 } )
 
 DefineMissileType("missile-ogre-smash",
   { File = "graphics/missiles/hit.png", Size = {32, 32}, Frames = 1, NumDirections = 1,
     DrawLevel = 0, ImpactSound = "fist attack",
     Class = "missile-class-none", Sleep = 1, Speed = 32, Range = 0,
-    SplashFactor = 2 } )
+    SplashFactor = 4 } )
 
 DefineMissileType("missile-hail",
   { File = "contrib/graphics/missiles/hail.png", Size = {32, 32}, Frames = 4, NumDirections = 1,

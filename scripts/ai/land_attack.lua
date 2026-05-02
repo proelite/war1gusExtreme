@@ -146,7 +146,7 @@ function CreateAiLandAttack(sleep_factor, max_force)
       function() return AiAttackWithForce(0) end,
       function() return AiAttackWithForce(1) end,
       function() return AiSleep(500) end,
-      function() 
+      function()
 	 stratagus.gameData.AIState.loop_index[1 + AiPlayer()] = 0
 	 return false
       end,
@@ -172,14 +172,14 @@ function CreateAiLandAttack(sleep_factor, max_force)
       --function() return AiForce(1, {AiSoldier(), 1}) end,
       --function() return AiWaitForce(1) end,
       --function() return AiAttackWithForce(1) end,
-      function() return AiSleep(1) end,      
+      function() return AiSleep(1) end,
 
       function () return GenerateRoads(true, false) end,
 
       function() return AiSet(AiWorker(), 9) end,
       --function() return AiSleep(500) end,
 	  function() return AiWait(AiWorker()) end,
-	  function() return AiWait(AiLumberMill()) end, 
+	  function() return AiWait(AiLumberMill()) end,
       function() return AiNeed(AiTower()) end,
       --function() return AiForce(0, {AiSoldier(), 2, AiShooter(), 1}) end,
       function() return AiForce(1, {AiSoldier(), 2, AiShooter(), 1}) end,
@@ -231,15 +231,17 @@ function CreateAiLandAttack(sleep_factor, max_force)
 
       --function() return AiSleep(500) end,
       function() return AiNeed(AiStables()) end,
-      function() return AiWait(AiStables()) end,
       function() return AiNeed(AiBlacksmith()) end,
+      function() return AiWait(AiStables()) end,
       function() return AiWait(AiBlacksmith()) end,
+      function() return AiSleep(1) end,
+
       --function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 3, AiCatapult(), 1}) end,
       function() return AiForce(1, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 2, AiCatapult(), 1}) end,
       --function() return AiWaitForce(0) end,
       function() return AiWaitForce(1) end,
       function() return AiAttackWithForce(1) end,
-      
+
       --function() return AiSleep(500) end,
       function() return AiNeed(AiBarracks()) end,
       function() return AiSet(AiWorker(), 19) end,
@@ -254,6 +256,9 @@ function CreateAiLandAttack(sleep_factor, max_force)
 
       function() return AiNeed(AiTemple()) end,
       function() return AiNeed(AiMageTower()) end,
+      function() return AiWait(AiTemple()) end,
+      function() return AiWait(AiMageTower()) end,
+
       --function() return AiSleep(500) end,
       function() return AiResearch(AiMageSpell2()) end,
       function() return AiResearch(AiMageSpell3()) end,
