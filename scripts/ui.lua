@@ -426,6 +426,21 @@ for i = 1,4,1 do
    UI.SelectedButtons:push_back(MakeButton(x, y))
 end
 
+UI.TransportingButtons:clear()
+for i = 1,4,1 do
+   local x = 4
+   if i % 2 == 0 then
+      x = 37
+   end
+   local y = 70
+   if i <= 2 then
+      y = y + 3
+   else
+      y = y + 26
+   end
+   UI.TransportingButtons:push_back(MakeButton(x, y))
+end
+
 UI.LifeBarColorNames:clear()
 UI.LifeBarColorNames:push_back("green")
 UI.LifeBarColorNames:push_back("yellow")
