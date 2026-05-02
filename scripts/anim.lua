@@ -184,6 +184,7 @@ local function BuildMoveAnimation(frames)
    return res
 end
 
+-- Buggy due to the fact that attack command fires a projectile at the point of click, even across the map
 local function BuildMoveAttackAnimation(frames, options)
    options = options or {}
    local stepInterval = options.stepInterval or 8
@@ -460,7 +461,7 @@ DefineAnimations("animations-raider", anim_rider)
 DefineAnimations("animations-warbeast",
          {
             Still = {"frame 5", "wait 10"},
-            Move = BuildMoveAttackAnimation({0, 10}),
+            Move = BuildMoveAnimation({0, 10}),
             Attack = {"unbreakable begin",
                       "frame 5", "attack", "sound arrow attack", 
                       "wait 10",
@@ -531,16 +532,9 @@ DefineAnimations("animations-lothar", BuildAnimations(frameNumbers_5_5_5_3))
 
 DefineAnimations("animations-war-wagon",
    {Still = {"frame 0", "wait 10"},
-   Move = BuildMoveAttackAnimation({0, 5},
-         {stepInterval = 8,
-          issueAttack = true,
-          attacksound = "cannon",
-          attackwait = 0}),
+   Move = BuildMoveAnimation({0, 5}),
    Attack = {"unbreakable begin",
-           "frame 0", "attack", "sound cannon", "wait 5",
-           "frame 0", "attack", "sound cannon", "wait 5",
-           "frame 0", "attack", "sound cannon", "wait 5",
-           "wait 50",
+           "frame 0", "attack", "sound cannon", "wait 50",
            "unbreakable end",
            "frame 0", "wait 1"},
     -- Keep repair cadence similar to workers: one repair tick per cycle.

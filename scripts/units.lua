@@ -329,7 +329,7 @@ DefineUnitType("unit-human-scout", {
    CanAttack = true,
    CanTargetLand = true,
    CanTargetSea = true,
-   CanTargetAir = true,
+   CanTargetAir = false,
    SelectableByRectangle = true,
    Sounds = {
       "attack", "human acknowledge",
@@ -373,8 +373,8 @@ DefineUnitType("unit-orc-tracker", {
    RightMouseAction = "attack",
    CanAttack = true,
    CanTargetLand = true,
-   CanTargetSea = true,
-   CanTargetAir = true,
+   CanTargetSea = false,
+   CanTargetAir = false,
    SelectableByRectangle = true,
    Sounds = {
       "attack", "orc acknowledge",
@@ -418,7 +418,7 @@ DefineUnitType("unit-human-sapper", {
    CanAttack = true,
    CanTargetLand = true,
    CanTargetSea = true,
-   CanTargetAir = true,
+   CanTargetAir = false,
    SelectableByRectangle = true,
    Sounds = {
       "attack", "human acknowledge",
@@ -463,7 +463,7 @@ DefineUnitType("unit-orc-ogre", {
    CanAttack = true,
    CanTargetLand = true,
    CanTargetSea = true,
-   CanTargetAir = true,
+   CanTargetAir = false,
    SelectableByRectangle = true,
    Sounds = {
       "attack", "orc acknowledge",
@@ -511,6 +511,8 @@ DefineUnitType("unit-orc-warbeast", {
   CanAttack = true,
   Coward = false,
   CanTargetLand = true,
+  CanTargetSea = true,
+  CanTargetAir = true,
   Vanishes = false,
   NonSolid = false,
   IsNotSelectable = false,
@@ -596,6 +598,9 @@ DefineUnitType("unit-human-war-wagon", {
   AutoRepairRange = 4,
   Corpse = nil,
   ExplodeWhenKilled = "missile-explosion",
+   CanTransport = {"volatile", "only"},
+  MaxOnBoard = 3,
+  AttackFromTransporter = true,
   Sounds = {
     "attack", "human acknowledge",
     "selected", "human-selected",
@@ -604,6 +609,17 @@ DefineUnitType("unit-human-war-wagon", {
     "help", "human help 1",
     "dead", "human dead"
   },
+   OnReady = function (war_wagon)
+         local player = GetUnitVariable(war_wagon, "Player")
+         local pos = {GetUnitVariable(war_wagon, "PosX"), GetUnitVariable(war_wagon, "PosY")}
+         local riders = {}
+         for i = 1, 3 do
+             local rider = CreateUnit("unit-human-war-wagon-attack", player, pos)
+             Unit(rider, {"boarded"})
+             riders[i] = rider
+         end
+         Unit(war_wagon, {"units-boarded-count", 3, "units-contained", riders})
+    end,
   SelectableByRectangle = true,
 --   OnEachSecond = function (war_wagon)
 --       local hp = GetUnitVariable(war_wagon, "HitPoints")
@@ -616,6 +632,39 @@ DefineUnitType("unit-human-war-wagon", {
 })
 table.insert(wc1_units.human, "unit-human-war-wagon")
 DefineDependency("unit-human-war-wagon", {"unit-human-siege-workshop", "unit-human-tower"})
+
+DefineUnitType("unit-human-war-wagon-attack", {
+   Name = "war-wagon-attack",
+   Image = {"file", "contrib/graphics/units/cannon.png", "size", {32, 32}},
+   Icon = "icon-human-cannon",
+   Costs = {"time", 0, "gold", 0, "wood", 0},
+   HitPoints = 1,
+   DrawLevel = 1,
+   MaxAttackRange = 6,
+   MinAttackRange = 2,
+   TileSize = {1, 1},
+   BoxSize = {1, 1},
+   Armor = 0,
+   Speed = 0,
+   PiercingDamage = 0,
+   BasicDamage = 20,
+   Missile = "missile-cannonball",
+   Priority = 1,
+   Points = 0,
+   SightRange = 8,
+   organic = false,
+   volatile = true,
+   IsNotSelectable = true,
+   Vanishes = true,
+   Corpse = nil,
+   Demand = 0,
+   Type = "land",
+   CanAttack = true,
+   CanTargetLand = true,
+   CanTargetSea = true,
+   CanTargetAir = true,
+   SelectableByRectangle = false,
+})
 
 DefineUnitType("unit-human-cannon", {
    Name = "Cannon",
@@ -652,7 +701,7 @@ DefineUnitType("unit-human-cannon", {
    GroundAttack = true,
    CanTargetLand = true,
    CanTargetSea = true,
-   CanTargetAir = false,
+   CanTargetAir = true,
    SelectableByRectangle = true,
    Sounds = {
       "attack", "human acknowledge",
