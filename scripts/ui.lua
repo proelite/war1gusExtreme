@@ -60,6 +60,7 @@ local first_line = {info_text_off_x, 35}
 local second_line = {info_text_off_x, 41}
 local third_line = {(info_text_off_x * 2) + (info_panel_w / 2) + 7, 35}
 local fourth_line = {(info_text_off_x * 2) + (info_panel_w / 2) + 7, 41}
+local fifth_line = {info_text_off_x, 47}
 
 CompleteBarText = CGraphic:New("ui/percent_complete.png", 40, 5)
 CompleteBarText:Load()
@@ -109,7 +110,7 @@ DefinePanelContents(
                                                end
                                  end }}
          },
-         { Pos = third_line, More = {"Text", {Text = function ()
+         { Pos = fifth_line, More = {"Text", {Text = function ()
                                                local ident = ActiveUnitVar("Ident")
                                                if ident == "unit-human-farm" or ident == "unit-orc-farm" then
                                                   local player = ActiveUnitVar("Player")
@@ -123,7 +124,6 @@ DefinePanelContents(
                                                   end
                                                   return "Gold/min: " .. rate
                                                end
-                                               return ""
                                  end }}
          }
       }
@@ -563,15 +563,6 @@ function LoadUI(race, screen_width, screen_height)
    end
 
 
-   local ui = {
-      "info-panel", {
-         "panels", {"panel-general-contents", "panel-attack-unit-contents",
-                    "panel-all-unit-contents", "panel-building-contents"},
-         "completed-bar", {
-            "color", {48, 100, 4}
-                          }
-                    }
-   }
 end
 
 -- Popups

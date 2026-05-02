@@ -184,6 +184,32 @@ local function BuildMoveAnimation(frames)
    return res
 end
 
+local function BuildMoveAttackAnimation(frames, options)
+   options = options or {}
+   local stepInterval = options.stepInterval or 8
+   local attackSound = options.attacksound or "cannon"
+   local attackWait = options.attackwait or 0
+   local base = BuildMoveAnimation(frames)
+   local res = {}
+   local movedSteps = 0
+
+   for _, step in ipairs(base) do
+      res[1 + #res] = step
+      if step == "move 2" then
+         movedSteps = movedSteps + 1
+         if movedSteps % stepInterval == 0 then
+            res[1 + #res] = "attack"
+            res[1 + #res] = "sound " .. attackSound
+            if attackWait > 0 then
+               res[1 + #res] = "wait " .. attackWait
+            end
+         end
+      end
+   end
+
+   return res
+end
+
 local function BuildAttackAnimation(frames, waittime, coolofftime, sound)
    -- Attack / Harvest with some modification
    local halfIndex;
@@ -502,12 +528,21 @@ DefineAnimations("animations-lothar", BuildAnimations(frameNumbers_5_5_5_3))
 
 DefineAnimations("animations-war-wagon",
    {Still = {"frame 0", "wait 10"},
-    Move = BuildMoveAnimation({0, 5}),
-    Attack = {"unbreakable begin",
-              "frame 0", "attack", "sound cannon", "wait 5",
-              "frame 0", "attack", "sound cannon", "wait 5",
-              "frame 0", "attack", "sound cannon", "wait 5",
-              "wait 50",
+   Move = BuildMoveAttackAnimation({0, 5},
+         {stepInterval = 8,
+          attacksound = "cannon",
+          attackwait = 0}),
+   Attack = {"unbreakable begin",
+           "frame 0", "attack", "sound cannon", "wait 5",
+           "frame 0", "attack", "sound cannon", "wait 5",
+           "frame 0", "attack", "sound cannon", "wait 5",
+           "wait 50",
+           "unbreakable end",
+           "frame 0", "wait 1"},
+    -- Keep repair cadence similar to workers: one repair tick per cycle.
+    Repair = {"unbreakable begin",
+              "frame 0", "attack", "sound hammer", "wait 15",
+              "wait 45",
               "unbreakable end",
               "frame 0", "wait 1"},
     Death = {"unbreakable begin",
