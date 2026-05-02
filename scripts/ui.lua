@@ -124,6 +124,7 @@ DefinePanelContents(
                                                   end
                                                   return "Gold/min: " .. rate
                                                end
+                                               return ""
                                  end }}
          }
       }
