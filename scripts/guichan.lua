@@ -259,7 +259,7 @@ function AddMenuHelpers(menu)
     dd:setFont(Fonts["game"])
     dd:setList(list)
     dd:setActionCallback(function(s) callback(dd, s) end)
-	dd.callback = callback
+    dd.callback = callback
     dd:setBaseColor(dark)
     dd:setForegroundColor(clear)
     dd:setBackgroundColor(dark)
@@ -283,7 +283,6 @@ end
 
 function WarMenu(title, background, resize)
   local menu
-  local exitButton
   local bg
   local bgg
 
@@ -654,10 +653,10 @@ function RunSinglePlayerGameMenu()
     function(dd) end)
   resources:setSize(76, 10)
 
-  menu:addLabel("~<Units:~>", offx + 320 - 112 - 8, offy + (5 + 90) - 10, Fonts["game"], false)
-  numunits = menu:addDropDown({"Map Default", "Peasants Only"}, offx + 320 - 112 - 8, offy + 5 + 90,
+  menu:addLabel("~<Game Type:~>", offx + 320 - 112 - 8, offy + (5 + 90) - 10, Fonts["game"], false)
+  gametype = menu:addDropDown({"Use map settings", "Melee", "Free for all", "Top vs bottom", "Left vs right", "Man vs Machine"}, offx + 320 - 112 - 8, offy + 5 + 90,
     function(dd) end)
-  numunits:setSize(95, 10)
+  gametype:setSize(110, 10)
 
   local opponents_list = {"Map Default", "1 Opponent", "2 Opponents",
     "3 Opponents", "4 Opponents", "5 Opponents", "6 Opponents", "7 Opponents"}
@@ -667,10 +666,10 @@ function RunSinglePlayerGameMenu()
     function(dd) end)
   opponents:setSize(76, 10)
 
-  menu:addLabel("~<Game Type:~>", offx + 220, offy + (10 + 300) - 20, Fonts["game"], false)
-  gametype = menu:addDropDown({"Use map settings", "Melee", "Free for all", "Top vs bottom", "Left vs right", "Man vs Machine"}, offx + 220, offy + 10 + 300,
-   function(dd) end)
-  gametype:setSize(152, 20)
+  menu:addLabel("~<Units:~>", offx + 110, offy + (5 + 120) - 10, Fonts["game"], false)
+  numunits = menu:addDropDown({"Map Default", "Peasants Only"}, offx + 110, offy + 5 + 120,
+    function(dd) end)
+  numunits:setSize(95, 10)
 
   function MapChanged()
     mapl:setCaption(string.sub(mapname, 6))
@@ -742,7 +741,6 @@ function RunDemo()
   pcall(function () Load(prefix .. "12_prerun.lua") end)
   Load(prefix .. "12_c2.sms")
   Load(prefix .. "campaign_titles.lua")
-  local race_prefix = "o"
   war1gus.InCampaign = true
   Load(prefix .. "12.smp")
   for i = 0,4 do
@@ -843,18 +841,12 @@ Load("scripts/menus/help.lua")
 Load("scripts/menus/diplomacy.lua")
 Load("scripts/menus/results.lua")
 Load("scripts/menus/network.lua")
-Load("scripts/menus/results.lua")
 
 Load("scripts/lib/layouts.lua")
 
 -- create a menu with layout. takes 1, 2, or 3 arguments
 function WarMenuWithLayout(title_or_background_or_box, background_or_box, box)
   local background, title
-  if not box then
-    box = background_or_box
-    background = title_or_background_or_box
-    title = nil
-  end
   if not box then
     box = background_or_box
     background = title_or_background_or_box
@@ -874,9 +866,6 @@ function WarMenuWithLayout(title_or_background_or_box, background_or_box, box)
   end
   return menu
 end
-
---[[
---]]
 
 if SetShader then
   SetShader(wc1.preferences.VideoShader)
