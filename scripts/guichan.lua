@@ -669,7 +669,7 @@ function RunSinglePlayerGameMenu()
   menu:addLabel("~<Units:~>", offx + 110, offy + (5 + 120) - 10, Fonts["game"], false)
   numunits = menu:addDropDown({"Map Default", "Peasants Only"}, offx + 110, offy + 5 + 120,
     function(dd) end)
-  numunits:setSize(95, 10)
+  numunits:setSize(76, 10)
 
   function MapChanged()
     mapl:setCaption(string.sub(mapname, 6))

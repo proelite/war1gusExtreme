@@ -187,6 +187,7 @@ end
 local function BuildMoveAttackAnimation(frames, options)
    options = options or {}
    local stepInterval = options.stepInterval or 8
+   local issueAttack = options.issueAttack or false
    local attackSound = options.attacksound or "cannon"
    local attackWait = options.attackwait or 0
    local base = BuildMoveAnimation(frames)
@@ -198,7 +199,9 @@ local function BuildMoveAttackAnimation(frames, options)
       if step == "move 2" then
          movedSteps = movedSteps + 1
          if movedSteps % stepInterval == 0 then
-            res[1 + #res] = "attack"
+            if issueAttack then
+               res[1 + #res] = "attack"
+            end
             res[1 + #res] = "sound " .. attackSound
             if attackWait > 0 then
                res[1 + #res] = "wait " .. attackWait
@@ -457,7 +460,7 @@ DefineAnimations("animations-raider", anim_rider)
 DefineAnimations("animations-warbeast",
          {
             Still = {"frame 5", "wait 10"},
-            Move = BuildMoveAnimation({0, 10}),
+            Move = BuildMoveAttackAnimation({0, 10}),
             Attack = {"unbreakable begin",
                       "frame 5", "attack", "sound arrow attack", 
                       "wait 10",

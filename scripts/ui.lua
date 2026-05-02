@@ -101,8 +101,8 @@ DefinePanelContents(
       Condition = {ShowOpponent = false, HideNeutral = true, Build = "false", Supply = "only", Training = "false", UpgradeTo = "false"},
       Contents = {
          -- Food building
-         { Pos = second_line, More = {"Text", {Text = function () return "Supply: " .. GetPlayerData(GetThisPlayer(), "Supply") end }} },
-         { Pos = third_line, More = { "Text", {Text = function ()
+         { Pos = first_line, More = {"Text", {Text = function () return "Supply: " .. GetPlayerData(GetThisPlayer(), "Supply") end }} },
+         { Pos = second_line, More = { "Text", {Text = function ()
                                                if GetPlayerData(GetThisPlayer(), "Demand") > GetPlayerData(GetThisPlayer(), "Supply") then
                                                   return "Demand: ~<" .. GetPlayerData(GetThisPlayer(), "Demand") .. "~>"
                                                else
