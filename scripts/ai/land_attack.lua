@@ -232,6 +232,8 @@ function CreateAiLandAttack(sleep_factor, max_force)
 
       --function() return AiSleep(500) end,
       function() return AiNeed(AiStables()) end,
+      function() return AiNeed(AiTemple()) end,
+      function() return AiNeed(AiMageTower()) end,
       function() return AiWait(AiStables()) end,
       --function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 3, AiCatapult(), 1}) end,
       function() return AiForce(1, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 2, AiCatapult(), 1}) end,
@@ -252,7 +254,6 @@ function CreateAiLandAttack(sleep_factor, max_force)
       function () return GenerateRoads(true, true) end,
 
       --function() return AiSleep(500) end,
-      function() return AiNeed(AiTemple()) end,
       function() return AiResearch(AiMageSpell2()) end,
       function() return AiResearch(AiMageSpell3()) end,
 
@@ -267,7 +268,6 @@ function CreateAiLandAttack(sleep_factor, max_force)
       function () return GenerateRoads(true, true) end,
 
       --function() return AiSleep(500) end,
-      function() return AiNeed(AiMageTower()) end,
       function() return AiResearch(AiSummonerSpell1()) end,
       function() return AiResearch(AiSummonerSpell3()) end,
 
