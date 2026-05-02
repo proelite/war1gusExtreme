@@ -2093,7 +2093,7 @@ DefineButton( { Pos = 1, Level = 0, Icon = "icon-human-CannonSpeed",
    Action = "move",
    Key = "m", Hint = "~!MOVE",
    Allowed = "check-upgrade", AllowArg = {"upgrade-human-CannonSpeed"},
-   ForUnit = {"unit-human-cannon"} } )
+   ForUnit = {"unit-human-cannon", "unit-human-war-wagon"} } )
 
 -----------------------------------------------------------------------
 -- Orc Catapult speed upgrades

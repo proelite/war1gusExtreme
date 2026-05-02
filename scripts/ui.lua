@@ -101,30 +101,30 @@ DefinePanelContents(
       Condition = {ShowOpponent = false, HideNeutral = true, Build = "false", Supply = "only", Training = "false", UpgradeTo = "false"},
       Contents = {
          -- Food building
-         { Pos = first_line, More = {"Text", {Text = function () return "Supply: " .. GetPlayerData(GetThisPlayer(), "Supply") end }} },
-         { Pos = second_line, More = { "Text", {Text = function ()
-                                               if GetPlayerData(GetThisPlayer(), "Demand") > GetPlayerData(GetThisPlayer(), "Supply") then
-                                                  return "Demand: ~<" .. GetPlayerData(GetThisPlayer(), "Demand") .. "~>"
-                                               else
-                                                  return "Demand: " .. GetPlayerData(GetThisPlayer(), "Demand")
-                                               end
-                                 end }}
-         },
+         -- { Pos = first_line, More = {"Text", {Text = function () return "Supply: " .. GetPlayerData(GetThisPlayer(), "Supply") end }} },
+         -- { Pos = second_line, More = { "Text", {Text = function ()
+         --                                       if GetPlayerData(GetThisPlayer(), "Demand") > GetPlayerData(GetThisPlayer(), "Supply") then
+         --                                          return "Demand: ~<" .. GetPlayerData(GetThisPlayer(), "Demand") .. "~>"
+         --                                       else
+         --                                          return "Demand: " .. GetPlayerData(GetThisPlayer(), "Demand")
+         --                                       end
+         --                         end }}
+         -- },
          { Pos = fifth_line, More = {"Text", {Text = function ()
-                                               local ident = ActiveUnitVar("Ident")
-                                               if ident == "unit-human-farm" or ident == "unit-orc-farm" then
-                                                  local player = ActiveUnitVar("Player")
-                                                  local rate = 0
-                                                  if ident == "unit-human-farm" then
-                                                     if GetPlayerData(player, "Allow", "upgrade-human-cash-crops1") == "R" then rate = rate + 60 end
-                                                     if GetPlayerData(player, "Allow", "upgrade-human-cash-crops2") == "R" then rate = rate + 60 end
-                                                  else
-                                                     if GetPlayerData(player, "Allow", "upgrade-orc-cash-crops1") == "R" then rate = rate + 60 end
-                                                     if GetPlayerData(player, "Allow", "upgrade-orc-cash-crops2") == "R" then rate = rate + 60 end
-                                                  end
-                                                  return "Gold/min: " .. rate
+                                               local ident = GetUnitVariable(-1, "Ident")
+                                               if ident ~= "unit-human-farm" and ident ~= "unit-orc-farm" then
+                                                  return ""
                                                end
-                                               return ""
+                                               local player = GetThisPlayer()
+                                               local rate = 0
+                                               if ident == "unit-human-farm" then
+                                                  if GetPlayerData(player, "Allow", "upgrade-human-cash-crops1") == "R" then rate = rate + 60 end
+                                                  if GetPlayerData(player, "Allow", "upgrade-human-cash-crops2") == "R" then rate = rate + 60 end
+                                               else
+                                                  if GetPlayerData(player, "Allow", "upgrade-orc-cash-crops1") == "R" then rate = rate + 60 end
+                                                  if GetPlayerData(player, "Allow", "upgrade-orc-cash-crops2") == "R" then rate = rate + 60 end
+                                               end
+                                               return "Gold/min: " .. rate
                                  end }}
          }
       }
