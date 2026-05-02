@@ -179,6 +179,7 @@ function CreateAiLandAttack(sleep_factor, max_force)
       function() return AiSet(AiWorker(), 9) end,
       --function() return AiSleep(500) end,
       function() return AiNeed(AiBlacksmith()) end,
+      function() return AiWait(AiBlacksmith()) end,
 	  function() return AiWait(AiWorker()) end,
 	  function() return AiWait(AiLumberMill()) end, 
       function() return AiNeed(AiTower()) end,
