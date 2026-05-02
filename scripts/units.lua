@@ -612,11 +612,11 @@ DefineUnitType("unit-human-war-wagon", {
    OnReady = function (war_wagon)
          local player = GetUnitVariable(war_wagon, "Player")
          local pos = {GetUnitVariable(war_wagon, "PosX"), GetUnitVariable(war_wagon, "PosY")}
-         local riders = {}
+          local riders = {}
          for i = 1, 3 do
              local rider = CreateUnit("unit-human-war-wagon-attack", player, pos)
              Unit(rider, {"boarded"})
-             riders[i] = rider
+             riders[i] = string.format("U%04X", rider)
          end
          Unit(war_wagon, {"units-boarded-count", 3, "units-contained", riders})
     end,

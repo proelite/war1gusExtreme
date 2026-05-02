@@ -192,10 +192,6 @@ function CreateAiLandAttack()
       function () return GenerateRoads(true, true) end,
 
       function() return AiNeed(AiSiegeWorkshop()) end,
-      function() return AiWait(AiSiegeWorkshop()) end,
-
-      function () return GenerateRoads(true, true) end,
-
       --function() return AiForce(0, {AiSoldier(), 3, AiShooter(), 2}) end,
       function() return AiForce(1, {AiSoldier(), 3, AiShooter(), 1}) end,
       --function() return AiWaitForce(0) end,
@@ -203,10 +199,10 @@ function CreateAiLandAttack()
       function() return AiSleep(600) end,
       function() return AiAttackWithForce(1) end,
 
-     -- function() return AiSleep(500) end,
+      -- function() return AiSleep(500) end,
       function() return AiSet(AiWorker(), 15) end,
       --function() return AiForce(0, {AiSoldier(), 3, AiShooter(), 2}) end,
-      function() return AiForce(1, {AiSoldier(), 3, AiShooter(), 1, AiCatapult(), 1}) end,
+      function() return AiForce(1, {AiSoldier(), 3, AiShooter(), 1}) end,
       --function() return AiWaitForce(0) end,
       function() return AiWaitForce(1) end,
       --function() return AiSleep(500) end,
@@ -215,6 +211,9 @@ function CreateAiLandAttack()
       function () return GenerateRoads(true, true) end,
 
       --function() return AiSleep(500) end,
+
+      function() return AiWait(AiSiegeWorkshop()) end,
+      function() return AiSleep(1) end,
 
       function() return AiForce(1, {AiSoldier(), 3, AiShooter(), 1, AiCatapult(), 1}) end,
       function() return AiWaitForce(1) end,
@@ -225,6 +224,10 @@ function CreateAiLandAttack()
       --function() return AiSleep(500) end,
       function() return AiNeed(AiStables()) end,
       function() return AiWait(AiStables()) end,
+      function() return AiSleep(1) end,
+
+      function() return AiNeed(AiBlacksmith()) end,
+      function() return AiWait(AiBlacksmith()) end,
       function() return AiSleep(1) end,
 
       --function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 3, AiCatapult(), 1}) end,
@@ -238,9 +241,6 @@ function CreateAiLandAttack()
       --function() return AiSleep(500) end,
       function() return AiNeed(AiBarracks()) end,
       function() return AiSet(AiWorker(), 19) end,
-
-      function() return AiNeed(AiBlacksmith()) end,
-      function() return AiWait(AiBlacksmith()) end,
 
       --function() return AiResearch(AiUpgradeWeapon1()) end,
       --function() return AiResearch(AiUpgradeArmor1()) end,
