@@ -582,13 +582,13 @@ DefineUnitType("unit-human-war-wagon", {
   Animations = "animations-war-wagon",
   Icon = "icon-war-wagon",
   DrawLevel = 50,
-  Costs = {"time", 1, "gold", 1000, "wood", 1000},
+  Costs = {"time", 400, "gold", 1000, "wood", 1000},
   RepairHp = 4,
   RepairCosts = {"gold", 1, "wood", 1},
   PoisonDrain = 0,
   HitPoints = 200,
   RegenerationRate = 1,
-  RegenerationFrequency = 1,
+  RegenerationFrequency = 2,
   MaxAttackRange = 6,
   MinAttackRange = 2,
   TileSize = {1, 1},
@@ -648,7 +648,7 @@ DefineUnitType("unit-human-war-wagon", {
   end,
 })
 table.insert(wc1_units.human, "unit-human-war-wagon")
--- DefineDependency("unit-human-war-wagon", {"unit-human-siege-workshop", "unit-human-tower"})
+DefineDependency("unit-human-war-wagon", {"unit-human-siege-workshop", "unit-human-tower"})
 
 DefineUnitType("unit-human-war-wagon-gunner", {
    Name = "war-wagon-attack",
