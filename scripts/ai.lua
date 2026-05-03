@@ -111,7 +111,7 @@ end
 --
 --  Siege workshop of the current race.
 --
-function AiSiegeWorkshop()
+function AiSiegeCreator()
    if (AiGetRace() == race1) then
       return "unit-human-siege-workshop"
    else
@@ -230,7 +230,7 @@ end
 --
 --  Upgrade catapult weapon 1 of the current race.
 --
-function AiUpgradeCatapult1()
+function AiUpgradeSiege1()
    if (AiGetRace() == race1) then
       return "upgrade-human-CannonHeatedShot"
    else
@@ -239,20 +239,9 @@ function AiUpgradeCatapult1()
 end
 
 --
---  Upgrade catapult weapon 2 of the current race.
---
-function AiUpgradeCatapult2()
-   if (AiGetRace() == race1) then
-      return "upgrade-human-CatapultAmmo2"
-   else
-      return "upgrade-orc-CatapultAmmo2"
-   end
-end
-
---
 --  Upgrade catapult speed of the current race.
 --
-function AiUpgradeCatapultSpeed1()
+function AiUpgradeSiegeSpeed1()
    if (AiGetRace() == race1) then
       return "upgrade-human-CannonSpeed"
    else
@@ -305,6 +294,44 @@ function AiUpgradeCavalrySkill2()
 end
 
 --
+--  Upgrade fortifications of the current race.
+--
+function AiUpgradeFortification1()
+   if (AiGetRace() == race1) then
+      return "upgrade-human-fortification1"
+   else
+      return "upgrade-orc-fortification1"
+   end
+end
+
+function AiUpgradeFortification2()
+   if (AiGetRace() == race1) then
+      return "upgrade-human-fortification2"
+   else
+      return "upgrade-orc-fortification2"
+   end
+end
+
+--
+--  Upgrade cash crops of the current race.
+--
+function AiUpgradeCashCrops1()
+   if (AiGetRace() == race1) then
+      return "upgrade-human-cash-crops1"
+   else
+      return "upgrade-orc-cash-crops1"
+   end
+end
+
+function AiUpgradeCashCrops2()
+   if (AiGetRace() == race1) then
+      return "upgrade-human-cash-crops2"
+   else
+      return "upgrade-orc-cash-crops2"
+   end
+end
+
+--
 --  Stables of the current race.
 --
 function AiStables()
@@ -349,7 +376,7 @@ function AiBarracks()
 end
 
 --
---  Soldier of the current race.
+--  Soldier of the current race. Requires blacksmith and barracks.  
 --
 function AiSoldier()
    if (AiGetRace() == race1) then
@@ -404,13 +431,46 @@ function AiSummoner()
 end
 
 --
---  Catapult of the current race.
+--  Siege weapon (Catapult/Cannon) of the current race.
 --
-function AiCatapult()
+function AiSiege()
    if (AiGetRace() == race1) then
       return "unit-human-cannon"
    else
       return "unit-orc-catapult"
+   end
+end
+
+--
+--  Warbeast/War Wagon of the current race. Requires mage towers.  
+--
+function AiSuperUnit()
+   if (AiGetRace() == race1) then
+      return "unit-human-war-wagon"
+   else
+      return "unit-orc-warbeast"
+   end
+end
+
+--
+--  Scout/Trader of the current race.
+--
+function AiScout()
+   if (AiGetRace() == race1) then
+      return "unit-human-scout"
+   else
+      return "unit-orc-trader"
+   end
+end
+
+--
+--  Sapper/Ogre of the current race. Requires blacksmith and barracks.
+--
+function AiHeavyInfantry()
+   if (AiGetRace() == race1) then
+      return "unit-human-sapper"
+   else
+      return "unit-orc-ogre"
    end
 end
 

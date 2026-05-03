@@ -60,22 +60,22 @@ function CreateAiCampaign(level)
    end
 
    local campaign_funcs10 = {
-      function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 6, AiCatapult(), 1, AiMage(), 2, AiSummoner(), 2}) end,
-      function() return AiForce(1, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 2, AiCatapult(), 1, AiMage(), 1, AiSummoner(), 1}) end,
+      function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 6, AiSiege(), 1, AiMage(), 2, AiSummoner(), 2}) end,
+      function() return AiForce(1, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 2, AiSiege(), 1, AiMage(), 1, AiSummoner(), 1}) end,
       function() return AiWaitForce(1) end,
       function() return AiAttackWithForce(1) end,
 
       function() return AiSleep(500 * sleep_factor) end,
 
-      function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 6, AiCatapult(), 1, AiMage(), 2, AiSummoner(), 5}) end,
-      function() return AiForce(1, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 2, AiCatapult(), 1, AiMage(), 1, AiSummoner(), 1}) end,
+      function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 6, AiSiege(), 1, AiMage(), 2, AiSummoner(), 5}) end,
+      function() return AiForce(1, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 2, AiSiege(), 1, AiMage(), 1, AiSummoner(), 1}) end,
       function() return AiWaitForce(1) end,
       function() return AiAttackWithForce(1) end,
 
       function() return AiSleep(500 * sleep_factor) end,
 
-      function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 6, AiCatapult(), 1, AiMage(), 2, AiSummoner(), 5}) end,
-      function() return AiForce(1, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 2, AiCatapult(), 1, AiMage(), 1, AiSummoner(), 1}) end,
+      function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 6, AiSiege(), 1, AiMage(), 2, AiSummoner(), 5}) end,
+      function() return AiForce(1, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 2, AiSiege(), 1, AiMage(), 1, AiSummoner(), 1}) end,
       function() return AiWaitForce(1) end,
       function() return AiAttackWithForce(1) end,
 
@@ -83,8 +83,8 @@ function CreateAiCampaign(level)
       function() return AiSet(AiWorker(), 25) end,
 
       function() print("done with AI at lvl 10!") return false end,
-      function() return AiForce(0, {AiShooter(), 2, AiCavalry(), 6, AiCatapult(), 1, AiMage(), 3, AiSummoner(), 3}) end,
-      function() return AiForce(1, {AiShooter(), 4, AiCavalry(), 4, AiCatapult(), 1, AiMage(), 2, AiSummoner(), 2}) end,
+      function() return AiForce(0, {AiShooter(), 2, AiCavalry(), 6, AiSiege(), 1, AiMage(), 3, AiSummoner(), 3}) end,
+      function() return AiForce(1, {AiShooter(), 4, AiCavalry(), 4, AiSiege(), 1, AiMage(), 2, AiSummoner(), 2}) end,
       function() return AiWaitForce(1) end,
       function() return AiAttackWithForce(0) end,
       function() return AiAttackWithForce(1) end,
@@ -98,21 +98,21 @@ function CreateAiCampaign(level)
 
    local campaign_funcs9 = {
       function() return AiSleep(500 * sleep_factor) end,
-      function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 6, AiCatapult(), 3, AiMage(), 2, AiSummoner(), 2}) end,
-      function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 2, AiCatapult(), 1, AiMage(), 1, AiSummoner(), 1}) end,
+      function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 6, AiSiege(), 3, AiMage(), 2, AiSummoner(), 2}) end,
+      function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 2, AiSiege(), 1, AiMage(), 1, AiSummoner(), 1}) end,
       function() return AiWaitForce(1) end,
       function() return AiAttackWithForce(1) end,
 
       function() return AiSleep(500 * sleep_factor) end,
-      function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 6, AiCatapult(), 1, AiMage(), 2, AiSummoner(), 2}) end,
-      function() return AiForce(1, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 2, AiCatapult(), 1, AiMage(), 1, AiSummoner(), 1}) end,
+      function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 6, AiSiege(), 1, AiMage(), 2, AiSummoner(), 2}) end,
+      function() return AiForce(1, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 2, AiSiege(), 1, AiMage(), 1, AiSummoner(), 1}) end,
       function() return AiWaitForce(1) end,
       function() return AiAttackWithForce(1) end,
       function() return AiSleep(500 * sleep_factor) end,
 
       function() print("done with AI at lvl 9!") return false end,
-      function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 6, AiCatapult(), 1, AiMage(), 2, AiSummoner(), 2}) end,
-      function() return AiForce(1, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 2, AiCatapult(), 1, AiMage(), 1, AiSummoner(), 1}) end,
+      function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 6, AiSiege(), 1, AiMage(), 2, AiSummoner(), 2}) end,
+      function() return AiForce(1, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 2, AiSiege(), 1, AiMage(), 1, AiSummoner(), 1}) end,
       function() return AiWaitForce(1) end,
       function() return AiAttackWithForce(0) end,
       function() return AiAttackWithForce(1) end,
@@ -131,14 +131,14 @@ function CreateAiCampaign(level)
    local campaign_funcs7 = {
       function() return AiSleep(500 * sleep_factor) end,
 
-      function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 6, AiCatapult(), 3, AiMage(), 2, AiSummoner(), 2}) end,
-      function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 2, AiCatapult(), 1, AiMage(), 1, AiSummoner(), 1}) end,
+      function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 6, AiSiege(), 3, AiMage(), 2, AiSummoner(), 2}) end,
+      function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 2, AiSiege(), 1, AiMage(), 1, AiSummoner(), 1}) end,
       function() return AiWaitForce(1) end,
       function() return AiAttackWithForce(1) end,
 
       function() print("done with AI at lvl 7!") return false end,
-      function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 6, AiCatapult(), 3, AiMage(), 2, AiSummoner(), 2}) end,
-      function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 2, AiCatapult(), 1, AiMage(), 1, AiSummoner(), 1}) end,
+      function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 6, AiSiege(), 3, AiMage(), 2, AiSummoner(), 2}) end,
+      function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 2, AiSiege(), 1, AiMage(), 1, AiSummoner(), 1}) end,
       function() return AiWaitForce(1) end,
       function() return AiAttackWithForce(0) end,
       function() return AiAttackWithForce(1) end,
@@ -158,33 +158,33 @@ function CreateAiCampaign(level)
       function() return AiSleep(500 * sleep_factor) end,
       function() return AiSet(AiWorker(), 15) end,
       function() return AiForce(0, {AiSoldier(), 3, AiShooter(), 2}) end,
-      function() return AiForce(1, {AiSoldier(), 3, AiShooter(), 1, AiCatapult(), 1}) end,
+      function() return AiForce(1, {AiSoldier(), 3, AiShooter(), 1, AiSiege(), 1}) end,
       function() return AiWaitForce(1) end,
       function() return AiSleep(500 * sleep_factor) end,
       function() return AiAttackWithForce(1) end,
 
       function() return AiSleep(500 * sleep_factor) end,
-      function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 6, AiCatapult(), 1}) end,
-      function() return AiForce(1, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 2, AiCatapult(), 1}) end,
+      function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 6, AiSiege(), 1}) end,
+      function() return AiForce(1, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 2, AiSiege(), 1}) end,
       function() return AiWaitForce(1) end,
       function() return AiAttackWithForce(1) end,
 
       function() return AiSleep(500 * sleep_factor) end,
-      function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 6, AiCatapult(), 1}) end,
-      function() return AiForce(1, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 2, AiCatapult(), 1}) end,
+      function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 6, AiSiege(), 1}) end,
+      function() return AiForce(1, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 2, AiSiege(), 1}) end,
       function() return AiWaitForce(1) end,
       function() return AiAttackWithForce(1) end,
 
       function() return AiSleep(500 * sleep_factor) end,
 
-      function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 4, AiMage(), 1, AiCatapult(), 1}) end,
-      function() return AiForce(1, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 3, AiMage(), 1, AiCatapult(), 1}) end,
+      function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 4, AiMage(), 1, AiSiege(), 1}) end,
+      function() return AiForce(1, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 3, AiMage(), 1, AiSiege(), 1}) end,
       function() return AiWaitForce(1) end,
       function() return AiAttackWithForce(1) end,
 
       function() print("done with AI at lvl 6!") return false end,
-      function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 4, AiMage(), 1, AiCatapult(), 1}) end,
-      function() return AiForce(1, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 3, AiMage(), 1, AiCatapult(), 1}) end,
+      function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 4, AiMage(), 1, AiSiege(), 1}) end,
+      function() return AiForce(1, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 3, AiMage(), 1, AiSiege(), 1}) end,
       function() return AiWaitForce(1) end,
       function() return AiAttackWithForce(0) end,
       function() return AiAttackWithForce(1) end,
