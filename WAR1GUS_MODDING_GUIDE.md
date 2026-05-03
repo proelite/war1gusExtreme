@@ -525,6 +525,7 @@ Adjust costs, build times, and stats in `balancing.lua`
 - `scripts/balancing.lua` - Game balance
 
 ### Stratagus Documentation
+- [Stratagus Scripting Documentation](https://github.com/Wargus/stratagus/blob/master/doc/scripts/index.html) - Official Lua API reference
 - See `/usr/local/include/stratagus/` header files
 - Lua API documented in game scripts
 - Examples in existing unit/building definitions
