@@ -1684,7 +1684,7 @@ DefineButton( { Pos = 5, Level = 0, Icon = "icon-human-patrol",
 DefineButton( { Pos = 6, Level = 0, Icon = "icon-human-explore",
   Action = "explore",
   Key = "e", Hint = "~!EXPLORE",
-   ForUnit = {"unit-footman", "unit-archer", "unit-knight", "unit-human-scout", "unit-water-elemental", "unit-scorpion", "unit-lothar", "human-group", "unit-brigand", "unit-ogre"}}) 
+   ForUnit = {"unit-footman", "unit-archer", "unit-knight", "unit-human-scout", "unit-water-elemental", "unit-scorpion", "unit-lothar", "human-group", "unit-brigand", "unit-ogre", "unit-human-war-wagon"}}) 
 
 -----------------------------------------------------------------------
 -- New Orders Buttons Orcs
@@ -2161,23 +2161,23 @@ DefineButton( { Pos = 1, Level = 0, Icon = "icon-orc-CatapultSpeed",
 
 DefineModifier("upgrade-sword1",
   {"Level", 1},
-  {"PiercingDamage", -1},
-  {"apply-to", "unit-human-scout"})
+  {"BasicDamage", 1},
+  {"apply-to", "unit-footman"}, {"apply-to", "unit-knight"}, {"apply-to", "unit-human-scout"})
 
 DefineModifier("upgrade-sword2",
   {"Level", 1},
-  {"PiercingDamage", -1},
-  {"apply-to", "unit-human-scout"})
+  {"BasicDamage", 1},
+  {"apply-to", "unit-footman"}, {"apply-to", "unit-knight"}, {"apply-to", "unit-human-scout"})
 
 DefineModifier("upgrade-axe1",
   {"Level", 1},
-  {"PiercingDamage", -1},
-  {"apply-to", "unit-orc-tracker"})
+  {"BasicDamage", 1},
+  {"apply-to", "unit-grunt"}, {"apply-to", "unit-raider"}, {"apply-to", "unit-ogre"}, {"apply-to", "unit-orc-tracker"})
 
 DefineModifier("upgrade-axe2",
   {"Level", 1},
-  {"PiercingDamage", -1},
-  {"apply-to", "unit-orc-tracker"})
+  {"BasicDamage", 1},
+  {"apply-to", "unit-grunt"}, {"apply-to", "unit-raider"}, {"apply-to", "unit-ogre"}, {"apply-to", "unit-orc-tracker"})
 
 -----------------------------------------------------------------------
 -- neutral buildings

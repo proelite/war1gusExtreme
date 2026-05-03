@@ -606,7 +606,7 @@ DefineUnitType("unit-human-war-wagon", {
   },
   SelectableByRectangle = true,
   OnInit = function(self)
-    local attacker = CreateUnit("unit-human-war-wagon-attack", GetUnitVariable(self, "Player"), {0, 0})
+    local attacker = CreateUnit("unit-human-war-wagon-gunner", GetUnitVariable(self, "Player"), {0, 0})
     SetUnitVariable(self, "Summoned", attacker)
     moveAttacker(self)
   end,
@@ -618,7 +618,7 @@ DefineUnitType("unit-human-war-wagon", {
 table.insert(wc1_units.human, "unit-human-war-wagon")
 -- DefineDependency("unit-human-war-wagon", {"unit-human-siege-workshop", "unit-human-tower"})
 
-DefineUnitType("unit-human-war-wagon-attack", {
+DefineUnitType("unit-human-war-wagon-gunner", {
    Name = "war-wagon-attack",
    Image = {"file", "contrib/graphics/missiles/blast.png", "size", {1, 1}},
    Animations = "animations-war-wagon-gunner",
