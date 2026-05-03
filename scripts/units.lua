@@ -404,7 +404,15 @@ DefineUnitType("unit-human-sapper", {
    BasicDamage = 40,
    Missile = "missile-shotgun-blast",
    MissileOffsets = {
-     { {0, -16}, {11, -11}, {16, 0}, {11, 11}, {0, 16}, {-11, 11}, {-16, 0}, {-11, -11} }
+     { {0, -16},   -- N
+       {11, -11},  -- NE
+       {16, 0},    -- E
+       {11, 11},   -- SE
+       {0, 16},    -- S
+       {-11, 11},  -- SW
+       {-16, 0},   -- W
+       {-11, -11}  -- NW
+     }
    },
    Priority = 55,
    Points = 80,
@@ -441,7 +449,7 @@ DefineUnitType("unit-orc-ogre", {
    Icon = "icon-ogre",
    Costs = {"time", 300, "gold", 800, "wood", 100},
    HitPoints = 100,
-   DrawLevel = 180,
+   DrawLevel = 45,
    MaxAttackRange = 1,
    TileSize = {1, 1},
    BoxSize = {24, 24},
@@ -485,6 +493,7 @@ DefineUnitType("unit-orc-warbeast", {
   Animations = "animations-warbeast",
   Icon = "icon-orc-warbeast",
   Costs = {"time", 500, "gold", 2000, "wood", 500},
+  DrawLevel = 45,
   HitPoints = 300,
   MaxAttackRange = 5,
   TileSize = {1, 1},
@@ -499,7 +508,15 @@ DefineUnitType("unit-orc-warbeast", {
   PiercingDamage = 2,
   Missile = "missile-arrow",
   MissileOffsets = {
-    { {0, -16}, {11, -11}, {16, 0}, {11, 11}, {0, 16}, {-11, 11}, {-16, 0}, {-11, -11} }
+    { {0, -16},   -- N
+      {11, -11},  -- NE
+      {16, 0},    -- E
+      {11, 11},   -- SE
+      {0, 16},    -- S
+      {-11, 11},  -- SW
+      {-16, 0},   -- W
+      {-11, -11}  -- NW
+    }
   },
   CanTransport = {},
   MaxOnBoard = 4,
@@ -564,6 +581,7 @@ DefineUnitType("unit-human-war-wagon", {
   Image = {"file", "contrib/graphics/units/war-wagon.png", "size", {64, 64}},
   Animations = "animations-war-wagon",
   Icon = "icon-war-wagon",
+  DrawLevel = 50,
   Costs = {"time", 1, "gold", 1000, "wood", 1000},
   RepairHp = 4,
   RepairCosts = {"gold", 1, "wood", 1},
@@ -585,7 +603,15 @@ DefineUnitType("unit-human-war-wagon", {
   PiercingDamage = 0,
   Missile = "missile-cannonball",
   MissileOffsets = {
-    { {0, -32}, {22, -22}, {32, 0}, {22, 22}, {0, 32}, {-22, 22}, {-32, 0}, {-22, -22} }
+    { {0, -32},    -- N
+      {22, -22},   -- NE
+      {32, 0},     -- E
+      {26, 14},    -- SE
+      {0, 32},     -- S
+      {-26, 14},   -- SW
+      {-32, 0},    -- W
+      {-22, -22}   -- NW
+    }
   },
   Impact = {"general", "missile-hit"},
   Priority = 63,
@@ -642,7 +668,15 @@ DefineUnitType("unit-human-war-wagon-gunner", {
    BasicDamage = 20,
    Missile = "missile-cannonball",
    MissileOffsets = {
-    { {0, -32}, {22, -22}, {32, 0}, {22, 22}, {0, 32}, {-22, 22}, {-32, 0}, {-22, -22} }
+    { {0, -32},   -- N
+      {22, -22},  -- NE
+      {32, 0},    -- E
+      {22, 22},   -- SE
+      {0, 32},    -- S
+      {-22, 22},  -- SW
+      {-32, 0},   -- W
+      {-22, -22}  -- NW
+    }
    },
    Priority = 1,
    Points = 0,
@@ -686,7 +720,15 @@ DefineUnitType("unit-human-cannon", {
    BasicDamage = 60,
    Missile = "missile-cannonball",
    MissileOffsets = {
-     { {0, -16}, {11, -11}, {16, 0}, {11, 11}, {0, 16}, {-11, 11}, {-16, 0}, {-11, -11} }
+     { {0, -16},   -- N
+       {11, -11},  -- NE
+       {16, 0},    -- E
+       {11, 11},   -- SE
+       {0, 16},    -- S
+       {-11, 11},  -- SW
+       {-16, 0},   -- W
+       {-11, -11}  -- NW
+     }
    },
    Priority = 60,
    Points = 150,
