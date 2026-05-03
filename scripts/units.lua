@@ -562,7 +562,7 @@ DefineUnitType("unit-human-war-wagon", {
   Image = {"file", "contrib/graphics/units/war-wagon.png", "size", {64, 64}},
   Animations = "animations-war-wagon",
   Icon = "icon-war-wagon",
-  Costs = {"time", 400, "gold", 1000, "wood", 1000},
+  Costs = {"time", 1, "gold", 1000, "wood", 1000},
   RepairHp = 4,
   RepairCosts = {"gold", 1, "wood", 1},
   PoisonDrain = 0,
@@ -575,8 +575,8 @@ DefineUnitType("unit-human-war-wagon", {
   SightRange = 8,
   Speed = 3,
   organic = false,
-  ComputerReactionRange = 4,
-  PersonReactionRange = 6,
+  ComputerReactionRange = 10,
+  PersonReactionRange = 10,
   Armor = 2,
   BasicDamage = 20,
   PiercingDamage = 0,
@@ -598,9 +598,6 @@ DefineUnitType("unit-human-war-wagon", {
   AutoRepairRange = 4,
   Corpse = nil,
   ExplodeWhenKilled = "missile-explosion",
-   CanTransport = {"volatile", "only"},
-  MaxOnBoard = 3,
-  AttackFromTransporter = true,
   Sounds = {
     "attack", "human acknowledge",
     "selected", "human-selected",
@@ -609,33 +606,10 @@ DefineUnitType("unit-human-war-wagon", {
     "help", "human help 1",
     "dead", "human dead"
   },
-   OnReady = function (war_wagon)
-         local player = GetUnitVariable(war_wagon, "Player")
-         local pos = {GetUnitVariable(war_wagon, "PosX"), GetUnitVariable(war_wagon, "PosY")}
-          local riders = {}
-         for i = 1, 3 do
-             local rider = CreateUnit("unit-human-war-wagon-attack", player, pos)
-             if type(rider) == "number" and rider >= 0 then
-                Unit(rider, {"boarded"})
-                riders[#riders + 1] = string.format("U%04X", rider)
-             end
-         end
-          if #riders > 0 then
-             Unit(war_wagon, {"units-boarded-count", #riders, "units-contained", riders})
-          end
-    end,
   SelectableByRectangle = true,
---   OnEachSecond = function (war_wagon)
---       local hp = GetUnitVariable(war_wagon, "HitPoints")
---       local maxhp = GetUnitVariable(war_wagon, "HitPoints", "Max")
---       if hp < maxhp then
---          local repair = GetUnitVariable(war_wagon, "RepairHp") or 4
---          SetUnitVariable(war_wagon, "HitPoints", math.min(maxhp, hp + repair))
---       end
---    end
 })
 table.insert(wc1_units.human, "unit-human-war-wagon")
-DefineDependency("unit-human-war-wagon", {"unit-human-siege-workshop", "unit-human-tower"})
+-- DefineDependency("unit-human-war-wagon", {"unit-human-siege-workshop", "unit-human-tower"})
 
 DefineUnitType("unit-human-war-wagon-attack", {
    Name = "war-wagon-attack",

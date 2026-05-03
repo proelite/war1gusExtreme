@@ -131,10 +131,10 @@ function SetPlayerData(player, data, arg1, arg2)
   end
   OldSetPlayerData(player, data, arg1, arg2)
 
-  -- If this is 1 peasant mode add the peasant now
+  -- If this is 1 peasant mode add the peasant now.
   if (data == "RaceName") then
-    if GameSettings.NumUnits ~= -1 then
-      if (player ~= 15 and Players[player].Type ~= PlayerNobody) then
+    if (player ~= 15 and Players[player].Type ~= PlayerNobody) then
+      if GameSettings.NumUnits ~= -1 then
         local unittype = {human = "unit-peasant", orc = "unit-peon"}
         for i=1,GameSettings.NumUnits do
           OldCreateUnit(unittype[arg1], player, {Players[player].StartPos.x, Players[player].StartPos.y})

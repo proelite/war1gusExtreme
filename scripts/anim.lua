@@ -184,11 +184,12 @@ local function BuildMoveAnimation(frames)
    return res
 end
 
--- Buggy due to the fact that attack command fires a projectile at the point of click, even across the map
+-- "attack" command fires at the original click position (goalPos), not the unit's current target.
+-- Workaround: use spawn-missile with totarget.damage flags — only fires when a real target exists,
+-- and aims at the target's actual current position rather than the stored goalPos.
 local function BuildMoveAttackAnimation(frames, options)
    options = options or {}
    local stepInterval = options.stepInterval or 8
-   local issueAttack = options.issueAttack or false
    local attackSound = options.attacksound or "cannon"
    local attackWait = options.attackwait or 0
    local base = BuildMoveAnimation(frames)
@@ -200,9 +201,7 @@ local function BuildMoveAttackAnimation(frames, options)
       if step == "move 2" then
          movedSteps = movedSteps + 1
          if movedSteps % stepInterval == 0 then
-            if issueAttack then
-               res[1 + #res] = "attack"
-            end
+            res[1 + #res] = "attack"
             res[1 + #res] = "sound " .. attackSound
             if attackWait > 0 then
                res[1 + #res] = "wait " .. attackWait
@@ -532,7 +531,8 @@ DefineAnimations("animations-lothar", BuildAnimations(frameNumbers_5_5_5_3))
 
 DefineAnimations("animations-war-wagon",
    {Still = {"frame 0", "wait 10"},
-   Move = BuildMoveAnimation({0, 5}),
+   Move = BuildMoveAttackAnimation({0, 5}, {attacksound="cannon", attackwait = 30}),
+
    Attack = {"unbreakable begin",
            "frame 0", "attack", "sound cannon", "wait 50",
            "unbreakable end",

@@ -443,3 +443,65 @@ function CreateWalls(positions)
         end
     end
 end
+
+-- Check if a position is available (walkable, no blocking terrain)
+-- Mirrors Stratagus UnitTypeCanBeAt terrain checks
+-- Note: Unit collision checking is handled automatically by CreateUnit()
+function IsPositionAvailable(x, y)
+    if x < 0 or y < 0 then
+        return false
+    end
+    if x >= Map.Info.MapWidth or y >= Map.Info.MapHeight then
+        return false
+    end
+    
+    -- Check for blocking terrain flags (same as Stratagus MovementMask)
+    if GetTileTerrainHasFlag(x, y, "water") then
+        return false
+    end
+    if GetTileTerrainHasFlag(x, y, "no-building") then
+        return false
+    end
+    if GetTileTerrainHasFlag(x, y, "wall") then
+        return false
+    end
+    if GetTileTerrainHasFlag(x, y, "rock") then
+        return false
+    end
+    if GetTileTerrainHasFlag(x, y, "coast") then
+        return false
+    end
+    if GetTileTerrainHasFlag(x, y, "forest") then
+        return false
+    end
+    
+    return true
+end
+
+-- Find a free spot in spiral pattern around a center position
+-- Uses Stratagus-style spiral search (cardinal directions outward)
+-- Checks terrain only; CreateUnit will handle unit collisions internally
+function FindFreeSpotSpiral(centerX, centerY, minRadius, maxRadius)
+    -- Check center first
+    if IsPositionAvailable(centerX, centerY) then
+        return {centerX, centerY}
+    end
+    
+    -- Spiral outward in rings (cardinal direction pattern like Stratagus)
+    for radius = minRadius, maxRadius do
+        for dx = -radius, radius do
+            for dy = -radius, radius do
+                -- Only check the border of this ring
+                if math.abs(dx) == radius or math.abs(dy) == radius then
+                    local checkX = centerX + dx
+                    local checkY = centerY + dy
+                    if IsPositionAvailable(checkX, checkY) then
+                        return {checkX, checkY}
+                    end
+                end
+            end
+        end
+    end
+    
+    return nil
+end

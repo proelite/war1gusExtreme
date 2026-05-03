@@ -350,6 +350,8 @@ function InitGameSettings()
 end
 InitGameSettings()
 
+local DEBUG_REVEAL_MAP_ON_START = true
+
 function RunMap(map, fow, revealmap)
   Objectives = DefaultObjectives
   local loop = true
@@ -359,7 +361,12 @@ function RunMap(map, fow, revealmap)
     if fow ~= nil then
       SetFogOfWar(fow)
     end
-    if revealmap ~= nil then
+    if DEBUG_REVEAL_MAP_ON_START then
+        if fow == nil and not IsNetworkGame() then
+          SetFogOfWar(false)
+        end
+        RevealMap("explored")
+    elseif revealmap ~= nil then
         local revealTypes = {"hidden", "known", "explored"}
         RevealMap(revealTypes[revealmap + 1])
     else

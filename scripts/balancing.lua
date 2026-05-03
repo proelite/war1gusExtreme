@@ -1777,6 +1777,11 @@ DefineButton( { Pos = 4, Level = 1, Icon = "icon-human-town-hall",
     Key = "t", Hint = "ESTABLISH ~!TOWN",
     ForUnit = {"unit-peasant"} } )
 
+DefineButton( { Pos = 5, Level = 0, Icon = "icon-war-wagon",
+   Action = "train-unit", Value = "unit-human-war-wagon",
+   Key = "w", Hint = "TRAIN ~!WAR WAGON",
+   ForUnit = {"unit-human-first-town-hall"} } )
+
 DefineAiHelper(
    {"unit-equiv", "unit-human-town-hall", "unit-human-stormwind-keep", "unit-human-first-town-hall"}
 )
