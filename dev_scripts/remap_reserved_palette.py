@@ -2,6 +2,7 @@ import sys
 import struct
 import zlib
 import binascii
+import argparse
 
 
 def paeth(a, b, c):
@@ -121,15 +122,44 @@ def write_png(path, chunks, rows):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) not in (2, 3):
-        print('Usage: python3 scripts/remap_reserved_palette.py input.png [output.png]')
-        sys.exit(1)
+    parser = argparse.ArgumentParser(
+        description='Remap reserved palette indices in an indexed PNG.'
+    )
+    parser.add_argument('input_png', help='Input PNG path')
+    parser.add_argument('output_png', nargs='?', help='Output PNG path')
+    parser.add_argument(
+        '--remap-side',
+        choices=('lower', 'higher'),
+        default='lower',
+        help='Use lower neighbor index (default) or higher neighbor index'
+    )
+    parser.add_argument('--start-idx', type=int, default=200, help='Start of reserved range (inclusive)')
+    parser.add_argument('--end-idx', type=int, default=207, help='End of reserved range (inclusive)')
 
-    src = sys.argv[1]
-    dst = sys.argv[2] if len(sys.argv) == 3 else src.rsplit('.', 1)[0] + '_fixed.png'
+    args = parser.parse_args()
+
+    src = args.input_png
+    dst = args.output_png if args.output_png else src.rsplit('.', 1)[0] + '_fixed.png'
+
+    if args.start_idx < 0 or args.end_idx > 255 or args.start_idx > args.end_idx:
+        raise ValueError('start-idx/end-idx must be between 0 and 255 and start-idx <= end-idx')
+
+    if args.remap_side == 'lower':
+        replacement = args.start_idx - 1
+    else:
+        replacement = args.end_idx + 1
+
+    if replacement < 0 or replacement > 255:
+        raise ValueError(
+            f"Cannot remap '{args.remap_side}' for range {args.start_idx}-{args.end_idx}; "
+            f'replacement index {replacement} is out of 0-255'
+        )
 
     chunks, rows = parse_indexed_png(src)
-    changed = remap_rows(rows, 200, 207, 199)
+    changed = remap_rows(rows, args.start_idx, args.end_idx, replacement)
     write_png(dst, chunks, rows)
-    print(f'Remapped {changed} pixels from indices 200-207 to 199')
+    print(
+        f'Remapped {changed} pixels from indices '
+        f'{args.start_idx}-{args.end_idx} to {replacement} ({args.remap_side})'
+    )
     print(f'Wrote {dst}')
