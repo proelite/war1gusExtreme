@@ -594,8 +594,6 @@ DefineUnitType("unit-human-war-wagon", {
   Vanishes = false,
   NonSolid = false,
   IsNotSelectable = false,
-  RepairRange = 4,
-  AutoRepairRange = 4,
   Corpse = nil,
   ExplodeWhenKilled = "missile-explosion",
   Sounds = {
@@ -607,13 +605,23 @@ DefineUnitType("unit-human-war-wagon", {
     "dead", "human dead"
   },
   SelectableByRectangle = true,
+  OnInit = function(self)
+    local attacker = CreateUnit("unit-human-war-wagon-attack", GetUnitVariable(self, "Player"), {0, 0})
+    SetUnitVariable(self, "Summoned", attacker)
+    moveAttacker(self)
+  end,
+  OnDeath = function(self)
+    local attacker = GetUnitVariable(self, "Summoned")
+    if attacker then RemoveUnit(attacker) end
+  end,
 })
 table.insert(wc1_units.human, "unit-human-war-wagon")
 -- DefineDependency("unit-human-war-wagon", {"unit-human-siege-workshop", "unit-human-tower"})
 
 DefineUnitType("unit-human-war-wagon-attack", {
    Name = "war-wagon-attack",
-   Image = {"file", "contrib/graphics/units/cannon.png", "size", {32, 32}},
+   Image = {"file", "contrib/graphics/missiles/blast.png", "size", {1, 1}},
+   Animations = "animations-war-wagon-gunner",
    Icon = "icon-human-cannon",
    Costs = {"time", 0, "gold", 0, "wood", 0},
    HitPoints = 1,
@@ -623,7 +631,7 @@ DefineUnitType("unit-human-war-wagon-attack", {
    TileSize = {1, 1},
    BoxSize = {1, 1},
    Armor = 0,
-   Speed = 0,
+   Speed = 3,
    PiercingDamage = 0,
    BasicDamage = 20,
    Missile = "missile-cannonball",
@@ -631,17 +639,23 @@ DefineUnitType("unit-human-war-wagon-attack", {
    Points = 0,
    SightRange = 8,
    organic = false,
-   volatile = true,
    IsNotSelectable = true,
-   Vanishes = true,
+   Indestructible = 1,
+   NonSolid = true,
+   Vanishes = false,
    Corpse = nil,
    Demand = 0,
+   AnnoyComputerFactor = -100,
+   ComputerReactionRange = 10,
+   PersonReactionRange = 10,
    Type = "land",
    CanAttack = true,
    CanTargetLand = true,
    CanTargetSea = true,
    CanTargetAir = true,
    SelectableByRectangle = false,
+   RepairRange = 1,
+   AutoRepairRange = 1,
 })
 
 DefineUnitType("unit-human-cannon", {

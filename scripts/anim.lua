@@ -184,9 +184,9 @@ local function BuildMoveAnimation(frames)
    return res
 end
 
--- "attack" command fires at the original click position (goalPos), not the unit's current target.
--- Workaround: use spawn-missile with totarget.damage flags — only fires when a real target exists,
--- and aims at the target's actual current position rather than the stored goalPos.
+--[[
+-- Replaced by the two-unit sub-attacker approach: an invisible unit-human-war-wagon-attack
+-- is created OnInit and repositioned each move step via lua-callback moveAttacker U, firing independently.
 local function BuildMoveAttackAnimation(frames, options)
    options = options or {}
    local stepInterval = options.stepInterval or 8
@@ -211,6 +211,35 @@ local function BuildMoveAttackAnimation(frames, options)
    end
 
    return res
+end
+]]
+
+-- Builds a move animation that syncs a "Summoned" sub-unit to the moving unit's pixel position.
+-- The sub-unit auto-attacks nearby enemies independently while the main unit moves.
+local function BuildMoveWithSync(frames, callbackName)
+   local base = BuildMoveAnimation(frames)
+   local res = {}
+   for _, step in ipairs(base) do
+      res[1 + #res] = step
+      if step == "move 2" then
+         res[1 + #res] = "lua-callback " .. callbackName .. " U"
+      end
+   end
+   return res
+end
+
+-- Repositions the invisible attacker sub-unit to match a unit's current pixel position.
+-- Called each move step via lua-callback so the sub-unit fires at nearby enemies while moving.
+function moveAttacker(self)
+  local attacker = GetUnitVariable(self, "Summoned")
+  if not attacker then return end
+  local pixelPos = GetUnitVariable(self, "PixelPos")
+  local tileSize = 16  -- WC1 tiles are 16 pixels wide
+  local ix = math.fmod(pixelPos.x, tileSize)
+  local iy = math.fmod(pixelPos.y, tileSize)
+  local x = math.floor(pixelPos.x / tileSize)
+  local y = math.floor(pixelPos.y / tileSize)
+  MoveUnit(attacker, {x, y}, {ix, iy})
 end
 
 local function BuildAttackAnimation(frames, waittime, coolofftime, sound)
@@ -529,11 +558,22 @@ DefineAnimations("animations-medivh",
 				 {attacksound = "lightning"}))
 DefineAnimations("animations-lothar", BuildAnimations(frameNumbers_5_5_5_3))
 
+-- Minimal animation for the invisible war wagon gunner sub-unit.
+-- Frames don't matter (unit is invisible), but Stratagus requires Still and Attack.
+DefineAnimations("animations-war-wagon-gunner", {
+   Still = {"frame 0", "wait 5"},
+   Attack = {"unbreakable begin",
+             "frame 0", "attack", "sound cannon", "wait 60",
+             "unbreakable end",
+             "frame 0", "wait 1"}})
+
 DefineAnimations("animations-war-wagon",
    {Still = {"frame 0", "wait 10"},
-   Move = BuildMoveAttackAnimation({0, 5}, {attacksound="cannon", attackwait = 30}),
+   Move = BuildMoveWithSync({0, 5}, "moveAttacker"),
 
    Attack = {"unbreakable begin",
+           "frame 0", "attack", "sound cannon", "wait 10",
+           "frame 0", "attack", "sound cannon", "wait 10",
            "frame 0", "attack", "sound cannon", "wait 50",
            "unbreakable end",
            "frame 0", "wait 1"},
