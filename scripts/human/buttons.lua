@@ -127,10 +127,10 @@ DefineButton( { Pos = 3, Level = 0, Icon = "icon-arrow3",
   Key = "a", Hint = "~!ATTACK",
   ForUnit = {"unit-archer"} } )
 
-DefineButton( { Pos = 1, Level = 0, Icon = "icon-repair",
-  Action = "repair",
-  Key = "r", Hint = "~!REPAIR",
-  ForUnit = {"unit-human-war-wagon-gunner"} } )
+-- DefineButton( { Pos = 6, Level = 0, Icon = "icon-repair",
+--   Action = "repair",
+--   Key = "r", Hint = "~!REPAIR",
+--   ForUnit = {"unit-human-war-wagon"} } )
 
 --DefineButton( { Pos = 6, Level = 0, Icon = "icon-human-attack-ground",
 --  Action = "attack-ground",

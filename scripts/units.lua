@@ -306,7 +306,6 @@ DefineUnitType("unit-human-scout", {
    Icon = "icon-human-scout",
    Costs = {"time", 60, "gold", 450},
    HitPoints = 55,
-   DrawLevel = 180,
    MaxAttackRange = 1,
    TileSize = {1, 1},
    BoxSize = {15, 15},
@@ -351,7 +350,6 @@ DefineUnitType("unit-orc-tracker", {
    Icon = "icon-orc-tracker",
    Costs = {"time", 60, "gold", 450},
    HitPoints = 55,
-   DrawLevel = 180,
    MaxAttackRange = 1,
    TileSize = {1, 1},
    BoxSize = {24, 24},
@@ -396,7 +394,6 @@ DefineUnitType("unit-human-sapper", {
    Icon = "icon-human-sapper",
    Costs = {"time", 250, "gold", 600, "wood", 100},
    HitPoints = 60,
-   DrawLevel = 180,
    MaxAttackRange = 2,
    TileSize = {1, 1},
    BoxSize = {15, 15},
@@ -406,6 +403,9 @@ DefineUnitType("unit-human-sapper", {
    PiercingDamage = 0,
    BasicDamage = 40,
    Missile = "missile-shotgun-blast",
+   MissileOffsets = {
+     { {0, -16}, {11, -11}, {16, 0}, {11, 11}, {0, 16}, {-11, 11}, {-16, 0}, {-11, -11} }
+   },
    Priority = 55,
    Points = 80,
    SightRange = 5,
@@ -486,7 +486,6 @@ DefineUnitType("unit-orc-warbeast", {
   Icon = "icon-orc-warbeast",
   Costs = {"time", 500, "gold", 2000, "wood", 500},
   HitPoints = 300,
-  DrawLevel = 180,
   MaxAttackRange = 5,
   TileSize = {1, 1},
   BoxSize = {31, 31},
@@ -499,6 +498,9 @@ DefineUnitType("unit-orc-warbeast", {
   BasicDamage = 9,
   PiercingDamage = 2,
   Missile = "missile-arrow",
+  MissileOffsets = {
+    { {0, -16}, {11, -11}, {16, 0}, {11, 11}, {0, 16}, {-11, 11}, {-16, 0}, {-11, -11} }
+  },
   CanTransport = {},
   MaxOnBoard = 4,
   AttackFromTransporter = true,
@@ -567,7 +569,8 @@ DefineUnitType("unit-human-war-wagon", {
   RepairCosts = {"gold", 1, "wood", 1},
   PoisonDrain = 0,
   HitPoints = 200,
-  DrawLevel = 180,
+  RegenerationRate = 1,
+  RegenerationFrequency = 1,
   MaxAttackRange = 6,
   MinAttackRange = 2,
   TileSize = {1, 1},
@@ -581,6 +584,9 @@ DefineUnitType("unit-human-war-wagon", {
   BasicDamage = 20,
   PiercingDamage = 0,
   Missile = "missile-cannonball",
+  MissileOffsets = {
+    { {0, -32}, {22, -22}, {32, 0}, {22, 22}, {0, 32}, {-22, 22}, {-32, 0}, {-22, -22} }
+  },
   Impact = {"general", "missile-hit"},
   Priority = 63,
   Points = 200,
@@ -635,6 +641,9 @@ DefineUnitType("unit-human-war-wagon-gunner", {
    PiercingDamage = 0,
    BasicDamage = 20,
    Missile = "missile-cannonball",
+   MissileOffsets = {
+    { {0, -32}, {22, -22}, {32, 0}, {22, 22}, {0, 32}, {-22, 22}, {-32, 0}, {-22, -22} }
+   },
    Priority = 1,
    Points = 0,
    SightRange = 8,
@@ -665,7 +674,7 @@ DefineUnitType("unit-human-cannon", {
    Icon = "icon-human-cannon",
    Costs = {"time", 400, "gold", 800, "wood", 400},
    HitPoints = 150,
-   DrawLevel = 180,
+   DrawLevel = 50,
    MaxAttackRange = 6,
    MinAttackRange = 2,
    TileSize = {1, 1},
@@ -676,6 +685,9 @@ DefineUnitType("unit-human-cannon", {
    PiercingDamage = 0,
    BasicDamage = 60,
    Missile = "missile-cannonball",
+   MissileOffsets = {
+     { {0, -16}, {11, -11}, {16, 0}, {11, 11}, {0, 16}, {-11, 11}, {-16, 0}, {-11, -11} }
+   },
    Priority = 60,
    Points = 150,
    SightRange = 8,
