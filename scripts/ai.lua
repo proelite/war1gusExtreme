@@ -459,7 +459,7 @@ function AiScout()
    if (AiGetRace() == race1) then
       return "unit-human-scout"
    else
-      return "unit-orc-trader"
+      return "unit-orc-tracker"
    end
 end
 

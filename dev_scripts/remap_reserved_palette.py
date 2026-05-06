@@ -5,6 +5,13 @@ import binascii
 import argparse
 
 
+NEIGHBOR_OFFSETS = (
+    (-1, -1), (0, -1), (1, -1),
+    (-1, 0),            (1, 0),
+    (-1, 1),  (0, 1),  (1, 1),
+)
+
+
 def paeth(a, b, c):
     pr = a + b - c
     pa = abs(pr - a)
@@ -27,6 +34,8 @@ def parse_indexed_png(path):
     chunks = []
     i = 8
     ihdr = None
+    plte = None
+    trns = None
     idat_data = b""
     while i < len(data):
         length = int.from_bytes(data[i:i + 4], 'big')
@@ -35,6 +44,10 @@ def parse_indexed_png(path):
         chunks.append((ctype, chunk))
         if ctype == b'IHDR':
             ihdr = chunk
+        elif ctype == b'PLTE':
+            plte = chunk
+        elif ctype == b'tRNS':
+            trns = chunk
         elif ctype == b'IDAT':
             idat_data += chunk
         elif ctype == b'IEND':
@@ -43,6 +56,8 @@ def parse_indexed_png(path):
 
     if ihdr is None:
         raise ValueError("PNG missing IHDR")
+    if plte is None:
+        raise ValueError("Indexed PNG missing PLTE")
 
     w, h, bitdepth, colortype, comp, flt, interlace = struct.unpack('>IIBBBBB', ihdr)
     if colortype != 3 or bitdepth != 8:
@@ -78,7 +93,7 @@ def parse_indexed_png(path):
         rows.append(cur)
         prev = cur
 
-    return chunks, rows
+    return chunks, rows, plte, trns
 
 
 def png_chunk(ctype, chunk):
@@ -90,14 +105,131 @@ def png_chunk(ctype, chunk):
     )
 
 
-def remap_rows(rows, start_idx=200, end_idx=207, replacement=199):
+def make_palette_triplets(plte_chunk):
+    if len(plte_chunk) % 3 != 0:
+        raise ValueError("Invalid PLTE length")
+
+    colors = []
+    for i in range(0, len(plte_chunk), 3):
+        colors.append((plte_chunk[i], plte_chunk[i + 1], plte_chunk[i + 2]))
+
+    if len(colors) < 256:
+        colors.extend([(0, 0, 0)] * (256 - len(colors)))
+
+    return colors[:256]
+
+
+def make_transparent_set(trns_chunk, transparent_idx):
+    transparent = {transparent_idx}
+    if trns_chunk is None:
+        return transparent
+
+    for idx, alpha in enumerate(trns_chunk):
+        if alpha == 0:
+            transparent.add(idx)
+
+    return transparent
+
+
+def remap_rows(rows, start_idx=200, end_idx=207, offset=-8):
     changed = 0
     for y, row in enumerate(rows):
         for x, value in enumerate(row):
             if start_idx <= value <= end_idx:
-                row[x] = replacement
+                row[x] = value + offset
                 changed += 1
     return changed
+
+
+def average_neighbor_rgb(original_rows, x, y, start_idx, end_idx, transparent_indices, palette):
+    width = len(original_rows[0])
+    height = len(original_rows)
+    rgb_values = []
+
+    for dx, dy in NEIGHBOR_OFFSETS:
+        nx = x + dx
+        ny = y + dy
+        if nx < 0 or ny < 0 or nx >= width or ny >= height:
+            continue
+
+        value = original_rows[ny][nx]
+        if value in transparent_indices:
+            continue
+        if start_idx <= value <= end_idx:
+            continue
+
+        rgb_values.append(palette[value])
+
+    if not rgb_values:
+        return None
+
+    count = len(rgb_values)
+    return tuple(sum(rgb[i] for rgb in rgb_values) / count for i in range(3))
+
+
+def nearest_palette_index(target_rgb, palette, start_idx, end_idx, transparent_indices):
+    best_index = None
+    best_distance = None
+
+    for idx, rgb in enumerate(palette):
+        if idx in transparent_indices:
+            continue
+        if start_idx <= idx <= end_idx:
+            continue
+
+        distance = (
+            (rgb[0] - target_rgb[0]) ** 2 +
+            (rgb[1] - target_rgb[1]) ** 2 +
+            (rgb[2] - target_rgb[2]) ** 2
+        )
+        if best_distance is None or distance < best_distance:
+            best_distance = distance
+            best_index = idx
+
+    return best_index
+
+
+def remap_rows_neighbor_average(rows, palette, start_idx=200, end_idx=207, transparent_indices=None):
+    if transparent_indices is None:
+        transparent_indices = {0}
+
+    original_rows = [row[:] for row in rows]
+    changed = 0
+    unresolved = 0
+
+    for y, row in enumerate(rows):
+        for x, value in enumerate(row):
+            if not (start_idx <= value <= end_idx):
+                continue
+
+            avg_rgb = average_neighbor_rgb(
+                original_rows,
+                x,
+                y,
+                start_idx,
+                end_idx,
+                transparent_indices,
+                palette,
+            )
+            if avg_rgb is None:
+                unresolved += 1
+                continue
+
+            replacement = nearest_palette_index(
+                avg_rgb,
+                palette,
+                start_idx,
+                end_idx,
+                transparent_indices,
+            )
+            if replacement is None:
+                unresolved += 1
+                continue
+
+            row[x] = replacement
+            changed += 1
+
+    return changed, unresolved
 
 
 def write_png(path, chunks, rows):
@@ -128,13 +260,25 @@ if __name__ == '__main__':
     parser.add_argument('input_png', help='Input PNG path')
     parser.add_argument('output_png', nargs='?', help='Output PNG path')
     parser.add_argument(
+        '--mode',
+        choices=('shift', 'neighbor-average'),
+        default='shift',
+        help='Remap strategy: shift the reserved range by its width, or replace each reserved pixel from surrounding non-reserved neighbors'
+    )
+    parser.add_argument(
         '--remap-side',
         choices=('lower', 'higher'),
         default='lower',
-        help='Use lower neighbor index (default) or higher neighbor index'
+        help='Shift the reserved range downward or upward by its own width (used by --mode shift)'
     )
     parser.add_argument('--start-idx', type=int, default=200, help='Start of reserved range (inclusive)')
     parser.add_argument('--end-idx', type=int, default=207, help='End of reserved range (inclusive)')
+    parser.add_argument(
+        '--transparent-idx',
+        type=int,
+        default=0,
+        help='Palette index treated as transparent and ignored by --mode neighbor-average (default: 0)'
+    )
 
     args = parser.parse_args()
 
@@ -143,23 +287,48 @@ if __name__ == '__main__':
 
     if args.start_idx < 0 or args.end_idx > 255 or args.start_idx > args.end_idx:
         raise ValueError('start-idx/end-idx must be between 0 and 255 and start-idx <= end-idx')
+    if args.transparent_idx < 0 or args.transparent_idx > 255:
+        raise ValueError('transparent-idx must be between 0 and 255')
 
-    if args.remap_side == 'lower':
-        replacement = args.start_idx - 1
+    chunks, rows, plte, trns = parse_indexed_png(src)
+
+    if args.mode == 'shift':
+        range_width = args.end_idx - args.start_idx + 1
+        if args.remap_side == 'lower':
+            offset = -range_width
+        else:
+            offset = range_width
+
+        shifted_start = args.start_idx + offset
+        shifted_end = args.end_idx + offset
+
+        if shifted_start < 0 or shifted_end > 255:
+            raise ValueError(
+                f"Cannot remap '{args.remap_side}' for range {args.start_idx}-{args.end_idx}; "
+                f'shifted range {shifted_start}-{shifted_end} is out of 0-255'
+            )
+
+        changed = remap_rows(rows, args.start_idx, args.end_idx, offset)
+        summary = (
+            f'Remapped {changed} pixels from indices '
+            f'{args.start_idx}-{args.end_idx} to {shifted_start}-{shifted_end} '
+            f'by shifting {offset:+d}'
+        )
     else:
-        replacement = args.end_idx + 1
-
-    if replacement < 0 or replacement > 255:
-        raise ValueError(
-            f"Cannot remap '{args.remap_side}' for range {args.start_idx}-{args.end_idx}; "
-            f'replacement index {replacement} is out of 0-255'
+        palette = make_palette_triplets(plte)
+        transparent_indices = make_transparent_set(trns, args.transparent_idx)
+        changed, unresolved = remap_rows_neighbor_average(
+            rows,
+            palette,
+            args.start_idx,
+            args.end_idx,
+            transparent_indices,
+        )
+        summary = (
+            f'Remapped {changed} pixels from indices {args.start_idx}-{args.end_idx} '
+            f'using neighbor-average mode; left {unresolved} pixels unchanged with no valid neighbors'
         )
 
-    chunks, rows = parse_indexed_png(src)
-    changed = remap_rows(rows, args.start_idx, args.end_idx, replacement)
     write_png(dst, chunks, rows)
-    print(
-        f'Remapped {changed} pixels from indices '
-        f'{args.start_idx}-{args.end_idx} to {replacement} ({args.remap_side})'
-    )
+    print(summary)
     print(f'Wrote {dst}')

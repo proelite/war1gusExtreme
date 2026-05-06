@@ -211,8 +211,8 @@ local DefineCustomIcons = function()
   sorceress.G = CPlayerColorGraphic:New("contrib/graphics/ui/human/icon-sorceress.png", 27, 19)
   sorceress.Frame = 0
 
-  local warwagon = CIcon:New("icon-war-wagon")
-  warwagon.G = CPlayerColorGraphic:New("contrib/graphics/ui/human/icon-war-wagon.png", 27, 19)
+  local warwagon = CIcon:New("icon-human-war-wagon")
+  warwagon.G = CPlayerColorGraphic:New("contrib/graphics/ui/human/icon-human-war-wagon.png", 27, 19)
   warwagon.Frame = 0
 
   local orcUnload = CIcon:New("icon-orc-unload")

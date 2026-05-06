@@ -492,7 +492,7 @@ DefineUnitType("unit-orc-warbeast", {
   Image = {"file", "contrib/graphics/units/warbeast.png", "size", {64, 64}},
   Animations = "animations-warbeast",
   Icon = "icon-orc-warbeast",
-  Costs = {"time", 500, "gold", 2000, "wood", 500},
+  Costs = {"time", 1, "gold", 2000, "wood", 500},
   DrawLevel = 45,
   HitPoints = 300,
   MaxAttackRange = 5,
@@ -574,13 +574,13 @@ DefineUnitType("unit-orc-warbeast", {
 })
 table.insert(wc1_units.orc, "unit-orc-warbeast")
 DefineAllow("unit-orc-warbeast", "AAAAAAAAAAAAAAAA")
-DefineDependency("unit-orc-warbeast", {"unit-orc-war-camp", "unit-orc-tower"})
+-- DefineDependency("unit-orc-warbeast", {"unit-orc-war-camp", "unit-orc-tower"})
 
 DefineUnitType("unit-human-war-wagon", {
   Name = "War Wagon",
   Image = {"file", "contrib/graphics/units/war-wagon.png", "size", {64, 64}},
   Animations = "animations-war-wagon",
-  Icon = "icon-war-wagon",
+  Icon = "icon-human-war-wagon",
   DrawLevel = 50,
   Costs = {"time", 400, "gold", 1000, "wood", 1000},
   RepairHp = 4,

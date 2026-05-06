@@ -1777,7 +1777,7 @@ DefineButton( { Pos = 4, Level = 1, Icon = "icon-human-town-hall",
     Key = "t", Hint = "ESTABLISH ~!TOWN",
     ForUnit = {"unit-peasant"} } )
 
-DefineButton( { Pos = 5, Level = 0, Icon = "icon-war-wagon",
+DefineButton( { Pos = 5, Level = 0, Icon = "icon-human-war-wagon",
    Action = "train-unit", Value = "unit-human-war-wagon",
    Key = "w", Hint = "TRAIN ~!WAR WAGON",
    ForUnit = {"unit-human-first-town-hall"} } )
