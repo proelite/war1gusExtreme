@@ -300,10 +300,10 @@ DefineButton( { Pos = 2, Level = 0, Icon = "icon-orc-tracker",
   ForUnit = {"unit-orc-town-hall", "unit-orc-blackrock-spire"} } )
 
 -- This button is for testing units quickly. 
-DefineButton( { Pos = 5, Level = 0, Icon = "icon-orc-warbeast",
-  Action = "train-unit", Value = "unit-orc-warbeast",
-  Key = "w", Hint = "TRAIN ~!WARBEAST",
-  ForUnit = {"unit-orc-town-hall"} } )
+-- DefineButton( { Pos = 5, Level = 0, Icon = "icon-orc-warbeast",
+--   Action = "train-unit", Value = "unit-orc-warbeast",
+--   Key = "w", Hint = "TRAIN ~!WARBEAST",
+--   ForUnit = {"unit-orc-town-hall"} } )
 
 -- training commands ---------------------------------------------------------
 

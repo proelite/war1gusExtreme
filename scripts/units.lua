@@ -577,7 +577,7 @@ DefineUnitType("unit-orc-warbeast", {
 })
 table.insert(wc1_units.orc, "unit-orc-warbeast")
 DefineAllow("unit-orc-warbeast", "AAAAAAAAAAAAAAAA")
--- DefineDependency("unit-orc-warbeast", {"unit-orc-war-camp", "unit-orc-tower"})
+DefineDependency("unit-orc-warbeast", {"unit-orc-war-camp", "unit-orc-tower"})
 
 DefineUnitType("unit-human-war-wagon", {
   Name = "War Wagon",

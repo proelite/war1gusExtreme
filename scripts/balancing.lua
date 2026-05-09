@@ -116,9 +116,9 @@ humanCashCropsIcon2.Frame = 0
 
 local humanCashCropsUpgrade2 = CUpgrade:New("upgrade-human-cash-crops2")
 humanCashCropsUpgrade2.Icon = humanCashCropsIcon2
-humanCashCropsUpgrade2.Costs[0] = 700
-humanCashCropsUpgrade2.Costs[1] = 500
-humanCashCropsUpgrade2.Costs[2] = 1000
+humanCashCropsUpgrade2.Costs[0] = 1400
+humanCashCropsUpgrade2.Costs[1] = 1000
+humanCashCropsUpgrade2.Costs[2] = 2000
 
 DefineModifier("upgrade-human-cash-crops2",
   {"Level", 1},
@@ -149,9 +149,9 @@ orcCashCropsIcon2.Frame = 0
 
 local orcCashCropsUpgrade2 = CUpgrade:New("upgrade-orc-cash-crops2")
 orcCashCropsUpgrade2.Icon = orcCashCropsIcon2
-orcCashCropsUpgrade2.Costs[0] = 700
-orcCashCropsUpgrade2.Costs[1] = 500
-orcCashCropsUpgrade2.Costs[2] = 1000
+orcCashCropsUpgrade2.Costs[0] = 1400
+orcCashCropsUpgrade2.Costs[1] = 1000
+orcCashCropsUpgrade2.Costs[2] = 2000
 
 DefineModifier("upgrade-orc-cash-crops2",
   {"Level", 1},
