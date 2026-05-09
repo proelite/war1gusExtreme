@@ -563,7 +563,7 @@ DefineAnimations("animations-lothar", BuildAnimations(frameNumbers_5_5_5_3))
 DefineAnimations("animations-war-wagon-gunner", {
    Still = {"frame 0", "wait 5"},
    Attack = {"unbreakable begin",
-             "frame 0", "attack", "sound cannon", "wait 30",
+             "frame 0", "attack", "sound cannon", "wait 100",
              "unbreakable end",
              "frame 0", "wait 1"}, 
    Repair = {"unbreakable begin",
@@ -579,7 +579,7 @@ DefineAnimations("animations-war-wagon",
    Attack = {"unbreakable begin",
            "frame 0", "attack", "sound cannon", "wait 10",
            "frame 0", "attack", "sound cannon", "wait 10",
-           "frame 0", "attack", "sound cannon", "wait 30",
+           "frame 0", "attack", "sound cannon", "wait 100",
            "unbreakable end",
            "frame 0", "wait 1"},
     -- Keep repair cadence similar to workers: one repair tick per cycle.

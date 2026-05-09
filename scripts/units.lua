@@ -602,7 +602,7 @@ DefineUnitType("unit-human-war-wagon", {
   ComputerReactionRange = 10,
   PersonReactionRange = 10,
   Armor = 2,
-  BasicDamage = 20,
+  BasicDamage = 40,
   PiercingDamage = 0,
   Missile = "missile-cannonball",
   MissileOffsets = {
@@ -668,7 +668,7 @@ DefineUnitType("unit-human-war-wagon-gunner", {
    Armor = 0,
    Speed = 3,
    PiercingDamage = 0,
-   BasicDamage = 20,
+   BasicDamage = 40,
    Missile = "missile-cannonball",
    MissileOffsets = {
     { {0, -32},   -- N

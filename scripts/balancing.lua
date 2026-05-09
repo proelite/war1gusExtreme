@@ -1602,7 +1602,7 @@ humanCannonHeatedShotUpgrade.Costs[2] = 400 -- wood
 DefineModifier("upgrade-human-CannonHeatedShot",
    {"Level", 1},
    {"PiercingDamage", 20},
-   {"apply-to", "unit-human-cannon"})
+   {"apply-to", "unit-human-cannon", "unit-human-war-wagon"})
 
 DefineAllow("upgrade-human-CannonHeatedShot", "AAAAAAAAAAAAAAAA")
 DefineDependency("upgrade-human-CannonHeatedShot", { "unit-human-siege-workshop"} )
@@ -1611,7 +1611,7 @@ DefineButton( { Pos = 3, Level = 0, Icon = "icon-human-CannonHeatedShot",
    Action = "research", Value = "upgrade-human-CannonHeatedShot",
    Allowed = "check-single-research",
    Key = "e", Hint = "RESEARCH H~!EATED SHOT",
-   Description = "Increase cannon damage by ~<20~>",
+   Description = "Increase cannon type damage by ~<20~>",
     ForUnit = {"unit-human-siege-workshop"} } )
 
 
