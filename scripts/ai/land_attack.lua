@@ -229,6 +229,10 @@ function CreateAiLandAttack()
 
       function () return GenerateRoads(true, true) end,
 
+      -- Must have farm for cash crops research
+      function () return AiNeed(AiFarm) end,
+      function () return AiWait(AiFarm) end,
+
       function() return AiResearch(AiUpgradeCashCrops1()) end,
       function() return AiResearch(AiUpgradeFortification1()) end,
 
