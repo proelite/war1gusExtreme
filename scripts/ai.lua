@@ -86,6 +86,29 @@ function AiLumberMill()
 end
 
 --
+--  Farm of the current race.
+--
+function AiFarm()
+   if (AiGetRace() == race1) then
+      return "unit-human-farm"
+   else
+      return "unit-orc-farm"
+   end
+end
+
+--
+--  Request a farm when supply is getting tight.
+--
+function AiNeedFarm()
+   local supply = GetPlayerData(AiPlayer(), "Supply")
+   local demand = GetPlayerData(AiPlayer(), "Demand")
+   if supply <= demand + 2 then
+      return AiNeed(AiFarm())
+   end
+   return false
+end
+
+--
 --  Tower of the current race.
 --
 function AiTower() 
@@ -304,12 +327,20 @@ function AiUpgradeFortification1()
    end
 end
 
+function AiUpgradeFortifications1()
+   return AiUpgradeFortification1()
+end
+
 function AiUpgradeFortification2()
    if (AiGetRace() == race1) then
       return "upgrade-human-fortification2"
    else
       return "upgrade-orc-fortification2"
    end
+end
+
+function AiUpgradeFortifications2()
+   return AiUpgradeFortification2()
 end
 
 --

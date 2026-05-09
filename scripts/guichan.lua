@@ -534,6 +534,36 @@ function RunSinglePlayerGameMenu()
       function RunInEditorMenu()
         Editor.Running = EditorNotRunning;
         local done = false
+
+        local function GetRemovedTreeTileIndex()
+          if war1gus.tileset == "forest" or war1gus.tileset == "forest_campaign" then
+            return 95
+          end
+          if war1gus.tileset == "swamp" or war1gus.tileset == "swamp_campaign" then
+            return 96
+          end
+          return nil
+        end
+
+        local function ClearForestBuildRing(centerX, centerY, radius)
+          local removedTreeTile = GetRemovedTreeTileIndex()
+          if not removedTreeTile then
+            return
+          end
+
+          for dx = -radius, radius do
+            for dy = -radius, radius do
+              local x = centerX + dx
+              local y = centerY + dy
+              if x >= 0 and y >= 0 and x < Map.Info.MapWidth and y < Map.Info.MapHeight then
+                if GetTileTerrainHasFlag(x, y, "forest") then
+                  SetTile(removedTreeTile, x, y, 100)
+                end
+              end
+            end
+          end
+        end
+
         repeat
           Editor:CreateRandomMap(true)
           done = true
@@ -567,6 +597,7 @@ function RunSinglePlayerGameMenu()
               end
             end
           end
+	  ClearForestBuildRing(posx - 1, posy - 1, 8)
 	  local i=0
 	  while( i < 5 )
 		do
@@ -600,7 +631,10 @@ function RunSinglePlayerGameMenu()
             Players[i].AiName = "wc1-land-attack"
             Players[i].Resources[1] = 5000
             Players[i].Resources[2] = 3000
-            unit = CreateUnit(opponentUnit, i, {(Map.Info.MapWidth / i) - 1, Map.Info.MapHeight - 1})
+            local opponentPosX = (Map.Info.MapWidth / i) - 1
+            local opponentPosY = Map.Info.MapHeight - 1
+            ClearForestBuildRing(opponentPosX, opponentPosY, 8)
+            unit = CreateUnit(opponentUnit, i, {opponentPosX, opponentPosY})
             if FindNextResource(unit, "gold", 60) == nil then
               done = false
             end
