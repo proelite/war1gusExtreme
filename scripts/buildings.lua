@@ -505,7 +505,7 @@ DefineUnitType(
    { Name = "Wall",
      Image = {"size", {16, 16}},
      Costs = {"time", 100, "gold", 100, "wood", 0},
-    RepairHp = 4,
+    RepairHp = 8,
     RepairCosts = {"gold", 1, "wood", 1},
      BuildingRules = { -- all buildings except the town hall need a road
         {"distance", {Distance = 3, DistanceType = "<=", Owner = "allied"}}},
@@ -527,6 +527,44 @@ DefineUnitType(
      VisibleUnderFog = true })
 table.insert(wc1_buildings["orc"], "unit-wall")
 table.insert(wc1_buildings["human"], "unit-wall")
+
+DefineUnitType("unit-human-dugout", {
+   Name = "Dugout",
+   Image = {"file", "contrib/graphics/buildings/dugout.png", "size", {32, 32}},
+   Animations = "animations-building",
+   Icon = "icon-human-dugout",
+   Costs = {"time", 120, "gold", 350, "wood", 150},
+   RepairHp = 6,
+   RepairCosts = {"gold", 1, "wood", 1},
+   BuildingRules = { -- all buildings except the town hall need a road
+   {"distance", {Distance = 3, DistanceType = "<=", Owner = "allied"}}},
+   Construction = "construction-land",
+   HitPoints = 200,
+   DrawLevel = 20,
+   MaxOnBoard = 4,
+   TileSize = {2, 2},
+   BoxSize = {31, 31},
+   SightRange = 5,
+   BasicDamage = 0,
+   PiercingDamage = 0,
+   Missile = "missile-none",
+   Priority = 40,
+   Points = 120,
+   Type = "land",
+   Building = true,
+   VisibleUnderFog = true,
+   CanTransport = {"LandUnit", "only"},
+   AttackFromTransporter = true,
+   SelectableByRectangle = true,
+   NoRandomPlacing = false,
+   Sounds = {
+      "selected", "human-watch-tower-selected",
+      "help", "basic human voices help 2",
+      "dead", "building destroyed"
+   }
+})
+table.insert(wc1_buildings["human"], "unit-human-dugout")
+DefineAllow("unit-human-dugout", "AAAAAAAAAAAAAAAA")
 
 -- dungeon decoration
 DefineUnitType(

@@ -131,9 +131,6 @@ icons = {
   {"icon-orc-stand-ground", 40},
   {"icon-human-attack-ground", 40},
   {"icon-orc-attack-ground", 40},
-
-  -- {"icon-catapult", 0},
-  -- {"icon-human-wall", 41},
 }
 
 --[[
@@ -242,6 +239,14 @@ local DefineCustomIcons = function()
   local humansapper = CIcon:New("icon-human-sapper")
   humansapper.G = CPlayerColorGraphic:New("contrib/graphics/ui/human/icon-human-sapper.png", 27, 19)
   humansapper.Frame = 0
+
+  local humandugout = CIcon:New("icon-human-dugout")
+  if war1gus.tileset == "forest" or war1gus.tileset == "forest_campaign" then
+    humandugout.G = CPlayerColorGraphic:New("contrib/graphics/ui/human/icon-human-dugout-forest.png", 27, 19)
+  else
+    humandugout.G = CPlayerColorGraphic:New("contrib/graphics/ui/human/icon-human-dugout-swamp.png", 27, 19)
+  end
+  humandugout.Frame = 0
 
   local orctracker = CIcon:New("icon-orc-tracker")
   orctracker.G = CPlayerColorGraphic:New("contrib/graphics/ui/orc/icon-orc-tracker.png", 27, 19)

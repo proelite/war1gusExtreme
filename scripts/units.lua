@@ -521,7 +521,7 @@ DefineUnitType("unit-orc-warbeast", {
       {-11, -11}  -- NW
     }
   },
-  CanTransport = {},
+  CanTransport = {"LandUnit", "only"},
   MaxOnBoard = 4,
   AttackFromTransporter = true,
   DecayRate = 0,
