@@ -229,12 +229,20 @@ function CreateAiLandAttack()
 
       function () return GenerateRoads(true, true) end,
 
-      -- Must have farm for cash crops research
-      function () return AiNeed(AiFarm) end,
-      function () return AiWait(AiFarm) end,
+      -- Must have farm for cash crops research + make 4 for the money
+      function() return AiNeed(AiFarm()) end,
+      function() return AiWait(AiFarm()) end,
 
       function() return AiResearch(AiUpgradeCashCrops1()) end,
-      function() return AiResearch(AiUpgradeFortification1()) end,
+
+      function() return AiNeed(AiFarm()) end,
+      function() return AiWait(AiFarm()) end,
+
+      function() return AiNeed(AiFarm()) end,
+      function() return AiWait(AiFarm()) end,
+
+      function() return AiNeed(AiFarm()) end,
+      function() return AiWait(AiFarm()) end,
 
       --function() return AiSleep(500) end,
       function() return AiNeed(AiStables()) end,
@@ -327,7 +335,17 @@ function CreateAiLandAttack()
 
       function () return GenerateRoads(true, true) end,
 
+      function() return AiNeed(AiFarm()) end,
+      function() return AiWait(AiFarm()) end,
+      function() return AiNeed(AiFarm()) end,
+      function() return AiWait(AiFarm()) end,
+      function() return AiNeed(AiFarm()) end,
+      function() return AiWait(AiFarm()) end,
+      function() return AiNeed(AiFarm()) end,
+      function() return AiWait(AiFarm()) end,
+
       function() return AiResearch(AiUpgradeCashCrops2()) end,
+      function() return AiResearch(AiUpgradeFortification1()) end,
       function() return AiResearch(AiUpgradeFortification2()) end,
 
       function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 3, AiSiege(), 1, AiMage(), 2, AiSummoner(), 5, AiSuperUnit(), 1}) end,
