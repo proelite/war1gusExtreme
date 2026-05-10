@@ -2074,9 +2074,9 @@ humanCannonSpeedIcon.Frame = 0
 
 local humanCannonSpeedUpgrade = CUpgrade:New("upgrade-human-CannonSpeed")
 humanCannonSpeedUpgrade.Icon = humanCannonSpeedIcon
-humanCannonSpeedUpgrade.Costs[0] = 700 -- time
-humanCannonSpeedUpgrade.Costs[1] = 750 -- gold
-humanCannonSpeedUpgrade.Costs[2] = 400 -- wood
+humanCannonSpeedUpgrade.Costs[0] = 1000 -- time
+humanCannonSpeedUpgrade.Costs[1] = 1000 -- gold
+humanCannonSpeedUpgrade.Costs[2] = 600 -- wood
 
 DefineModifier("upgrade-human-CannonSpeed",
    {"Level", 1},
@@ -2737,11 +2737,6 @@ local humanHail = CIcon:New("icon-sorceress-hail")
 humanHail.G = CPlayerColorGraphic:New("contrib/graphics/ui/human/icon-sorceress-hail.png", 27, 19)
 humanHail.Frame = 0
 
-DefineButton( { Pos = 2, Level = 0, Icon = "icon-sorceress",
-   Action = "train-unit", Value = "unit-sorceress",
-   Key = "s", Hint = "TRAIN ~!SORCERESS",
-   ForUnit = {"unit-human-church"} } )
-
 DefineButton( { Pos = 3, Level = 0, Icon = "icon-sorceress-attack",
   Action = "attack",
   Key = "a", Hint = "ICE SH~!ARD",
@@ -2756,14 +2751,8 @@ humanHailUpgrade.Costs[2] = 0 -- wood
 
 DefineAllow("upgrade-hail", "AAAAAAAAAAAAAAAA")
 
+
 DefineButton( { Pos = 5, Level = 0, Icon = "icon-sorceress-hail",
-  Action = "research", Value = "upgrade-hail",
-  Allowed = "check-single-research",
-  Key = "d", Hint = "RESEARCH HAIL SHIEL~!D",
-  Description = "Harmfull hail orbit target",
-  ForUnit = {"unit-human-church"} } )
- 
- DefineButton( { Pos = 5, Level = 0, Icon = "icon-sorceress-hail",
   Action = "cast-spell", Value = "spell-hail",
   Allowed = "check-upgrade", AllowArg = {"upgrade-hail"},
   Key = "d", Hint = "HAIL SHIEL~!D",
@@ -2785,20 +2774,14 @@ DefineButton( { Pos = 5, Level = 0, Icon = "icon-freeze",
   Description = "Slow down target",
   ForUnit = {"unit-human-tower"} } )
 
- DefineButton( { Pos = 4, Level = 0, Icon = "icon-freeze",
+DefineButton( { Pos = 4, Level = 0, Icon = "icon-freeze",
   Action = "cast-spell", Value = "spell-freeze",
   Allowed = "check-upgrade", AllowArg = {"upgrade-freeze"},
   Key = "f", Hint = "~!FREEZE",
   Description = "Slow down target", 
   ForUnit = {"unit-sorceress"} } )
  
- --reposition of church healing research icon to look nicer with sorceress (unit on top etc.)
- DefineButton( { Pos = 6, Level = 0, Icon = "icon-healing",
-  Action = "research", Value = "upgrade-healing",
-  Allowed = "check-single-research",
-  Key = "e", Hint = "RESEARCH H~!EALING",
-  ForUnit = {"unit-human-church"} } )
-  
+
 DefineUnitType("unit-sorceress", 
                { Name = "Sorceress",
 			     Costs = {"time", 250 , "gold", 450, "wood", 75}, --250

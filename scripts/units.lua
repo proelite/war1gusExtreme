@@ -495,7 +495,7 @@ DefineUnitType("unit-orc-warbeast", {
   Image = {"file", "contrib/graphics/units/warbeast.png", "size", {64, 64}},
   Animations = "animations-warbeast",
   Icon = "icon-orc-warbeast",
-  Costs = {"time", 1, "gold", 2000, "wood", 500},
+  Costs = {"time", 500, "gold", 2000, "wood", 500},
   DrawLevel = 150,
   HitPoints = 300,
   MaxAttackRange = 5,
