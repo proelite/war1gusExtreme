@@ -281,7 +281,7 @@ Use GIMP when you want a clean mask before the final remap.
 2. Duplicate the sprite or duplicate the layer.
 3. On the duplicate, erase everything that should not become player-colored.
 4. Keep only the areas that should change by player.
-5. Paint those remaining areas with up to 8 shades, from lightest highlight to darkest shadow.
+5. colors/posterize the area to 8 levels. 
 6. Keep the background transparent. In this repo the helper script defaults to transparent index `0`.
 7. Export that image as an 8-bit indexed PNG.
 
