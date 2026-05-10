@@ -97,18 +97,6 @@ function AiFarm()
 end
 
 --
---  Request a farm when supply is getting tight.
---
-function AiNeedFarm()
-   local supply = GetPlayerData(AiPlayer(), "Supply")
-   local demand = GetPlayerData(AiPlayer(), "Demand")
-   if supply <= demand + 2 then
-      return AiNeed(AiFarm())
-   end
-   return false
-end
-
---
 --  Tower of the current race.
 --
 function AiTower() 

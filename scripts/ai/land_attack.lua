@@ -167,7 +167,6 @@ function CreateAiLandAttack()
 
       function() return AiNeed(AiBarracks()) end,
 	  function() return AiNeed(AiLumberMill()) end,
-      function() return AiNeedFarm() end,
 	  function() return AiWait(AiBarracks()) end,
       --function() return AiForce(0, {AiSoldier(), 2}) end,
       --function() return AiForce(1, {AiSoldier(), 1}) end,
@@ -178,7 +177,6 @@ function CreateAiLandAttack()
       function () return GenerateRoads(true, false) end,
 
       function() return AiSet(AiWorker(), 9) end,
-	  function() return AiNeedFarm() end,
       --function() return AiSleep(500) end,
 	  function() return AiWait(AiWorker()) end,
 	  function() return AiWait(AiLumberMill()) end,
@@ -208,7 +206,6 @@ function CreateAiLandAttack()
 
       -- function() return AiSleep(500) end,
       function() return AiSet(AiWorker(), 15) end,
-	  function() return AiNeedFarm() end,
       --function() return AiForce(0, {AiSoldier(), 3, AiShooter(), 2}) end,
       function() return AiForce(1, {AiSoldier(), 3, AiShooter(), 1}) end,
       --function() return AiWaitForce(0) end,
@@ -260,7 +257,6 @@ function CreateAiLandAttack()
       --function() return AiSleep(500) end,
       function() return AiNeed(AiBarracks()) end,
       function() return AiSet(AiWorker(), 19) end,
-	  function() return AiNeedFarm() end,
 
       function() return AiResearch(AiUpgradeWeapon1()) end,
       function() return AiResearch(AiUpgradeArmor1()) end,
@@ -285,7 +281,6 @@ function CreateAiLandAttack()
 
       --function() return AiSleep(500) end,
       function() return AiResearch(AiMageSpell2()) end,
-      function() return AiResearch(AiMageSpell3()) end,
 
       function () return GenerateRoads(true, true) end,
 
@@ -297,12 +292,25 @@ function CreateAiLandAttack()
 
       function () return GenerateRoads(true, true) end,
 
+      function() return AiNeed(AiFarm()) end,
+      function() return AiWait(AiFarm()) end,
+
+      function() return AiNeed(AiFarm()) end,
+      function() return AiWait(AiFarm()) end,
+
+      function() return AiNeed(AiFarm()) end,
+      function() return AiWait(AiFarm()) end,
+      
+      function() return AiNeed(AiFarm()) end,
+      function() return AiWait(AiFarm()) end,
+
+
       function() return AiNeed(AiMageTower()) end,
       function() return AiWait(AiMageTower()) end,
 
       --function() return AiSleep(500) end,
+      function() return AiResearch(AiMageSpell3()) end,
       function() return AiResearch(AiSummonerSpell1()) end,
-      function() return AiResearch(AiSummonerSpell3()) end,
 
       --function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 3, AiCatapult(), 3, AiMage(), 2, AiSummoner(), 2}) end,
       function() return AiForce(1, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 2, AiSiege(), 1, AiMage(), 1, AiSummoner(), 1}) end,
@@ -311,10 +319,10 @@ function CreateAiLandAttack()
       function() return AiAttackWithForce(1) end,
 
       --function() return AiSleep(500) end,
+      function () return GenerateRoads(true, true) end,
+      
       function() return AiResearch(AiSummonerSpell2()) end,
 
-      function () return GenerateRoads(true, true) end,
-
       --function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 3, AiCatapult(), 1, AiMage(), 2, AiSummoner(), 2}) end,
       function() return AiForce(1, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 2, AiSiege(), 1, AiMage(), 1, AiSummoner(), 1}) end,
       --function() return AiWaitForce(0) end,
@@ -322,6 +330,8 @@ function CreateAiLandAttack()
       function() return AiAttackWithForce(1) end,
 
       function () return GenerateRoads(true, true) end,
+      
+      function() return AiResearch(AiSummonerSpell3()) end,
 
       --function() return AiSleep(500) end,
 
@@ -334,16 +344,7 @@ function CreateAiLandAttack()
       --function() return AiSleep(500) end,
 
       function () return GenerateRoads(true, true) end,
-
-      function() return AiNeed(AiFarm()) end,
-      function() return AiWait(AiFarm()) end,
-      function() return AiNeed(AiFarm()) end,
-      function() return AiWait(AiFarm()) end,
-      function() return AiNeed(AiFarm()) end,
-      function() return AiWait(AiFarm()) end,
-      function() return AiNeed(AiFarm()) end,
-      function() return AiWait(AiFarm()) end,
-
+      
       function() return AiResearch(AiUpgradeCashCrops2()) end,
       function() return AiResearch(AiUpgradeFortification1()) end,
       function() return AiResearch(AiUpgradeFortification2()) end,
@@ -367,7 +368,6 @@ function CreateAiLandAttack()
 
       --function() return AiSleep(500) end,
       function() return AiSet(AiWorker(), 25) end,
-	  function() return AiNeedFarm() end,
 
       -- Everything researched...
       function() return AiResearch(AiUpgradeSiege1()) end,

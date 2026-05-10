@@ -639,6 +639,12 @@ function RunSinglePlayerGameMenu()
               done = false
             end
           end
+
+          -- Grant unlimited resources to all AI players
+          for aiPlayer=1,numOpponents,1 do
+            SetPlayerData(aiPlayer, "Resources", "gold", 99999)
+            SetPlayerData(aiPlayer, "Resources", "wood", 99999)
+          end
         until done
 
         mapname = "maps/randommap.smp"
