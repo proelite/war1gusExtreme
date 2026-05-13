@@ -633,9 +633,7 @@ DefineUnitType("unit-explosive-barrel", {
     for i, nearby in ipairs(neighbours) do
       if nearby ~= unit then
         local nearbyOwner = Players[GetUnitVariable(nearby, "Player")]
-        local nearbySlot = UnitManager:GetSlotUnit(nearby)
-        local nearbyType = nearbySlot and nearbySlot.Type or nil
-        local isBuilding = nearbyType and nearbyType.Building
+        local isBuilding = GetUnitBoolFlag(nearby, "Building")
 
         if nearbyOwner and not isBuilding and nearbyOwner.Index ~= owner.Index and not nearbyOwner:IsAllied(owner) then
           local pos = GetUnitVariable(unit, "PixelPos")

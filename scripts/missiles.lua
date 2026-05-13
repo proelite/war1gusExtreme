@@ -183,8 +183,9 @@ DefineMissileType("missile-explosive-barrel", {
   Sleep = 8,
   Damage = 50,
   Range = 2, -- 3-tile splash (center + 2)
+  SplashFactor = 2,
   ImpactMissile = "missile-explosion",
   CanHitOwner = false,
-  FriendlyFire = false,
+  FriendlyFire = true,
   TTL = 30,
 })
