@@ -395,7 +395,7 @@ DefineUnitType("unit-human-sapper", {
    Animations = "animations-sapper",
    DrawLevel = 50,
    Icon = "icon-human-sapper",
-   Costs = {"time", 250, "gold", 600, "wood", 100},
+   Costs = {"time", 1, "gold", 600, "wood", 100},
    HitPoints = 60,
    MaxAttackRange = 2,
    TileSize = {1, 1},
@@ -445,7 +445,7 @@ DefineUnitType("unit-human-sapper", {
 
 table.insert(wc1_units.human, "unit-human-sapper")
 DefineAllow("unit-human-sapper", "AAAAAAAAAAAAAAAA")
-DefineDependency("unit-human-sapper", {"unit-human-barracks", "unit-human-blacksmith"})
+-- DefineDependency("unit-human-sapper", {"unit-human-barracks", "unit-human-blacksmith"})
 
 DefineUnitType("unit-orc-ogre", {
    Name = "Ogre",

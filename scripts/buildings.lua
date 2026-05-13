@@ -597,12 +597,12 @@ DefineAllow("unit-human-dugout", "AAAAAAAAAAAAAAAA")
 -- Explosive Barrel (sapper buildable proximity mine)
 DefineUnitType("unit-explosive-barrel", {
   Name = "Explosive Barrel",
-  Image = {"file", "contrib/graphics/missiles/explosive-barrel.png", "size", {16, 16}},
+  Image = {"file", "contrib/graphics/buildings/explosive-barrel.png", "size", {16, 16}},
   Animations = "animations-building",
   Icon = "icon-explosive-barrel",
-  Costs = {"time", 150, "gold", 100, "wood", 100},
+  Costs = {"time", 50, "gold", 100, "wood", 100},
   Construction = "construction-none",
-  HitPoints = 100,
+  HitPoints = 20,
   DrawLevel = 40,
   TileSize = {1, 1}, BoxSize = {16, 16},
   SightRange = 1,
@@ -614,16 +614,13 @@ DefineUnitType("unit-explosive-barrel", {
   ExplodeWhenKilled = "missile-explosion",
   Type = "land",
   Building = true, VisibleUnderFog = true,
-  OnReady = function(unit)
+  OnEachSecond = function(unit)
     -- Spawn the land-mine missile at the barrel's center, then remove the barrel
     local pixelPos = GetUnitVariable(unit, "PixelPos")
     local pos = {pixelPos.x, pixelPos.y}
     CreateMissile("missile-explosive-barrel", pos, pos, unit, -1, true, true)
-    RemoveUnit(unit)
   end,
   Sounds = {
-    "selected", "barrel-selected",
-    "help", "barrel-help",
     "dead", "building destroyed"
   }
 })

@@ -231,7 +231,9 @@ DefinePlayerData(0, {
 
 3. **Debugging:** Check console output for Lua errors
 
-## Common Runtime Pitfall
+## Common Runtime Pitfalls
+
+### Stale Data Directory
 
 When testing local changes on macOS, War1gus runs from the runtime data directory under `~/Library/Application Support/Stratagus/data.War1gus/`.
 
@@ -244,6 +246,35 @@ Always sync before test runs:
 ```
 
 Example from this project: a scout training-completion crash was resolved after copying the updated `scripts/units.lua` into the runtime data directory.
+
+### Truncated Palette Crash in CPlayerColorGraphic Icons
+
+`CPlayerColorGraphic` (used for all unit/building icons) expects PNG files to have a full 256-color palette (768 bytes). If a PNG is saved with a truncated palette — for example an image editor that only stores the colors actually used — the engine will access out-of-bounds palette indices when rendering the icon, causing a hard crash.
+
+**Symptom:** Game crashes immediately on opening a menu that contains the affected button. Swapping the `Icon` to any other icon eliminates the crash.
+
+**Diagnosis:** Open the PNG in Python and check `img.palette.palette`:
+
+```python
+from PIL import Image
+img = Image.open("contrib/graphics/ui/human/icon-my-icon.png")
+print(len(img.palette.palette))  # must be 768; anything less will crash
+```
+
+**Fix:** Extend the raw palette to 256 entries by padding with zero bytes:
+
+```python
+from PIL import Image
+path = "contrib/graphics/ui/human/icon-my-icon.png"
+img = Image.open(path)
+raw = img.palette.palette
+if len(raw) < 768:
+    new_img = img.copy()
+    new_img.palette.palette = raw + b'\x00' * (768 - len(raw))
+    new_img.save(path)
+```
+
+Example from this project: `icon-explosive-barrel.png` was saved with only 17 colors (51 bytes) and crashed the sapper build menu. Padding the palette to 256 entries fixed it with no visual change.
 
 ## Verified API Notes (from this codebase)
 

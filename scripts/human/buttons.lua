@@ -325,10 +325,10 @@ DefineButton( { Pos = 2, Level = 0, Icon = "icon-human-scout",
   ForUnit = {"unit-human-town-hall", "unit-human-stormwind-keep"} } )
 
 -- This button is for testing units quickly. 
--- DefineButton( { Pos = 5, Level = 0, Icon = "icon-human-war-wagon",
---   Action = "train-unit", Value = "unit-human-war-wagon",
---   Key = "w", Hint = "TRAIN ~!WAR WAGON",
---   ForUnit = {"unit-human-town-hall"} } )
+DefineButton( { Pos = 5, Level = 0, Icon = "icon-human-sapper",
+  Action = "train-unit", Value = "unit-human-sapper",
+  Key = "a", Hint = "TRAIN S~!APPER",
+  ForUnit = {"unit-human-town-hall"} } )
 
 -- training commands ---------------------------------------------------------
 
