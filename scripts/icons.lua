@@ -1,3 +1,4 @@
+
 --       _________ __                 __                               
 --      /   _____//  |_____________ _/  |______     ____  __ __  ______
 --      \_____  \\   __\_  __ \__  \\   __\__  \   / ___\|  |  \/  ___/
@@ -239,6 +240,10 @@ local DefineCustomIcons = function()
   local humansapper = CIcon:New("icon-human-sapper")
   humansapper.G = CPlayerColorGraphic:New("contrib/graphics/ui/human/icon-human-sapper.png", 27, 19)
   humansapper.Frame = 0
+
+  local explosivebarrel = CIcon:New("icon-explosive-barrel")
+  explosivebarrel.G = CPlayerColorGraphic:New("contrib/graphics/ui/human/icon-explosive-barrel.png", 27, 19)
+  explosivebarrel.Frame = 0
 
   local humandugout = CIcon:New("icon-human-dugout")
   if war1gus.tileset == "forest" or war1gus.tileset == "forest_campaign" then

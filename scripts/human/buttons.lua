@@ -130,6 +130,11 @@ DefineButton( { Pos = 2, Level = 9, Icon = "icon-human-dugout",
   Key = "d", Hint = "BUILD ~!DUGOUT",
   ForUnit = {"unit-human-sapper"} } )
 
+DefineButton( { Pos = 3, Level = 9, Icon = "icon-explosive-barrel",
+  Action = "build", Value = "unit-explosive-barrel",
+  Key = "e", Hint = "BUILD ~!EXPLOSIVE BARREL",
+  ForUnit = {"unit-human-sapper"} } )
+
 DefineButton( { Pos = 3, Level = 0, Icon = "icon-arrow1",
   Action = "attack",
   Key = "a", Hint = "~!ATTACK",

@@ -560,13 +560,13 @@ DefineUnitType("unit-human-dugout", {
    Image = {"file", "contrib/graphics/buildings/dugout.png", "size", {48, 48}},
    Animations = "animations-building",
    Icon = "icon-human-dugout",
-   Costs = {"time", 120, "gold", 350, "wood", 150},
+   Costs = {"time", 200, "gold", 500, "wood", 250},
    RepairHp = 6,
    RepairCosts = {"gold", 1, "wood", 1},
    BuildingRules = { -- all buildings except the town hall need a road
    {"distance", {Distance = 8, DistanceType = "<=", Owner = "allied"}}},
    Construction = "construction-human-dugout",
-   HitPoints = 200,
+   HitPoints = 400,
    DrawLevel = 20,
    MaxOnBoard = 4,
    TileSize = {2, 2},
@@ -592,6 +592,43 @@ DefineUnitType("unit-human-dugout", {
 })
 table.insert(wc1_buildings["human"], "unit-human-dugout")
 DefineAllow("unit-human-dugout", "AAAAAAAAAAAAAAAA")
+
+
+-- Explosive Barrel (sapper buildable proximity mine)
+DefineUnitType("unit-explosive-barrel", {
+  Name = "Explosive Barrel",
+  Image = {"file", "contrib/graphics/missiles/explosive-barrel.png", "size", {16, 16}},
+  Animations = "animations-building",
+  Icon = "icon-explosive-barrel",
+  Costs = {"time", 150, "gold", 100, "wood", 100},
+  Construction = "construction-none",
+  HitPoints = 100,
+  DrawLevel = 40,
+  TileSize = {1, 1}, BoxSize = {16, 16},
+  SightRange = 1,
+  Indestructible = false,
+  IsNotSelectable = false,
+  Armor = 0, BasicDamage = 0, PiercingDamage = 0, Missile = "missile-none",
+  Priority = 0,
+  Corpse = "unit-destroyed-1x1-place",
+  ExplodeWhenKilled = "missile-explosion",
+  Type = "land",
+  Building = true, VisibleUnderFog = true,
+  OnReady = function(unit)
+    -- Spawn the land-mine missile at the barrel's center, then remove the barrel
+    local pixelPos = GetUnitVariable(unit, "PixelPos")
+    local pos = {pixelPos.x, pixelPos.y}
+    CreateMissile("missile-explosive-barrel", pos, pos, unit, -1, true, true)
+    RemoveUnit(unit)
+  end,
+  Sounds = {
+    "selected", "barrel-selected",
+    "help", "barrel-help",
+    "dead", "building destroyed"
+  }
+})
+table.insert(wc1_buildings["human"], "unit-explosive-barrel")
+DefineAllow("unit-explosive-barrel", "AAAAAAAAAAAAAAAA")
 
 -- dungeon decoration
 DefineUnitType(

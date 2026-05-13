@@ -1,3 +1,18 @@
+-- Explosive Barrel Proximity Mine Missile
+DefineMissileType("missile-explosive-barrel", {
+  File = "missiles/explosion.png", -- placeholder, replace with custom if available
+  Size = {48, 48},
+  Frames = 6,
+  NumDirections = 1,
+  DrawLevel = 200,
+  Class = "missile-class-land-mine",
+  Sleep = 8,
+  Damage = 100,
+  Range = 4, -- 3-tile splash (center + 3)
+  ImpactMissile = "missile-explosion",
+  CanHitOwner = false,
+  FriendlyFire = false
+})
 --       _________ __                 __                               
 --      /   _____//  |_____________ _/  |______     ____  __ __  ______
 --      \_____  \\   __\_  __ \__  \\   __\__  \   / ___\|  |  \/  ___/

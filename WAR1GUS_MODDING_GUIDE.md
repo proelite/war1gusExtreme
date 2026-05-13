@@ -466,22 +466,35 @@ Missiles are defined via `DefineMissileType("id", { ... })` in `scripts/missiles
 - Optional behavior fields seen in this mod:
     - `ImpactSound`, `ImpactMissile`, `SplashFactor`, `NumBounces`, `DrawLevel`
 
-### Missile Classes Currently Used by War1gus
+### Available Missile Classes in Stratagus
 
-The following classes are present in this repository's missile definitions:
+Verified against the local Stratagus source in `src/missile/script_missile.cpp`,
+`src/include/missile.h`, and `doc/scripts/magic.html`.
 
-- `missile-class-point-to-point`
-- `missile-class-parabolic`
-- `missile-class-fire`
-- `missile-class-stay`
-- `missile-class-point-to-point-with-hit`
-- `missile-class-none`
-- `missile-class-hit`
-- `missile-class-cycle-once`
-- `missile-class-flame-shield`
-- `missile-class-clip-to-target`
+- `missile-class-none` — Missile does nothing.
+- `missile-class-point-to-point` — Flies straight from source to destination.
+- `missile-class-point-to-point-with-hit` — Flies to destination, then plays hit animation.
+- `missile-class-point-to-point-cycle-once` — Flies to destination while animating once forward and back.
+- `missile-class-point-to-point-bounce` — Flies to destination, then bounces and can hit multiple times.
+- `missile-class-stay` — Appears in place, animates, then vanishes.
+- `missile-class-cycle-once` — Appears in place and cycles its animation once.
+- `missile-class-fire` — Stationary fire-style missile behavior.
+- `missile-class-hit` — Displays hit-point style impact behavior.
+- `missile-class-parabolic` — Flies to destination in a parabolic arc.
+- `missile-class-land-mine` — Waits on a tile until a non-air unit steps onto it, then explodes.
+- `missile-class-whirlwind` — Whirlwind effect missile.
+- `missile-class-flame-shield` — Rotates around a target and damages units it touches.
+- `missile-class-death-coil` — Death coil style missile behavior.
+- `missile-class-tracer` — Seeks toward its target unit.
+- `missile-class-clip-to-target` — Remains clipped to the target's current goal and plays once.
+- `missile-class-continious` — Stays in place and plays its animation several times.
+- `missile-class-straight-fly` — Flies to destination, then keeps flying until blocked by terrain.
 
-For concrete examples, review `scripts/missiles.lua` and `scripts/balancing.lua` (for custom missile usage like `missile-demon-hate`).
+Notes:
+
+- The engine string is spelled `missile-class-continious` in the local Stratagus source.
+- Not all available classes are currently used by War1gus.
+- For concrete examples in this project, review `scripts/missiles.lua` and `scripts/balancing.lua`.
 
 ## Common Modding Tasks
 
