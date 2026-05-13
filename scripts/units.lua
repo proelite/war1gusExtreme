@@ -431,6 +431,8 @@ DefineUnitType("unit-human-sapper", {
    CanTargetSea = true,
    CanTargetAir = false,
    SelectableByRectangle = true,
+   AutoRepairRange = 4,
+   RepairRange = 2,
    Sounds = {
       "attack", "human acknowledge",
       "selected", "human selected",

@@ -140,11 +140,12 @@ end
 function CreateAiLandAttack()
    local end_loop_funcs = {
       function() print("Looping !") return false end,
-      function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 4, AiSiege(), 1, AiMage(), 2, AiSummoner(), 4, AiSuperUnit(), 1, AiHeavyInfantry(), 1}) end,
-      function() return AiForce(1, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 4, AiSiege(), 1, AiMage(), 1, AiSummoner(), 2, AiHeavyInfantry(), 1}) end,
-      function() return AiWaitForce(1) end,
+      function() return AiForce(0, {AiSoldier(), 4, AiShooter(), 2, AiCavalry(), 4, AiSiege(), 2, AiMage(), 2, AiSummoner(), 2, AiSuperUnit(), 2, AiHeavyInfantry(), 2}) end,
+    --   function() return AiForce(1, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 4, AiSiege(), 1, AiMage(), 1, AiSummoner(), 2, AiHeavyInfantry(), 2}) end,
+      function() return AiWaitForce(0) end,
+    --   function() return AiWaitForce(1) end,
       function() return AiAttackWithForce(0) end,
-      function() return AiAttackWithForce(1) end,
+    --   function() return AiAttackWithForce(1) end,
       function() return AiSleep(500) end,
       function()
 	 stratagus.gameData.AIState.loop_index[1 + AiPlayer()] = 0
@@ -241,6 +242,18 @@ function CreateAiLandAttack()
       function() return AiNeed(AiFarm()) end,
       function() return AiWait(AiFarm()) end,
 
+      function() return AiNeed(AiFarm()) end,
+      function() return AiWait(AiFarm()) end,
+
+      function() return AiNeed(AiFarm()) end,
+      function() return AiWait(AiFarm()) end,
+
+      function() return AiNeed(AiFarm()) end,
+      function() return AiWait(AiFarm()) end,
+      
+      function() return AiNeed(AiFarm()) end,
+      function() return AiWait(AiFarm()) end,
+
       --function() return AiSleep(500) end,
       function() return AiNeed(AiStables()) end,
       function() return AiWait(AiStables()) end,
@@ -304,6 +317,7 @@ function CreateAiLandAttack()
       function() return AiNeed(AiFarm()) end,
       function() return AiWait(AiFarm()) end,
 
+      function() return AiResearch(AiUpgradeCashCrops2()) end,
 
       function() return AiNeed(AiMageTower()) end,
       function() return AiWait(AiMageTower()) end,
@@ -345,24 +359,20 @@ function CreateAiLandAttack()
 
       function () return GenerateRoads(true, true) end,
       
-      function() return AiResearch(AiUpgradeCashCrops2()) end,
       function() return AiResearch(AiUpgradeFortification1()) end,
       function() return AiResearch(AiUpgradeFortification2()) end,
 
-      function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 3, AiSiege(), 1, AiMage(), 2, AiSummoner(), 5, AiSuperUnit(), 1}) end,
-      function() return AiForce(1, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 2, AiSiege(), 1, AiMage(), 1, AiSummoner(), 1}) end,
-      --function() return AiWaitForce(0) end,
-      function() return AiWaitForce(1) end,
-      --function() return AiAttackWithForce(0) end,
-      function() return AiAttackWithForce(1) end,
+      function() return AiForce(0, {AiSoldier(), 2, AiShooter(), 2, AiCavalry(), 2, AiSiege(), 1, AiMage(), 2, AiSummoner(), 2, AiSuperUnit(), 1}) end,
+    --   function() return AiForce(1, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 2, AiSiege(), 1, AiMage(), 1, AiSummoner(), 1}) end,
+      function() return AiWaitForce(0) end,
+    --   function() return AiWaitForce(1) end,
+      function() return AiAttackWithForce(0) end,
+    --   function() return AiAttackWithForce(1) end,
 
       --function() return AiSleep(500) end,
-      function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 3, AiSiege(), 1, AiMage(), 2, AiSummoner(), 5}) end,
-      function() return AiForce(1, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 2, AiSiege(), 1, AiMage(), 1, AiSummoner(), 1}) end,
-      function() return AiWaitForce(0) end,
-      function() return AiWaitForce(1) end,
-      function() return AiAttackWithForce(0) end,
-      function() return AiAttackWithForce(1) end,
+    --   function() return AiForce(0, {AiSoldier(), 1, AiShooter(), 2, AiCavalry(), 3, AiSiege(), 1, AiMage(), 2, AiSummoner(), 2, AiSuperUnit(), 1}) end,
+    --   function() return AiWaitForce(0) end,
+    --   function() return AiAttackWithForce(0) end,
 
       function () return GenerateRoads(true, true) end,
 

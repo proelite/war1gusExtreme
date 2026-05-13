@@ -1679,7 +1679,7 @@ DefineButton( { Pos = 4, Level = 0, Icon = "icon-human-standground",
 DefineButton( { Pos = 5, Level = 0, Icon = "icon-human-patrol",
   Action = "patrol",
   Key = "r", Hint = "PAT~!ROL",
-   ForUnit = {"unit-footman", "unit-archer", "unit-human-sapper", "unit-knight", "unit-human-scout", "unit-human-war-wagon", "unit-water-elemental", "unit-scorpion", "unit-lothar", "human-group", "unit-brigand", "unit-ogre"}}) 
+   ForUnit = {"unit-footman", "unit-archer", "unit-knight", "unit-human-scout", "unit-human-war-wagon", "unit-water-elemental", "unit-scorpion", "unit-lothar", "human-group", "unit-brigand", "unit-ogre"}}) 
 
 DefineButton( { Pos = 6, Level = 0, Icon = "icon-human-explore",
   Action = "explore",
@@ -1837,6 +1837,7 @@ DefineModifier("upgrade-human-fortification1",
    {"Level", 1},
    {"HitPoints", 50},
    {"apply-to", "unit-human-guard-tower"},
+   {"apply-to", "unit-human-dugout"},
    {"apply-to", "unit-wall"})
 
 DefineAllow("upgrade-human-fortification1", "AAAAAAAAAAAAAAAA")
@@ -1845,7 +1846,7 @@ DefineButton( { Pos = 3, Level = 0, Icon = "icon-human-fortification1",
    Action = "research", Value = "upgrade-human-fortification1",
    Allowed = "check-single-research",
    Key = "f", Hint = "RESEARCH ~!FORTIFICATION",
-   Description = "Increase Guard Tower and Wall hit points by ~<50~>",
+   Description = "Increase Guard Tower, Dugout, and Wall hit points by ~<50~>",
    ForUnit = {"unit-human-lumber-mill"} } )
 
 local humanFortificationIcon2 = CIcon:New("icon-human-fortification2")
@@ -1862,6 +1863,7 @@ DefineModifier("upgrade-human-fortification2",
     {"Level", 1},
     {"HitPoints", 50},
     {"apply-to", "unit-human-guard-tower"},
+    {"apply-to", "unit-human-dugout"},
     {"apply-to", "unit-wall"})
 
 DefineAllow("upgrade-human-fortification2", "AAAAAAAAAAAAAAAA")
@@ -1870,7 +1872,7 @@ DefineButton( { Pos = 3, Level = 0, Icon = "icon-human-fortification2",
    Action = "research", Value = "upgrade-human-fortification2",
    Allowed = "check-upgrade", AllowArg = {"upgrade-human-fortification1"},
     Key = "f", Hint = "RESEARCH ~!FORTIFICATION",
-    Description = "Increase Guard Tower and Wall hit points by ~<50~>",
+    Description = "Increase Guard Tower, Dugout, and Wall hit points by ~<50~>",
     ForUnit = {"unit-human-lumber-mill"} } )
 
 DefineDependency("upgrade-human-fortification2", { "upgrade-human-fortification1"} )
@@ -1888,7 +1890,7 @@ humanBuildingArmorUpgrade1.Costs[2] = 400 -- wood
 DefineModifier("upgrade-human-BuildingArmor1",
   {"Level", 1},
   {"Armor", 4},
-   {"apply-to", "unit-human-town-hall"}, {"apply-to", "unit-human-farm"}, {"apply-to", "unit-human-barracks"}, {"apply-to", "unit-human-lumber-mill"}, {"apply-to", "unit-human-blacksmith"}, {"apply-to", "unit-human-siege-workshop"}, {"apply-to", "unit-human-stable"}, {"apply-to", "unit-human-church"}, {"apply-to", "unit-human-tower"}, {"apply-to", "unit-human-guard-tower"})
+   {"apply-to", "unit-human-town-hall"}, {"apply-to", "unit-human-farm"}, {"apply-to", "unit-human-barracks"}, {"apply-to", "unit-human-lumber-mill"}, {"apply-to", "unit-human-blacksmith"}, {"apply-to", "unit-human-siege-workshop"}, {"apply-to", "unit-human-stable"}, {"apply-to", "unit-human-church"}, {"apply-to", "unit-human-tower"}, {"apply-to", "unit-human-guard-tower"}, {"apply-to", "unit-human-dugout"})
 
 DefineAllow("upgrade-human-BuildingArmor1", "AAAAAAAAAAAAAAAA")
 
@@ -1913,7 +1915,7 @@ humanBuildingArmorUpgrade2.Costs[2] = 800 -- wood
 DefineModifier("upgrade-human-BuildingArmor2",
    {"Level", 1},
    {"Armor", 4},
-   {"apply-to", "unit-human-town-hall"}, {"apply-to", "unit-human-farm"}, {"apply-to", "unit-human-barracks"}, {"apply-to", "unit-human-lumber-mill"}, {"apply-to", "unit-human-blacksmith"}, {"apply-to", "unit-human-siege-workshop"}, {"apply-to", "unit-human-stable"}, {"apply-to", "unit-human-church"}, {"apply-to", "unit-human-tower"}, {"apply-to", "unit-human-guard-tower"})
+   {"apply-to", "unit-human-town-hall"}, {"apply-to", "unit-human-farm"}, {"apply-to", "unit-human-barracks"}, {"apply-to", "unit-human-lumber-mill"}, {"apply-to", "unit-human-blacksmith"}, {"apply-to", "unit-human-siege-workshop"}, {"apply-to", "unit-human-stable"}, {"apply-to", "unit-human-church"}, {"apply-to", "unit-human-tower"}, {"apply-to", "unit-human-guard-tower"}, {"apply-to", "unit-human-dugout"})
 
 DefineAllow("upgrade-human-BuildingArmor2", "AAAAAAAAAAAAAAAA")
 

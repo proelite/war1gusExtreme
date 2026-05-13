@@ -402,6 +402,33 @@ DefineConstruction(
   }
 )
 
+DefineConstruction(
+  "construction-human-dugout",
+  {
+    Files = {
+      File = "contrib/graphics/buildings/dugout-construction.png",
+      Size = {64, 64}
+    },
+    Constructions = {
+      {
+        Percent = 0,
+        File = "construction",
+        Frame = 0
+      },
+      {
+        Percent = 33,
+        File = "construction",
+        Frame = 1
+      },
+      {
+        Percent = 67,
+        File = "construction",
+        Frame = 2
+      }
+    }
+  }
+)
+
 local dungeon = CIcon:New("icon-dungeon-entrance")
 dungeon.G = CPlayerColorGraphic:New("contrib/graphics/ui/icon-dungeon-entrance.png", 27, 19)
 dungeon.Frame = 0
@@ -530,20 +557,20 @@ table.insert(wc1_buildings["human"], "unit-wall")
 
 DefineUnitType("unit-human-dugout", {
    Name = "Dugout",
-   Image = {"file", "contrib/graphics/buildings/dugout.png", "size", {32, 32}},
+   Image = {"file", "contrib/graphics/buildings/dugout.png", "size", {48, 48}},
    Animations = "animations-building",
    Icon = "icon-human-dugout",
    Costs = {"time", 120, "gold", 350, "wood", 150},
    RepairHp = 6,
    RepairCosts = {"gold", 1, "wood", 1},
    BuildingRules = { -- all buildings except the town hall need a road
-   {"distance", {Distance = 3, DistanceType = "<=", Owner = "allied"}}},
-   Construction = "construction-land",
+   {"distance", {Distance = 8, DistanceType = "<=", Owner = "allied"}}},
+   Construction = "construction-human-dugout",
    HitPoints = 200,
    DrawLevel = 20,
    MaxOnBoard = 4,
    TileSize = {2, 2},
-   BoxSize = {31, 31},
+   BoxSize = {32, 32},
    SightRange = 5,
    BasicDamage = 0,
    PiercingDamage = 0,
@@ -553,7 +580,7 @@ DefineUnitType("unit-human-dugout", {
    Type = "land",
    Building = true,
    VisibleUnderFog = true,
-   CanTransport = {"LandUnit", "only"},
+   CanTransport = {},
    AttackFromTransporter = true,
    SelectableByRectangle = true,
    NoRandomPlacing = false,

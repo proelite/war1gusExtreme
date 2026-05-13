@@ -110,22 +110,27 @@ DefineButton( { Pos = 3, Level = 0, Icon = "icon-sword3",
     "unit-human-sapper", "unit-knight", "unit-human-scout",
     "unit-human-catapult"} } )
 
+DefineButton( { Pos = 5, Level = 0, Icon = "icon-repair",
+  Action = "repair",
+  Key = "r", Hint = "~!REPAIR",
+  ForUnit = {"unit-human-sapper"} } )
+
 DefineButton( { Pos = 6, Level = 0, Icon = "icon-build-basic",
   Action = "button", Value = 9,
   Key = "b", Hint = "~!BUILD DEFENSES",
   ForUnit = {"unit-human-sapper"} } )
 
-DefineButton( { Pos = 1, Level = 1, Icon = "icon-wall",
-  Action = "build", Value = "unit-human-dugout",
+DefineButton( { Pos = 1, Level = 9, Icon = "icon-wall",
+  Action = "build", Value = "unit-wall",
   Key = "w", Hint = "BUILD ~!WALL",
   ForUnit = {"unit-human-sapper"} } )
 
-DefineButton( { Pos = 2, Level = 1, Icon = "icon-human-dugout",
+DefineButton( { Pos = 2, Level = 9, Icon = "icon-human-dugout",
   Action = "build", Value = "unit-human-dugout",
   Key = "d", Hint = "BUILD ~!DUGOUT",
   ForUnit = {"unit-human-sapper"} } )
 
-DefineButton( { Pos = 6, Level = 1, Icon = "icon-cancel",
+DefineButton( { Pos = 6, Level = 9, Icon = "icon-cancel",
   Action = "button", Value = 0,
   Key = "esc", Hint = "~<ESC~> - CANCEL",
   ForUnit = {"unit-human-sapper"} } )
