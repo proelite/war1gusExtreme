@@ -600,7 +600,7 @@ DefineUnitType("unit-explosive-barrel", {
   Image = {"file", "contrib/graphics/buildings/explosive-barrel.png", "size", {16, 16}},
   Animations = "animations-building",
   Icon = "icon-explosive-barrel",
-  Costs = {"time", 50, "gold", 100, "wood", 100},
+  Costs = {"time", 100, "gold", 200, "wood", 100},
   -- BuildingRules = {
   --   {"distance", {Distance = 1, DistanceType = "!=", Type = "unit-road"}}
   -- },
