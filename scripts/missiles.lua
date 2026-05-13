@@ -173,17 +173,18 @@ DefineMissileType("missile-heal",
 
   -- Explosive Barrel Proximity Mine Missile
 DefineMissileType("missile-explosive-barrel", {
-  File = "contrib/graphics/missiles/32x32-blank.png",
-  Size = {32, 32},
+  File = "contrib/graphics/missiles/16x16-blank.png",
+  Size = {16, 16},
   Frames = 1,
   NumDirections = 1,
   DrawLevel = 40,
+  ImpactSound = "explosion",
   Class = "missile-class-land-mine",
   Sleep = 8,
   Damage = 100,
-  Range = 4, -- 3-tile splash (center + 3)
+  Range = 2, -- 3-tile splash (center + 2)
   ImpactMissile = "missile-explosion",
   CanHitOwner = false,
   FriendlyFire = false,
-  TTL = 1,
+  TTL = 30,
 })

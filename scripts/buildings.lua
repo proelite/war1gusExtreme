@@ -601,6 +601,10 @@ DefineUnitType("unit-explosive-barrel", {
   Animations = "animations-building",
   Icon = "icon-explosive-barrel",
   Costs = {"time", 50, "gold", 100, "wood", 100},
+  -- BuildingRules = {
+  --   {"distance", {Distance = 1, DistanceType = "!=", Type = "unit-road"}}
+  -- },
+  BuilderOutside = true,
   Construction = "construction-none",
   HitPoints = 20,
   DrawLevel = 40,
@@ -609,16 +613,37 @@ DefineUnitType("unit-explosive-barrel", {
   Indestructible = false,
   IsNotSelectable = false,
   Armor = 0, BasicDamage = 0, PiercingDamage = 0, Missile = "missile-none",
+  CanTargetLand = true,
   Priority = 0,
   Corpse = "unit-destroyed-1x1-place",
   ExplodeWhenKilled = "missile-explosion",
   Type = "land",
-  Building = true, VisibleUnderFog = true,
+  Building = true, 
+  VisibleUnderFog = true,
+  PermanentCloak = true,
+  NoFriendlyFire = true,
   OnEachSecond = function(unit)
-    -- Spawn the land-mine missile at the barrel's center, then remove the barrel
-    local pixelPos = GetUnitVariable(unit, "PixelPos")
-    local pos = {pixelPos.x, pixelPos.y}
-    CreateMissile("missile-explosive-barrel", pos, pos, unit, -1, true, true)
+    -- Trigger only for adjacent enemy non-building units.
+    local owner = Players[GetUnitVariable(unit, "Player")]
+    if not owner then
+      return
+    end
+
+    local neighbours = GetUnitsAroundUnit(unit, 1, true)
+    for i, nearby in ipairs(neighbours) do
+      if nearby ~= unit then
+        local nearbyOwner = Players[GetUnitVariable(nearby, "Player")]
+        local nearbySlot = UnitManager:GetSlotUnit(nearby)
+        local nearbyType = nearbySlot and nearbySlot.Type or nil
+        local isBuilding = nearbyType and nearbyType.Building
+
+        if nearbyOwner and not isBuilding and nearbyOwner.Index ~= owner.Index and not nearbyOwner:IsAllied(owner) then
+          local pos = GetUnitVariable(unit, "PixelPos")
+          CreateMissile("missile-explosive-barrel", {pos.x, pos.y}, {pos.x, pos.y}, unit, nearby, true, true)
+          return
+        end
+      end
+    end
   end,
   Sounds = {
     "dead", "building destroyed"
