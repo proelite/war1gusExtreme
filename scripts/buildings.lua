@@ -616,7 +616,7 @@ DefineUnitType("unit-explosive-barrel", {
   ExplodeWhenKilled = "missile-explosion",
   Type = "land",
   -- Building = true, 
-  VisibleUnderFog = true,
+  VisibleUnderFog = false,
   PermanentCloak = true,
   NoFriendlyFire = true,
   OnEachSecond = function(unit)
@@ -626,6 +626,7 @@ DefineUnitType("unit-explosive-barrel", {
       return
     end
 
+    local triggered = false
     local neighbours = GetUnitsAroundUnit(unit, 1, true)
     for i, nearby in ipairs(neighbours) do
       if nearby ~= unit then
@@ -634,8 +635,15 @@ DefineUnitType("unit-explosive-barrel", {
         if nearbyOwner and not isBuilding and nearbyOwner.Index ~= owner.Index and not nearbyOwner:IsAllied(owner) then
           local pos = GetUnitVariable(nearby, "PixelPos")
           CreateMissile("missile-explosive-barrel", {pos.x, pos.y}, {pos.x, pos.y}, unit, nearby, true, true)
+          triggered = true
+          break  -- Only trigger once per cycle to avoid spam
         end
       end
+    end
+    
+    -- Consume barrel after detonation
+    if triggered then
+      RemoveUnit(unit)
     end
   end,
   Sounds = {

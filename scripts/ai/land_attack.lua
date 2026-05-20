@@ -144,12 +144,19 @@ function AiTradeWoodForFarmGold()
     local wood = GetPlayerData(player, "Resources", "wood")
 
     -- Mirrors the Lumber Mill exchange rate defined in balancing.lua.
-    while gold < farm_gold_cost and wood >= 500 do
-        wood = wood - 500
-        gold = gold + 250
-        SetPlayerData(player, "Resources", "wood", wood)
-        SetPlayerData(player, "Resources", "gold", gold)
+  if gold < farm_gold_cost and wood >= 500 then
+    local needed_gold = farm_gold_cost - gold
+    local max_trades = math.floor(wood / 500)
+    local required_trades = math.floor((needed_gold + 249) / 250)
+    local trades = math.min(max_trades, required_trades)
+
+    if trades > 0 then
+      wood = wood - (trades * 500)
+      gold = gold + (trades * 250)
+      SetPlayerData(player, "Resources", "wood", wood)
+      SetPlayerData(player, "Resources", "gold", gold)
     end
+  end
 
     return false
 end
