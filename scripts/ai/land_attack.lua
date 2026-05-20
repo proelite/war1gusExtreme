@@ -137,6 +137,23 @@ function GenerateRoads(do_second, do_third)
     end
 end
 
+function AiTradeWoodForFarmGold()
+    local player = AiPlayer()
+    local farm_gold_cost = GetUnitTypeData(AiFarm(), "Costs", "gold")
+    local gold = GetPlayerData(player, "Resources", "gold")
+    local wood = GetPlayerData(player, "Resources", "wood")
+
+    -- Mirrors the Lumber Mill exchange rate defined in balancing.lua.
+    while gold < farm_gold_cost and wood >= 500 do
+        wood = wood - 500
+        gold = gold + 250
+        SetPlayerData(player, "Resources", "wood", wood)
+        SetPlayerData(player, "Resources", "gold", gold)
+    end
+
+    return false
+end
+
 function CreateAiLandAttack()
    local end_loop_funcs = {
       function() print("Looping !") return false end,
@@ -228,29 +245,37 @@ function CreateAiLandAttack()
       function () return GenerateRoads(true, true) end,
 
       -- Must have farm for cash crops research + make 4 for the money
+    function() return AiTradeWoodForFarmGold() end,
       function() return AiNeed(AiFarm()) end,
       function() return AiWait(AiFarm()) end,
 
       function() return AiResearch(AiUpgradeCashCrops1()) end,
 
+    function() return AiTradeWoodForFarmGold() end,
       function() return AiNeed(AiFarm()) end,
       function() return AiWait(AiFarm()) end,
 
+    function() return AiTradeWoodForFarmGold() end,
       function() return AiNeed(AiFarm()) end,
       function() return AiWait(AiFarm()) end,
 
+    function() return AiTradeWoodForFarmGold() end,
       function() return AiNeed(AiFarm()) end,
       function() return AiWait(AiFarm()) end,
 
+    function() return AiTradeWoodForFarmGold() end,
       function() return AiNeed(AiFarm()) end,
       function() return AiWait(AiFarm()) end,
 
+    function() return AiTradeWoodForFarmGold() end,
       function() return AiNeed(AiFarm()) end,
       function() return AiWait(AiFarm()) end,
 
+    function() return AiTradeWoodForFarmGold() end,
       function() return AiNeed(AiFarm()) end,
       function() return AiWait(AiFarm()) end,
       
+    function() return AiTradeWoodForFarmGold() end,
       function() return AiNeed(AiFarm()) end,
       function() return AiWait(AiFarm()) end,
 
@@ -305,15 +330,19 @@ function CreateAiLandAttack()
 
       function () return GenerateRoads(true, true) end,
 
+    function() return AiTradeWoodForFarmGold() end,
       function() return AiNeed(AiFarm()) end,
       function() return AiWait(AiFarm()) end,
 
+    function() return AiTradeWoodForFarmGold() end,
       function() return AiNeed(AiFarm()) end,
       function() return AiWait(AiFarm()) end,
 
+    function() return AiTradeWoodForFarmGold() end,
       function() return AiNeed(AiFarm()) end,
       function() return AiWait(AiFarm()) end,
       
+    function() return AiTradeWoodForFarmGold() end,
       function() return AiNeed(AiFarm()) end,
       function() return AiWait(AiFarm()) end,
 
