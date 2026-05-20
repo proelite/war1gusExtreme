@@ -596,7 +596,7 @@ DefineAllow("unit-human-dugout", "AAAAAAAAAAAAAAAA")
 
 -- Explosive Barrel (sapper buildable proximity mine)
 DefineUnitType("unit-explosive-barrel", {
-  Name = "Explosive Barrel",
+  Name = "Booby Trap",
   Image = {"file", "contrib/graphics/buildings/explosive-barrel.png", "size", {16, 16}},
   Animations = "animations-building",
   Icon = "icon-explosive-barrel",
@@ -615,7 +615,7 @@ DefineUnitType("unit-explosive-barrel", {
   Corpse = "unit-destroyed-1x1-place",
   ExplodeWhenKilled = "missile-explosion",
   Type = "land",
-  Building = true, 
+  -- Building = true, 
   VisibleUnderFog = true,
   PermanentCloak = true,
   NoFriendlyFire = true,
@@ -630,7 +630,8 @@ DefineUnitType("unit-explosive-barrel", {
     for i, nearby in ipairs(neighbours) do
       if nearby ~= unit then
         local nearbyOwner = Players[GetUnitVariable(nearby, "Player")]
-        if nearbyOwner and nearbyOwner.Index ~= owner.Index and not nearbyOwner:IsAllied(owner) then
+        local isBuilding = GetUnitBoolFlag(nearby, "Building")
+        if nearbyOwner and not isBuilding and nearbyOwner.Index ~= owner.Index and not nearbyOwner:IsAllied(owner) then
           local pos = GetUnitVariable(nearby, "PixelPos")
           CreateMissile("missile-explosive-barrel", {pos.x, pos.y}, {pos.x, pos.y}, unit, nearby, true, true)
         end
