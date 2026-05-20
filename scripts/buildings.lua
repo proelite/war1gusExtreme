@@ -601,9 +601,6 @@ DefineUnitType("unit-explosive-barrel", {
   Animations = "animations-building",
   Icon = "icon-explosive-barrel",
   Costs = {"time", 100, "gold", 200, "wood", 100},
-  -- BuildingRules = {
-  --   {"distance", {Distance = 1, DistanceType = "!=", Type = "unit-road"}}
-  -- },
   BuilderOutside = true,
   Construction = "construction-none",
   HitPoints = 20,
@@ -633,12 +630,9 @@ DefineUnitType("unit-explosive-barrel", {
     for i, nearby in ipairs(neighbours) do
       if nearby ~= unit then
         local nearbyOwner = Players[GetUnitVariable(nearby, "Player")]
-        local isBuilding = GetUnitBoolFlag(nearby, "Building")
-
-        if nearbyOwner and not isBuilding and nearbyOwner.Index ~= owner.Index and not nearbyOwner:IsAllied(owner) then
-          local pos = GetUnitVariable(unit, "PixelPos")
+        if nearbyOwner and nearbyOwner.Index ~= owner.Index and not nearbyOwner:IsAllied(owner) then
+          local pos = GetUnitVariable(nearby, "PixelPos")
           CreateMissile("missile-explosive-barrel", {pos.x, pos.y}, {pos.x, pos.y}, unit, nearby, true, true)
-          return
         end
       end
     end

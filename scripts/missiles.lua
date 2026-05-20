@@ -180,12 +180,12 @@ DefineMissileType("missile-explosive-barrel", {
   DrawLevel = 40,
   ImpactSound = "explosion",
   Class = "missile-class-land-mine",
-  Sleep = 8,
+  Sleep = 4,
   Damage = 50,
-  Range = 2, -- 3-tile splash (center + 2)
-  SplashFactor = 2,
+  Range = 1,
+  SplashFactor = 1,
   ImpactMissile = "missile-explosion",
   CanHitOwner = false,
-  FriendlyFire = true,
+  FriendlyFire = false,
   TTL = 30,
 })
