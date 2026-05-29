@@ -67,7 +67,8 @@ function GenerateRoads(do_second, do_third)
     local do_second_road = {false,false,false,false,false,false,false,false}
     local do_third_road = {false,false,false,false,false,false,false,false}
     for i,unit in ipairs(GetUnits(AiPlayer())) do
-        if GetUnitVariable(unit, "Ident") == AiCityCenter() then
+      local ident = GetUnitVariable(unit, "Ident")
+      if ident == AiCityCenter() or ident == AiStartCityCenter() then
             local posx = GetUnitVariable(unit, "PosX")
             local posy = GetUnitVariable(unit, "PosY")
             for i,road in ipairs(first_roads) do
@@ -252,13 +253,13 @@ function CreateAiLandAttack()
       function () return GenerateRoads(true, true) end,
 
       -- Must have farm for cash crops research + make 4 for the money
-    function() return AiTradeWoodForFarmGold() end,
+      function() return AiTradeWoodForFarmGold() end,
       function() return AiNeed(AiFarm()) end,
       function() return AiWait(AiFarm()) end,
 
       function() return AiResearch(AiUpgradeCashCrops1()) end,
 
-    function() return AiTradeWoodForFarmGold() end,
+      function() return AiTradeWoodForFarmGold() end,
       function() return AiNeed(AiFarm()) end,
       function() return AiWait(AiFarm()) end,
 
